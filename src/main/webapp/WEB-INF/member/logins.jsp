@@ -80,7 +80,7 @@
 			<div id="app">
 				<div class="contentsWrap">
 					<div class="logListWrap">
-						<h1 class="kcarLogo" style="cursor: pointer;">K car logo</h1>
+						<h1 class="kcarLogo" style="cursor: pointer;"><a href="home">K car logo</a></h1>
 						<div class="userLogin">
 							<div class="el-row">
 								<div class="tabsCol02 el-tabs el-tabs--top">
@@ -104,14 +104,14 @@
 										<div role="tabpanel" id="pane-tab01"
 											aria-labelledby="tab-tab01" class="el-tab-pane">
 											<div class="loginWrap">
-												<form class="el-form loginForm">
+												<form class="el-form loginForm" action="logins" method="post">
 													<div class="el-form-item idArea">
 														<!---->
 														<div class="el-form-item__content">
 															<div class="titLabel">아이디</div>
 															<div class="el-input el-input--suffix">
 																<!---->
-																<input type="text" autocomplete="off"
+																<input type="text"  id="m_email" name= "m_email"
 																	placeholder="아이디 입력" class="el-input__inner">
 																<!---->
 																<!---->
@@ -127,7 +127,7 @@
 															<div class="titLabel">비밀번호</div>
 															<div class="el-input el-input--suffix">
 																<!---->
-																<input type="password" autocomplete="off"
+																<input type="password" id="m_pw" name="m_pw"
 																	placeholder="비밀번호 입력" class="el-input__inner">
 																<!---->
 																<span class="el-input__suffix"><span
@@ -161,7 +161,7 @@
 													</div>
 													<div class="btnLogIn">
 														<div class="searchTrigger box el-row">
-															<button type="button" class="button apply">로그인</button>
+															<button class="button apply">로그인</button>
 														</div>
 													</div>
 												</form>

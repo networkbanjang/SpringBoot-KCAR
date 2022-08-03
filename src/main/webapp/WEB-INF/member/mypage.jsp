@@ -266,7 +266,7 @@
 							<div class="contentsBox section01 el-row">
 								<div class="myInfoBox">
 									<div>
-										<p class="myName">김태원님</p>
+										<p class="myName"> ${sessionScope.name }님</p>
 										<a href="/mp/myinfo/auth" class="txtButton"> 정보 수정 </a>
 									</div>
 									<div class="totalList">
@@ -277,7 +277,7 @@
 											<li><span>판매준비차량</span> <a href="/mp/SellRdyCarList"
 												class=""><strong>0</strong></a></li>
 											<li><span>최근본차량</span> <a
-												href="/bc/LatelyViewedCar/list" class=""><strong>4</strong></a></li>
+												href="/bc/LatelyViewedCar/list" class=""><strong>0</strong></a></li>
 										</ul>
 									</div>
 								</div>

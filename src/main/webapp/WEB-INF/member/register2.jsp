@@ -5,52 +5,22 @@
 <title>K Car - 직접 매입 직접 판매하는 대한민국 No.1 직영 중고차 케이카</title>
 <%@ include file="register_style.jsp" %>
 
-<link data-n-head="ssr" rel="icon" type="image/x-icon"
-	href="/favicon.ico">
-<script
-	src="https://connect.facebook.net/signals/config/771045850193577?v=2.9.69&amp;r=stable"
-	async=""></script>
-<script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script>
-<script type="text/javascript" async=""
-	src="https://www.googleadservices.com/pagead/conversion_async.js"></script>
-<script type="text/javascript" async=""
-	src="https://www.google-analytics.com/analytics.js"></script>
-<script type="text/javascript" async=""
-	src="https://www.googletagmanager.com/gtag/js?id=G-12BKR6ZT1H&amp;l=dataLayer&amp;cx=c"></script>
-<script async=""
-	src="https://www.googletagmanager.com/gtm.js?id=GTM-NXZPHVG"></script>
-<script type="text/javascript"
-	src="https://js.appboycdn.com/web-sdk/3.2/appboy.min.js" async=""></script>
-<script type="text/javascript"
-	integrity="sha384-vYYnQ3LPdp/RkQjoKBTGSq0X5F73gXU3G2QopHaIfna0Ct1JRWzwrmEz115NzOta"
-	crossorigin="anonymous" async=""
-	src="https://cdn.amplitude.com/libs/amplitude-5.8.0-min.gz.js"></script>
-<script data-n-head="ssr" src="/mobile_redirect.js"></script>
-<script data-n-head="ssr" src="/static_mma_common.js"></script>
-<script src="//rum.beusable.net/script/b171101e144206u678/f88ad03cce"
-	async="" type="text/javascript"></script>
-<script data-n-head="ssr" src="//t1.daumcdn.net/adfit/static/kp.js"
-	charset="utf-8"></script>
-<script data-n-head="ssr" data-hid="gtm-script">if(!window._gtm_init){window._gtm_init=1;(function(w,n,d,m,e,p){w[d]=(w[d]==1||n[d]=='yes'||n[d]==1||n[m]==1||(w[e]&&w[e][p]&&w[e][p]()))?1:0})(window,navigator,'doNotTrack','msDoNotTrack','external','msTrackingProtectionEnabled');(function(w,d,s,l,x,y){w[x]={};w._gtm_inject=function(i){if(w.doNotTrack||w[x][i])return;w[x][i]=1;w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;f.parentNode.insertBefore(j,f);};w[y]('GTM-NXZPHVG')})(window,document,'script','dataLayer','_gtm_ids','_gtm_inject')}</script>
-
-
-<script type="text/javascript" async=""
-	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/938190343/?random=1659422429739&amp;cv=9&amp;fst=1659422429739&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635470&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1040&amp;u_aw=1920&amp;u_cd=24&amp;u_his=4&amp;u_tz=540&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2wg7r0&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.kcar.com%2Faccount%2Fsignup%2Fpccform%3FredisKey%3D558265052%26type%3Dpccv3%26retInfo%3D2272856DF750330F2DEFA74EB408E068E6DB0B49F083DC69872C2FFCBBBF8E517F27DA4B9AECEA818DE98C3F0DFD5C7344A317D90B4A34884652155C5B6C10140D18D05185BB41650484CBD85E138D51AEC99DAAE3153ACC602535D2C98501251928F50161389A8E7191094760B3304B7106DCF8DFA454EE4D7F1FAEE6966C829C3611DDBD7BE8A87CCD395FF5E5835271EC7B27425250D75465FEC672F3361269FE9F6230AB58CA6ADC6AC3AB926593194EEC0071867DE4B69ED91140F65EB966E3C5231BFE05CB89E82BD5A97A6BE9ADE1D7BF664D88&amp;ref=https%3A%2F%2Fpcc.siren24.com%2F&amp;tiba=K%20Car%20-%20%EC%A7%81%EC%A0%91%20%EB%A7%A4%EC%9E%85%20%EC%A7%81%EC%A0%91%20%ED%8C%90%EB%A7%A4%ED%95%98%EB%8A%94%20%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%20No.1%20%EC%A7%81%EC%98%81%20%EC%A4%91%EA%B3%A0%EC%B0%A8%20%EC%BC%80%EC%9D%B4%EC%B9%B4&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
-<script type="text/javascript" async=""
-	src="https://www.googleadservices.com/pagead/conversion/938190343/?random=1659422429740&amp;cv=9&amp;fst=1659422429740&amp;num=1&amp;value=0&amp;label=07NXCJrT4bcDEIfMrr8D&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635470&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1040&amp;u_aw=1920&amp;u_cd=24&amp;u_his=4&amp;u_tz=540&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2wg7r0&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.kcar.com%2Faccount%2Fsignup%2Fpccform%3FredisKey%3D558265052%26type%3Dpccv3%26retInfo%3D2272856DF750330F2DEFA74EB408E068E6DB0B49F083DC69872C2FFCBBBF8E517F27DA4B9AECEA818DE98C3F0DFD5C7344A317D90B4A34884652155C5B6C10140D18D05185BB41650484CBD85E138D51AEC99DAAE3153ACC602535D2C98501251928F50161389A8E7191094760B3304B7106DCF8DFA454EE4D7F1FAEE6966C829C3611DDBD7BE8A87CCD395FF5E5835271EC7B27425250D75465FEC672F3361269FE9F6230AB58CA6ADC6AC3AB926593194EEC0071867DE4B69ED91140F65EB966E3C5231BFE05CB89E82BD5A97A6BE9ADE1D7BF664D88&amp;ref=https%3A%2F%2Fpcc.siren24.com%2F&amp;tiba=K%20Car%20-%20%EC%A7%81%EC%A0%91%20%EB%A7%A4%EC%9E%85%20%EC%A7%81%EC%A0%91%20%ED%8C%90%EB%A7%A4%ED%95%98%EB%8A%94%20%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%20No.1%20%EC%A7%81%EC%98%81%20%EC%A4%91%EA%B3%A0%EC%B0%A8%20%EC%BC%80%EC%9D%B4%EC%B9%B4&amp;auid=759781911.1659003796&amp;hn=www.googleadservices.com&amp;bttype=purchase&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
-<script type="text/javascript" async=""
-	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/938190343/?random=1659422429755&amp;cv=9&amp;fst=1659422429755&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635470&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1040&amp;u_aw=1920&amp;u_cd=24&amp;u_his=4&amp;u_tz=540&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2wg7r0&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.kcar.com%2Faccount%2Fsignup%2Fpccform%3FredisKey%3D558265052%26type%3Dpccv3%26retInfo%3D2272856DF750330F2DEFA74EB408E068E6DB0B49F083DC69872C2FFCBBBF8E517F27DA4B9AECEA818DE98C3F0DFD5C7344A317D90B4A34884652155C5B6C10140D18D05185BB41650484CBD85E138D51AEC99DAAE3153ACC602535D2C98501251928F50161389A8E7191094760B3304B7106DCF8DFA454EE4D7F1FAEE6966C829C3611DDBD7BE8A87CCD395FF5E5835271EC7B27425250D75465FEC672F3361269FE9F6230AB58CA6ADC6AC3AB926593194EEC0071867DE4B69ED91140F65EB966E3C5231BFE05CB89E82BD5A97A6BE9ADE1D7BF664D88&amp;ref=https%3A%2F%2Fpcc.siren24.com%2F&amp;tiba=K%20Car%20-%20%EC%A7%81%EC%A0%91%20%EB%A7%A4%EC%9E%85%20%EC%A7%81%EC%A0%91%20%ED%8C%90%EB%A7%A4%ED%95%98%EB%8A%94%20%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%20No.1%20%EC%A7%81%EC%98%81%20%EC%A4%91%EA%B3%A0%EC%B0%A8%20%EC%BC%80%EC%9D%B4%EC%B9%B4&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
-<script type="text/javascript" async=""
-	src="https://www.googleadservices.com/pagead/conversion/938190343/?random=1659422429756&amp;cv=9&amp;fst=1659422429756&amp;num=1&amp;value=0&amp;label=07NXCJrT4bcDEIfMrr8D&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635470&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1040&amp;u_aw=1920&amp;u_cd=24&amp;u_his=4&amp;u_tz=540&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2wg7r0&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.kcar.com%2Faccount%2Fsignup%2Fpccform%3FredisKey%3D558265052%26type%3Dpccv3%26retInfo%3D2272856DF750330F2DEFA74EB408E068E6DB0B49F083DC69872C2FFCBBBF8E517F27DA4B9AECEA818DE98C3F0DFD5C7344A317D90B4A34884652155C5B6C10140D18D05185BB41650484CBD85E138D51AEC99DAAE3153ACC602535D2C98501251928F50161389A8E7191094760B3304B7106DCF8DFA454EE4D7F1FAEE6966C829C3611DDBD7BE8A87CCD395FF5E5835271EC7B27425250D75465FEC672F3361269FE9F6230AB58CA6ADC6AC3AB926593194EEC0071867DE4B69ED91140F65EB966E3C5231BFE05CB89E82BD5A97A6BE9ADE1D7BF664D88&amp;ref=https%3A%2F%2Fpcc.siren24.com%2F&amp;tiba=K%20Car%20-%20%EC%A7%81%EC%A0%91%20%EB%A7%A4%EC%9E%85%20%EC%A7%81%EC%A0%91%20%ED%8C%90%EB%A7%A4%ED%95%98%EB%8A%94%20%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%20No.1%20%EC%A7%81%EC%98%81%20%EC%A4%91%EA%B3%A0%EC%B0%A8%20%EC%BC%80%EC%9D%B4%EC%B9%B4&amp;auid=759781911.1659003796&amp;hn=www.googleadservices.com&amp;bttype=purchase&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
-<meta http-equiv="origin-trial"
-	content="A+Mt6wQ7St5J869uXW1A/aL3lJaYJYff4gUwPvwSbTuZ7z/T1l4np41d/t4W9TdeS/EMua5fYfBoz4v4TT9tdAgAAACAeyJvcmlnaW4iOiJodHRwczovL2NyaXRlby5uZXQ6NDQzIiwiZmVhdHVyZSI6IlByaXZhY3lTYW5kYm94QWRzQVBJcyIsImV4cGlyeSI6MTY2MTI5OTE5OSwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0=">
-
-<meta http-equiv="origin-trial"
-	content="AxFuPIivbOVh9A1iWigZYBKLEsd09F0TKyZCh3vhaAKunGI5SMnDaV1g2yqrnkAKqythLyd+bS8ShWXWx388aQIAAACAeyJvcmlnaW4iOiJodHRwczovL2NyaXRlby5jb206NDQzIiwiZmVhdHVyZSI6IlByaXZhY3lTYW5kYm94QWRzQVBJcyIsImV4cGlyeSI6MTY2MTI5OTE5OSwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0=">
 </head>
 <body>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
+	var req;
+	function isExistId(){
+		req = new XMLHttpRequest();
+		req.onreadystatechange = printMsg;
+		req.open('post', 'isExistId');
+		req.send(document.getElementById('m_email').value);
+	}
+	
+	function printMsg(){
+		var msg = document.getElementById('msg');
+		msg.innerHTML = req.responseText;
+	}
 	function daumPost(){
 		
 	    new daum.Postcode({
@@ -62,9 +32,9 @@
 	   			else{
 	   				addr = data.jibunAddress;
 	   			}
-	   			document.getElementById('zonecode').value= data.zonecode; // 우편번호
-	   			document.getElementById('addr1').value = addr;
-	   			document.getElementById('addr2').focus();
+	   			document.getElementById('m_zipcode').value= data.zonecode; // 우편번호
+	   			document.getElementById('m_addr1').value = addr;
+	   			document.getElementById('m_addr2').focus();
 	        }
 	    }).open();
 	    
@@ -110,6 +80,7 @@
 						<h2 class="title">회원가입</h2>
 						<p class="desc">안전한 회원가입을 위해 본인인증을 진행해 주세요.</p>
 					</div>
+							<form class="el-form" action="register2" method="post">
 					<div class="pageContents">
 						<div>
 							<div class="el-row">
@@ -126,7 +97,6 @@
 							<h3 class="title">정보를 입력해 주세요.</h3>
 						</div>
 						<div class="formWrap">
-							<form class="el-form">
 								<div class="el-form-item">
 									<!---->
 									<div class="el-form-item__content">
@@ -134,7 +104,7 @@
 										<div class="titLabel">이름</div>
 										
 											<!---->
-											<input type="text" autocomplete="off"
+											<input type="text" name="m_name" id="m_name"
 												placeholder="이름" class="el-input__inner">
 											<!---->
 											<!---->
@@ -147,18 +117,19 @@
 								<div class="el-form-item">
 									<!---->
 									<div class="el-form-item__content">
-										<div class="titLabel">아이디</div>
+										<div class="titLabel">이메일</div>
 										<div class="flexbox">
 											<div class="el-input el-input--suffix">
 												<!---->
 												<input type="text" autocomplete="off" placeholder="아이디 입력"
+													name ="m_email" id="m_email"
 													class="el-input__inner">
 												<!---->
 												<!---->
 												<!---->
 												<!---->
 											</div>
-											<button type="button"
+											<button type="button" onclick="isExistId()"
 												class="el-button checkBtn el-button--default">
 												<!---->
 												<!---->
@@ -166,6 +137,9 @@
 											</button>
 										</div>
 										<div class="annotation">
+											<h3>
+												<font color="red" id="msg">${msg } </font>
+											</h3>
 											<span>※ 영문, 숫자를 조합해서 입력해 주세요.(4~12자)</span>
 										</div>
 										<!---->
@@ -179,6 +153,7 @@
 											<div class="el-input el-input--suffix">
 												<!---->
 												<input type="password" autocomplete="off"
+													id="m_pw" name ="m_pw"
 													placeholder="비밀번호 입력" class="el-input__inner">
 												<!---->
 												<span class="el-input__suffix"><span
@@ -207,6 +182,7 @@
 										<div class="el-input el-input--suffix">
 											<!---->
 											<input type="password" autocomplete="off"
+												name="m_pwOk" id="m_pwOk"
 												placeholder="비밀번호 다시 입력" class="el-input__inner">
 											<!---->
 											<span class="el-input__suffix"><span
@@ -232,6 +208,7 @@
 											
 												<!---->
 												<input type="text"  autocomplete="off"
+													id="m_tel" name ="m_tel"
 													class="el-input__inner">
 												<!---->
 												<!---->
@@ -250,7 +227,7 @@
 										<div class="flexbox">
 											<div class="el-input el-input--suffix">
 												<!---->
-												<input type="text" name='zipcode' id="zonecode" readonly="readonly"
+												<input type="text" name='m_zipcode' id="m_zipcode" readonly="readonly"
 													class="el-input__inner">
 												<!---->
 												<!---->
@@ -274,7 +251,7 @@
 										<div class="titLabel">주소</div>
 										<div class="el-input el-input--suffix">
 											<!---->
-											<input type="text"  name='addr1' id="addr1" readonly="readonly" 
+											<input type="text"  name='m_addr1' id="m_addr1" readonly="readonly" 
 												class="el-input__inner">
 											<!---->
 											
@@ -290,7 +267,7 @@
 										<div class="titLabel">상세주소</div>
 										<div class="el-input el-input--suffix">
 											<!---->
-											<input type="text"  name='addr2' id="addr2"  
+											<input type="text"  name='m_addr2' id="m_addr2"  
 												class="el-input__inner">
 											<!---->
 											
@@ -409,7 +386,7 @@
 <!-- 									</div> -->
 <!-- 								</div> -->
 								
-							</form>
+						
 							<div class="termsArea">
 								<div class="roundCheck">
 									<h3 class="subTitle3">약관 동의</h3>
@@ -460,6 +437,7 @@
 							</div>
 						</div>
 					</div>
+							</form>
 					<div class="el-dialog__wrapper popup fullPopup hauto"
 						style="display: none;">
 						<div role="dialog" aria-modal="true" aria-label="이용약관(필수)"

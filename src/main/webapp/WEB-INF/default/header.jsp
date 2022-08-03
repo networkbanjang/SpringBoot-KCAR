@@ -1,6 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="footer_style.jsp"%>
 <header id="header" class="kcarHeader">
+<c:if test="${not empty msg }" >
+	<script>alert("${msg}");</script>
+</c:if>
 	<div class="gnbArea">
 		<div class="topNavi">
 			<h1 class="kcarHeaderLogo">
@@ -114,7 +118,14 @@
 			<div class="utilMenu">
 				<!---->
 				<!---->
-				<a><span>마이페이지</span></a> <a><span>로그아웃</span></a>
+				<c:choose>
+					<c:when test="${empty sessionScope.id }">
+						<a href="logins"><span>로그인</span></a> <a href= "register"><span>회원가입</span></a>
+					</c:when>
+					<c:otherwise>
+						<a href="logout"><span>로그아웃</span></a> <a href= "mypage"><span>마이페이지</span></a>
+					</c:otherwise>
+				</c:choose>
 			</div>
 			<div class="searchArea">
 				<div class="el-input topinput">
@@ -182,10 +193,10 @@
 								<ul>
 									<li><a>내차팔기</a>
 										<ul>
-											<li><a>내차팔기 홈서비스</a></li>
+											<li><a href="">내차팔기 홈서비스</a></li>
 										</ul>
 										<ul>
-											<li><a>법인차매각신청</a></li>
+											<li><a href ="register">법인차매각신청</a></li>
 										</ul>
 										<ul>
 											<li><a>폐차신청</a></li>

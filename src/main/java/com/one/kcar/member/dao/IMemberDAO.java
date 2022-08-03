@@ -1,0 +1,16 @@
+package com.one.kcar.member.dao;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import com.one.kcar.member.dto.MemberDTO;
+
+@Mapper
+public interface IMemberDAO {
+
+	int isExistId(String id);
+
+	void insertMember(MemberDTO member);
+
+	MemberDTO login(MemberDTO member);
+
+}
