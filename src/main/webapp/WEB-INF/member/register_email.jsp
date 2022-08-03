@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="ko" class="chrome">
 <head>
 <title>K Car - 직접 매입 직접 판매하는 대한민국 No.1 직영 중고차 케이카</title>
@@ -29,6 +30,9 @@ function checkAuth(){
 
 
 </script>
+<c:if test="${not empty msg2 }" >
+	<script>alert("${msg2}");</script>
+</c:if>
 
 	<div id="__nuxt">
 		<!---->

@@ -17,8 +17,10 @@ public class MailCheckController {
 		if(msg.equals("인증 완료")) {
 			model.addAttribute("msg", msg);
 			return "member/register2";
-		}
-		return "redirect:/register_email";
+		}else 
+			model.addAttribute("msg", msg);
+			return "member/register_email";
+		
 		
 	
 	}
