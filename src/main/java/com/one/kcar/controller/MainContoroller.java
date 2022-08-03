@@ -1,11 +1,18 @@
 package com.one.kcar.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.one.kcar.service.buy.*;
 
 @Controller
 public class MainContoroller {
-
+	@Autowired
+	private brandService brandService;
+	
 	//차량검색
 	@GetMapping(value = "vehicleSearch")
 	public String vehicleSearch() {
@@ -38,8 +45,19 @@ public class MainContoroller {
 	}
 	//브랜드인증관
 	@GetMapping(value="brandCar")
-	public String brandCar() {
+	public String brandCar(Model model) {
+		brandService.brandCarAllList(model);
+		
+		
 		return "myCarScam/brandCar";
+	}
+	@GetMapping(value="brandCar/brandCarList")
+	public String brandCarList(@RequestParam(value="brand", required=false)String brand, Model model ) {
+		if(brand == null || brand.isEmpty()) return "redirect:/brandCar";//brandParameter가 null인 경우 brand메뉴페이지로 이동
+		brandService.brandCarList(brand, model);
+		
+		
+		return "myCarScam/brand/brandCarList";
 	}
 	//구매차량정보
 	@GetMapping(value="detail/carInfo")

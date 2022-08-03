@@ -1,13 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko" class="chrome">
 <head>
-<%@include file="brandCar_style.jsp"%>
-<title>브랜드 인증관</title>
+<title>K Car - 직접 매입 직접 판매하는 대한민국 No.1 직영 중고차 케이카</title>
+<%@include file="brandCarList_style.jsp"%>
 <meta data-n-head="ssr" charset="utf-8">
 <meta data-n-head="ssr" name="viewport"
 	content="width=device-width, initial-scale=1">
+<meta data-n-head="ssr" data-hid="description" name="description"
+	content="대한민국 No.1 직영 중고차. 중고차 매입, 중고차 판매, 중고차 최초 환불 서비스, 중고차 온라인 구매 홈서비스, 중고차 매매, 중고차 사이트 ">
 <meta data-n-head="ssr" data-hid="og-title" name="og:title"
 	content="K Car - 직접 매입 직접 판매하는 대한민국 No.1 직영 중고차 케이카 ">
 <meta data-n-head="ssr" data-hid="og-description" name="og:description"
@@ -27,19 +28,13 @@
 	name="twitter:image:src"
 	content="https://api.kcar.com/BASE/kcar_share_kakao.jpg">
 <meta data-n-head="ssr" name="format-detection" content="telephone=no">
-<meta data-n-head="ssr" data-hid="description" name="description"
-	content="대한민국 No.1 직영 중고차. 중고차 매입, 중고차 판매, 중고차 최초 환불 서비스, 중고차 온라인 구매 홈서비스, 중고차 매매, 중고차 사이트 ">
-<meta data-n-head="ssr" data-hid="keywords" name="keywords"
-	content="중고차, 중고차 시세, K Car 직영차, 중고차팔기, 보험, 보증, 진단, 대출, 중고차 매매, 국산차, 수입차">
 
-<meta data-n-head="ssr" data-hid="title" name="title" content="브랜드 인증관">
-<meta data-n-head="ssr" property="groobee:member_id" content="">
-<meta data-n-head="ssr" property="groobee:member_grade" content="">
-<meta data-n-head="ssr" property="groobee:member_gender" content="">
-<meta data-n-head="ssr" property="groobee:member_type" content="">
-<meta data-n-head="ssr" property="groobee:member_age" content="">
+<meta data-n-head="ssr" data-hid="title" name="title"
+	content="K Car - 직접 매입 직접 판매하는 대한민국 No.1 직영 중고차 케이카 ">
+<meta data-n-head="ssr" data-hid="keywords" name="keywords"
+	content="중고차, 중고차 시세, K Car 직영차, 중고차팔기, 보험, 보증, 진단, 대출, 중고차 매매, 국산차, 수입차 ">
 </head>
-<body style="" class="">
+<body style="">
 	<noscript data-n-head="ssr" data-hid="gtm-noscript" data-pbody="true">
 		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXZPHVG&"
 			height="0" width="0" style="display: none; visibility: hidden"
@@ -75,72 +70,27 @@
 				<!-- header start -->
 				<%@include file="/WEB-INF/default/header.jsp" %>
 				<!-- header end -->
-				<div class="rentWrap contWrap">
-					<div class="hsBanner"
-						style="background-image: url(&quot;/images/carBrand/visual/visual_bmw.jpg&quot;);">
-						<p class="title" style="font-size: 60px;">브랜드 인증관</p>
-						<p class="desc">
-							브랜드 인증 중고차는 수입차 브랜드 공식딜러사가<br> 직접품질을 점검하고 판매하는 차량입니다
-						</p>
-					</div>
-					
-					<div class="el-row">
-						<div class="el-col el-col-24">
-							<div class="carBrandList">
-							<form action="brandCar/brandCarList" id="brand_f" method="get">
-								<ul>
-									<%-- <c:forEach var="brand" items="${brandList }" varStatus="status">
-										<!-- 만약 querySelectAll로 진행하려면 varStatus="status" 설정값 주고 ${status.index}로 값부여할 것
-											태그내에 값부여하고싶으면 data-value="" javascript에서는 getElementById().getAttribute('data-value');로 가져오기
-										 -->
-										<li><a class="el-link el-link--default is-underline" href="brandCar/brandCarList?brand=${brand.cb_brand}">
-												<!---->
-												<span class="el-link--inner"><img
-													src="${brand.cb_photo }"
-													alt="${brand.cb_brand }" class="brandLogo">
-													<p class="brandT01">${brand.cb_koreaLan }</p>
-													<p class="brandT02">${brand.cb_EnglishLan }</p></span>
-											<!---->
-										</a></li>
-									</c:forEach> --%>
-									<li><a class="el-link el-link--default is-underline" href="brandCar/brandCarList">
-											<!---->
-											<span class="el-link--inner"><img
-												src="/images/common/brandlogo/logos-brand-audi.png"
-												alt="아우디" class="brandLogo">
-												<p class="brandT01">아우디 인증 중고차</p>
-												<p class="brandT02">Audi Approved :plus</p></span>
-										<!---->
-									</a></li>
-								</ul>
-								<script>
-								/* 
-									0 : 아우디
-									1 : 벤츠
-									2 : 롤스로이스
-									3 : 미니
-									4 : 재규어
-									5 : 폭스바겐
-									6 : 페라리
-									7 : BMW
-									8 : 링컨
-									9 : 볼보
-									10 : 렉서스
-									11 : 랜드로버
-									12 : 포드
-								*/
-								</script>
-							</div>
+				<div class="rentWrap contWrap" style="overflow-y: hidden;">
+					<div class="hsBanner carBrandBanner01"
+						style="background-image: url(&quot;/images/carBrand/visual/visual_volvo.jpg&quot;);">
+						<div>
+							<p class="title" style="font-size: 60px;">볼보 인증중고차</p>
+							<p class="desc">
+								볼보가 직접 품질 점검한 인증중고차 중<br> 믿을 수 있는 차량을 엄선해 선보입니다
+							</p>
 						</div>
+					</div>
+					<div class="bannerLine">
+						<p>브랜드 인증 중고차는 각 수입차 브랜드의 공식 딜러사를 통해 직접 판매됩니다</p>
 					</div>
 					<div class="containerWrap el-row">
 						<div class="listLine">
 							<ul>
-								<li class="carTotal">총 <span class="textRed">994</span>대
+								<li class="carTotal">총 <span class="textRed">17</span>대
 								</li>
-								<li class="listBtn"><div class="searchTrigger box el-row">
-										<button type="button" class="button lineApply"
-											style="white-space: normal;">제조사/모델선택</button>
+								<li class="listBtn"><div
+										class="searchTrigger box multBtn el-row">
+										<button class="button lineApply">모델/세부모델선택</button>
 									</div>
 									<div class="el-select listSelect">
 										<!---->
@@ -165,7 +115,7 @@
 											style="display: none; min-width: 160px;">
 											<div class="el-scrollbar" style="">
 												<div class="el-select-dropdown__wrap el-scrollbar__wrap"
-													style="margin-bottom: -19px; margin-right: -19px;">
+													style="margin-bottom: -21px; margin-right: -21px;">
 													<ul class="el-scrollbar__view el-select-dropdown__list">
 														<!---->
 														<li class="el-select-dropdown__item"><span>기본정렬</span></li>
@@ -208,6 +158,24 @@
 							</ul>
 						</div>
 						<div>
+							<div>
+								<li class="roundCheck flexCon"><div role="group"
+										aria-label="checkbox-group" class="el-checkbox-group">
+										<label class="el-checkbox"><span
+											class="el-checkbox__input"><span
+												class="el-checkbox__inner"></span><input type="checkbox"
+												aria-hidden="false" class="el-checkbox__original"
+												value="GNRL"></span><span class="el-checkbox__label">
+												일반차량 <!---->
+										</span></label> <label class="el-checkbox"><span
+											class="el-checkbox__input"><span
+												class="el-checkbox__inner"></span><input type="checkbox"
+												aria-hidden="false" class="el-checkbox__original"
+												value="LESE"></span><span class="el-checkbox__label">
+												리스차량 <!---->
+										</span></label>
+									</div></li>
+							</div>
 							<div class="carListWrap mT20">
 								<div class="carListBox" style="cursor: pointer;">
 									<!---->
@@ -215,7 +183,7 @@
 										<!---->
 										<div>
 											<img
-												src="https://img.kcar.com/BrandCertificationMall/carpicture09/pic6069/kcarM_60698994_001.jpg?1659351513221"
+												src="https://img.kcar.com/BrandCertificationMall/carpicture10/pic6070/kcarM_60702118_001.jpg?1659496931755"
 												alt="챠량이미지"
 												onerror="this.src='/images/search/bg_no_Img_lg.png'"
 												loading="lazy">
@@ -237,16 +205,16 @@
 									<div class="detailInfo">
 										<div class="carName">
 											<h3>
-												벤츠 C-클래스 W205 <br>C200 AMG Line
+												볼보 S60 3세대 <br>가솔린 2WD T5 인스크립션
 											</h3>
 										</div>
 										<div class="carListFlex">
 											<div class="carExpIn">
-												<p class="carExp">4,700만원</p>
+												<p class="carExp">4,650만원</p>
 											</div>
 											<p class="detailCarCon">
-												<span class="block">21년 5월식</span> <span>7,582km</span> <span>가솔린</span>
-												<span>더클래스 효성 죽전 전시장</span>
+												<span class="block">20년 4월식</span> <span>10,395km</span> <span>가솔린</span>
+												<span>코오롱오토모티브(주) 김포 인증 중고차 전시장</span>
 											</p>
 										</div>
 										<ul class="infoTooltip">
@@ -254,7 +222,88 @@
 											<!---->
 											<li><button type="button"
 													class="el-button el-tooltip yellowLabel item el-button--default"
-													aria-describedby="el-tooltip-7966" tabindex="0">
+													aria-describedby="el-tooltip-8882" tabindex="0">
+													<!---->
+													<!---->
+													<span> 브랜드 인증 </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-6724" tabindex="0">
+													<!---->
+													<!---->
+													<span> 짧은km </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-5369" tabindex="0">
+													<!---->
+													<!---->
+													<span> 특옵션 </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-1447" tabindex="0">
+													<!---->
+													<!---->
+													<span> 1인소유 </span>
+												</button></li>
+											<!---->
+											<!---->
+										</ul>
+									</div>
+								</div>
+								<div class="carListBox" style="cursor: pointer;">
+									<!---->
+									<div class="carListImg" style="cursor: pointer;">
+										<!---->
+										<div>
+											<img
+												src="https://img.kcar.com/BrandCertificationMall/carpicture08/pic6068/kcarM_60684600_001.jpg?1659496931755"
+												alt="챠량이미지"
+												onerror="this.src='/images/search/bg_no_Img_lg.png'"
+												loading="lazy">
+										</div>
+										<ul class="listViewBtn">
+											<li><button type="button"
+													class="el-button el-button--default icon icoFav"
+													id="mkt_brandAddWish">
+													<!---->
+													<!---->
+													<span><span class="_hidden">찜하기</span></span>
+												</button></li>
+										</ul>
+									</div>
+									<ul class="listViewLabel">
+										<!---->
+										<!---->
+									</ul>
+									<div class="detailInfo">
+										<div class="carName">
+											<h3>
+												볼보 S60 3세대 <br>가솔린 2WD B5 인스크립션
+											</h3>
+										</div>
+										<div class="carListFlex">
+											<div class="carExpIn">
+												<p class="carExp">
+													리스료 <span class="textRed">월 81만원</span>
+												</p>
+												<ul>
+													<li>인수금 <strong class="textRed">0만원</strong></li>
+												</ul>
+											</div>
+											<p class="detailCarCon">
+												<span class="block">21년 10월식(22년형) </span> <span>9,226km</span>
+												<span>가솔린+전기</span> <span>코오롱오토모티브(주) 김포 인증 중고차 전시장</span>
+											</p>
+										</div>
+										<ul class="infoTooltip">
+											<!---->
+											<!---->
+											<li><button type="button"
+													class="el-button el-tooltip yellowLabel item el-button--default"
+													aria-describedby="el-tooltip-6669" tabindex="0">
 													<!---->
 													<!---->
 													<span> 브랜드 인증 </span>
@@ -270,7 +319,613 @@
 										<!---->
 										<div>
 											<img
-												src="https://img.kcar.com/BrandCertificationMall/carpicture10/pic6070/kcarM_60704078_001.jpg?1659351513221"
+												src="https://img.kcar.com/BrandCertificationMall/carpicture10/pic6070/kcarM_60702175_001.jpg?1659496931755"
+												alt="챠량이미지"
+												onerror="this.src='/images/search/bg_no_Img_lg.png'"
+												loading="lazy">
+										</div>
+										<ul class="listViewBtn">
+											<li><button type="button"
+													class="el-button el-button--default icon icoFav"
+													id="mkt_brandAddWish">
+													<!---->
+													<!---->
+													<span><span class="_hidden">찜하기</span></span>
+												</button></li>
+										</ul>
+									</div>
+									<ul class="listViewLabel">
+										<!---->
+										<!---->
+									</ul>
+									<div class="detailInfo">
+										<div class="carName">
+											<h3>
+												볼보 S60 <br>D3 2세대
+											</h3>
+										</div>
+										<div class="carListFlex">
+											<div class="carExpIn">
+												<p class="carExp">2,400만원</p>
+											</div>
+											<p class="detailCarCon">
+												<span class="block">18년 6월식</span> <span>44,809km</span> <span>디젤</span>
+												<span>코오롱오토모티브(주) 김포 인증 중고차 전시장</span>
+											</p>
+										</div>
+										<ul class="infoTooltip">
+											<!---->
+											<!---->
+											<li><button type="button"
+													class="el-button el-tooltip yellowLabel item el-button--default"
+													aria-describedby="el-tooltip-4290" tabindex="0">
+													<!---->
+													<!---->
+													<span> 브랜드 인증 </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-5603" tabindex="0">
+													<!---->
+													<!---->
+													<span> 1인소유 </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-7614" tabindex="0">
+													<!---->
+													<!---->
+													<span> 짧은km </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-5960" tabindex="0">
+													<!---->
+													<!---->
+													<span> 제조사AS </span>
+												</button></li>
+											<!---->
+											<!---->
+										</ul>
+									</div>
+								</div>
+								<div class="carListBox" style="cursor: pointer;">
+									<!---->
+									<div class="carListImg" style="cursor: pointer;">
+										<!---->
+										<div>
+											<img
+												src="https://img.kcar.com/BrandCertificationMall/carpicture09/pic6069/kcarM_60692819_001.jpg?1659496931755"
+												alt="챠량이미지"
+												onerror="this.src='/images/search/bg_no_Img_lg.png'"
+												loading="lazy">
+										</div>
+										<ul class="listViewBtn">
+											<li><button type="button"
+													class="el-button el-button--default icon icoFav"
+													id="mkt_brandAddWish">
+													<!---->
+													<!---->
+													<span><span class="_hidden">찜하기</span></span>
+												</button></li>
+										</ul>
+									</div>
+									<ul class="listViewLabel">
+										<!---->
+										<!---->
+									</ul>
+									<div class="detailInfo">
+										<div class="carName">
+											<h3>
+												볼보 S60 3세대 <br>가솔린 2WD B5 인스크립션
+											</h3>
+										</div>
+										<div class="carListFlex">
+											<div class="carExpIn">
+												<p class="carExp">5,000만원</p>
+											</div>
+											<p class="detailCarCon">
+												<span class="block">21년 10월식(22년형) </span> <span>2,698km</span>
+												<span>가솔린</span> <span>에이치모터스(주) 수원 전시장</span>
+											</p>
+										</div>
+										<ul class="infoTooltip">
+											<!---->
+											<!---->
+											<li><button type="button"
+													class="el-button el-tooltip yellowLabel item el-button--default"
+													aria-describedby="el-tooltip-3202" tabindex="0">
+													<!---->
+													<!---->
+													<span> 브랜드 인증 </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-354" tabindex="0">
+													<!---->
+													<!---->
+													<span> 신차급 </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-9694" tabindex="0">
+													<!---->
+													<!---->
+													<span> 특옵션 </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-7513" tabindex="0">
+													<!---->
+													<!---->
+													<span> 짧은km </span>
+												</button></li>
+											<!---->
+											<!---->
+										</ul>
+									</div>
+								</div>
+								<div class="carListBox" style="cursor: pointer;">
+									<!---->
+									<div class="carListImg" style="cursor: pointer;">
+										<!---->
+										<div>
+											<img
+												src="https://img.kcar.com/BrandCertificationMall/carpicture10/pic6070/kcarM_60705851_001.jpg?1659496931755"
+												alt="챠량이미지"
+												onerror="this.src='/images/search/bg_no_Img_lg.png'"
+												loading="lazy">
+										</div>
+										<ul class="listViewBtn">
+											<li><button type="button"
+													class="el-button el-button--default icon icoFav"
+													id="mkt_brandAddWish">
+													<!---->
+													<!---->
+													<span><span class="_hidden">찜하기</span></span>
+												</button></li>
+										</ul>
+									</div>
+									<ul class="listViewLabel">
+										<!---->
+										<!---->
+									</ul>
+									<div class="detailInfo">
+										<div class="carName">
+											<h3>
+												볼보 XC90 2세대 <br>T6 인스크립션
+											</h3>
+										</div>
+										<div class="carListFlex">
+											<div class="carExpIn">
+												<p class="carExp">7,000만원</p>
+											</div>
+											<p class="detailCarCon">
+												<span class="block">18년 3월식</span> <span>39,600km</span> <span>가솔린</span>
+												<span>에이치모터스(주) 수원 전시장</span>
+											</p>
+										</div>
+										<ul class="infoTooltip">
+											<!---->
+											<!---->
+											<li><button type="button"
+													class="el-button el-tooltip yellowLabel item el-button--default"
+													aria-describedby="el-tooltip-2428" tabindex="0">
+													<!---->
+													<!---->
+													<span> 브랜드 인증 </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-5280" tabindex="0">
+													<!---->
+													<!---->
+													<span> 1인소유 </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-999" tabindex="0">
+													<!---->
+													<!---->
+													<span> 보증연장 </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-4306" tabindex="0">
+													<!---->
+													<!---->
+													<span> 특옵션 </span>
+												</button></li>
+											<!---->
+											<!---->
+										</ul>
+									</div>
+								</div>
+								<div class="carListBox" style="cursor: pointer;">
+									<!---->
+									<div class="carListImg" style="cursor: pointer;">
+										<!---->
+										<div>
+											<img
+												src="https://img.kcar.com/BrandCertificationMall/carpicture10/pic6070/kcarM_60705850_001.jpg?1659496931755"
+												alt="챠량이미지"
+												onerror="this.src='/images/search/bg_no_Img_lg.png'"
+												loading="lazy">
+										</div>
+										<ul class="listViewBtn">
+											<li><button type="button"
+													class="el-button el-button--default icon icoFav"
+													id="mkt_brandAddWish">
+													<!---->
+													<!---->
+													<span><span class="_hidden">찜하기</span></span>
+												</button></li>
+										</ul>
+									</div>
+									<ul class="listViewLabel">
+										<!---->
+										<!---->
+									</ul>
+									<div class="detailInfo">
+										<div class="carName">
+											<h3>
+												볼보 XC40 <br>B4 R-디자인
+											</h3>
+										</div>
+										<div class="carListFlex">
+											<div class="carExpIn">
+												<p class="carExp">4,400만원</p>
+											</div>
+											<p class="detailCarCon">
+												<span class="block">20년 10월식(21년형) </span> <span>31,059km</span>
+												<span>가솔린</span> <span>에이치모터스(주) 수원 전시장</span>
+											</p>
+										</div>
+										<ul class="infoTooltip">
+											<!---->
+											<!---->
+											<li><button type="button"
+													class="el-button el-tooltip yellowLabel item el-button--default"
+													aria-describedby="el-tooltip-5865" tabindex="0">
+													<!---->
+													<!---->
+													<span> 브랜드 인증 </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-4282" tabindex="0">
+													<!---->
+													<!---->
+													<span> 짧은km </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-7400" tabindex="0">
+													<!---->
+													<!---->
+													<span> 제조사AS </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-999" tabindex="0">
+													<!---->
+													<!---->
+													<span> 4WD </span>
+												</button></li>
+											<!---->
+											<!---->
+										</ul>
+									</div>
+								</div>
+								<div class="carListBox" style="cursor: pointer;">
+									<!---->
+									<div class="carListImg" style="cursor: pointer;">
+										<!---->
+										<div>
+											<img
+												src="https://img.kcar.com/BrandCertificationMall/carpicture10/pic6070/kcarM_60705849_001.jpg?1659496931755"
+												alt="챠량이미지"
+												onerror="this.src='/images/search/bg_no_Img_lg.png'"
+												loading="lazy">
+										</div>
+										<ul class="listViewBtn">
+											<li><button type="button"
+													class="el-button el-button--default icon icoFav"
+													id="mkt_brandAddWish">
+													<!---->
+													<!---->
+													<span><span class="_hidden">찜하기</span></span>
+												</button></li>
+										</ul>
+									</div>
+									<ul class="listViewLabel">
+										<!---->
+										<!---->
+									</ul>
+									<div class="detailInfo">
+										<div class="carName">
+											<h3>
+												볼보 V90 크로스컨트리 <br>B5 프로 AWD
+											</h3>
+										</div>
+										<div class="carListFlex">
+											<div class="carExpIn">
+												<p class="carExp">6,600만원</p>
+											</div>
+											<p class="detailCarCon">
+												<span class="block">21년 9월식</span> <span>11,526km</span> <span>가솔린</span>
+												<span>에이치모터스(주) 수원 전시장</span>
+											</p>
+										</div>
+										<ul class="infoTooltip">
+											<!---->
+											<!---->
+											<li><button type="button"
+													class="el-button el-tooltip yellowLabel item el-button--default"
+													aria-describedby="el-tooltip-4051" tabindex="0">
+													<!---->
+													<!---->
+													<span> 브랜드 인증 </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-4768" tabindex="0">
+													<!---->
+													<!---->
+													<span> 특옵션 </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-6323" tabindex="0">
+													<!---->
+													<!---->
+													<span> 짧은km </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-4162" tabindex="0">
+													<!---->
+													<!---->
+													<span> 신차급 </span>
+												</button></li>
+											<!---->
+											<!---->
+										</ul>
+									</div>
+								</div>
+								<div class="carListBox" style="cursor: pointer;">
+									<!---->
+									<div class="carListImg" style="cursor: pointer;">
+										<!---->
+										<div>
+											<img
+												src="https://img.kcar.com/BrandCertificationMall/carpicture09/pic6069/kcarM_60696768_001.jpg?1659496931755"
+												alt="챠량이미지"
+												onerror="this.src='/images/search/bg_no_Img_lg.png'"
+												loading="lazy">
+										</div>
+										<ul class="listViewBtn">
+											<li><button type="button"
+													class="el-button el-button--default icon icoFav"
+													id="mkt_brandAddWish">
+													<!---->
+													<!---->
+													<span><span class="_hidden">찜하기</span></span>
+												</button></li>
+										</ul>
+									</div>
+									<ul class="listViewLabel">
+										<!---->
+										<!---->
+									</ul>
+									<div class="detailInfo">
+										<div class="carName">
+											<h3>
+												볼보 XC60 2세대 <br>D5 인스크립션
+											</h3>
+										</div>
+										<div class="carListFlex">
+											<div class="carExpIn">
+												<p class="carExp">4,700만원</p>
+											</div>
+											<p class="detailCarCon">
+												<span class="block">18년 7월식(19년형) </span> <span>90,774km</span>
+												<span>디젤</span> <span>에이치모터스(주) 수원 전시장</span>
+											</p>
+										</div>
+										<ul class="infoTooltip">
+											<!---->
+											<!---->
+											<li><button type="button"
+													class="el-button el-tooltip yellowLabel item el-button--default"
+													aria-describedby="el-tooltip-9711" tabindex="0">
+													<!---->
+													<!---->
+													<span> 브랜드 인증 </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-1189" tabindex="0">
+													<!---->
+													<!---->
+													<span> 특옵션 </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-6556" tabindex="0">
+													<!---->
+													<!---->
+													<span> 제조사AS </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-6920" tabindex="0">
+													<!---->
+													<!---->
+													<span> 보증연장 </span>
+												</button></li>
+											<!---->
+											<!---->
+										</ul>
+									</div>
+								</div>
+								<div class="carListBox" style="cursor: pointer;">
+									<!---->
+									<div class="carListImg" style="cursor: pointer;">
+										<!---->
+										<div>
+											<img
+												src="https://img.kcar.com/BrandCertificationMall/carpicture10/pic6070/kcarM_60700962_001.jpg?1659496931755"
+												alt="챠량이미지"
+												onerror="this.src='/images/search/bg_no_Img_lg.png'"
+												loading="lazy">
+										</div>
+										<ul class="listViewBtn">
+											<li><button type="button"
+													class="el-button el-button--default icon icoFav"
+													id="mkt_brandAddWish">
+													<!---->
+													<!---->
+													<span><span class="_hidden">찜하기</span></span>
+												</button></li>
+										</ul>
+									</div>
+									<ul class="listViewLabel">
+										<!---->
+										<!---->
+									</ul>
+									<div class="detailInfo">
+										<div class="carName">
+											<h3>
+												볼보 XC60 2세대 <br>D5 모멘텀
+											</h3>
+										</div>
+										<div class="carListFlex">
+											<div class="carExpIn">
+												<p class="carExp">4,950만원</p>
+											</div>
+											<p class="detailCarCon">
+												<span class="block">20년 7월식</span> <span>43,242km</span> <span>디젤</span>
+												<span>에이치모터스(주) 수원 전시장</span>
+											</p>
+										</div>
+										<ul class="infoTooltip">
+											<!---->
+											<!---->
+											<li><button type="button"
+													class="el-button el-tooltip yellowLabel item el-button--default"
+													aria-describedby="el-tooltip-4018" tabindex="0">
+													<!---->
+													<!---->
+													<span> 브랜드 인증 </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-2306" tabindex="0">
+													<!---->
+													<!---->
+													<span> 1인소유 </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-3227" tabindex="0">
+													<!---->
+													<!---->
+													<span> 짧은km </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-379" tabindex="0">
+													<!---->
+													<!---->
+													<span> 제조사AS </span>
+												</button></li>
+											<!---->
+											<!---->
+										</ul>
+									</div>
+								</div>
+								<div class="carListBox" style="cursor: pointer;">
+									<!---->
+									<div class="carListImg" style="cursor: pointer;">
+										<!---->
+										<div>
+											<img
+												src="https://img.kcar.com/BrandCertificationMall/carpicture10/pic6070/kcarM_60700028_001.jpg?1659496931755"
+												alt="챠량이미지"
+												onerror="this.src='/images/search/bg_no_Img_lg.png'"
+												loading="lazy">
+										</div>
+										<ul class="listViewBtn">
+											<li><button type="button"
+													class="el-button el-button--default icon icoFav"
+													id="mkt_brandAddWish">
+													<!---->
+													<!---->
+													<span><span class="_hidden">찜하기</span></span>
+												</button></li>
+										</ul>
+									</div>
+									<ul class="listViewLabel">
+										<!---->
+										<!---->
+									</ul>
+									<div class="detailInfo">
+										<div class="carName">
+											<h3>
+												볼보 S90 <br>B5 인스크립션
+											</h3>
+										</div>
+										<div class="carListFlex">
+											<div class="carExpIn">
+												<p class="carExp">
+													리스료 <span class="textRed">월 91만원</span>
+												</p>
+												<ul>
+													<li>인수금 <strong class="textRed">1,984만원</strong></li>
+												</ul>
+											</div>
+											<p class="detailCarCon">
+												<span class="block">21년 11월식(22년형) </span> <span>5,765km</span>
+												<span>가솔린+전기</span> <span>코오롱오토모티브(주) 김포 인증 중고차 전시장</span>
+											</p>
+										</div>
+										<ul class="infoTooltip">
+											<!---->
+											<!---->
+											<li><button type="button"
+													class="el-button el-tooltip yellowLabel item el-button--default"
+													aria-describedby="el-tooltip-9456" tabindex="0">
+													<!---->
+													<!---->
+													<span> 브랜드 인증 </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-3919" tabindex="0">
+													<!---->
+													<!---->
+													<span> 짧은km </span>
+												</button></li>
+											<li><button type="button"
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-3554" tabindex="0">
+													<!---->
+													<!---->
+													<span> 신차급 </span>
+												</button></li>
+											<!---->
+											<!---->
+										</ul>
+									</div>
+								</div>
+								<div class="carListBox" style="cursor: pointer;">
+									<!---->
+									<div class="carListImg" style="cursor: pointer;">
+										<!---->
+										<div>
+											<img
+												src="https://img.kcar.com/BrandCertificationMall/carpicture10/pic6070/kcarM_60704078_001.jpg?1659496931755"
 												alt="챠량이미지"
 												onerror="this.src='/images/search/bg_no_Img_lg.png'"
 												loading="lazy">
@@ -309,28 +964,28 @@
 											<!---->
 											<li><button type="button"
 													class="el-button el-tooltip yellowLabel item el-button--default"
-													aria-describedby="el-tooltip-5241" tabindex="0">
+													aria-describedby="el-tooltip-4366" tabindex="0">
 													<!---->
 													<!---->
 													<span> 브랜드 인증 </span>
 												</button></li>
 											<li><button type="button"
 													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-8935" tabindex="0">
+													aria-describedby="el-tooltip-6265" tabindex="0">
 													<!---->
 													<!---->
 													<span> 특옵션 </span>
 												</button></li>
 											<li><button type="button"
 													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-8998" tabindex="0">
+													aria-describedby="el-tooltip-1190" tabindex="0">
 													<!---->
 													<!---->
 													<span> 1인소유 </span>
 												</button></li>
 											<li><button type="button"
 													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-5617" tabindex="0">
+													aria-describedby="el-tooltip-2528" tabindex="0">
 													<!---->
 													<!---->
 													<span> 4WD </span>
@@ -346,7 +1001,7 @@
 										<!---->
 										<div>
 											<img
-												src="https://img.kcar.com/BrandCertificationMall/carpicture09/pic6069/kcarM_60694982_001.jpg?1659351513221"
+												src="https://img.kcar.com/BrandCertificationMall/carpicture09/pic6069/kcarM_60698386_001.jpg?1659496931755"
 												alt="챠량이미지"
 												onerror="this.src='/images/search/bg_no_Img_lg.png'"
 												loading="lazy">
@@ -368,16 +1023,16 @@
 									<div class="detailInfo">
 										<div class="carName">
 											<h3>
-												아우디 A6 (C8) <br>디젤 4WD 45 TDI 콰트로 프리미엄
+												볼보 XC60 2세대 <br>D5 인스크립션
 											</h3>
 										</div>
 										<div class="carListFlex">
 											<div class="carExpIn">
-												<p class="carExp">6,900만원</p>
+												<p class="carExp">5,250만원</p>
 											</div>
 											<p class="detailCarCon">
-												<span class="block">22년 6월식</span> <span>19km</span> <span>디젤</span>
-												<span>코오롱아우토(주) 서대구 전시장</span>
+												<span class="block">19년 10월식(20년형) </span> <span>65,170km</span>
+												<span>디젤</span> <span>코오롱오토모티브(주) 김포 인증 중고차 전시장</span>
 											</p>
 										</div>
 										<ul class="infoTooltip">
@@ -385,141 +1040,31 @@
 											<!---->
 											<li><button type="button"
 													class="el-button el-tooltip yellowLabel item el-button--default"
-													aria-describedby="el-tooltip-8731" tabindex="0">
-													<!---->
-													<!---->
-													<span> 브랜드 인증 </span>
-												</button></li>
-											<!---->
-											<!---->
-										</ul>
-									</div>
-								</div>
-								<div class="carListBox" style="cursor: pointer;">
-									<!---->
-									<div class="carListImg" style="cursor: pointer;">
-										<!---->
-										<div>
-											<img
-												src="https://img.kcar.com/BrandCertificationMall/carpicture09/pic6069/kcarM_60698020_001.jpg?1659351513221"
-												alt="챠량이미지"
-												onerror="this.src='/images/search/bg_no_Img_lg.png'"
-												loading="lazy">
-										</div>
-										<ul class="listViewBtn">
-											<li><button type="button"
-													class="el-button el-button--default icon icoFav"
-													id="mkt_brandAddWish">
-													<!---->
-													<!---->
-													<span><span class="_hidden">찜하기</span></span>
-												</button></li>
-										</ul>
-									</div>
-									<ul class="listViewLabel">
-										<!---->
-										<!---->
-									</ul>
-									<div class="detailInfo">
-										<div class="carName">
-											<h3>
-												벤츠 S-클래스 W223 <br>디젤 2WD S350d
-											</h3>
-										</div>
-										<div class="carListFlex">
-											<div class="carExpIn">
-												<p class="carExp">13,500만원</p>
-											</div>
-											<p class="detailCarCon">
-												<span class="block">21년 5월식</span> <span>2,546km</span> <span>디젤</span>
-												<span>더클래스 효성 죽전 전시장</span>
-											</p>
-										</div>
-										<ul class="infoTooltip">
-											<!---->
-											<!---->
-											<li><button type="button"
-													class="el-button el-tooltip yellowLabel item el-button--default"
-													aria-describedby="el-tooltip-5500" tabindex="0">
-													<!---->
-													<!---->
-													<span> 브랜드 인증 </span>
-												</button></li>
-											<!---->
-											<!---->
-										</ul>
-									</div>
-								</div>
-								<div class="carListBox" style="cursor: pointer;">
-									<!---->
-									<div class="carListImg" style="cursor: pointer;">
-										<!---->
-										<div>
-											<img
-												src="https://img.kcar.com/BrandCertificationMall/carpicture09/pic6069/kcarM_60695823_001.jpg?1659351513221"
-												alt="챠량이미지"
-												onerror="this.src='/images/search/bg_no_Img_lg.png'"
-												loading="lazy">
-										</div>
-										<ul class="listViewBtn">
-											<li><button type="button"
-													class="el-button el-button--default icon icoFav"
-													id="mkt_brandAddWish">
-													<!---->
-													<!---->
-													<span><span class="_hidden">찜하기</span></span>
-												</button></li>
-										</ul>
-									</div>
-									<ul class="listViewLabel">
-										<!---->
-										<!---->
-									</ul>
-									<div class="detailInfo">
-										<div class="carName">
-											<h3>
-												포드 익스플로러 6세대 <br>가솔린 4WD 3.0 PHEV
-											</h3>
-										</div>
-										<div class="carListFlex">
-											<div class="carExpIn">
-												<p class="carExp">6,150만원</p>
-											</div>
-											<p class="detailCarCon">
-												<span class="block">20년 8월식</span> <span>19,474km</span> <span>가솔린+전기</span>
-												<span>세양물류㈜ 동대문 전시장</span>
-											</p>
-										</div>
-										<ul class="infoTooltip">
-											<!---->
-											<!---->
-											<li><button type="button"
-													class="el-button el-tooltip yellowLabel item el-button--default"
-													aria-describedby="el-tooltip-8663" tabindex="0">
+													aria-describedby="el-tooltip-1962" tabindex="0">
 													<!---->
 													<!---->
 													<span> 브랜드 인증 </span>
 												</button></li>
 											<li><button type="button"
 													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-3008" tabindex="0">
+													aria-describedby="el-tooltip-8669" tabindex="0">
 													<!---->
 													<!---->
-													<span> 제조사AS </span>
+													<span> 특옵션 </span>
 												</button></li>
 											<li><button type="button"
 													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-4727" tabindex="0">
+													aria-describedby="el-tooltip-53" tabindex="0">
 													<!---->
 													<!---->
 													<span> 4WD </span>
 												</button></li>
 											<li><button type="button"
 													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-4474" tabindex="0">
+													aria-describedby="el-tooltip-8743" tabindex="0">
 													<!---->
 													<!---->
-													<span> 7인승 </span>
+													<span> 주행보조 </span>
 												</button></li>
 											<!---->
 											<!---->
@@ -532,7 +1077,7 @@
 										<!---->
 										<div>
 											<img
-												src="https://img.kcar.com/BrandCertificationMall/carpicture09/pic6069/kcarM_60696987_001.jpg?1659351513221"
+												src="https://img.kcar.com/BrandCertificationMall/carpicture08/pic6068/kcarM_60685196_001.jpg?1659496931755"
 												alt="챠량이미지"
 												onerror="this.src='/images/search/bg_no_Img_lg.png'"
 												loading="lazy">
@@ -554,16 +1099,16 @@
 									<div class="detailInfo">
 										<div class="carName">
 											<h3>
-												벤츠 CLS-클래스 C257 <br>CLS450 4MATIC AMG Line
+												볼보 XC60 2세대 <br>D5 인스크립션
 											</h3>
 										</div>
 										<div class="carListFlex">
 											<div class="carExpIn">
-												<p class="carExp">9,900만원</p>
+												<p class="carExp">5,100만원</p>
 											</div>
 											<p class="detailCarCon">
-												<span class="block">21년 7월식</span> <span>17,354km</span> <span>가솔린</span>
-												<span>한성자동차(주) 성산 전시장</span>
+												<span class="block">19년 5월식</span> <span>56,385km</span> <span>디젤</span>
+												<span>에이치모터스(주) 수원 전시장</span>
 											</p>
 										</div>
 										<ul class="infoTooltip">
@@ -571,109 +1116,28 @@
 											<!---->
 											<li><button type="button"
 													class="el-button el-tooltip yellowLabel item el-button--default"
-													aria-describedby="el-tooltip-4905" tabindex="0">
+													aria-describedby="el-tooltip-3333" tabindex="0">
 													<!---->
 													<!---->
 													<span> 브랜드 인증 </span>
 												</button></li>
 											<li><button type="button"
 													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-2351" tabindex="0">
+													aria-describedby="el-tooltip-3075" tabindex="0">
 													<!---->
 													<!---->
-													<span> 세금계산서 </span>
+													<span> 특옵션 </span>
 												</button></li>
 											<li><button type="button"
 													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-9846" tabindex="0">
-													<!---->
-													<!---->
-													<span> 제조사AS </span>
-												</button></li>
-											<li><button type="button"
-													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-662" tabindex="0">
-													<!---->
-													<!---->
-													<span> 4WD </span>
-												</button></li>
-											<!---->
-											<!---->
-										</ul>
-									</div>
-								</div>
-								<div class="carListBox" style="cursor: pointer;">
-									<!---->
-									<div class="carListImg" style="cursor: pointer;">
-										<!---->
-										<div>
-											<img
-												src="https://img.kcar.com/BrandCertificationMall/carpicture09/pic6069/kcarM_60698259_001.jpg?1659351513221"
-												alt="챠량이미지"
-												onerror="this.src='/images/search/bg_no_Img_lg.png'"
-												loading="lazy">
-										</div>
-										<ul class="listViewBtn">
-											<li><button type="button"
-													class="el-button el-button--default icon icoFav"
-													id="mkt_brandAddWish">
-													<!---->
-													<!---->
-													<span><span class="_hidden">찜하기</span></span>
-												</button></li>
-										</ul>
-									</div>
-									<ul class="listViewLabel">
-										<!---->
-										<!---->
-									</ul>
-									<div class="detailInfo">
-										<div class="carName">
-											<h3>
-												BMW X2 (F39) <br>가솔린 4WD xDrive20i 어드벤티지
-											</h3>
-										</div>
-										<div class="carListFlex">
-											<div class="carExpIn">
-												<p class="carExp">
-													리스료 <span class="textRed">월 66만원</span>
-												</p>
-												<ul>
-													<li>인수금 <strong class="textRed">0만원</strong></li>
-												</ul>
-											</div>
-											<p class="detailCarCon">
-												<span class="block">22년 4월식</span> <span>4,547km</span> <span>가솔린</span>
-												<span>바바리안 모터스 인천 전시장</span>
-											</p>
-										</div>
-										<ul class="infoTooltip">
-											<!---->
-											<!---->
-											<li><button type="button"
-													class="el-button el-tooltip yellowLabel item el-button--default"
-													aria-describedby="el-tooltip-7826" tabindex="0">
-													<!---->
-													<!---->
-													<span> 브랜드 인증 </span>
-												</button></li>
-											<li><button type="button"
-													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-6773" tabindex="0">
-													<!---->
-													<!---->
-													<span> 신차급 </span>
-												</button></li>
-											<li><button type="button"
-													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-8467" tabindex="0">
+													aria-describedby="el-tooltip-7401" tabindex="0">
 													<!---->
 													<!---->
 													<span> 짧은km </span>
 												</button></li>
 											<li><button type="button"
 													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-5709" tabindex="0">
+													aria-describedby="el-tooltip-8459" tabindex="0">
 													<!---->
 													<!---->
 													<span> 제조사AS </span>
@@ -689,7 +1153,7 @@
 										<!---->
 										<div>
 											<img
-												src="https://img.kcar.com/BrandCertificationMall/carpicture10/pic6070/kcarM_60704383_001.jpg?1659351513221"
+												src="https://img.kcar.com/BrandCertificationMall/carpicture09/pic6069/kcarM_60698603_001.jpg?1659496931755"
 												alt="챠량이미지"
 												onerror="this.src='/images/search/bg_no_Img_lg.png'"
 												loading="lazy">
@@ -711,16 +1175,16 @@
 									<div class="detailInfo">
 										<div class="carName">
 											<h3>
-												BMW 7시리즈 (G11 F/L) <br>디젤 4WD 730Ld xDrive M 스포츠
+												볼보 XC90 2세대 <br>T6 인스크립션
 											</h3>
 										</div>
 										<div class="carListFlex">
 											<div class="carExpIn">
-												<p class="carExp">10,250만원</p>
+												<p class="carExp">7,300만원</p>
 											</div>
 											<p class="detailCarCon">
-												<span class="block">21년 6월식</span> <span>29,930km</span> <span>디젤</span>
-												<span>바바리안 모터스 김포 전시장</span>
+												<span class="block">19년 7월식</span> <span>34,529km</span> <span>가솔린</span>
+												<span>코오롱오토모티브(주) 김포 인증 중고차 전시장</span>
 											</p>
 										</div>
 										<ul class="infoTooltip">
@@ -728,159 +1192,7 @@
 											<!---->
 											<li><button type="button"
 													class="el-button el-tooltip yellowLabel item el-button--default"
-													aria-describedby="el-tooltip-9150" tabindex="0">
-													<!---->
-													<!---->
-													<span> 브랜드 인증 </span>
-												</button></li>
-											<li><button type="button"
-													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-1828" tabindex="0">
-													<!---->
-													<!---->
-													<span> 1인소유 </span>
-												</button></li>
-											<li><button type="button"
-													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-489" tabindex="0">
-													<!---->
-													<!---->
-													<span> 세제혜택 </span>
-												</button></li>
-											<li><button type="button"
-													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-9617" tabindex="0">
-													<!---->
-													<!---->
-													<span> 브라운시트 </span>
-												</button></li>
-											<!---->
-											<!---->
-										</ul>
-									</div>
-								</div>
-								<div class="carListBox" style="cursor: pointer;">
-									<!---->
-									<div class="carListImg" style="cursor: pointer;">
-										<!---->
-										<div>
-											<img
-												src="https://img.kcar.com/BrandCertificationMall/carpicture06/pic6066/kcarM_60667012_001.jpg?1659351513221"
-												alt="챠량이미지"
-												onerror="this.src='/images/search/bg_no_Img_lg.png'"
-												loading="lazy">
-										</div>
-										<ul class="listViewBtn">
-											<li><button type="button"
-													class="el-button el-button--default icon icoFav"
-													id="mkt_brandAddWish">
-													<!---->
-													<!---->
-													<span><span class="_hidden">찜하기</span></span>
-												</button></li>
-										</ul>
-									</div>
-									<ul class="listViewLabel">
-										<!---->
-										<!---->
-									</ul>
-									<div class="detailInfo">
-										<div class="carName">
-											<h3>
-												BMW 2시리즈 그란쿠페 (F44) <br>가솔린 4WD M235i xDrive
-											</h3>
-										</div>
-										<div class="carListFlex">
-											<div class="carExpIn">
-												<p class="carExp">4,090만원</p>
-											</div>
-											<p class="detailCarCon">
-												<span class="block">21년 1월식</span> <span>24,058km</span> <span>가솔린</span>
-												<span>도이치모터스 수원 오토월드 전시장</span>
-											</p>
-										</div>
-										<ul class="infoTooltip">
-											<!---->
-											<!---->
-											<li><button type="button"
-													class="el-button el-tooltip yellowLabel item el-button--default"
-													aria-describedby="el-tooltip-4633" tabindex="0">
-													<!---->
-													<!---->
-													<span> 브랜드 인증 </span>
-												</button></li>
-											<li><button type="button"
-													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-9186" tabindex="0">
-													<!---->
-													<!---->
-													<span> 신차급 </span>
-												</button></li>
-											<li><button type="button"
-													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-941" tabindex="0">
-													<!---->
-													<!---->
-													<span> 제조사AS </span>
-												</button></li>
-											<li><button type="button"
-													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-9818" tabindex="0">
-													<!---->
-													<!---->
-													<span> 4WD </span>
-												</button></li>
-											<!---->
-											<!---->
-										</ul>
-									</div>
-								</div>
-								<div class="carListBox" style="cursor: pointer;">
-									<!---->
-									<div class="carListImg" style="cursor: pointer;">
-										<!---->
-										<div>
-											<img
-												src="https://img.kcar.com/BrandCertificationMall/carpicture09/pic6069/kcarM_60693196_001.jpg?1659351513221"
-												alt="챠량이미지"
-												onerror="this.src='/images/search/bg_no_Img_lg.png'"
-												loading="lazy">
-										</div>
-										<ul class="listViewBtn">
-											<li><button type="button"
-													class="el-button el-button--default icon icoFav"
-													id="mkt_brandAddWish">
-													<!---->
-													<!---->
-													<span><span class="_hidden">찜하기</span></span>
-												</button></li>
-										</ul>
-									</div>
-									<ul class="listViewLabel">
-										<!---->
-										<!---->
-									</ul>
-									<div class="detailInfo">
-										<div class="carName">
-											<h3>
-												벤츠 A-클래스 W177 <br>가솔린 2WD A220 해치백
-											</h3>
-										</div>
-										<div class="carListFlex">
-											<div class="carExpIn">
-												<p class="carExp">3,050만원</p>
-											</div>
-											<p class="detailCarCon">
-												<span class="block">19년 11월식</span> <span>37,868km</span> <span>가솔린</span>
-												<span>모터원 고양 전시장</span>
-											</p>
-										</div>
-										<ul class="infoTooltip">
-											<!---->
-											<!---->
-											<li><button type="button"
-													class="el-button el-tooltip yellowLabel item el-button--default"
-													aria-describedby="el-tooltip-7" tabindex="0">
+													aria-describedby="el-tooltip-9091" tabindex="0">
 													<!---->
 													<!---->
 													<span> 브랜드 인증 </span>
@@ -896,7 +1208,7 @@
 										<!---->
 										<div>
 											<img
-												src="https://img.kcar.com/BrandCertificationMall/carpicture09/pic6069/kcarM_60696974_001.jpg?1659351513221"
+												src="https://img.kcar.com/BrandCertificationMall/carpicture08/pic6068/kcarM_60684682_001.jpg?1659496931755"
 												alt="챠량이미지"
 												onerror="this.src='/images/search/bg_no_Img_lg.png'"
 												loading="lazy">
@@ -918,69 +1230,7 @@
 									<div class="detailInfo">
 										<div class="carName">
 											<h3>
-												벤츠 E-클래스 W213 <br>E350 4MATIC 아방가르드
-											</h3>
-										</div>
-										<div class="carListFlex">
-											<div class="carExpIn">
-												<p class="carExp">7,950만원</p>
-											</div>
-											<p class="detailCarCon">
-												<span class="block">22년 2월식</span> <span>1,714km</span> <span>가솔린</span>
-												<span>한성자동차(주) 인천 전시장</span>
-											</p>
-										</div>
-										<ul class="infoTooltip">
-											<!---->
-											<!---->
-											<li><button type="button"
-													class="el-button el-tooltip yellowLabel item el-button--default"
-													aria-describedby="el-tooltip-454" tabindex="0">
-													<!---->
-													<!---->
-													<span> 브랜드 인증 </span>
-												</button></li>
-											<li><button type="button"
-													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-3203" tabindex="0">
-													<!---->
-													<!---->
-													<span> 4WD </span>
-												</button></li>
-											<!---->
-											<!---->
-										</ul>
-									</div>
-								</div>
-								<div class="carListBox" style="cursor: pointer;">
-									<!---->
-									<div class="carListImg" style="cursor: pointer;">
-										<!---->
-										<div>
-											<img
-												src="https://img.kcar.com/BrandCertificationMall/carpicture10/pic6070/kcarM_60701521_001.jpg?1659351513221"
-												alt="챠량이미지"
-												onerror="this.src='/images/search/bg_no_Img_lg.png'"
-												loading="lazy">
-										</div>
-										<ul class="listViewBtn">
-											<li><button type="button"
-													class="el-button el-button--default icon icoFav"
-													id="mkt_brandAddWish">
-													<!---->
-													<!---->
-													<span><span class="_hidden">찜하기</span></span>
-												</button></li>
-										</ul>
-									</div>
-									<ul class="listViewLabel">
-										<!---->
-										<!---->
-									</ul>
-									<div class="detailInfo">
-										<div class="carName">
-											<h3>
-												BMW 5시리즈 (G30) <br>520d M 스포츠 플러스
+												볼보 XC40 <br>B4 인스크립션
 											</h3>
 										</div>
 										<div class="carListFlex">
@@ -988,8 +1238,8 @@
 												<p class="carExp">4,950만원</p>
 											</div>
 											<p class="detailCarCon">
-												<span class="block">20년 6월식</span> <span>29,045km</span> <span>디젤</span>
-												<span>도이치모터스 양재 전시장</span>
+												<span class="block">21년 11월식(22년형) </span> <span>4,885km</span>
+												<span>가솔린+전기</span> <span>코오롱오토모티브(주) 김포 인증 중고차 전시장</span>
 											</p>
 										</div>
 										<ul class="infoTooltip">
@@ -997,243 +1247,31 @@
 											<!---->
 											<li><button type="button"
 													class="el-button el-tooltip yellowLabel item el-button--default"
-													aria-describedby="el-tooltip-3010" tabindex="0">
+													aria-describedby="el-tooltip-6456" tabindex="0">
 													<!---->
 													<!---->
 													<span> 브랜드 인증 </span>
 												</button></li>
 											<li><button type="button"
 													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-2295" tabindex="0">
-													<!---->
-													<!---->
-													<span> 짧은km </span>
-												</button></li>
-											<li><button type="button"
-													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-5694" tabindex="0">
-													<!---->
-													<!---->
-													<span> 제조사AS </span>
-												</button></li>
-											<li><button type="button"
-													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-9122" tabindex="0">
-													<!---->
-													<!---->
-													<span> 1인소유 </span>
-												</button></li>
-											<!---->
-											<!---->
-										</ul>
-									</div>
-								</div>
-								<div class="carListBox" style="cursor: pointer;">
-									<!---->
-									<div class="carListImg" style="cursor: pointer;">
-										<!---->
-										<div>
-											<img
-												src="https://img.kcar.com/BrandCertificationMall/carpicture10/pic6070/kcarM_60702690_001.jpg?1659351513221"
-												alt="챠량이미지"
-												onerror="this.src='/images/search/bg_no_Img_lg.png'"
-												loading="lazy">
-										</div>
-										<ul class="listViewBtn">
-											<li><button type="button"
-													class="el-button el-button--default icon icoFav"
-													id="mkt_brandAddWish">
-													<!---->
-													<!---->
-													<span><span class="_hidden">찜하기</span></span>
-												</button></li>
-										</ul>
-									</div>
-									<ul class="listViewLabel">
-										<!---->
-										<!---->
-									</ul>
-									<div class="detailInfo">
-										<div class="carName">
-											<h3>
-												BMW 3시리즈 (G20) <br>디젤 2WD 320d M 스포츠
-											</h3>
-										</div>
-										<div class="carListFlex">
-											<div class="carExpIn">
-												<p class="carExp">
-													리스료 <span class="textRed">월 66만원</span>
-												</p>
-												<ul>
-													<li>인수금 <strong class="textRed">0만원</strong></li>
-												</ul>
-											</div>
-											<p class="detailCarCon">
-												<span class="block">20년 12월식(21년형) </span> <span>20,000km</span>
-												<span>디젤</span> <span>바바리안 모터스 일산 전시장</span>
-											</p>
-										</div>
-										<ul class="infoTooltip">
-											<!---->
-											<!---->
-											<li><button type="button"
-													class="el-button el-tooltip yellowLabel item el-button--default"
-													aria-describedby="el-tooltip-7361" tabindex="0">
-													<!---->
-													<!---->
-													<span> 브랜드 인증 </span>
-												</button></li>
-											<li><button type="button"
-													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-1339" tabindex="0">
-													<!---->
-													<!---->
-													<span> 1인소유 </span>
-												</button></li>
-											<li><button type="button"
-													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-9463" tabindex="0">
-													<!---->
-													<!---->
-													<span> 제조사AS </span>
-												</button></li>
-											<li><button type="button"
-													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-1170" tabindex="0">
+													aria-describedby="el-tooltip-1378" tabindex="0">
 													<!---->
 													<!---->
 													<span> 신차급 </span>
 												</button></li>
-											<!---->
-											<!---->
-										</ul>
-									</div>
-								</div>
-								<div class="carListBox" style="cursor: pointer;">
-									<!---->
-									<div class="carListImg" style="cursor: pointer;">
-										<!---->
-										<div>
-											<img
-												src="https://img.kcar.com/BrandCertificationMall/carpicture07/pic6067/kcarM_60674902_001.jpg?1659351513221"
-												alt="챠량이미지"
-												onerror="this.src='/images/search/bg_no_Img_lg.png'"
-												loading="lazy">
-										</div>
-										<ul class="listViewBtn">
 											<li><button type="button"
-													class="el-button el-button--default icon icoFav"
-													id="mkt_brandAddWish">
+													class="el-button el-tooltip grayLabel item el-button--default"
+													aria-describedby="el-tooltip-1642" tabindex="0">
 													<!---->
 													<!---->
-													<span><span class="_hidden">찜하기</span></span>
-												</button></li>
-										</ul>
-									</div>
-									<ul class="listViewLabel">
-										<!---->
-										<!---->
-									</ul>
-									<div class="detailInfo">
-										<div class="carName">
-											<h3>
-												벤츠 GLC-클래스 X253 <br>GLC220 d 4MATIC
-											</h3>
-										</div>
-										<div class="carListFlex">
-											<div class="carExpIn">
-												<p class="carExp">5,800만원</p>
-											</div>
-											<p class="detailCarCon">
-												<span class="block">20년 10월식</span> <span>34,250km</span> <span>디젤</span>
-												<span>더클래스 효성 죽전 전시장</span>
-											</p>
-										</div>
-										<ul class="infoTooltip">
-											<!---->
-											<!---->
-											<li><button type="button"
-													class="el-button el-tooltip yellowLabel item el-button--default"
-													aria-describedby="el-tooltip-1706" tabindex="0">
-													<!---->
-													<!---->
-													<span> 브랜드 인증 </span>
-												</button></li>
-											<!---->
-											<!---->
-										</ul>
-									</div>
-								</div>
-								<div class="carListBox" style="cursor: pointer;">
-									<!---->
-									<div class="carListImg" style="cursor: pointer;">
-										<!---->
-										<div>
-											<img
-												src="https://img.kcar.com/BrandCertificationMall/carpicture09/pic6069/kcarM_60699712_001.jpg?1659351513221"
-												alt="챠량이미지"
-												onerror="this.src='/images/search/bg_no_Img_lg.png'"
-												loading="lazy">
-										</div>
-										<ul class="listViewBtn">
-											<li><button type="button"
-													class="el-button el-button--default icon icoFav"
-													id="mkt_brandAddWish">
-													<!---->
-													<!---->
-													<span><span class="_hidden">찜하기</span></span>
-												</button></li>
-										</ul>
-									</div>
-									<ul class="listViewLabel">
-										<!---->
-										<!---->
-									</ul>
-									<div class="detailInfo">
-										<div class="carName">
-											<h3>
-												벤츠 E-클래스 W213 <br>E250 아방가르드
-											</h3>
-										</div>
-										<div class="carListFlex">
-											<div class="carExpIn">
-												<p class="carExp">4,750만원</p>
-											</div>
-											<p class="detailCarCon">
-												<span class="block">20년 2월식</span> <span>44,227km</span> <span>가솔린</span>
-												<span>더클래스 효성 천안 전시장</span>
-											</p>
-										</div>
-										<ul class="infoTooltip">
-											<!---->
-											<!---->
-											<li><button type="button"
-													class="el-button el-tooltip yellowLabel item el-button--default"
-													aria-describedby="el-tooltip-4315" tabindex="0">
-													<!---->
-													<!---->
-													<span> 브랜드 인증 </span>
+													<span> 특옵션 </span>
 												</button></li>
 											<li><button type="button"
 													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-2980" tabindex="0">
+													aria-describedby="el-tooltip-4646" tabindex="0">
 													<!---->
 													<!---->
-													<span> 세금계산서 </span>
-												</button></li>
-											<li><button type="button"
-													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-6995" tabindex="0">
-													<!---->
-													<!---->
-													<span> 보증연장 </span>
-												</button></li>
-											<li><button type="button"
-													class="el-button el-tooltip grayLabel item el-button--default"
-													aria-describedby="el-tooltip-7122" tabindex="0">
-													<!---->
-													<!---->
-													<span> 브라운시트 </span>
+													<span> 짧은km </span>
 												</button></li>
 											<!---->
 											<!---->
@@ -1241,11 +1279,11 @@
 									</div>
 								</div>
 							</div>
-							<div class="pagination -sm mB160">
+							<div class="pagination -sm">
 								<div class="pagination -sm">
 									<!---->
 									<div class="pagingNum">
-										<span class="textRed">1</span> / 67
+										<span class="textRed">1</span> / 2
 									</div>
 									<button type="button"
 										class="el-button pageNext el-button--default">
@@ -1257,141 +1295,14 @@
 								</div>
 							</div>
 						</div>
-						<div>
-							<div class="faqWrap">
-								<div class="infoTitleWrap infoTitleWrap2 mb40">
-									<h2 class="infoTitle">자주 묻는 질문</h2>
-									<a class="moreBtn el-link el-link--default is-underline">
-										<!---->
-										<span class="el-link--inner"> 전체보기<i
-											class="el-icon-arrow-right"></i></span>
-									<!---->
-									</a>
-								</div>
-								<div role="tablist" aria-multiselectable="true"
-									class="el-collapse faqList">
-									<div class="el-collapse-item">
-										<div role="tab" aria-controls="el-collapse-content-3095"
-											aria-describedby="el-collapse-content-3095">
-											<div role="button" id="el-collapse-head-3095" tabindex="0"
-												class="el-collapse-item__header">
-												<i class="el-icon-Q"></i> <span>브랜드 인증 중고차 구매상담은 어디서
-													받나요?</span><i class="el-collapse-item__arrow el-icon-arrow-right"></i>
-											</div>
-										</div>
-										<div role="tabpanel" aria-hidden="true"
-											aria-labelledby="el-collapse-head-3095"
-											id="el-collapse-content-3095" class="el-collapse-item__wrap"
-											style="display: none;">
-											<div class="el-collapse-item__content">
-												<div>
-													<i class="el-icon-A"></i>
-													<div class="faqA">
-														브랜드 인증중고차는 공식 딜러사의 까다로운 품질 기준을 통과하여 공식 인증을 받아야만 판매할 수 있는
-														차량입니다. 다음과 같은 장점이 있습니다. <br>1. 수입차 브랜드·공식 딜러사가 직접 품질을
-														점검하기 때문에 믿고 구매할 수 있습니다. 필요 시 브랜드별 자세한 점검 기준과 정비 이력도 받으실 수
-														있습니다. <br>2. 브랜드가 전문적으로 관리하여 상품화를 마친 차량이기에 최상의 상태로
-														구매할 수 있습니다. <br>3. 브랜드의 품질보증서비스가 제공되어 구매 후 안심하고 운행할 수
-														있습니다.
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="el-collapse-item">
-										<div role="tab" aria-controls="el-collapse-content-2604"
-											aria-describedby="el-collapse-content-2604">
-											<div role="button" id="el-collapse-head-2604" tabindex="0"
-												class="el-collapse-item__header">
-												<i class="el-icon-Q"></i> <span>브랜드 인증 중고차는 무엇이 좋나요?</span><i
-													class="el-collapse-item__arrow el-icon-arrow-right"></i>
-											</div>
-										</div>
-										<div role="tabpanel" aria-hidden="true"
-											aria-labelledby="el-collapse-head-2604"
-											id="el-collapse-content-2604" class="el-collapse-item__wrap"
-											style="display: none;">
-											<div class="el-collapse-item__content">
-												<div>
-													<i class="el-icon-A"></i>
-													<div class="faqA">
-														해당 브랜드 인증중고차의 판매담당자를 통하여 구매상담을 진행해주시면 됩니다. 상담을 희망하는 차량의
-														상세정보에서 판매담당자의 연락처 확인이 가능하오니 해당 번호로 연락하셔서 자세한 상담을 진행해보세요. <br>
-														<span class="pointC">※ K Car는 광고등록 시스템만을 제공할 뿐, 차량
-															구매 상담은 인증중고차 판매담당자와 진행 해 주셔야 합니다. 따라서 브랜드 인증중고차의 구입 관련
-															문의는 해당 딜러사에 문의해주세요.</span>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="el-collapse-item">
-										<div role="tab" aria-controls="el-collapse-content-7528"
-											aria-describedby="el-collapse-content-7528">
-											<div role="button" id="el-collapse-head-7528" tabindex="0"
-												class="el-collapse-item__header">
-												<i class="el-icon-Q"></i> <span>브랜드 인증 중고차 A/S는 어떻게
-													받을 수 있나요?</span><i
-													class="el-collapse-item__arrow el-icon-arrow-right"></i>
-											</div>
-										</div>
-										<div role="tabpanel" aria-hidden="true"
-											aria-labelledby="el-collapse-head-7528"
-											id="el-collapse-content-7528" class="el-collapse-item__wrap"
-											style="display: none;">
-											<div class="el-collapse-item__content">
-												<div>
-													<i class="el-icon-A"></i>
-													<div class="faqA">
-														구입시 상담을 진행한 인증중고차 판매 담당자 혹은 딜러사로 연락하여 A/S 상담을 진행 해 주세요. <br>
-														<span class="pointC">※ 브랜드 인증중고차는 수입 딜러사의 공식 인증중고차
-															판매부서에서 품질보증이 진행되는 차량으로, 해당 딜러사 판매담당자를 통해 A/S를 제공합니다.</span>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="el-collapse-item">
-										<div role="tab" aria-controls="el-collapse-content-3338"
-											aria-describedby="el-collapse-content-3338">
-											<div role="button" id="el-collapse-head-3338" tabindex="0"
-												class="el-collapse-item__header">
-												<i class="el-icon-Q"></i> <span>리스 승계가 무엇인가요?</span><i
-													class="el-collapse-item__arrow el-icon-arrow-right"></i>
-											</div>
-										</div>
-										<div role="tabpanel" aria-hidden="true"
-											aria-labelledby="el-collapse-head-3338"
-											id="el-collapse-content-3338" class="el-collapse-item__wrap"
-											style="display: none;">
-											<div class="el-collapse-item__content">
-												<div>
-													<i class="el-icon-A"></i>
-													<div class="faqA">
-														리스승계란 다른 사람이 금융사의 리스상품을 이용하여 신차 혹은 중고차를 구입하여 운행중인 자동차를 동일한
-														조건으로 넘겨 받아 리스 잔여기간 동안 리스사에 월 단위로 납입금과 이자를 지불하고 차량을 이용하는
-														방식입니다. <br>리스기간 종료 후 운행하던 자동차를 인수 혹은 반납을 할 수 있습니다. <br>반드시
-														리스 승계 조건, 위약금, 차량 상태 등을 판매 담당자와 꼼꼼히 확인하세요.
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="carBrandBox">
-							<h5>브랜드 인증관 입점 문의</h5>
-							<p>partnership@kcar.com</p>
-						</div>
 					</div>
 					<div>
 						<div class="el-dialog__wrapper popup popCenter wid480 hfix active"
 							style="display: none;">
-							<div role="dialog" aria-modal="true" aria-label="제조사 선택"
+							<div role="dialog" aria-modal="true" aria-label="모델 선택"
 								class="el-dialog" style="margin-top: 15vh;">
 								<div class="el-dialog__header">
-									<span class="el-dialog__title">제조사 선택</span>
+									<span class="el-dialog__title">모델 선택</span>
 									<button type="button" aria-label="Close"
 										class="el-dialog__headerbtn">
 										<i class="el-dialog__close el-icon el-icon-close"></i>
@@ -1408,23 +1319,6 @@
 							</div>
 						</div>
 					</div>
-					<div class="el-dialog__wrapper popup confirm noTitle"
-						style="display: none;">
-						<div role="dialog" aria-modal="true" aria-label="dialog"
-							class="el-dialog" style="margin-top: 15vh;">
-							<div class="el-dialog__header">
-								<span class="el-dialog__title"></span>
-								<button type="button" aria-label="Close"
-									class="el-dialog__headerbtn">
-									<i class="el-dialog__close el-icon el-icon-close"></i>
-								</button>
-							</div>
-							<!---->
-							<div class="el-dialog__footer">
-								<span class="dialog-footer"><div></div></span>
-							</div>
-						</div>
-					</div>
 				</div>
 				<!-- footer start -->
 				<%@include file="/WEB-INF/default/footer.jsp" %>
@@ -1432,10 +1326,8 @@
 			</div>
 		</div>
 	</div>
-	<iframe id="groobeeBox" name="groobeeBox" style="display: none;"></iframe>
-	<div id="criteo-tags-div" style="display: none;"></div>
 	<div class="el-menu--horizontal gnbSubMenu typeCenter1"
-		style="position: absolute; top: 106px; left: 190px; z-index: 2036; display: none;"
+		style="position: absolute; top: 106px; left: 253px; z-index: 2010; display: none;"
 		x-placement="bottom-start">
 		<ul role="menu"
 			class="el-menu el-menu--popup el-menu--popup-bottom-start">

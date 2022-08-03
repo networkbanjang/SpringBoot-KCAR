@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.one.kcar.dao.buy.IBrandDAO">
+	<select id="brandCarList" parameterType="String" resultType="com.one.kcar.dto.buy.CarDTO">
+		SELECT * FROM KCAR_CAR WHERE cb_brand=#{brand} 
+	</select>
+	<select id="brandModelList" parameterType="String" resultType="com.one.kcar.dto.buy.CarDTO">
+		SELECT cb_m_model FROM KCAR_CARBRAND_MODEL WHERE cb_brand=#{brand}
+	</select>
+		<select id="brandCarAllList" resultType="com.one.kcar.dto.buy.CarDTO">
+		SELECT c.* FROM KCAR_CAR c LEFT JOIN KCAR_CARBRAND cb on c.cb_brand = cb.cb_brand and cb.cb_domestic = 'n'
+	</select>
+	<select id="brandModelAllList" resultType="com.one.kcar.dto.buy.CarDTO">
+		SELECT * FROM KCAR_CARBRAND_MODEL WHERE cb_domestic='n' <!-- 특정브랜드가 아니고 전체 브랜드라 필터기능시 브랜드항목도 추가해야하기 떄문에 브랜드컬럼도 가져오기 -->
+	</select>
+</mapper>
