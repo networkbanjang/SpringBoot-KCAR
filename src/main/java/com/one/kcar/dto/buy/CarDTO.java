@@ -33,6 +33,7 @@ public class CarDTO {
 	private String c_acident;
 	private String c_seat;
 	private String c_rent;
+	private String c_photo;
 	private String st_name;
 	
 //	c_i_certified	varchar2(20)	default '브랜드인증'	브랜드인증
@@ -44,14 +45,14 @@ public class CarDTO {
 //	c_i_specialOption	varchar2(15)	default '특옵션'	특옵션
 //	c_i_rent	varchar2(15)	default '렌트'	렌트
 
-	private String c_i_certified;
-	private String c_i_distance;
-	private String c_i_newCar;
-	private String c_i_fourWheel;
-	private String c_i_maintenance;
-	private String c_i_oneOwner;
-	private String c_i_specialOption;
-	private String c_i_rent;
+	private String c_t_certified;
+	private String c_t_distance;
+	private String c_t_newCar;
+	private String c_t_fourWheel;
+	private String c_t_maintenance;
+	private String c_t_oneOwner;
+	private String c_t_specialOption;
+	private String c_t_rent;
 	
 	ArrayList<String> brandCarInfoTag;
 	
@@ -157,55 +158,61 @@ public class CarDTO {
 	public void setSt_name(String st_name) {
 		this.st_name = st_name;
 	}
-	public String getC_i_certified() {
-		return c_i_certified;
-	}
-	public void setC_i_certified(String c_i_certified) {
-		this.c_i_certified = c_i_certified;
-	}
-	public String getC_i_distance() {
-		return c_i_distance;
-	}
-	public void setC_i_distance(String c_i_distance) {
-		this.c_i_distance = c_i_distance;
-	}
-	public String getC_i_newCar() {
-		return c_i_newCar;
-	}
-	public void setC_i_newCar(String c_i_newCar) {
-		this.c_i_newCar = c_i_newCar;
-	}
-	public String getC_i_fourWheel() {
-		return c_i_fourWheel;
-	}
-	public void setC_i_fourWheel(String c_i_fourWheel) {
-		this.c_i_fourWheel = c_i_fourWheel;
-	}
-	public String getC_i_maintenance() {
-		return c_i_maintenance;
-	}
-	public void setC_i_maintenance(String c_i_maintenance) {
-		this.c_i_maintenance = c_i_maintenance;
-	}
-	public String getC_i_oneOwner() {
-		return c_i_oneOwner;
-	}
-	public void setC_i_oneOwner(String c_i_oneOwner) {
-		this.c_i_oneOwner = c_i_oneOwner;
-	}
-	public String getC_i_specialOption() {
-		return c_i_specialOption;
-	}
-	public void setC_i_specialOption(String c_i_specialOption) {
-		this.c_i_specialOption = c_i_specialOption;
-	}
-	public String getC_i_rent() {
-		return c_i_rent;
-	}
-	public void setC_i_rent(String c_i_rent) {
-		this.c_i_rent = c_i_rent;
-	}
 	
 	
+	public String getC_photo() {
+		return c_photo;
+	}
+	public void setC_photo(String c_photo) {
+		this.c_photo = c_photo;
+	}
+	public String getC_t_certified() {
+		return c_t_certified;
+	}
+	public void setC_t_certified(String c_t_certified) {
+		this.c_t_certified = c_t_certified;
+	}
+	public String getC_t_distance() {
+		return c_t_distance;
+	}
+	public void setC_t_distance(String c_t_distance) {
+		this.c_t_distance = c_t_distance;
+	}
+	public String getC_t_newCar() {
+		return c_t_newCar;
+	}
+	public void setC_t_newCar(String c_t_newCar) {
+		this.c_t_newCar = c_t_newCar;
+	}
+	public String getC_t_fourWheel() {
+		return c_t_fourWheel;
+	}
+	public void setC_t_fourWheel(String c_t_fourWheel) {
+		this.c_t_fourWheel = c_t_fourWheel;
+	}
+	public String getC_t_maintenance() {
+		return c_t_maintenance;
+	}
+	public void setC_t_maintenance(String c_t_maintenance) {
+		this.c_t_maintenance = c_t_maintenance;
+	}
+	public String getC_t_oneOwner() {
+		return c_t_oneOwner;
+	}
+	public void setC_t_oneOwner(String c_t_oneOwner) {
+		this.c_t_oneOwner = c_t_oneOwner;
+	}
+	public String getC_t_specialOption() {
+		return c_t_specialOption;
+	}
+	public void setC_t_specialOption(String c_t_specialOption) {
+		this.c_t_specialOption = c_t_specialOption;
+	}
+	public String getC_t_rent() {
+		return c_t_rent;
+	}
+	public void setC_t_rent(String c_t_rent) {
+		this.c_t_rent = c_t_rent;
+	}
 	
 }

@@ -2,21 +2,40 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.one.kcar.dao.buy.IBrandDAO">
+	<select id="brandList" resultType="com.one.kcar.dto.buy.BrandDTO">
+		SELECT * FROM KCAR_CARBRAND WHERE cb_domestic='해외'
+	</select>
 	<select id="brandCarList" parameterType="String" resultType="com.one.kcar.dto.buy.CarDTO">
-		SELECT c.*, ci.* FROM KCAR_CAR c WHERE c.cb_brand=#{brand} FULL OUTER JOIN KCAR_CAR_INFO ci ON c.c_num = ci.c_cnum  
+		SELECT c.*, ct.* FROM KCAR_CAR c WHERE c.cb_brand=#{brand} FULL OUTER JOIN KCAR_CAR_TAG ct ON c.c_num = ct.c_cnum  
 	</select>
 	<select id="brandModelList" parameterType="String" resultType="com.one.kcar.dto.buy.CarDTO">
 		SELECT cb_m_model FROM KCAR_CARBRAND_MODEL WHERE cb_brand=#{brand}
 	</select>
 	<select id="brandCarAllList" resultType="com.one.kcar.dto.buy.CarDTO">
-		SELECT c.* FROM KCAR_CAR c LEFT JOIN KCAR_CARBRAND cb on c.cb_brand = cb.cb_brand and cb.cb_domestic = 'n'
+		SELECT a.*, b.* FROM(SELECT c.* FROM KCAR_CAR c LEFT JOIN KCAR_CARBRAND cb on c.cb_brand = cb.cb_brand WHERE cb.cb_domestic = '해외') a FULL OUTER JOIN KCAR_CAR_TAG b on a.c_num = b.c_num
 	</select>
 	<select id="brandModelAllList" resultType="com.one.kcar.dto.buy.CarDTO">
-		SELECT * FROM KCAR_CARBRAND_MODEL WHERE cb_domestic='n' <!-- 특정브랜드가 아니고 전체 브랜드라 필터기능시 브랜드항목도 추가해야하기 떄문에 브랜드컬럼도 가져오기 -->
+		SELECT cbm.* FROM KCAR_CARBRAND_MODEL cbm FULL OUTER JOIN KCAR_CARBRAND cb on cbm.cb_brand = cb.cb_brand WHERE cb.cb_domestic='해외' <!-- 특정브랜드가 아니고 전체 브랜드라 필터기능시 브랜드항목도 추가해야하기 떄문에 브랜드컬럼도 가져오기 -->
 	</select>
+	<insert id="insertCarTag" parameterType="String">
+		INSERT INTO KCAR_CAR_TAG(c_num, c_t_distance, c_t_newCar, c_t_fourWheel,c_t_oneOwner) VALUES(#{c_num},#{c_t_distance},#{c_t_newCar},#{c_t_fourWheel},#{c_t_oneOwner})
+	</insert>
+	<!-- db에 insert하기 -->
+	<!-- <insert id="insertCarBrand" parameterType="String">
+		INSERT INTO KCAR_CARBRAND VALUES(#{cb_brand},#{cb_koreaLan},#{cb_EnglishLan},#{cb_photo},#{cb_domestic})
+		INSERT INTO KCAR_CARBRAND(cb_brand) VALUES(#{cb_brand})
+	</insert>
+	<insert id="insertCarBrandModel" parameterType="String">
+		INSERT INTO KCAR_CARBRAND_MODEL VALUES(#{cb_brand},#{cb_m_model})
+	</insert>
+	<insert id="insertCar" parameterType="String">
+		INSERT INTO KCAR_CAR VALUES(#{c_num},#{c_model},#{cb_brand},#{cb_m_model},#{c_year},#{c_distance},#{c_price},#{c_color},#{c_fuel},#{c_change},#{c_acident},#{c_seat},#{c_rent},#{st_name},#{c_photo})
+	</insert>
+	
+	 -->
 </mapper>
 
-<!-- 	<select id="brandCarList" parameterType="String" resultType="com.one.kcar.dto.buy.CarDTO">
+ 	<!-- <select id="brandCarList" parameterType="String" resultType="com.one.kcar.dto.buy.CarDTO">
 		SELECT rr.* FROM 
 			(SELECT ROWNUM RN, r.* FROM 
 				(SELECT c.*, ci.* FROM KCAR_CAR c WHERE c.cb_brand=#{brand} 
@@ -35,8 +54,8 @@
 					LEFT JOIN KCAR_CARBRAND cb 
 				on c.cb_brand = cb.cb_brand and cb.cb_domestic = 'n') r ) rr 
 		WHERE RN BETWEEN #{START} AND #{END}
-	</select> -->
+	</select> 
 	
 	<select id="brandModelAllList" resultType="com.one.kcar.dto.buy.CarDTO">
-		SELECT * FROM KCAR_CARBRAND_MODEL WHERE cb_domestic='n' <!-- 특정브랜드가 아니고 전체 브랜드라 필터기능시 브랜드항목도 추가해야하기 떄문에 브랜드컬럼도 가져오기 -->
-	</select>
+		SELECT * FROM KCAR_CARBRAND_MODEL WHERE cb_domestic='n' 특정브랜드가 아니고 전체 브랜드라 필터기능시 브랜드항목도 추가해야하기 떄문에 브랜드컬럼도 가져오기
+	</select> -->

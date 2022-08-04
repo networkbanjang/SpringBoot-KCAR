@@ -91,7 +91,7 @@
 							<div class="carBrandList">
 							<form action="brandCar/brandCarList" id="brand_f" method="get">
 								<ul>
-									<%-- <c:forEach var="brand" items="${brandList }" varStatus="status">
+									<c:forEach var="brand" items="${brandList }" varStatus="status">
 										<!-- 만약 querySelectAll로 진행하려면 varStatus="status" 설정값 주고 ${status.index}로 값부여할 것
 											태그내에 값부여하고싶으면 data-value="" javascript에서는 getElementById().getAttribute('data-value');로 가져오기
 										 -->
@@ -104,41 +104,15 @@
 													<p class="brandT02">${brand.cb_EnglishLan }</p></span>
 											<!---->
 										</a></li>
-									</c:forEach> --%>
-									<li><a class="el-link el-link--default is-underline" href="brandCar/brandCarList">
-											<!---->
-											<span class="el-link--inner"><img
-												src="/images/common/brandlogo/logos-brand-audi.png"
-												alt="아우디" class="brandLogo">
-												<p class="brandT01">아우디 인증 중고차</p>
-												<p class="brandT02">Audi Approved :plus</p></span>
-										<!---->
-									</a></li>
+									</c:forEach>
 								</ul>
-								<script>
-								/* 
-									0 : 아우디
-									1 : 벤츠
-									2 : 롤스로이스
-									3 : 미니
-									4 : 재규어
-									5 : 폭스바겐
-									6 : 페라리
-									7 : BMW
-									8 : 링컨
-									9 : 볼보
-									10 : 렉서스
-									11 : 랜드로버
-									12 : 포드
-								*/
-								</script>
 							</div>
 						</div>
 					</div>
 					<div class="containerWrap el-row">
 						<div class="listLine">
 							<ul>
-								<li class="carTotal">총 <span class="textRed">994</span>대
+								<li class="carTotal">총 <span class="textRed">${brandCarAllCount }</span>대
 								</li>
 								<li class="listBtn"><div class="searchTrigger box el-row">
 										<button type="button" class="button lineApply"
@@ -212,14 +186,14 @@
 						<div>
 							<div class="carListWrap mT20">
 							
-							<c:forEach var="brandCar" items="${brandCarList }">
+							<c:forEach var="brandCar" items="${brandCarAllList }">
 								<div class="carListBox" style="cursor: pointer;">
 									<!---->
 									<div class="carListImg" style="cursor: pointer;">
 										<!---->
 										<div>
 											<img
-												src="https://img.kcar.com/BrandCertificationMall/carpicture09/pic6069/kcarM_60698994_001.jpg?1659351513221"
+												src="${brandCar.c_photo }"
 												alt="챠량이미지"
 												onerror="this.src='/images/search/bg_no_Img_lg.png'"
 												loading="lazy">
@@ -241,7 +215,7 @@
 									<div class="detailInfo">
 										<div class="carName">
 											<h3>
-												${brandCar.cb_brand } &nbsp; ${brandCar.cb_m_model } &nbsp; ${brandCar.c_fuel }
+												${brandCar.cb_brand }&nbsp;${brandCar.cb_m_model }&nbsp;${brandCar.c_fuel }
 											</h3>
 										</div>
 										<div class="carListFlex">
@@ -250,7 +224,7 @@
 											</div>
 											<p class="detailCarCon">
 												<span class="block">${brandCar.c_year }</span>
-												<span>${brandCar.distance } km</span>
+												<span>${brandCar.c_distance } km</span>
 												<span>${brandCar.c_fuel }</span>
 												<span>${brandCar.st_name }</span>
 											</p>
@@ -277,6 +251,8 @@
 								
 							</div>
 						</div>
+						
+						<!-- 페이징 처리하기 -->
 							<div class="pagination -sm mB160">
 								<div class="pagination -sm">
 									<!---->
