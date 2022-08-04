@@ -12,6 +12,14 @@
 	<select id="login" parameterType="MemberDTO" resultType="MemberDTO">
 		SELECT * FROM kcar_member WHERE m_email=#{m_email}
 	</select>
+	
+	<update id="update">
+		UPDATE kcar_member SET m_pw=#{m_pw}, m_zipcode=#{m_zipcode}, m_addr1=#{m_addr1}, m_addr2=#{m_addr2} , m_tel=#{m_tel} WHERE m_email=#{m_email}
+	</update>
+	
+	<delete id="delete" parameterType="String">
+		DELETE FROM kcar_member WHERE m_email=#{m_email}
+	</delete>
 
 	
 

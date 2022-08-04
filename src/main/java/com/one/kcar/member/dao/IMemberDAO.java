@@ -11,6 +11,10 @@ public interface IMemberDAO {
 
 	void insertMember(MemberDTO member);
 
-	MemberDTO login(MemberDTO member);
+	MemberDTO login(String id);
+
+	void update(MemberDTO member);
+
+	void delete(MemberDTO member);
 
 }

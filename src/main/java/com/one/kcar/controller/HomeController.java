@@ -59,6 +59,10 @@ public class HomeController{
 	public String city() {
 		return "city/city";
 	}
+	@GetMapping("test2")
+	public String test() {
+		return "test2";
+	}
 	
 	
 }

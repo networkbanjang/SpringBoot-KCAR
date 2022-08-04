@@ -8,7 +8,7 @@
 	<div class="gnbArea">
 		<div class="topNavi">
 			<h1 class="kcarHeaderLogo">
-				<a>대한민국 No.1 직영중고차 KCar</a>
+				<a href ="home">대한민국 No.1 직영중고차 KCar</a>
 			</h1>
 			<button class="menuAll">
 				<span class="_hidden">전체메뉴</span>

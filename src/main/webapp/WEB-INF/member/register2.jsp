@@ -393,26 +393,26 @@
 									<div class="termsCheckWrap">
 										<div class="item">
 											<label class="el-checkbox"><span
-												class="el-checkbox__input"><input type="checkbox"
-													 class="el-checkbox__inner" value=""></span><span
+												class="el-checkbox__input"><input type="checkbox" name="agree"
+													 class="el-checkbox__inner" value="1"></span><span
 												class="el-checkbox__label"> 이용약관 동의(필수) <!----></span></label>
 										</div>
 										<div class="item">
 											<label class="el-checkbox"><span
-												class="el-checkbox__input"><input type="checkbox"
-													 class="el-checkbox__inner" value=""></span><span
+												class="el-checkbox__input"><input type="checkbox" name="agree"
+													 class="el-checkbox__inner" value="2"></span><span
 												class="el-checkbox__label"> 개인정보 수집 및 이용 동의(필수) <!----></span></label>
 										</div>
 										<div class="item">
 											<label class="el-checkbox"><span
-												class="el-checkbox__input"><input type="checkbox"
-													 class="el-checkbox__inner" value=""></span><span
+												class="el-checkbox__input"><input type="checkbox" name="agree"
+													 class="el-checkbox__inner" value="3"></span><span
 												class="el-checkbox__label"> 환불약관 동의(필수) <!----></span></label>
 										</div>
 										<div class="item">
 											<div class="termsDepth">
 												<label class="el-checkbox"><span
-												class="el-checkbox__input"><input type="checkbox"
+												class="el-checkbox__input"><input type="checkbox" 
 													 class="el-checkbox__inner" value=""></span><span
 												class="el-checkbox__label"> 마케팅 활용/ 수신 동의(선택) <!----></span></label>
 												<div role="group" aria-label="checkbox-group"
@@ -426,7 +426,7 @@
 												class="el-checkbox__label"> 이메일 수신 <!----></span></label>
 												</div>
 											</div>
-										</div>
+										</div>6
 									</div>
 								</div>
 							</div>
