@@ -9,11 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.one.kcar.member.dto.MemberDTO;
+import com.one.kcar.service.MailCheckService;
+import com.one.kcar.service.MailService;
 import com.one.kcar.service.MemberService;
 
 @Controller
 public class MyPageController {
 	@Autowired MemberService memberService;
+	@Autowired private MailCheckService mailservice;
+
 	
 	// 내차사기 주문관리
 	@GetMapping("BuyOrderManage")
@@ -82,5 +86,28 @@ public class MyPageController {
 		}
 		
 	}
+	@PostMapping("find_pw_email")
+	public String find_pw_email(String email,Model model,HttpSession session) {
+	
+		String msg = memberService.isExistId(email);
+		model.addAttribute("msg",msg);
+		if(msg.equals("중복 아이디 입니다.")) {
+			
+			session.setAttribute("email", email);
+			return "member/pw_find";
+		}
+		return "member/find_pw_email";
+	}
+	@PostMapping("pw_find")
+	public String pw_find(MemberDTO member,String m_pw, String pwOk,HttpSession session,Model model) {
+	
+		
+		String msg = memberService.pw_update(member, m_pw,pwOk);
+		model.addAttribute("msg",msg);
+		if(msg.equals("수정 완료"))
+			return "home";
+		return "member/pw_find";
+	}
+	
 
 }

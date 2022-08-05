@@ -110,4 +110,23 @@ public class MemberService {
 		}
 
 }
+
+	public String pw_update(MemberDTO member, String m_pw,String pwOk) {
+		String id = (String)session.getAttribute("email");
+		member = memberDao.login(id);
+		if(m_pw == null || m_pw.isEmpty())
+			return "필수 정보 입니다";
+		if(m_pw.equals(pwOk) == false)
+			return "입력한 비밀번호가 다릅니다";
+		
+		
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String encryptPw = encoder.encode(m_pw);
+		member.setM_pw(encryptPw);
+		memberDao.pw_update(member);
+//		System.out.println(m_pw);
+//		System.out.println("dsadsa"+member.getM_pw());
+		
+		return "수정 완료";
+	}
 }

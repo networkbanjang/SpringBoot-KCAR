@@ -15,7 +15,7 @@ public class MailCheckService {
 	public String check() {
 		Boolean authStatus = (Boolean) session.getAttribute("authStatus");
 		if (authStatus == null || authStatus != true)
-			return "이메일 인증 후 가입 할 수 있습니다.";
+			return "이메일 인증이 필요합니다.";
 		session.invalidate();
 		return "인증 완료";
 		

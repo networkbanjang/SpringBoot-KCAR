@@ -17,4 +17,8 @@ public interface IMemberDAO {
 
 	void delete(MemberDTO member);
 
+
+
+	void pw_update(MemberDTO member);
+
 }

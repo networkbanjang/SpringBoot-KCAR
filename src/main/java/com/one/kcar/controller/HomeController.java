@@ -64,5 +64,16 @@ public class HomeController{
 		return "test2";
 	}
 	
+	// 비밀번호 찾기
+	@GetMapping("find_pw_email")
+	public String find_pw_email() {
+		return "member/find_pw_email";
+	}
+	@GetMapping("pw_find")
+	public String pw_find() {
+		return "member/pw_find";
+	}
+	
+	
 	
 }
