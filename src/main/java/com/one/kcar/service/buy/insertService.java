@@ -6,12 +6,14 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.one.kcar.dao.buy.IBrandDAO;
 
+@Service
 public class insertService {
 	@Autowired
 	IBrandDAO brandDao;

@@ -3,11 +3,13 @@ package com.one.kcar.controller;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -52,15 +54,24 @@ public class MainContoroller {
 	
 	//브랜드인증관 페이지 필터 없는 경우
 	@GetMapping(value="brandCar")
-	public String brandCar(Model model) {
-		brandService.brandCarAllList(model);
+	public String brandCar(@RequestParam(value="currentPage",required = false,defaultValue="1") String currentPage,
+			@RequestBody(required = false) HashMap<String,String> map,@RequestBody(required = false) String data, Model model) {
+		brandService.brandCarAllList(currentPage,data,model);
+		
 		return "myCarScam/brandCar";
 	}
-	//필터기능 적용시 페이지
-	@GetMapping(value="brandCar")
-	public String brandCar(@RequestBody(required = false) HashMap<String,String> map,Model model) {
-		brandService.brandCarAllList(model);
-		return "myCarScam/brandCar";
+	//paging 비동기통신
+	@ResponseBody
+	@PostMapping(value="brandCarPaging", produces="text/html; charset=utf-8")
+	public String brandCarPaging(@RequestParam(value="currentPage",required = false,defaultValue="1") String currentPage,
+			@RequestBody(required = false) HashMap<String,String> map, Model model) {
+		String ajaxBrandCarAllList;
+		if(map.get("currentPage") != null) {
+			ajaxBrandCarAllList = brandService.brandCarAllList(map.get("currentPage"),map.get("d"),model);
+			return ajaxBrandCarAllList;
+		}
+		ajaxBrandCarAllList = brandService.brandCarAllList(currentPage,map.get("d"),model);
+		return ajaxBrandCarAllList;
 	}
 	
 	

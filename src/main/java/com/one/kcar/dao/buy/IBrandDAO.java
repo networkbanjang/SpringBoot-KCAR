@@ -15,7 +15,7 @@ public interface IBrandDAO {
 
 	ArrayList<CarDTO> brandModelList(String brand);//해외 특정브랜드 차량 모델정보
 
-	ArrayList<CarDTO> brandCarAllList(); //해외 전체브랜드 차량 정보 리스트
+	ArrayList<CarDTO> brandCarAllList(@Param("start")int start,@Param("end") int end); //해외 전체브랜드 차량 정보 리스트
 
 	ArrayList<CarDTO> brandModelAllList(); //해외 전체브랜드 차량모델 정보 리스트
 
@@ -30,5 +30,7 @@ public interface IBrandDAO {
 	ArrayList<BrandDTO> brandList();
 
 	int insertCarTag(@Param("c_num") String c_num, @Param("c_t_distance")String c_t_distance, @Param("c_t_newCar")String c_t_newCar, @Param("c_t_fourWheel")String c_t_fourWheel,@Param("c_t_oneOwner")String c_t_oneOwner );
+
+	int brandCarAllCnt();
 
 }
