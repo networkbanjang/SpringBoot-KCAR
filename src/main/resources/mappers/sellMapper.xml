@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.one.kcar.repository.ISellDAO">
+
+	<insert id="sellRequest" parameterType="SellDTO">
+		Insert into kcar_Sell_request values
+		(#{s_r_num}, #{s_r_model}, #{s_r_distance}, #{m_id},#{m_email},#{s_r_progress},#{s_r_when},#{s_r_marketing})
+	</insert>
+	
+	<select id="brandlist" resultType="String">
+		select cb_brand from kcar_carbrand
+	</select>
+	
+	<select id="modellist" parameterType="String" resultType="String">
+		select cb_m_model from kcar_carbrand_model where cb_brand = #{brand} 
+	</select>
+</mapper>

@@ -3,17 +3,54 @@
 <head>
 <title>폐차 신청</title>
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="/WEB-INF/sc/sc_style.jsp"%>
-<link data-n-head="ssr" rel="icon" type="image/x-icon"
-	href="/favicon.ico">
+
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+<style>
+.form-select {
+	width: 393px;
+	height: 56px;
+}
+
+.selectoption {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url('/images/icon/icon-radio-default.svg') no-repeat 0 0px/contain;
+}
+
+input[type=radio]:checked+span {
+	background: url('/images/icon/icon-radio-checked.svg') no-repeat 0 0px/contain;
+}
+</style>
+
+<script src="js/sellscript.js"></script>
+
+<script>
+var req;
+function ajaxmodel(){
+	req = new XMLHttpRequest();
+	req.onreadystatechange = textChange;
+	req.open('post', '/ScrpcaApl');
+	req.send(document.getElementById('brand').value); 
+	
+}
+
+function textChange(){
+	if(req.readyState == 4 && req.status == 200){
+		var data = "";
+	}
+}
+</script>
 
 </head>
 <body>
-	<noscript data-n-head="ssr" data-hid="gtm-noscript" data-pbody="true">
-		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXZPHVG&"
-			height="0" width="0" style="display: none; visibility: hidden"
-			title="gtm"></iframe>
-	</noscript>
+
 	<div id="__nuxt">
 		<!---->
 		<div id="__layout">
@@ -21,7 +58,7 @@
 				<div class="sellPopup popupWrap ">
 					<div class="popup-header">
 						<h3 class="title">신청만 하면 끝! 간편한 폐차 서비스</h3>
-					
+
 					</div>
 					<div class="popBodyInr">
 						<div class="shadowBox">
@@ -53,41 +90,24 @@
 										<div class="el-select">
 											<!---->
 											<div class="el-input el-input--suffix">
-												<!---->
-												<input type="text" readonly="readonly" autocomplete="off"
-													placeholder="제조사" class="el-input__inner">
-												<!---->
-												<span class="el-input__suffix"><span
-													class="el-input__suffix-inner"><i
-														class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-													<!---->
-														<!---->
-														<!---->
-														<!---->
-														<!----></span>
-												<!----></span>
-												<!---->
-												<!---->
+												<select class="form-select" aria-label="Brand" id="brand" onchange="ajaxmodel()">
+													<option selected>제조사</option>
+													<c:forEach var="brand" items="${sessionScope.list}">
+														<option value='${brand }'>${brand }</option>
+													</c:forEach>
+												</select>
 											</div>
 										</div>
 										<div class="el-select">
 											<!---->
 											<div class="el-input el-input--suffix">
-												<!---->
-												<input type="text" readonly="readonly" autocomplete="off"
-													placeholder="모델" class="el-input__inner">
-												<!---->
-												<span class="el-input__suffix"><span
-													class="el-input__suffix-inner"><i
-														class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-													<!---->
-														<!---->
-														<!---->
-														<!---->
-														<!----></span>
-												<!----></span>
-												<!---->
-												<!---->
+												<select class="form-select" aria-label="Model">
+													<option selected>모델</option>
+													<c:forEach var="model" items="${sessionScope.modellist}">
+														<option value='${model }'>${model }</option>
+													</c:forEach>
+
+												</select>
 											</div>
 										</div>
 									</div></li>
@@ -96,66 +116,50 @@
 										<!---->
 										<div class="el-input el-input--suffix">
 											<!---->
-											<input type="text" readonly="readonly" autocomplete="off"
-												placeholder="" class="el-input__inner">
-											<!---->
-											<span class="el-input__suffix"><span
-												class="el-input__suffix-inner"><i
-													class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-												<!---->
-													<!---->
-													<!---->
-													<!---->
-													<!----></span>
-											<!----></span>
-											<!---->
-											<!---->
-										</div>
-										<div class="el-select-dropdown el-popper"
-											style="display: none; min-width: 857.6px;">
-											<div class="el-scrollbar" style="">
-												<div class="el-select-dropdown__wrap el-scrollbar__wrap"
-													style="margin-bottom: -17px; margin-right: -17px;">
-													<ul class="el-scrollbar__view el-select-dropdown__list">
-														<!---->
-														<li class="el-select-dropdown__item selected"><span>2022</span></li>
-														<li class="el-select-dropdown__item"><span>2021</span></li>
-														<li class="el-select-dropdown__item"><span>2020</span></li>
-														<li class="el-select-dropdown__item"><span>2019</span></li>
-														<li class="el-select-dropdown__item"><span>2018</span></li>
-														<li class="el-select-dropdown__item"><span>2017</span></li>
-														<li class="el-select-dropdown__item"><span>2016</span></li>
-														<li class="el-select-dropdown__item"><span>2015</span></li>
-														<li class="el-select-dropdown__item"><span>2014</span></li>
-														<li class="el-select-dropdown__item"><span>2013</span></li>
-														<li class="el-select-dropdown__item"><span>2012</span></li>
-														<li class="el-select-dropdown__item"><span>2011</span></li>
-														<li class="el-select-dropdown__item"><span>2010</span></li>
-														<li class="el-select-dropdown__item"><span>2009</span></li>
-														<li class="el-select-dropdown__item"><span>2008</span></li>
-														<li class="el-select-dropdown__item"><span>2007</span></li>
-														<li class="el-select-dropdown__item"><span>2006</span></li>
-														<li class="el-select-dropdown__item"><span>2005</span></li>
-														<li class="el-select-dropdown__item"><span>2004</span></li>
-														<li class="el-select-dropdown__item"><span>2003</span></li>
-														<li class="el-select-dropdown__item"><span>2002</span></li>
-														<li class="el-select-dropdown__item"><span>2001</span></li>
-														<li class="el-select-dropdown__item"><span>2000</span></li>
-														<li class="el-select-dropdown__item"><span>1999</span></li>
-														<li class="el-select-dropdown__item"><span>1998</span></li>
-													</ul>
-												</div>
-												<div class="el-scrollbar__bar is-horizontal">
-													<div class="el-scrollbar__thumb"
-														style="transform: translateX(0%);"></div>
-												</div>
-												<div class="el-scrollbar__bar is-vertical">
-													<div class="el-scrollbar__thumb"
-														style="transform: translateY(0%);"></div>
-												</div>
+											<div class="el-input el-input--suffix">
+												<select class="form-select form-select-sm"
+													aria-label=".form-select-sm example"
+													style="display: block; min-width: 800px;">
+													<option selected>2022</option>
+													<option value="2021">2021</option>
+													<option value="2020">2020</option>
+													<option value="2019">2019</option>
+													<option value="2021">2021</option>
+													<option value="2018">2018</option>
+													<option value="2017">2017</option>
+													<option value="2021">2021</option>
+													<option value="2016">2026</option>
+													<option value="2015">2015</option>
+													<option value="2021">2021</option>
+													<option value="2014">2014</option>
+													<option value="2013">2013</option>
+													<option value="2021">2021</option>
+													<option value="2012">2012</option>
+													<option value="2011">2011</option>
+													<option value="2021">2021</option>
+													<option value="2010">2010</option>
+													<option value="2009">2009</option>
+													<option value="2021">2021</option>
+													<option value="2008">2008</option>
+													<option value="2007">2007</option>
+													<option value="2021">2021</option>
+													<option value="2006">2006</option>
+													<option value="2005">2005</option>
+													<option value="2021">2021</option>
+													<option value="2004">2004</option>
+													<option value="2003">2003</option>
+													<option value="2021">2021</option>
+													<option value="2002">2002</option>
+													<option value="2001">2001</option>
+													<option value="2004">2004</option>
+													<option value="2000">2000</option>
+													<option value="2021">2021</option>
+													<option value="1999">1999</option>
+
+												</select>
 											</div>
-											<!---->
 										</div>
+
 									</div></li>
 							</ul>
 							<ul class="partRadio">
@@ -164,49 +168,51 @@
 										<div role="radiogroup" class="el-radio-group">
 											<label role="radio" aria-checked="true" tabindex="0"
 												class="el-radio is-checked"><span
-												class="el-radio__input is-checked"><span
-													class="el-radio__inner"></span><input type="radio"
-													aria-hidden="true" tabindex="-1" autocomplete="off"
-													value="1" checked="checked" class="el-radio__original"></span><span
-												class="el-radio__label"> 가능 <!----></span></label> <label
-												role="radio" tabindex="-1" class="el-radio"><span
-												class="el-radio__input"><span class="el-radio__inner"></span><input
-													type="radio" aria-hidden="true" tabindex="-1"
-													autocomplete="off" value="0" class="el-radio__original"></span><span
-												class="el-radio__label"> 불가능 <!----></span></label>
+												class="el-radio__input is-checked"></span><input
+												type="radio" aria-hidden="true" tabindex="-1"
+												autocomplete="off" value="1" checked="checked"
+												class="el-radio__original" name="select1"><span
+												class="selectoption"></span><span class="el-radio__label">
+													가능 <!---->
+											</span></label> <label role="radio" tabindex="-1" class="el-radio"><span
+												class="el-radio__input"></span><input type="radio"
+												aria-hidden="true" tabindex="-1" autocomplete="off"
+												value="0" class="el-radio__original" name="select1"><span
+												class="selectoption"></span><span class="el-radio__label">
+													불가능 <!---->
+											</span></label>
 										</div>
 									</div></li>
 								<li><p class="titLabel">변속기</p>
 									<div>
 										<div role="radiogroup" class="el-radio-group">
 											<label role="radio" aria-checked="true" tabindex="0"
-												class="el-radio is-checked"><span
-												class="el-radio__input is-checked"><span
-													class="el-radio__inner"></span><input type="radio"
-													aria-hidden="true" tabindex="-1" autocomplete="off"
-													value="오토" checked="checked" class="el-radio__original"></span><span
+												class="el-radio is-checked"></span><input type="radio"
+												aria-hidden="true" tabindex="-1" autocomplete="off"
+												value="오토" checked="checked" class="el-radio__original"
+												name="select1_5"><span class="selectoption"></span><span
 												class="el-radio__label"> 자동 <!----></span></label> <label
-												role="radio" tabindex="-1" class="el-radio"><span
-												class="el-radio__input"><span class="el-radio__inner"></span><input
-													type="radio" aria-hidden="true" tabindex="-1"
-													autocomplete="off" value="수동" class="el-radio__original"></span><span
-												class="el-radio__label"> 수동 <!----></span></label>
+												role="radio" tabindex="-1" class="el-radio"><input
+												type="radio" aria-hidden="true" tabindex="-1"
+												autocomplete="off" value="수동" class="el-radio__original"
+												name="select1_5"><span class="selectoption"></span><span
+												class="el-radio__label"> 수동 <!---->
+											</span></label>
 										</div>
 									</div></li>
 								<li><p class="titLabel">알루미늄 휠</p>
 									<div>
 										<div role="radiogroup" class="el-radio-group">
 											<label role="radio" aria-checked="true" tabindex="0"
-												class="el-radio is-checked"><span
-												class="el-radio__input is-checked"><span
-													class="el-radio__inner"></span><input type="radio"
-													aria-hidden="true" tabindex="-1" autocomplete="off"
-													value="1" checked="checked" class="el-radio__original"></span><span
-												class="el-radio__label"> 있음 <!----></span></label> <label
-												role="radio" tabindex="-1" class="el-radio"><span
-												class="el-radio__input"><span class="el-radio__inner"></span><input
-													type="radio" aria-hidden="true" tabindex="-1"
-													autocomplete="off" value="0" class="el-radio__original"></span><span
+												class="el-radio is-checked"><input type="radio"
+												aria-hidden="true" tabindex="-1" autocomplete="off"
+												value="1" checked="checked" class="el-radio__original"
+												name="select2"><span class="selectoption"></span><span
+												class="el-radio__label"> 있음 <!---->
+											</span></label> <label role="radio" tabindex="-1" class="el-radio"><input
+												type="radio" aria-hidden="true" tabindex="-1"
+												autocomplete="off" value="0" class="el-radio__original"
+												name="select2"><span class="selectoption"></span><span
 												class="el-radio__label"> 없음 <!----></span></label>
 										</div>
 									</div></li>
@@ -214,22 +220,24 @@
 									<div>
 										<div role="radiogroup" class="el-radio-group">
 											<label role="radio" aria-checked="true" tabindex="0"
-												class="el-radio is-checked"><span
-												class="el-radio__input is-checked"><span
-													class="el-radio__inner"></span><input type="radio"
+												class="el-radio is-checked"><input type="radio"
+												aria-hidden="true" tabindex="-1" autocomplete="off"
+												value="001" checked="checked" class="el-radio__original"
+												name="select3"><span class="selectoption"></span><span
+												class="el-radio__label"> 수도권(서울/경기/인천) <!---->
+											</span></label> <label role="radio" tabindex="-1" class="el-radio"><span
+												class="el-radio__input"><input type="radio"
 													aria-hidden="true" tabindex="-1" autocomplete="off"
-													value="001" checked="checked" class="el-radio__original"></span><span
-												class="el-radio__label"> 수도권(서울/경기/인천) <!----></span></label> <label
-												role="radio" tabindex="-1" class="el-radio"><span
-												class="el-radio__input"><span class="el-radio__inner"></span><input
-													type="radio" aria-hidden="true" tabindex="-1"
-													autocomplete="off" value="002" class="el-radio__original"></span><span
-												class="el-radio__label"> 수도권 외 지역 <!----></span></label> <label
-												role="radio" tabindex="-1" class="el-radio"><span
-												class="el-radio__input"><span class="el-radio__inner"></span><input
-													type="radio" aria-hidden="true" tabindex="-1"
-													autocomplete="off" value="003" class="el-radio__original"></span><span
-												class="el-radio__label"> 제주도 <!----></span></label>
+													value="002" class="el-radio__original" name="select3"><span
+													class="selectoption"></span></span><span class="el-radio__label">
+													수도권 외 지역 <!---->
+											</span></label> <label role="radio" tabindex="-1" class="el-radio"><span
+												class="el-radio__input"><input type="radio"
+													aria-hidden="true" tabindex="-1" autocomplete="off"
+													value="003" class="el-radio__original" name="select3"><span
+													class="selectoption"></span></span><span class="el-radio__label">
+													제주도 <!---->
+											</span></label>
 										</div>
 									</div></li>
 							</ul>
@@ -270,80 +278,6 @@
 		</div>
 		<p class="el-select-dropdown__empty">데이터 없음</p>
 		<div x-arrow="" class="popper__arrow" style="left: 35px;"></div>
-	</div>
-	<div class="el-select-dropdown el-popper"
-		style="min-width: 418.8px; transform-origin: center top; z-index: 2003; display: ㅠㅣㅐ차;">
-		<div class="el-scrollbar" style="">
-			<div class="el-select-dropdown__wrap el-scrollbar__wrap"
-				style="margin-bottom: -17px; margin-right: -17px;">
-				<ul class="el-scrollbar__view el-select-dropdown__list">
-					<!---->
-					<li class="el-select-dropdown__item"><span>현대</span></li>
-					<li class="el-select-dropdown__item"><span>제네시스</span></li>
-					<li class="el-select-dropdown__item hover"><span>기아</span></li>
-					<li class="el-select-dropdown__item"><span>쉐보레(GM대우)</span></li>
-					<li class="el-select-dropdown__item"><span>르노코리아(삼성)</span></li>
-					<li class="el-select-dropdown__item"><span>쌍용</span></li>
-					<li class="el-select-dropdown__item"><span>기타 제조사</span></li>
-					<li class="el-select-dropdown__item"><span>벤츠</span></li>
-					<li class="el-select-dropdown__item"><span>BMW</span></li>
-					<li class="el-select-dropdown__item"><span>아우디</span></li>
-					<li class="el-select-dropdown__item"><span>폭스바겐</span></li>
-					<li class="el-select-dropdown__item"><span>미니</span></li>
-					<li class="el-select-dropdown__item"><span>볼보</span></li>
-					<li class="el-select-dropdown__item"><span>폴스타</span></li>
-					<li class="el-select-dropdown__item"><span>포르쉐</span></li>
-					<li class="el-select-dropdown__item"><span>렉서스</span></li>
-					<li class="el-select-dropdown__item"><span>도요타</span></li>
-					<li class="el-select-dropdown__item"><span>인피니티</span></li>
-					<li class="el-select-dropdown__item"><span>혼다</span></li>
-					<li class="el-select-dropdown__item"><span>닛산</span></li>
-					<li class="el-select-dropdown__item"><span>미쯔비시</span></li>
-					<li class="el-select-dropdown__item"><span>테슬라</span></li>
-					<li class="el-select-dropdown__item"><span>포드</span></li>
-					<li class="el-select-dropdown__item"><span>지프</span></li>
-					<li class="el-select-dropdown__item"><span>캐딜락</span></li>
-					<li class="el-select-dropdown__item"><span>크라이슬러</span></li>
-					<li class="el-select-dropdown__item"><span>링컨</span></li>
-					<li class="el-select-dropdown__item"><span>스마트</span></li>
-					<li class="el-select-dropdown__item"><span>마세라티</span></li>
-					<li class="el-select-dropdown__item"><span>재규어</span></li>
-					<li class="el-select-dropdown__item"><span>랜드로버</span></li>
-					<li class="el-select-dropdown__item"><span>푸조</span></li>
-					<li class="el-select-dropdown__item"><span>시트로엥</span></li>
-					<li class="el-select-dropdown__item"><span>피아트</span></li>
-					<li class="el-select-dropdown__item"><span>페라리</span></li>
-					<li class="el-select-dropdown__item"><span>람보르기니</span></li>
-					<li class="el-select-dropdown__item"><span>맥라렌</span></li>
-					<li class="el-select-dropdown__item"><span>마이바흐</span></li>
-					<li class="el-select-dropdown__item"><span>벤틀리</span></li>
-					<li class="el-select-dropdown__item"><span>롤스로이스</span></li>
-					<li class="el-select-dropdown__item"><span>GMC</span></li>
-					<li class="el-select-dropdown__item"><span>닷지</span></li>
-					<li class="el-select-dropdown__item"><span>쉐보레</span></li>
-					<li class="el-select-dropdown__item"><span>험머</span></li>
-					<li class="el-select-dropdown__item"><span>스즈키</span></li>
-					<li class="el-select-dropdown__item"><span>마쯔다</span></li>
-					<li class="el-select-dropdown__item"><span>이스즈</span></li>
-					<li class="el-select-dropdown__item"><span>애스턴마틴</span></li>
-					<li class="el-select-dropdown__item"><span>스바루</span></li>
-					<li class="el-select-dropdown__item"><span>사브</span></li>
-					<li class="el-select-dropdown__item"><span>동풍소콘</span></li>
-					<li class="el-select-dropdown__item"><span>북기은상</span></li>
-					<li class="el-select-dropdown__item"><span>포톤</span></li>
-					<li class="el-select-dropdown__item"><span>어큐라</span></li>
-				</ul>
-			</div>
-			<div class="el-scrollbar__bar is-horizontal">
-				<div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
-			</div>
-			<div class="el-scrollbar__bar is-vertical">
-				<div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
-			</div>
-		</div>
-		<!---->
-		<div x-arrow="" class="popper__arrow" style="left: 35px;"></div>
-		
 	</div>
 </body>
 </html>
