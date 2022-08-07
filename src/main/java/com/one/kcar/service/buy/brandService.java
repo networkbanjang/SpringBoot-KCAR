@@ -1,18 +1,13 @@
 package com.one.kcar.service.buy;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.one.kcar.dao.buy.IBrandDAO;
 import com.one.kcar.dto.buy.BrandDTO;
 import com.one.kcar.dto.buy.CarDTO;
@@ -247,6 +242,95 @@ public class brandService {
 		}
 		result += "						</div>";
 		return result;
+	}
+
+	public String ajaxBrandModal(String brand, String model) {
+		ArrayList<Map<String,String>> brandCarModelList = brandDao.brandCarModelList(brand);
+		
+		
+		for(Map<String,String> a: brandCarModelList) {
+			System.out.print(String.valueOf(a.get("COUNT")));
+			System.out.print(a.get("CB_M_MODEL"));
+		}
+		
+		String modalData = "<div class=\"el-dialog__wrapper popup popCenter wid480 hfix active\"\r\n"
+				+ "			style=\"z-index: 2003;\">\r\n"
+				+ "			<div role=\"dialog\" aria-modal=\"true\" aria-label=\"모델 선택\"\r\n"
+				+ "				class=\"el-dialog\" style=\"margin-top: 15vh;\">\r\n"
+				+ "				<div class=\"el-dialog__header\">\r\n"
+				+ "					<span class=\"el-dialog__title\">모델 선택</span>\r\n"
+				+ "					<button type=\"button\" aria-label=\"Close\"\r\n"
+				+ "						class=\"el-dialog__headerbtn\">\r\n"
+				+ "						<i class=\"el-dialog__close el-icon el-icon-close\"></i>\r\n"
+				+ "					</button>\r\n"
+				+ "				</div>\r\n"
+				+ "				<div class=\"el-dialog__body\">\r\n"
+				+ "					<!---->\r\n"
+				+ "					<div class=\"popContent el-scrollbar\">\r\n"
+				+ "						<div class=\"el-scrollbar__wrap\"\r\n"
+				+ "							style=\"margin-bottom: -26px; margin-right: -26px;\">\r\n"
+				+ "							<div class=\"el-scrollbar__view\">\r\n"
+				+ "								<div class=\"searchBrandTag line\">\r\n"
+				+ "									<div class=\"swiperProduct\">\r\n"
+				+ "										<div\r\n"
+				+ "											class=\"swiper-container swiper-container-initialized swiper-container-horizontal\">\r\n"
+				+ "											<div class=\"swiper-wrapper\"\r\n"
+				+ "												style=\"float: left; width: auto; transform: translate3d(0px, 0px, 0px);\">\r\n"
+				+ "												<div class=\"tagBox swiper-slide swiper-slide-active\"\r\n"
+				+ "													style=\"width: 102.75px;\">\r\n"
+				+ "													<span class=\"tagNew  el-tag el-tag--topInfo el-tag--light\">\r\n"
+				+ "														아우디 <i class=\"el-tag__close el-icon-close\"></i>\r\n"
+				+ "													</span>\r\n"
+				+ "												</div>\r\n"
+				+ "											</div>\r\n"
+				+ "											<span class=\"swiper-notification\" aria-live=\"assertive\"\r\n"
+				+ "												aria-atomic=\"true\"></span>\r\n"
+				+ "										</div>\r\n"
+				+ "									</div>\r\n"
+				+ "								</div>\r\n"
+				+ "								<div class=\"carBrandListPop\">\r\n"
+				+ "									<div class=\"el-row\">\r\n"
+				+ "										<div role=\"radiogroup\" class=\"el-radio-group\">\r\n"
+				+ "											\r\n"
+				+ "											<c:forEach var=\"model\" items=\"modelList\">\r\n"
+				+ "												\r\n"
+				+ "												\r\n"
+				+ "												<label role=\"radio\" aria-disabled=\"true\" tabindex=\"-1\" class=\"el-radio is-disabled\">\r\n"
+				+ "													<span class=\"el-radio__input is-disabled\">\r\n"
+				+ "													<span class=\"el-radio__inner\"></span>\r\n"
+				+ "													<input type=\"radio\" aria-hidden=\"true\" disabled=\"disabled\" tabindex=\"-1\"\r\n"
+				+ "															autocomplete=\"off\" class=\"el-radio__original\" value=\"032\"></span>\r\n"
+				+ "													<span class=\"el-radio__label\"> A1<span class=\"count\">0대</span></span>\r\n"
+				+ "												</label>\r\n"
+				+ "												\r\n"
+				+ "												\r\n"
+				+ "											</c:forEach>\r\n"
+				+ "											\r\n"
+				+ "										</div>\r\n"
+				+ "									</div>\r\n"
+				+ "								</div>\r\n"
+				+ "							</div>\r\n"
+				+ "						</div>\r\n"
+				+ "						<div class=\"el-scrollbar__bar is-horizontal\">\r\n"
+				+ "							<div class=\"el-scrollbar__thumb\"\r\n"
+				+ "								style=\"transform: translateX(0%);\"></div>\r\n"
+				+ "						</div>\r\n"
+				+ "						<div class=\"el-scrollbar__bar is-vertical\">\r\n"
+				+ "							<div class=\"el-scrollbar__thumb\"\r\n"
+				+ "								style=\"transform: translateY(11.7089%); height: 33.833%;\"></div>\r\n"
+				+ "						</div>\r\n"
+				+ "					</div>\r\n"
+				+ "				</div>\r\n"
+				+ "				<div class=\"el-dialog__footer\">\r\n"
+				+ "					<span class=\"dialog-footer\"><div class=\"footerBtnWrap\">\r\n"
+				+ "							<div class=\"searchTrigger box maxW400 el-row\">\r\n"
+				+ "								<button class=\"button apply\">차량보기(135대)</button>\r\n"
+				+ "							</div>\r\n"
+				+ "						</div></span>\r\n"
+				+ "				</div>\r\n"
+				+ "			</div>\r\n"
+				+ "		</div>";
+		return null;
 	}
 	
 }

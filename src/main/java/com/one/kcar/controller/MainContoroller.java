@@ -74,6 +74,14 @@ public class MainContoroller {
 		return ajaxBrandCarAllList;
 	}
 	
+	@ResponseBody
+	@PostMapping(value="modal", produces = "text/html; charset=utf-8")
+	public String modal(@RequestBody(required = false)String brand,@RequestBody(required = false)String model) {
+		brandService.ajaxBrandModal(brand,model);
+			
+		return "실패";
+	}
+	
 	
 	@GetMapping(value="brandCar/brandCarList")
 	public String brandCarList(@RequestParam(value="brand", required=false)String brand, Model model ) {

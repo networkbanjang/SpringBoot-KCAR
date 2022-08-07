@@ -116,7 +116,7 @@
 								</li>
 								<li class="listBtn"><div class="searchTrigger box el-row">
 										<button type="button" class="button lineApply"
-											style="white-space: normal;">제조사/모델선택</button>
+											style="white-space: normal;" onclick="modalMenuOpen()">제조사/모델선택</button>
 									</div>
 									<div class="el-select listSelect">
 										<!---->
@@ -179,7 +179,7 @@
 							</ul>
 						</div>
 						<div>
-							<div class="carListWrap mT20" >
+							<div class="carListWrap mT20">
 
 								<c:forEach var="brandCar" items="${brandCarAllList }">
 									<div class="carListBox" style="cursor: pointer;">
@@ -251,20 +251,21 @@
 								<span><img src="/images/common/pagenation-btn-left.svg"
 									alt="이전"></span>
 							</button> --%>
-							<div class="pagingNum" id="pageNum" value="${currentPage }" >
+							<div class="pagingNum" id="pageNum" value="${currentPage }">
 								<span class="textRed">${currentPage }</span> / ${totalPage }
 							</div>
 							<!-- 다음버튼 -->
 							<c:if test="${currentPage != totalPage }">
 								<button type="button"
-									class="el-button pageNext el-button--default" id="next" onclick="send('next','${currentPage }')" >
+									class="el-button pageNext el-button--default" id="next"
+									onclick="send('next','${currentPage }')">
 									<span><img src="/images/common/pagenation-btn-right.svg"
 										alt="다음"></span>
 								</button>
 							</c:if>
 						</div>
-					
-						
+
+
 					</div>
 					<div>
 						<div class="faqWrap">
@@ -391,29 +392,77 @@
 						<p>partnership@kcar.com</p>
 					</div>
 				</div>
+				
+				<!-- ajax로 버튼 누를때마다 코드 변경 아래 div내부 전체 코드 변경필요-->
 				<div>
-					<div class="el-dialog__wrapper popup popCenter wid480 hfix active"
-						style="display: none;">
+				<span id="modalManuBack"></span>
+					<div class="el-dialog__wrapper popup popCenter wid480 hfix active" id="modalManu"
+						style="z-index: 2010; display:none;">
 						<div role="dialog" aria-modal="true" aria-label="제조사 선택"
 							class="el-dialog" style="margin-top: 15vh;">
 							<div class="el-dialog__header">
 								<span class="el-dialog__title">제조사 선택</span>
 								<button type="button" aria-label="Close"
-									class="el-dialog__headerbtn">
+									class="el-dialog__headerbtn" onclick="modalMenuClose()">
 									<i class="el-dialog__close el-icon el-icon-close"></i>
 								</button>
 							</div>
-							<!---->
+							
+							
+							<div class="el-dialog__body">
+								<div class="popContent  el-scrollbar">
+									<div class="el-scrollbar__wrap"
+										style="margin-bottom: -26px; margin-right: -26px;">
+										<div class="el-scrollbar__view">
+										
+											<div class="carBrandListPop">
+												<div class="el-row">
+													<div role="radiogroup" class="el-radio-group" >
+													
+													<%-- <c:forEach var="" items=""> --%>
+															<label role="radio" tabindex="-1" class="el-radio" id="modalModel" onclick="modalModelMenu('아우디')"><span
+																class="el-radio__input"><span
+																	class="el-radio__inner"></span><input type="radio"
+																	aria-hidden="true" tabindex="-1" autocomplete="off"
+																	class="el-radio__original" value="013"></span><span
+																class="el-radio__label"> 벤츠 <span class="count">396대</span>
+																<!----></span></label>
+															
+													<%-- </c:forEach> --%>
+															
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="el-scrollbar__bar is-horizontal">
+										<div class="el-scrollbar__thumb"
+											style="transform: translateX(0%);"></div>
+									</div>
+									<div class="el-scrollbar__bar is-vertical">
+										<div class="el-scrollbar__thumb"
+											style="transform: translateY(0%); height: 89.434%;"></div>
+									</div>
+								</div>
+								<!---->
+							</div>
+							
+							
 							<div class="el-dialog__footer">
 								<span class="dialog-footer"><div class="footerBtnWrap">
 										<div class="searchTrigger box maxW400 el-row">
-											<button class="button apply">차량보기(0대)</button>
+											<button class="button apply">차량보기(1,023대)</button>
 										</div>
 									</div></span>
 							</div>
 						</div>
 					</div>
 				</div>
+
+
+				<!--  -->
+
+
 				<div class="el-dialog__wrapper popup confirm noTitle"
 					style="display: none;">
 					<div role="dialog" aria-modal="true" aria-label="dialog"
@@ -439,29 +488,77 @@
 	</div>
 	<iframe id="groobeeBox" name="groobeeBox" style="display: none;"></iframe>
 	<div id="criteo-tags-div" style="display: none;"></div>
-<script type="text/javascript">
-	var req;
-	function send(data,currentPage){
-		
-		console.log(currentPage);
-		req = new XMLHttpRequest();
-		req.onreadystatechange = pageChange;
-		req.open('post','brandCarPaging');
-		var result = {
-				d: data,
-	  			currentPage: currentPage
+	<script type="text/javascript">
+		//paging 스크립트
+		var chorme = document.querySelector('.chrome');
+		var req;
+
+		function send(data, currentPage) {
+			req = new XMLHttpRequest();
+			req.onreadystatechange = pageChange;
+			req.open('post', 'brandCarPaging');
+			var result = {
+				d : data,
+				currentPage : currentPage
+			}
+			result = JSON.stringify(result);
+			req.setRequestHeader('Content-Type',
+					'application/json; charset=UTF-8');
+			req.send(result);
 		}
-		result = JSON.stringify(result);
-		req.setRequestHeader('Content-Type','application/json; charset=UTF-8');
-		req.send(result);
-	}
-	function pageChange(){
-		if(req.readyState == 4 & req.status == 200){
-			var ajaxBrandAllListPage = document.getElementById('ajaxBrandAllListPage');
-			ajaxBrandAllListPage.innerHTML = req.responseText;			
+
+		function pageChange() {
+			if (req.readyState == 4 & req.status == 200) {
+				var ajaxBrandAllListPage = document
+						.getElementById('ajaxBrandAllListPage');
+				ajaxBrandAllListPage.innerHTML = req.responseText;
+				ajaxBrandAllListPage.scrollIntoView({
+					behavior : "smooth",
+					block : "start",
+					inline : "nearest"
+				}); // ajaxBrandAllListPage div태그 위치로 이동
+			}
 		}
-	}
 		
-</script>
+		//modal 스크립트
+        var modalManu = document.getElementById('modalManu');
+        var modalManuBack = document.getElementById('modalManuBack');
+        function modalMenuOpen(){
+           document.body.classList.add('el-popup-parent--hidden');
+           modalManu.style.display = "flex";
+           modalManuBack.style.display = "flex";
+        }
+        function modalMenuClose(){
+           document.body.classList.remove('el-popup-parent--hidden');
+           modalManu.style.display = "none";
+           modalManuBack.style.display = "none";
+        }
+		
+		var cnt = 0;
+		function modalModelMenu(data){
+			//버블링현상 방지 코드 시작
+			if(cnt == 1){
+				cnt = 0;
+				return;
+			} 
+			cnt++;
+			//버블링 현상 방지코드 끝
+			sendModal(data);
+		}
+		function sendModal(data){
+			if(req == null){
+				req = new XMLHttpRequest();
+			}
+			req.onreadystatechange = modelMenu;
+			req.open('post', 'modal');
+			req.send(data);
+		}
+		function modelMenu(){
+			if(req.readyState == 4 & req.status == 200){
+				console.log(req.responseText);
+			}
+		}
+		
+		</script>
 </body>
 </html>

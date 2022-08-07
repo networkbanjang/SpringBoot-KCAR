@@ -33,9 +33,16 @@
 	<select id="brandCarAllCnt" resultType="int">
 		SELECT count(r.c_num) FROM (SELECT c.* FROM KCAR_CAR c LEFT JOIN KCAR_CARBRAND cb on c.cb_brand = cb.cb_brand WHERE cb.cb_domestic = '해외') r
 	</select>
+	<select id="brandCarModelList" parameterType="String" resultType="map">
+		SELECT cb.cb_m_model, count(c.c_num) count
+	    FROM KCAR_CARBRAND_MODEL cb LEFT JOIN  KCAR_CAR c
+	    on cb.cb_m_model = c.cb_m_model
+	    WHERE cb.cb_brand = '아우디'
+	    GROUP BY cb.cb_m_model
+	    ORDER BY  cb.cb_m_model
+	</select>
 	
-	
-	<!-- db에 insert하기 -->
+	<!-- db에 insert하기 com.one.kcar.dto.buy.CarDTO-->
 	<!-- <insert id="insertCarBrand" parameterType="String">
 		INSERT INTO KCAR_CARBRAND VALUES(#{cb_brand},#{cb_koreaLan},#{cb_EnglishLan},#{cb_photo},#{cb_domestic})
 		INSERT INTO KCAR_CARBRAND(cb_brand) VALUES(#{cb_brand})

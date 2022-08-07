@@ -3008,7 +3008,7 @@ to {
 }
 
 .el-table--border .el-table__cell, .el-table__body-wrapper .el-table--border.is-scrolling-left
-	~.el-table__fixed {
+	 ~.el-table__fixed {
 	border-right: 1px solid #ebeef5
 }
 
@@ -4413,7 +4413,23 @@ keyframes v-modal-out {
 }
 
 .el-popup-parent--hidden {
-	overflow: hidden
+	overflow: hidden;
+	padding-right: 26px;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+/* 모달창 배경 버튼등 튀어나오는거 
+바디 위에 span 배경 위에 모달창 - 열공님의 명언언
+
+ */
+#modalManuBack {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 2000;
 }
 
 .el-message-box {
@@ -6498,7 +6514,7 @@ to {
 }
 
 .el-slider.is-vertical.el-slider--with-input .el-slider__input .el-input-number__increase
-	~.el-input .el-input__inner {
+	 ~.el-input .el-input__inner {
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0
 }
@@ -6624,16 +6640,31 @@ keyframes loading-rotate {
 }
 
 50
+
+
 %
 {
 stroke-dasharray
+
+
 :
+
+
 90
 ,
-150;
+150
+;
+
+
 stroke-dashoffset
+
+
 :
+
+
 -40px
+
+
 }
 to {
 	stroke-dasharray: 90, 150;
@@ -6648,16 +6679,31 @@ keyframes loading-dash { 0%{
 }
 
 50
+
+
 %
 {
 stroke-dasharray
+
+
 :
+
+
 90
 ,
-150;
+150
+;
+
+
 stroke-dashoffset
+
+
 :
+
+
 -40px
+
+
 }
 to {
 	stroke-dasharray: 90, 150;
@@ -9668,16 +9714,31 @@ keyframes rotate {
 }
 
 50
+
+
 %
 {
 stroke-dasharray
+
+
 :
+
+
 90
 ,
-150;
+150
+;
+
+
 stroke-dashoffset
+
+
 :
+
+
 -35
+
+
 }
 to {
 	stroke-dasharray: 90, 150;
@@ -9692,16 +9753,31 @@ keyframes dash { 0%{
 }
 
 50
+
+
 %
 {
 stroke-dasharray
+
+
 :
+
+
 90
 ,
-150;
+150
+;
+
+
 stroke-dashoffset
+
+
 :
+
+
 -35
+
+
 }
 to {
 	stroke-dasharray: 90, 150;
@@ -39421,40 +39497,103 @@ to {
 }
 
 25
+
+
 %
 {
 transform
+
+
 :
-translateX(
--1.8rem
-);
+
+
+translateX
+(
+
+
+-1
+.8rem
+
+
+)
+;
+
+
 opacity
+
+
 :
+
+
 1
+
+
 }
 50
+
+
 %
 {
 transform
+
+
 :
-translateX(
-1.8rem
-);
-opacity
-:
+
+
+translateX
+(
+
+
 1
+.8rem
+
+
+)
+;
+
+
+opacity
+
+
+:
+
+
+1
+
+
 }
 75
+
+
 %
 {
 transform
+
+
 :
-translateX(
--1.8rem
-);
+
+
+translateX
+(
+
+
+-1
+.8rem
+
+
+)
+;
+
+
 opacity
+
+
 :
+
+
 1
+
+
 }
 to {
 	transform: translateX(0);
@@ -39469,40 +39608,103 @@ keyframes popinOut { 0%{
 }
 
 25
+
+
 %
 {
 transform
+
+
 :
-translateX(
--1.8rem
-);
+
+
+translateX
+(
+
+
+-1
+.8rem
+
+
+)
+;
+
+
 opacity
+
+
 :
+
+
 1
+
+
 }
 50
+
+
 %
 {
 transform
+
+
 :
-translateX(
-1.8rem
-);
-opacity
-:
+
+
+translateX
+(
+
+
 1
+.8rem
+
+
+)
+;
+
+
+opacity
+
+
+:
+
+
+1
+
+
 }
 75
+
+
 %
 {
 transform
+
+
 :
-translateX(
--1.8rem
-);
+
+
+translateX
+(
+
+
+-1
+.8rem
+
+
+)
+;
+
+
 opacity
+
+
 :
+
+
 1
+
+
 }
 to {
 	transform: translateX(0);
@@ -47464,21 +47666,21 @@ textarea {
 
 .homeServiceWrap .homeCont .purchaseWrap .moneyStatus>div .searchTrigger.midtype .button:last-of-type,
 	.homeServiceWrap .homeCont .purchaseWrap .moneyStatus>div .searchTrigger.midtype .button:last-of-type
-	~.button {
+	 ~.button {
 	width: 100%;
 	max-width: 156px
 }
 
 .homeServiceWrap .homeCont .purchaseWrap .moneyStatus>div .searchTrigger.midtype .button:nth-last-of-type(2),
 	.homeServiceWrap .homeCont .purchaseWrap .moneyStatus>div .searchTrigger.midtype .button:nth-last-of-type(2)
-	~.button {
+	 ~.button {
 	width: calc(50% - 4px);
 	max-width: 120px
 }
 
 .homeServiceWrap .homeCont .purchaseWrap .moneyStatus>div .searchTrigger.midtype .button:nth-last-of-type(3),
 	.homeServiceWrap .homeCont .purchaseWrap .moneyStatus>div .searchTrigger.midtype .button:nth-last-of-type(3)
-	~.button {
+	 ~.button {
 	width: calc(33.33333% - 5.33333px);
 	max-width: 108px
 }
@@ -57027,13 +57229,13 @@ table .hidden {
 
 .onlineSignWrap .popup .el-dialog .el-dialog__body .verifyWrap .verifyBtnArea .el-button:last-of-type,
 	.onlineSignWrap .popup .el-dialog .el-dialog__body .verifyWrap .verifyBtnArea .el-button:last-of-type
-	~.el-button {
+	 ~.el-button {
 	width: 100%
 }
 
 .onlineSignWrap .popup .el-dialog .el-dialog__body .verifyWrap .verifyBtnArea .el-button:nth-last-of-type(2),
 	.onlineSignWrap .popup .el-dialog .el-dialog__body .verifyWrap .verifyBtnArea .el-button:nth-last-of-type(2)
-	~.el-button {
+	 ~.el-button {
 	width: calc(50% - 1rem)
 }
 
@@ -68733,8 +68935,8 @@ table .hidden {
 }
 
 .searchWrap .centerSearchForm .areaSearch .el-select+.el-input .el-input__inner
-	~.el-input__suffix, .searchWrap .centerSearchForm .areaSearch .resultText+.el-input .el-input__inner
-	~.el-input__suffix {
+	 ~.el-input__suffix, .searchWrap .centerSearchForm .areaSearch .resultText+.el-input .el-input__inner
+	 ~.el-input__suffix {
 	right: 0
 }
 
@@ -70849,7 +71051,7 @@ table .hidden {
 }
 
 .kcarSnb .btngp .el-button:nth-last-of-type(2), .kcarSnb .btngp .el-button:nth-last-of-type(2)
-	~.el-button, .popup.popDetail .btngp .el-button:nth-last-of-type(2),
+	 ~.el-button, .popup.popDetail .btngp .el-button:nth-last-of-type(2),
 	.popup.popDetail .btngp .el-button:nth-last-of-type(2) ~.el-button {
 	width: 50%
 }
@@ -71418,43 +71620,43 @@ table .hidden {
 
 .termsWrap .tabMenuLists .el-tabs .el-tabs__header .el-tabs__item:last-of-type,
 	.termsWrap .tabMenuLists .el-tabs .el-tabs__header .el-tabs__item:last-of-type
-	~.el-tabs__item {
+	 ~.el-tabs__item {
 	width: 100%
 }
 
 .termsWrap .tabMenuLists .el-tabs .el-tabs__header .el-tabs__item:nth-last-of-type(2),
 	.termsWrap .tabMenuLists .el-tabs .el-tabs__header .el-tabs__item:nth-last-of-type(2)
-	~.el-tabs__item {
+	 ~.el-tabs__item {
 	width: 50%
 }
 
 .termsWrap .tabMenuLists .el-tabs .el-tabs__header .el-tabs__item:nth-last-of-type(3),
 	.termsWrap .tabMenuLists .el-tabs .el-tabs__header .el-tabs__item:nth-last-of-type(3)
-	~.el-tabs__item {
+	 ~.el-tabs__item {
 	width: 33.3333333333%
 }
 
 .termsWrap .tabMenuLists .el-tabs .el-tabs__header .el-tabs__item:nth-last-of-type(4),
 	.termsWrap .tabMenuLists .el-tabs .el-tabs__header .el-tabs__item:nth-last-of-type(4)
-	~.el-tabs__item {
+	 ~.el-tabs__item {
 	width: 25%
 }
 
 .termsWrap .tabMenuLists .el-tabs .el-tabs__header .el-tabs__item:nth-last-of-type(5),
 	.termsWrap .tabMenuLists .el-tabs .el-tabs__header .el-tabs__item:nth-last-of-type(5)
-	~.el-tabs__item {
+	 ~.el-tabs__item {
 	width: 20%
 }
 
 .termsWrap .tabMenuLists .el-tabs .el-tabs__header .el-tabs__item:nth-last-of-type(6),
 	.termsWrap .tabMenuLists .el-tabs .el-tabs__header .el-tabs__item:nth-last-of-type(6)
-	~.el-tabs__item {
+	 ~.el-tabs__item {
 	width: 16.6666666667%
 }
 
 .termsWrap .tabMenuLists .el-tabs .el-tabs__header .el-tabs__item:nth-last-of-type(7),
 	.termsWrap .tabMenuLists .el-tabs .el-tabs__header .el-tabs__item:nth-last-of-type(7)
-	~.el-tabs__item {
+	 ~.el-tabs__item {
 	width: 14.2857142857%
 }
 

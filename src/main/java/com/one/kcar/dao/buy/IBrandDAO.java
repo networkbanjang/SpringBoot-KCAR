@@ -1,6 +1,8 @@
 package com.one.kcar.dao.buy;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -32,5 +34,7 @@ public interface IBrandDAO {
 	int insertCarTag(@Param("c_num") String c_num, @Param("c_t_distance")String c_t_distance, @Param("c_t_newCar")String c_t_newCar, @Param("c_t_fourWheel")String c_t_fourWheel,@Param("c_t_oneOwner")String c_t_oneOwner );
 
 	int brandCarAllCnt();
+
+	ArrayList<Map<String,String>> brandCarModelList(String brand);
 
 }
