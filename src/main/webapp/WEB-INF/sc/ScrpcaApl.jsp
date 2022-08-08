@@ -32,20 +32,28 @@ input[type=radio]:checked+span {
 <script src="js/sellscript.js"></script>
 
 <script>
-var req;
-function ajaxmodel(){
-	req = new XMLHttpRequest();
-	req.onreadystatechange = textChange;
-	req.open('post', '/ScrpcaApl');
-	req.send(document.getElementById('brand').value); 
-	
-}
+	var req;
+	function ajaxmodel() {
+		req = new XMLHttpRequest();
+		req.onreadystatechange = textChange;
+		req.open('post','/ScrpcaApl');
+		req.send(document.getElementById('brand').value);
 
-function textChange(){
-	if(req.readyState == 4 && req.status == 200){
-		var data = "";
 	}
-}
+
+	function textChange() {
+		if (req.readyState == 4 && req.status == 200) {
+			document.getElementById('tbody').innerHTML = req.responseText;
+		}
+	}
+	function nullcheck() {
+		var array=document.getElementsByClassName('form-select');
+		if(array[0].value == 'noselect' || array[1].value == 'noselect') {
+			alert('모델과 제조사를 선택해 주세요')
+			document.getElementById('noticeBox').style.display = 'none';
+		}
+		else document.getElementById('noticeBox').style.display = 'block';
+	}
 </script>
 
 </head>
@@ -65,6 +73,7 @@ function textChange(){
 							<div class="shTxtWrapCent">
 								<p class="shTit">KS폐차산업(주)</p>
 								<p class="shTxt">010-3399-7129 / 010-7129-8297</p>
+
 							</div>
 						</div>
 						<ul class="stepProc">
@@ -90,8 +99,9 @@ function textChange(){
 										<div class="el-select">
 											<!---->
 											<div class="el-input el-input--suffix">
-												<select class="form-select" aria-label="Brand" id="brand" onchange="ajaxmodel()">
-													<option selected>제조사</option>
+												<select class="form-select" aria-label="Brand" id="brand"
+													onchange="ajaxmodel()">
+													<option  value='noselect' selected>제조사</option>
 													<c:forEach var="brand" items="${sessionScope.list}">
 														<option value='${brand }'>${brand }</option>
 													</c:forEach>
@@ -100,13 +110,9 @@ function textChange(){
 										</div>
 										<div class="el-select">
 											<!---->
-											<div class="el-input el-input--suffix">
-												<select class="form-select" aria-label="Model">
-													<option selected>모델</option>
-													<c:forEach var="model" items="${sessionScope.modellist}">
-														<option value='${model }'>${model }</option>
-													</c:forEach>
-
+											<div class="el-input el-input--suffix" id="tbody">
+												<select class='form-select' aria-label='Model'>
+													<option value='noselect'>모델</option>
 												</select>
 											</div>
 										</div>
@@ -249,7 +255,16 @@ function textChange(){
 							</p>
 						</div>
 						<div class="searchTrigger box btnApply el-row">
-							<button class="button apply">폐차 금액 조회</button>
+							<button class="button apply" onclick="nullcheck()">폐차 금액 조회</button>
+						</div>
+						<div class="noticeBox mB40" style="display: none;" id="noticeBox">
+							<strong class="subTitle2">폐차 금액</strong>
+							<p>
+								<span>운행불가 차량은 상담 후 폐차 금액이 결정됩니다.</span><br> 자세한 내용은
+								KS폐차산업(주)(<span class="underLine">010-3399-7129</span>, <span
+									class="underLine">010-7129-8297</span>)으로 문의해 주세요.<br>※ 모든
+								차량의 단가는 정품 촉매 기준입니다.
+							</p>
 						</div>
 						<br>
 					</div>

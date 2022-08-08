@@ -1,6 +1,8 @@
 package com.one.kcar.controller;
 
+import java.util.HashMap;
 import java.util.List;
+
 
 import javax.servlet.http.HttpSession;
 
@@ -10,9 +12,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.one.kcar.DTO.SellDTO;
+import com.one.kcar.DTO.SellReviewDTO;
 import com.one.kcar.service.SellService;
 
 @Controller
@@ -43,11 +47,36 @@ public class sellController {
 
 	
 	// 내차팔기 고객후기
-	@GetMapping("sc/SellCustReview")
-	public String SellCustReview() {
+	@RequestMapping("sc/SellCustReview")
+	public String SellCustReview(SellReviewDTO review,Model model,String currentPage,HttpSession session) {
+		if(currentPage == null)
+			currentPage="1";
+		List<SellReviewDTO> list = service.reviewList(currentPage);
+		model.addAttribute("list",list);
+		int totalPage=(Integer)session.getAttribute("reviewtotalpage");
+
+		model.addAttribute("totalPage",totalPage);
+		model.addAttribute("currentPage",currentPage);
 		return "sc/SellCustReview";
 	}
 
+	@ResponseBody
+	@PostMapping(value = "detail", produces="application/json; charset=UTF-8")
+	public HashMap<String, String> ReviewDetail(SellReviewDTO review,@RequestBody(required = false) String num) {
+			int number = Integer.parseInt(num);
+			review = service.reviewview(number);
+
+			HashMap<String,String> map = new HashMap<String,String>();
+			String modate= review.getS_r_model()+"<em class='emLine'></em>"+review.getS_r_date();
+			map.put("title", review.getS_r_title());
+			map.put("content", review.getS_r_content());
+			map.put("image", review.getS_r_image());
+			map.put("model", modate);
+			map.put("date", review.getS_r_date());
+			return map;
+			 
+	}
+	
 	// 내차팔기(간편신청) (새창으로 띄워야함)
 	@GetMapping("/HomeSvcSimptRcp")
 	public String HomeSvcSimptRcp() {
@@ -69,11 +98,17 @@ public class sellController {
 	
 	@ResponseBody
 	@PostMapping(value = "ScrpcaApl", produces = "text/html; charset=UTF-8")
-	public String ScrpcaApl(@RequestBody(required = false)String brand,HttpSession session) {
+	public String ScrpcaApl(@RequestBody(required = false)String brand,Model model) {
 		List<String> list = service.modellist(brand);
-		session.setAttribute("modellist", list);
-		for(String l : list)
-			System.out.println(l);
-		return "sc/ScrpcaApl";
+		model.addAttribute("modellist",list);
+		String result="<select class='form-select' aria-label='Model'>";
+		result+="<option selected value='noselect'>모델</option>";
+		 result+="<c:forEach var='model' items='${modellist}'> ";
+		for(String l : list) {
+		result+="<option value='"+l+"'>"+l+"</option>";}
+	result+="</c:forEach>";
+	result+="</select>";
+	
+		return result;
 	}
 }

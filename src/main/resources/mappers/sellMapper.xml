@@ -15,4 +15,15 @@
 	<select id="modellist" parameterType="String" resultType="String">
 		select cb_m_model from kcar_carbrand_model where cb_brand = #{brand} 
 	</select>
+	
+	<select id="reviewList" resultType="SellReviewDTO">
+		select * from kcar_sell_review where s_r_num between #{begin} and #{end}
+	</select>
+	<select id="reviewView" parameterType="Int" resultType="SellReviewDTO">
+		select * from kcar_sell_review where s_r_num=#{num}
+	</select>
+	
+	<select id="reviewListcount" resultType="int">
+		select count(*) from kcar_sell_review 
+	</select>
 </mapper>

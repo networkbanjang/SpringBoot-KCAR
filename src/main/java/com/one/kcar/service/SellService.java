@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.one.kcar.DTO.SellDTO;
+import com.one.kcar.DTO.SellReviewDTO;
 import com.one.kcar.repository.ISellDAO;
 
 @Service
@@ -35,6 +36,7 @@ HttpSession session;
 		return "등록 성공";
 	}
 
+
 	public List<String> brandlist() {
 		return dao.brandlist();
 		
@@ -43,6 +45,27 @@ HttpSession session;
 	public List<String> modellist(String brand) {
 		
 		return dao.modellist(brand);
+	}
+
+
+
+	public List<SellReviewDTO> reviewList(String currentPage) {
+		int block=3;
+		int totalrow=dao.reviewListcount();
+		int page = Integer.parseInt(currentPage);
+		
+		int end=page * block;
+		int begin=end - (block-1);
+		int totalpage= totalrow/block;
+		if(totalpage % block!=0)
+			totalpage +=1;
+		session.setAttribute("reviewtotalpage", totalpage);
+		return dao.reviewList(begin,end);
+	}
+
+	public SellReviewDTO reviewview(int num) {
+		// TODO Auto-generated method stub
+		return dao.reviewView(num);
 	}
 
 }
