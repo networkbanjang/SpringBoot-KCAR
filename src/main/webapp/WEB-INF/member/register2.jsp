@@ -4,9 +4,28 @@
 <head>
 <title>K Car - 직접 매입 직접 판매하는 대한민국 No.1 직영 중고차 케이카</title>
 <%@ include file="register_style.jsp" %>
+<style>
+input[type="checkbox"] {
+	display: none;
+}
+
+input[type='checkbox']+label span {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url('/images/common/checkbox-single-default.svg') no-repeat
+		0 0px/contain;
+}
+
+input[type='checkbox']:checked+label span {
+	background: url('/images/common/checkbox-single-checked.svg') no-repeat
+		0 0px/contain;
+}
+</style>
 
 </head>
 <body>
+<script type="text/javascript" src="register.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 	var req;
@@ -18,8 +37,8 @@
 	}
 	
 	function printMsg(){
-		var msg = document.getElementById('msg');
-		msg.innerHTML = req.responseText;
+		var msg2 = document.getElementById('msg2');
+		msg2.innerHTML = req.responseText;
 	}
 	function daumPost(){
 		
@@ -45,6 +64,10 @@
 			height="0" width="0" style="display: none; visibility: hidden"
 			title="gtm"></iframe>
 	</noscript>
+
+	<script>
+		alert('${msg}');
+	</script>
 	<div id="__nuxt">
 		<!---->
 		<div id="__layout">
@@ -80,7 +103,8 @@
 						<h2 class="title">회원가입</h2>
 						<p class="desc">안전한 회원가입을 위해 본인인증을 진행해 주세요.</p>
 					</div>
-							<form class="el-form" action="register2" method="post">
+							<form class="el-form" action="register2" method="post" name="thisForm" id ="thisForm">
+							
 					<div class="pageContents">
 						<div>
 							<div class="el-row">
@@ -104,8 +128,9 @@
 										<div class="titLabel">이름</div>
 										
 											<!---->
-											<input type="text" name="m_name" id="m_name"
+											<input type="text" name="m_name" id="m_name" onblur="nameCheck()"
 												placeholder="이름" class="el-input__inner">
+												<br>
 											<!---->
 											<!---->
 											<!---->
@@ -114,6 +139,9 @@
 										<!---->
 									</div>
 								</div>
+								<br>
+								
+												<span id="name_msg"></span>
 								<div class="el-form-item">
 									<!---->
 									<div class="el-form-item__content">
@@ -122,8 +150,9 @@
 											<div class="el-input el-input--suffix">
 												<!---->
 												<input type="text" autocomplete="off" placeholder="아이디 입력"
-													name ="m_email" id="m_email"
+													name ="m_email" id="m_email" onchange="idCheck()"
 													class="el-input__inner">
+													
 												<!---->
 												<!---->
 												<!---->
@@ -137,10 +166,11 @@
 											</button>
 										</div>
 										<div class="annotation">
-											<h3>
-												<font color="red" id="msg">${msg } </font>
-											</h3>
-											<span>※ 영문, 숫자를 조합해서 입력해 주세요.(4~12자)</span>
+											
+												<font color="red" id="msg2">${msg2 } </font>
+											
+											<span id="id_msg"></span><br>
+											
 										</div>
 										<!---->
 									</div>
@@ -153,7 +183,7 @@
 											<div class="el-input el-input--suffix">
 												<!---->
 												<input type="password" autocomplete="off"
-													id="m_pw" name ="m_pw"
+													id="m_pw" name ="m_pw" onblur="pwCheck()"
 													placeholder="비밀번호 입력" class="el-input__inner">
 												<!---->
 												<span class="el-input__suffix"><span
@@ -168,9 +198,10 @@
 												<!---->
 											</div>
 										</div>
+										<span id="pw_msg1"></span>
 										<div class="annotation el-row">
-											<span>※ 영문 대/소문자, 숫자, 특수문자(`~!@#$%^*+=-_만 허용)를 조합해서
-												입력해 주세요.(8~20자)</span>
+										<span id="pw_msg2"></span>
+											
 										</div>
 										<!---->
 									</div>
@@ -182,7 +213,7 @@
 										<div class="el-input el-input--suffix">
 											<!---->
 											<input type="password" autocomplete="off"
-												name="m_pwOk" id="m_pwOk"
+												name="m_pwOk" id="m_pwOk" onblur="confirmCheck()"
 												placeholder="비밀번호 다시 입력" class="el-input__inner">
 											<!---->
 											<span class="el-input__suffix"><span
@@ -199,6 +230,8 @@
 										<!---->
 									</div>
 								</div>
+								<br>
+								<span id="co_msg"></span>
 								<div class="el-form-item">
 									<!---->
 									<div class="el-form-item__content">
@@ -208,7 +241,7 @@
 											
 												<!---->
 												<input type="text"  autocomplete="off"
-													id="m_tel" name ="m_tel"
+													id="m_tel" name ="m_tel" onblur="mobileCheck()"
 													class="el-input__inner">
 												<!---->
 												<!---->
@@ -220,6 +253,8 @@
 										<!---->
 									</div>
 								</div>
+								<br>
+								 <span id="mobile_msg"></span>
 									<div class="el-form-item">
 									<!---->
 									<div class="el-form-item__content">
@@ -277,167 +312,77 @@
 										<!---->
 									</div>
 								</div>
-<!-- 								<tr> -->
-<!-- 			<td align='right'>우편번호</td> -->
-<!-- 			<td> -->
-<!-- 				<input type=text name='zipcode' id="zonecode" readonly="readonly"/>  -->
-<!-- 			</td> -->
-<!-- 			<td colspan="2"><input type="button" value="우편번호 검색" onclick="daumPost()"></td> -->
-<!-- 		</tr> -->
-<!-- 		<tr> -->
-<!-- 			<td align='right'>주소</td> -->
-<!-- 			<td colspan="3"> -->
-<!-- 				<input type=text name='addr1' id="addr1" readonly="readonly" style="width: 475px; "/>  -->
-<!-- 			</td> -->
-<!-- 		</tr> -->
-<!-- 		<tr> -->
-<!-- 			<td align='right'>상세주소</td> -->
-<!-- 			<td colspan="3"> -->
-<!-- 				<input type=text name='addr2' id="addr2" style="width: 475px; "/>  -->
-<!-- 			</td> -->
-<!-- 		</tr> -->
-<!-- 								<div class="emailArea type01"> -->
-<!-- 									<div class="titLabel">이메일</div> -->
-<!-- 									<div class="itemList"> -->
-<!-- 										<div class="el-form-item"> -->
-<!-- 											 -->
-<!-- 											<div class="el-form-item__content"> -->
-<!-- 												<div class="w200 el-input el-input--suffix"> -->
-<!-- 													 -->
-<!-- 													<input type="text" autocomplete="off" placeholder="이메일 입력" -->
-<!-- 														class="el-input__inner"> -->
-<!-- 													 -->
-<!-- 													 -->
-<!-- 													 -->
-<!-- 													 -->
-<!-- 												</div> -->
-<!-- 												 -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-<!-- 										<span class="at">@</span> -->
-<!-- 										<div class="el-form-item"> -->
-<!-- 											 -->
-<!-- 											<div class="el-form-item__content"> -->
-<!-- 												<div class="emailAddr w128 pdr0 el-input"> -->
-<!-- 													 -->
-<!-- 													<input type="text" autocomplete="off" -->
-<!-- 														placeholder="naver.com" class="el-input__inner"> -->
-<!-- 													 -->
-<!-- 													 -->
-<!-- 													 -->
-<!-- 													 -->
-<!-- 												</div> -->
-<!-- 												 -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-<!-- 										<div class="el-form-item"> -->
-<!-- 											 -->
-<!-- 											<div class="el-form-item__content"> -->
-<!-- 												<div class="el-select w214"> -->
-<!-- 													 -->
-<!-- 													<div class="el-input el-input--suffix"> -->
-<!-- 														 -->
-<!-- 														<input type="text" readonly="readonly" autocomplete="off" -->
-<!-- 															placeholder="직접 입력" class="el-input__inner"> -->
-<!-- 														 -->
-<!-- 														<span class="el-input__suffix"><span -->
-<!-- 															class="el-input__suffix-inner"><i -->
-<!-- 																class="el-select__caret el-input__icon el-icon-arrow-up"></i> -->
-<!-- 															 -->
-<!-- 																 -->
-<!-- 																 -->
-<!-- 																 -->
-<!-- 																</span> -->
-<!-- 														</span> -->
-<!-- 														 -->
-<!-- 														 -->
-<!-- 													</div> -->
-<!-- 													<div class="el-select-dropdown el-popper" -->
-<!-- 														style="display: none; min-width: 214px;"> -->
-<!-- 														<div class="el-scrollbar" style=""> -->
-<!-- 															<div class="el-select-dropdown__wrap el-scrollbar__wrap" -->
-<!-- 																style="margin-bottom: -17px; margin-right: -17px;"> -->
-<!-- 																<ul class="el-scrollbar__view el-select-dropdown__list"> -->
-<!-- 																	 -->
-<!-- 																	<li class="el-select-dropdown__item"><span>naver.com</span></li> -->
-<!-- 																	<li class="el-select-dropdown__item"><span>gmail.com</span></li> -->
-<!-- 																	<li class="el-select-dropdown__item"><span>hanmail.net</span></li> -->
-<!-- 																	<li class="el-select-dropdown__item"><span>nate.com</span></li> -->
-<!-- 																	<li class="el-select-dropdown__item"><span>daum.net</span></li> -->
-<!-- 																	<li class="el-select-dropdown__item"><span>kakao.com</span></li> -->
-<!-- 																	<li class="el-select-dropdown__item"><span>직접입력</span></li> -->
-<!-- 																</ul> -->
-<!-- 															</div> -->
-<!-- 															<div class="el-scrollbar__bar is-horizontal"> -->
-<!-- 																<div class="el-scrollbar__thumb" -->
-<!-- 																	style="transform: translateX(0%);"></div> -->
-<!-- 															</div> -->
-<!-- 															<div class="el-scrollbar__bar is-vertical"> -->
-<!-- 																<div class="el-scrollbar__thumb" -->
-<!-- 																	style="transform: translateY(0%);"></div> -->
-<!-- 															</div> -->
-<!-- 														</div> -->
-<!-- 														 -->
-<!-- 													</div> -->
-<!-- 												</div> -->
-<!-- 												 -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-<!-- 								</div> -->
-								
-						
+
+						<script>
+						    function chk() {
+						        var f = document.thisForm;
+						        if(f.check1.checked!==true || f.check2.checked!==true || f.check3.checked!==true) {
+						            alert('필수항목에 체크해 주세요.');
+						            return;
+						        } else {
+						        	f.action ='register2';
+						        	f.method = 'POST';
+						            f.submit();
+						        }
+						    }
+						  </script>
+													
 							<div class="termsArea">
 								<div class="roundCheck">
 									<h3 class="subTitle3">약관 동의</h3>
 									<div class="termsCheckWrap">
 										<div class="item">
-											<label class="el-checkbox"><span
-												class="el-checkbox__input"><input type="checkbox" name="agree"
-													 class="el-checkbox__inner" value="1"></span><span
-												class="el-checkbox__label"> 이용약관 동의(필수) <!----></span></label>
+											<div id='result'></div>
+												 <input class="form-check-input" value ="1" type="checkbox" name="check1" 
+												  id="check1">
+													 <label class="form-check-label" for="check1"><span></span>
+												 이용약관 동의(필수) <!----></label>
 										</div>
 										<div class="item">
-											<label class="el-checkbox"><span
-												class="el-checkbox__input"><input type="checkbox" name="agree"
-													 class="el-checkbox__inner" value="2"></span><span
-												class="el-checkbox__label"> 개인정보 수집 및 이용 동의(필수) <!----></span></label>
+										<input class="form-check-input" value ="2" type="checkbox" name="check2" 
+										 id="check2">
+													 <label class="form-check-label" for="check2"><span></span>
+												 개인정보 수집 및 이용 동의(필수)<!----></label>
+											
 										</div>
 										<div class="item">
-											<label class="el-checkbox"><span
-												class="el-checkbox__input"><input type="checkbox" name="agree"
-													 class="el-checkbox__inner" value="3"></span><span
-												class="el-checkbox__label"> 환불약관 동의(필수) <!----></span></label>
+										<input class="form-check-input" value ="3" type="checkbox" name="check3" 
+										  id="check3">
+													 <label class="form-check-label" for="check3"><span></span>
+												 환불약관 동의(필수)<!----></label>
+											
 										</div>
 										<div class="item">
-											<div class="termsDepth">
-												<label class="el-checkbox"><span
-												class="el-checkbox__input"><input type="checkbox" 
-													 class="el-checkbox__inner" value=""></span><span
-												class="el-checkbox__label"> 마케팅 활용/ 수신 동의(선택) <!----></span></label>
-												<div role="group" aria-label="checkbox-group"
-													class="el-checkbox-group">
-													<label class="el-checkbox"><span
-												class="el-checkbox__input"><input type="checkbox"
-													 class="el-checkbox__inner" value=""></span><span
-												class="el-checkbox__label"> SMS/이벤트 등 푸시알림 <!----></span></label><label class="el-checkbox"><span
-												class="el-checkbox__input"><input type="checkbox"
-													 class="el-checkbox__inner" value=""></span><span
-												class="el-checkbox__label"> 이메일 수신 <!----></span></label>
-												</div>
-											</div>
-										</div>6
+											
+											<input class="form-check-input" type="checkbox" name="check4" id="check4">
+													 <label class="form-check-label" for="check4"><span></span>
+												 SMS/이벤트 등 푸시알림(선택)<!----></label>
+												 </div>
+										<div class="item">
+											
+											<input class="form-check-input" type="checkbox" name="check5" id="check5">
+													 <label class="form-check-label" for="check5"><span></span>
+												 이메일 수신(선택)<!----></label>
+												 </div>
+										
+												
+											
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+					
+						
+							
 						<div class="footerBtnWrap">
 							<div class="searchTrigger box maxW400 el-row">
-								<button class="button apply">회원가입</button>
+								<button class="button apply" name ="checkButton" onclick = "chk()">회원가입</button>
 							</div>
 						</div>
-					</div>
 							</form>
+					</div>
+					
 					<div class="el-dialog__wrapper popup fullPopup hauto"
 						style="display: none;">
 						<div role="dialog" aria-modal="true" aria-label="이용약관(필수)"

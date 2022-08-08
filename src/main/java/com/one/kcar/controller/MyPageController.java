@@ -104,8 +104,10 @@ public class MyPageController {
 		
 		String msg = memberService.pw_update(member, m_pw,pwOk);
 		model.addAttribute("msg",msg);
-		if(msg.equals("수정 완료"))
+		if(msg.equals("수정 완료")) {
+		session.invalidate();
 			return "home";
+		}
 		return "member/pw_find";
 	}
 	

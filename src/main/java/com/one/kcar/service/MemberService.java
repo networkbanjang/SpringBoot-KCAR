@@ -37,6 +37,10 @@ public class MemberService {
 		if (member.getM_tel() == null || member.getM_tel().isEmpty())
 			return "전화번호를 입력하세요";
 		
+		if (member.getM_zipcode() == null || member.getM_zipcode().isEmpty()
+				|| member.getM_addr1()==null || member.getM_addr1().isEmpty())
+			return "주소를 입력하세요";
+		
 		if (memberDao.isExistId(member.getM_email()) > 0)
 			return "중복 아이디 입니다.";
 		
@@ -46,8 +50,7 @@ public class MemberService {
 		String securePw = encoder.encode(member.getM_pw());
 		member.setM_pw(securePw);
 		
-		if (!("".equals(member.getM_zipcode())))
-			memberDao.insertMember(member);
+		
 		
 		session.invalidate();// 인증번호 및 인증 상태 제거
 		return "가입 완료";

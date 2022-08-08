@@ -3,6 +3,25 @@
 <head>
 <title>K Car - 직접 매입 직접 판매하는 대한민국 No.1 직영 중고차 케이카</title>
 <%@ include file="register_style.jsp" %>
+
+<style>
+.form-select {
+	width: 393px;
+	height: 56px;
+}
+
+.selectoption {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url('/images/icon/icon-radio-default.svg') no-repeat 0 0px/contain;
+}
+
+input[type=radio]:checked+span {
+	background: url('/images/icon/icon-radio-checked.svg') no-repeat 0 0px/contain;
+}
+</style>
+
 </head>
 <body class="" style="">
 	
@@ -189,52 +208,100 @@
 													<!---->
 													<div class="el-form-item__content">
 														<div class="titLabel">탈퇴사유</div>
-														<div class="el-row">
-															<div role="radiogroup" class="el-radio-group snsRadio">
-																<label role="radio" tabindex="-1" class="el-radio">
+<!-- 														<div class="el-row"> -->
+<!-- 															<div role="radiogroup" class="el-radio-group snsRadio"> -->
+<!-- 																<label role="radio" tabindex="-1" class="el-radio"> -->
 																
 																
-																<span class="el-radio__inner"><input type="radio" ></span>
+<!-- 																<span class="el-radio__inner"><input type="radio" ></span> -->
 																		
 																		
 																		
-																		<span
-																	class="el-radio__label"> 아이디를 변경하려 함 <!----></span></label> <label
-																	role="radio" tabindex="-1" class="el-radio"><span
-																	class="el-radio__input"><span
-																		class="el-radio__inner"></span><input type="radio"
-																		aria-hidden="true" tabindex="-1" autocomplete="off"
-																		 value="2"></span><span
-																	class="el-radio__label"> 서비스 오류 및 장애가 많음 <!----></span></label>
-																<label role="radio" tabindex="-1" class="el-radio"><span
-																	class="el-radio__input"><span
-																		class="el-radio__inner"></span><input type="radio"
-																		aria-hidden="true" tabindex="-1" autocomplete="off"
-																		class="el-radio__original" value="3"></span><span
-																	class="el-radio__label"> 필요한 정보가 없음 <!----></span></label> <label
-																	role="radio" tabindex="-1" class="el-radio"><span
-																	class="el-radio__input"><span
-																		class="el-radio__inner"></span><input type="radio"
-																		aria-hidden="true" tabindex="-1" autocomplete="off"
-																		class="el-radio__original" value="4"></span><span
-																	class="el-radio__label"> 고객서비스가 마음에 들지 않음 <!----></span></label>
-																<label role="radio" tabindex="0"
-																	class="el-radio is-checked" aria-checked="true"><span
-																	class="el-radio__input is-checked"><span
-																		class="el-radio__inner"></span><input type="radio"
-																		aria-hidden="true" tabindex="-1" autocomplete="off"
-																		class="el-radio__original" value="5"></span><span
-																	class="el-radio__label"> 다른 회사의 비슷한 서비스를 이용함 <!----></span></label>
-																<label role="radio" tabindex="-1" class="el-radio"><span
-																	class="el-radio__input"><span
-																		class="el-radio__inner"></span><input type="radio"
-																		aria-hidden="true" tabindex="-1" autocomplete="off"
-																		class="el-radio__original" value="6"></span><span
-																	class="el-radio__label"> 직접 입력 <!----></span></label>
-															</div>
-															<!---->
-														</div>
+<!-- 																		<span -->
+<!-- 																	class="el-radio__label"> 아이디를 변경하려 함</span></label> <label -->
+<!-- 																	role="radio" tabindex="-1" class="el-radio"><span -->
+<!-- 																	class="el-radio__input"><span -->
+<!-- 																		class="el-radio__inner"></span><input type="radio" -->
+<!-- 																		aria-hidden="true" tabindex="-1" autocomplete="off" -->
+<!-- 																		 value="2"></span><span -->
+<!-- 																	class="el-radio__label"> 서비스 오류 및 장애가 많음</span></label> -->
+<!-- 																<label role="radio" tabindex="-1" class="el-radio"><span -->
+<!-- 																	class="el-radio__input"><span -->
+<!-- 																		class="el-radio__inner"></span><input type="radio" -->
+<!-- 																		aria-hidden="true" tabindex="-1" autocomplete="off" -->
+<!-- 																		class="el-radio__original" value="3"></span><span -->
+<!-- 																	class="el-radio__label"> 필요한 정보가 없음</span></label> <label -->
+<!-- 																	role="radio" tabindex="-1" class="el-radio"><span -->
+<!-- 																	class="el-radio__input"><span -->
+<!-- 																		class="el-radio__inner"></span><input type="radio" -->
+<!-- 																		aria-hidden="true" tabindex="-1" autocomplete="off" -->
+<!-- 																		class="el-radio__original" value="4"></span><span -->
+<!-- 																	class="el-radio__label"> 고객서비스가 마음에 들지 않음</span></label> -->
+<!-- 																<label role="radio" tabindex="0" -->
+<!-- 																	class="el-radio is-checked" aria-checked="true"><span -->
+<!-- 																	class="el-radio__input is-checked"><span -->
+<!-- 																		class="el-radio__inner"></span><input type="radio" -->
+<!-- 																		aria-hidden="true" tabindex="-1" autocomplete="off" -->
+<!-- 																		class="el-radio__original" value="5"></span><span -->
+<!-- 																	class="el-radio__label"> 다른 회사의 비슷한 서비스를 이용함</span></label> -->
+<!-- 																<label role="radio" tabindex="-1" class="el-radio"><span -->
+<!-- 																	class="el-radio__input"><span -->
+<!-- 																		class="el-radio__inner"></span><input type="radio" -->
+<!-- 																		aria-hidden="true" tabindex="-1" autocomplete="off" -->
+<!-- 																		class="el-radio__original" value="6"></span><span -->
+<!-- 																	class="el-radio__label"> 직접 입력</span></label> -->
+<!-- 															</div> -->
+<!-- 															 -->
+<!-- 														</div> -->
 														<!---->
+														<div>
+										<div role="radiogroup" class="el-radio-group">
+											<label role="radio" aria-checked="true" tabindex="0"
+												class="el-radio is-checked"><span
+												class="el-radio__input is-checked"></span><input
+												type="radio" aria-hidden="true" tabindex="-1"
+												autocomplete="off" value="1" 
+												class="el-radio__original" name="select1"><span
+												class="selectoption"></span><span class="el-radio__label">
+													아이디를 변경하려 함 <!---->
+											</span></label> 
+											<label role="radio" tabindex="-1" class="el-radio"><span
+												class="el-radio__input"></span><input type="radio"
+												aria-hidden="true" tabindex="-1" autocomplete="off"
+												value="0" class="el-radio__original" name="select1"><span
+												class="selectoption"></span><span class="el-radio__label">
+													서비스 오류 및 장애가 많음 <!---->
+											</span></label>
+											 <label role="radio" tabindex="-1" class="el-radio"><span
+												class="el-radio__input"></span><input type="radio"
+												aria-hidden="true" tabindex="-1" autocomplete="off"
+												value="0" class="el-radio__original" name="select1"><span
+												class="selectoption"></span><span class="el-radio__label">
+													필요한 정보가 없음 <!---->
+											</span></label>
+											 <label role="radio" tabindex="-1" class="el-radio"><span
+												class="el-radio__input"></span><input type="radio"
+												aria-hidden="true" tabindex="-1" autocomplete="off"
+												value="0" class="el-radio__original" name="select1"><span
+												class="selectoption"></span><span class="el-radio__label">
+													고객서비스가 마음에 들지 않음 <!---->
+											</span></label>
+											 <label role="radio" tabindex="-1" class="el-radio"><span
+												class="el-radio__input"></span><input type="radio"
+												aria-hidden="true" tabindex="-1" autocomplete="off"
+												value="0" class="el-radio__original" name="select1"><span
+												class="selectoption"></span><span class="el-radio__label">
+													다른 회사의 비슷한 서비스를 이용함 <!---->
+											</span></label>
+											<label role="radio" tabindex="-1" class="el-radio"><span
+												class="el-radio__input"></span><input type="radio"
+												aria-hidden="true" tabindex="-1" autocomplete="off"
+												value="0" class="el-radio__original" name="select1"><span
+												class="selectoption"></span><span class="el-radio__label">
+													직접 입력 <!---->
+											</span></label>
+										</div>
+									</div>
 													</div>
 												</div>
 										<h4 class="infoTit mT40">꼭! 알아두세요</h4>

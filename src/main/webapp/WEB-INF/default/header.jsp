@@ -2,9 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="footer_style.jsp"%>
 <header id="header" class="kcarHeader">
-<c:if test="${not empty msg }" >
-	<script>alert("${msg}");</script>
-</c:if>
+
 	<div class="gnbArea">
 		<div class="topNavi">
 			<h1 class="kcarHeaderLogo">

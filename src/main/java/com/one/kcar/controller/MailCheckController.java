@@ -1,15 +1,20 @@
 package com.one.kcar.controller;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.one.kcar.member.dto.MemberDTO;
 import com.one.kcar.service.MailCheckService;
+import com.one.kcar.service.MemberService;
 
 @Controller
 public class MailCheckController {
 	@Autowired private MailCheckService mailservice;
+	@Autowired private MemberService memberService;
+
 	
 	@GetMapping("mailcheck")
 	public String check(Model model) {
@@ -18,16 +23,12 @@ public class MailCheckController {
 			model.addAttribute("msg", msg);
 			return "member/register2";
 		}else 
-			model.addAttribute("msg", msg);
+			model.addAttribute("msg2", msg);
 			return "member/register_email";
 		
 		
 	
 	}
-	
-	
-	
-	
-	
+
 
 }

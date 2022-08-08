@@ -100,7 +100,7 @@
 												<div class="el-row">
 													<div class="loginOptions">
 														<p>
-															<a href="/account/signup" class="link_more"> 회원가입 </a>
+															<a href="register" class="link_more"> 회원가입 </a>
 														</p>
 														<p>
 															<a href="#" class="link_more"> 아이디 찾기
