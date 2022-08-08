@@ -492,7 +492,7 @@
 								<span class="dialog-footer"><div class="footerBtnWrap">
 										<div class="searchTrigger box maxW400 el-row">
 											<button class="button apply" id="applyBtn"
-												onclick="applyBtnClick()" value="${brandCarAllCount">차량보기(${brandCarAllCount }
+												onclick="applyBtnClick()" value="${brandCarAllCount}">차량보기(${brandCarAllCount }
 												대)</button>
 											<!-- 수량 달라짐 -->
 										</div>
