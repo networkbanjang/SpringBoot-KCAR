@@ -55,30 +55,36 @@ public class MainContoroller {
 	//브랜드인증관 페이지 필터 없는 경우
 	@GetMapping(value="brandCar")
 	public String brandCar(@RequestParam(value="currentPage",required = false,defaultValue="1") String currentPage,
-			@RequestBody(required = false) HashMap<String,String> map,@RequestBody(required = false) String data, Model model) {
-		brandService.brandCarAllList(currentPage,data,model);
+			@RequestBody(required = false) String data, Model model) {
+		HashMap<String, String> map = new HashMap<>();
+		map.put("currentPage", currentPage);
+		map.put("data", data);
+		map.put("brand", null);
+		map.put("model", null);
+		brandService.brandCarAllList(map,model);
 		
 		return "myCarScam/brandCar";
 	}
 	//paging 비동기통신
 	@ResponseBody
 	@PostMapping(value="brandCarPaging", produces="text/html; charset=utf-8")
-	public String brandCarPaging(@RequestParam(value="currentPage",required = false,defaultValue="1") String currentPage,
-			@RequestBody(required = false) HashMap<String,String> map, Model model) {
+	public String brandCarPaging(@RequestBody(required = false) HashMap<String,String> map, Model model) {
 		String ajaxBrandCarAllList;
-		if(map.get("currentPage") != null) {
-			ajaxBrandCarAllList = brandService.brandCarAllList(map.get("currentPage"),map.get("d"),model);
+		if(map.get("currentPage") != null ) {
+			ajaxBrandCarAllList = brandService.brandCarAllList(map,model);
+			return ajaxBrandCarAllList;
+		}else {
+			map.put("currentPage", "1");
+			ajaxBrandCarAllList = brandService.brandCarAllList(map,model);
 			return ajaxBrandCarAllList;
 		}
-		ajaxBrandCarAllList = brandService.brandCarAllList(currentPage,map.get("d"),model);
-		return ajaxBrandCarAllList;
 	}
 	
 	@ResponseBody
 	@PostMapping(value="modal", produces = "text/html; charset=utf-8")
 	public String modal(@RequestBody(required = false)String brand,@RequestBody(required = false)String model) {
 		String ajaxModalModelList = brandService.ajaxBrandModal(brand,model);
-			
+		
 		return ajaxModalModelList;
 	}
 	

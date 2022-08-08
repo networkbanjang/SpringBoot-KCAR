@@ -33,8 +33,14 @@
         			) a 
        			FULL OUTER JOIN KCAR_CAR_TAG b on a.c_num = b.c_num
    				) r
-			) rr 
+			) rr  
 		WHERE RN BETWEEN ${start} AND ${end}
+		<if test="brand != null and brandModel != null">
+			AND cb_brand = #{brand} AND cb_m_model = #{brandModel}
+		</if>
+		<if test="brand != null and brandModel == null">
+			AND cb_brand = #{brand}
+		</if>
 	</select>
 	<select id="brandCarModelList" parameterType="String" resultType="map">
 		SELECT cb.cb_m_model, count(c.c_num) count
@@ -44,6 +50,16 @@
 	    WHERE cb.cb_brand = #{brand}
 	    GROUP BY cb.cb_m_model
 	    ORDER BY  cb.cb_m_model
+	</select>
+	<select id="brandCarAllCnt" parameterType="String" resultType="String">
+		SELECT COUNT(c_num) COUNT FROM KCAR_CAR 
+		<if test="brand != null and brandModel != null ">
+			WHERE cb_brand = #{brand} AND cb_m_model = #{brandModel}
+		</if>
+		<if test="brand != null and brandModel == null">
+			WHERE cb_brand = #{brand}
+		</if>
+		group by cb_brand
 	</select>
 	<!-- 특정브랜드가 아니고 전체 브랜드라 필터기능시 브랜드항목도 추가해야하기 떄문에 브랜드컬럼도 가져오기 -->
 	<!-- <select id="brandModelAllList" resultType="com.one.kcar.dto.buy.CarDTO">

@@ -42,9 +42,6 @@
 <meta data-n-head="ssr" property="groobee:member_age" content="">
 </head>
 <body style="" class="">
-	<input type="hidden" id="totalCountHidden"value="${brandCarAllCount }">
-	<input type="hidden" id="brandHidden" value="">
-	<input type="hidden" id="modelHidden" value="">
 	<noscript data-n-head="ssr" data-hid="gtm-noscript" data-pbody="true">
 		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXZPHVG&"
 			height="0" width="0" style="display: none; visibility: hidden"
@@ -92,13 +89,9 @@
 					<div class="el-row">
 						<div class="el-col el-col-24">
 							<div class="carBrandList">
-								<form action="brandCar/brandCarList" id="brand_f" method="get">
 									<ul>
 										<c:forEach var="brand" items="${brandList }"
 											varStatus="status">
-											<!-- 만약 querySelectAll로 진행하려면 varStatus="status" 설정값 주고 status.index로 값부여할 것
-											태그내에 값부여하고싶으면 data-value="" javascript에서는 getElementById().getAttribute('data-value')로 가져오기
-										 -->
 											<li><a class="el-link el-link--default is-underline"
 												href="brandCar/brandCarList?brand=${brand.cb_brand}"> <!---->
 													<span class="el-link--inner"><img
@@ -113,9 +106,14 @@
 						</div>
 					</div>
 					<div class="containerWrap el-row" id="ajaxBrandAllListPage">
+						<input type="hidden" id="brandCarAllCount"value="${brandCarAllCount }">
+						<input type="hidden" id="filterCarAllCount"value="${filterCarAllCount }">
+						<input type="hidden" id="brandHidden">
+						<input type="hidden" id="modelHidden">
+						<input type="hidden" id="alignmentHidden" value="basic">
 						<div class="listLine">
 							<ul>
-								<li class="carTotal">총 <span class="textRed">${brandCarAllCount }</span>대
+								<li class="carTotal">총 <span class="textRed">${filterCarAllCount }</span>대
 								</li>
 								<li class="listBtn"><div class="searchTrigger box el-row">
 										<button type="button" class="button lineApply"
@@ -126,7 +124,7 @@
 										<div class="el-input el-input--suffix">
 											<!---->
 											<input type="text" readonly="readonly" autocomplete="off"
-												placeholder="최근 연식순" class="el-input__inner">
+												placeholder="기본 정렬" class="el-input__inner" id="alignment">
 											<!---->
 											<span class="el-input__suffix"><span
 												class="el-input__suffix-inner"><i
@@ -136,24 +134,24 @@
 											<!---->
 										</div>
 										<div class="el-select-dropdown el-popper"
-											style="display: none; min-width: 160px;">
+											style="display:none; min-width: 160px;">
 											<div class="el-scrollbar" style="">
 												<div class="el-select-dropdown__wrap el-scrollbar__wrap"
 													style="margin-bottom: -19px; margin-right: -19px;">
-													<ul class="el-scrollbar__view el-select-dropdown__list">
+													<ul class="el-scrollbar__view el-select-dropdown__list" id="alignmentMethod">
 														<!---->
-														<li class="el-select-dropdown__item"><span>기본정렬</span></li>
-														<li class="el-select-dropdown__item"><span>최근
+														<li class="el-select-dropdown__item" value="basic" onclick="alignmentMethodCheck('basic')"><span>기본정렬</span></li>
+														<li class="el-select-dropdown__item" value="recentYear" onclick="alignmentMethodCheck('recentYear')"><span>최근
 																연식순</span></li>
-														<li class="el-select-dropdown__item"><span>낮은
+														<li class="el-select-dropdown__item" value="lateYear" onclick="alignmentMethodCheck('lateYear')"><span>낮은
 																연식순</span></li>
-														<li class="el-select-dropdown__item"><span>적은
+														<li class="el-select-dropdown__item" value="lesserDistance" onclick="alignmentMethodCheck('lesserDistance')"><span>적은
 																주행거리순</span></li>
-														<li class="el-select-dropdown__item"><span>많은
+														<li class="el-select-dropdown__item" value="manyDistance" onclick="alignmentMethodCheck('manyDistance')"><span>많은
 																주행거리순</span></li>
-														<li class="el-select-dropdown__item"><span>낮은
+														<li class="el-select-dropdown__item" value="lowerPrice" onclick="alignmentMethodCheck('lowerPrice')"><span>낮은
 																가격순</span></li>
-														<li class="el-select-dropdown__item"><span>높은
+														<li class="el-select-dropdown__item" value="hightPrice" onclick="alignmentMethodCheck('hightPrice')"><span>높은
 																가격순</span></li>
 													</ul>
 												</div>
@@ -169,13 +167,6 @@
 											<!---->
 										</div>
 									</div>
-									<button type="button"
-										class="el-button listIs mL8 el-button--default"
-										aria-pressed="false">
-										<!---->
-										<!---->
-										<span><i class="is_wide"></i><span class="_hidden">리스트형버튼</span></span>
-									</button></li>
 							</ul>
 							<ul>
 								<!---->
@@ -491,8 +482,8 @@
 							<div class="el-dialog__footer">
 								<span class="dialog-footer"><div class="footerBtnWrap">
 										<div class="searchTrigger box maxW400 el-row">
-											<button class="button apply" id="applyBtn"
-												onclick="applyBtnClick()" value="${brandCarAllCount}">차량보기(${brandCarAllCount }
+											<button type="button" class="button apply" id="applyBtn"
+												onclick="applyBtnClick('','1')" value="${filterCarAllCount }">차량보기(${filterCarAllCount }
 												대)</button>
 											<!-- 수량 달라짐 -->
 										</div>
@@ -501,8 +492,6 @@
 						</div>
 					</div>
 				</div>
-
-
 				<!--  -->
 
 
@@ -535,14 +524,20 @@
 		//paging 스크립트
 		var chorme = document.querySelector('.chrome');
 		var req;
-
+		let brandHidden = document.getElementById('brandHidden');
+		let modelHidden = document.getElementById('modelHidden');
+		let alignmentHidden = document.getElementById('alignmentHidden');
 		function send(data, currentPage) {
 			req = new XMLHttpRequest();
 			req.onreadystatechange = pageChange;
 			req.open('post', 'brandCarPaging');
 			var result = {
-				d : data,
-				currentPage : currentPage
+				data : data,
+				currentPage : currentPage,
+				brand : brandHidden.value,
+				model : modelHidden.value,
+				alignment : alignmentHidden.value
+				//alignmentMethod : modelHidden.value
 			}
 			result = JSON.stringify(result);
 			req.setRequestHeader('Content-Type',
@@ -552,8 +547,7 @@
 
 		function pageChange() {
 			if (req.readyState == 4 & req.status == 200) {
-				var ajaxBrandAllListPage = document
-						.getElementById('ajaxBrandAllListPage');
+				var ajaxBrandAllListPage = document.getElementById('ajaxBrandAllListPage');
 				ajaxBrandAllListPage.innerHTML = req.responseText;
 				ajaxBrandAllListPage.scrollIntoView({
 					behavior : "smooth",
@@ -572,6 +566,7 @@
 		var radioBrandGroup = document.getElementById('radioBrandGroup');
 		var radioBrandModelGroup = document.getElementById('radioBrandModelGroup');
 		var searchBrandModelTagSpan = document.getElementById('searchBrandModelTagSpan');
+		
 		//modal창 open radioBrandGroup을 보여줌
 		function modalMenuOpen() {
 			document.body.classList.add('el-popup-parent--hidden');
@@ -582,6 +577,12 @@
 			modalMenu.style.display = "flex";
 			modalMenuBack.style.display = "flex";
 			
+			brandHidden.value = null;
+			modelHidden.value = null;
+			
+			var brandCarAllCount = document.getElementById('brandCarAllCount');
+			applyBtn.innerHTML = "차량보기( "+ brandCarAllCount.value +" 대)";
+			applyBtn.value = brandCarAllCount.value;
 		}
 		//modal창 close
 		function modalMenuClose() {
@@ -595,8 +596,12 @@
 			searchBrandTag.style.display = "none";
 			searchBrandModelTagSpan.style.display = "none";
 			
-			applyBtn.innerHTML = "차량보기( "+ totalCountHidden.value +" 대)";
-			applyBtn.value = totalCountHidden.value;
+			brandHidden.value="";
+			modelHidden.value="";
+			
+			var filterCarAllCount = document.getElementById('filterCarAllCount');
+			applyBtn.innerHTML = "차량보기( "+ filterCarAllCount.value +" 대)";
+			applyBtn.value = filterCarAllCount.value;
 			
 		}
 
@@ -610,13 +615,19 @@
 			}
 			cnt++;
 			//버블링 현상 방지코드 끝
+			brandHidden.value=brand;
+			
 			searchBrandTag.style.display = "flex";
+			
 			var searchBrandTagSpan = document.getElementById('searchBrandTagSpan');
 			searchBrandTagSpan.innerHTML = brand;			
 			searchBrandTagSpan.value = brand;
+			
 			radioBrandGroup.style.display = "none";
 			radioBrandModelGroup.style.display = "flex";
+			
 			applyBtn.innerHTML = "차량보기( "+ count +" 대)";
+			
 			sendModal(brand);
 		}
 		function sendModal(brand) {
@@ -639,19 +650,67 @@
 			searchBrandModelTagSpan.innerHTML = model;
 			searchBrandModelTagSpan.value= model;
 			searchBrandModelTagSpan.style.display = "flex";
+			
 			applyBtn.innerHTML = "차량보기( "+ count +" 대)";
-			modelCheck(brand,model);
+			
+			brandHidden.value=brand;
+			modelHidden.value=model;
 			/* 여기서 brand,model값을 applyBtn에 줄 수 있게 중간 함수 호출해놓기 */
 		}
-		function brandCheck(brand){
-			applyBtn.addEventListener("click",function(brand){
-				//여기서 ajax를 통해 data 가져와서 page 재호출 및 paging,,, 어케하냐 시브럴,,
-			})
+		
+		function applyBtnClick(data, currentPage){
+			document.body.classList.remove('el-popup-parent--hidden');
+			radioBrandGroup.style.display = "none";
+			radioBrandModelGroup.style.display = "none";
+			
+			modalMenu.style.display = "none";
+			modalMenuBack.style.display = "none";
+			
+			searchBrandTag.style.display = "none";
+			searchBrandModelTagSpan.style.display = "none";
+			
+			brand = brandHidden.value;
+			model = modelHidden.value;
+			
+			send(data, currentPage);
 		}
-		function modelCheck(brand,model){
-			applyBtn.addEventListener("click",function(brand,model){
-				
-			})
+		
+		//정렬기능
+		var dropdownAlignment = document.querySelector('.el-select-dropdown.el-popper');
+		
+		var alignment = document.getElementById('alignment');
+		var alignmentMethod = document.getElementById('alignmentMethod');
+		var alignCnt = 0;
+		alignment.addEventListener("click",function(){
+			alignCnt ++;
+			if(alignCnt % 2 != 0){
+				dropdownAlignment.style.display = "block"
+				alignmentMethod.style.display = "flex";
+				alignmentMethod.style.alignContent = "flex-start";
+				alignmentMethod.style.flexDirection = "column";
+				alignmentMethod.style.flexWrap = "wrap";
+				alignmentMethod.style.overFlow = "auto";
+			}else{
+				alignmentMethod.style.remove = "display"
+				alignmentMethod.style.remove = "alignContent"
+				alignmentMethod.style.remove = "flexDirection"
+				alignmentMethod.style.remove = "flexWrap"
+				alignmentMethod.style.remove = "overFlow"
+				dropdownAlignment.style.display = "none"
+			}
+		})
+		
+		var alignmentMethodCheck = function(alginMethod){
+			alignCnt ++;
+			alignmentHidden.value=alginMethod;
+			alignmentMethod.style.remove = "display"
+			alignmentMethod.style.remove = "alignContent"
+			alignmentMethod.style.remove = "flexDirection"
+			alignmentMethod.style.remove = "flexWrap"
+			alignmentMethod.style.remove = "overFlow"
+			dropdownAlignment.style.display = "none"
+			
+			send('','1');
 		}
 	</script>
 </body>

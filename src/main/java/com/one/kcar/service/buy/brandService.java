@@ -17,7 +17,7 @@ import com.one.kcar.dto.buy.CarTagDTO;
 public class brandService {
 	@Autowired
 	IBrandDAO brandDao;
-	
+	private int totalCnt; 
 	public void brandCarList(String brand, Model model) {
 		// 브랜드 차량 수 / 판매중인 차량 리스트 / 그에 맞는 차량모델 /개수는 15개씩 보여줌
 		ArrayList<CarDTO> brandCarList = brandDao.brandCarList(brand); // 브랜드 차 dto 리스트
@@ -28,8 +28,22 @@ public class brandService {
 
 	}
 
-	public String brandCarAllList(String currentPage, String data, Model model) {
-		
+	public String brandCarAllList(HashMap<String,String> map, Model model) {
+		String data = map.get("data");
+		String currentPage = map.get("currentPage");
+		String brand = map.get("brand");
+		String brandModel = map.get("model");
+		String alignment = map.get("alignment");
+		if(brand != null) {
+			if(brand.equals("")) brand = null;
+		}
+		if(brandModel != null) {
+			if(brandModel.equals("")) brandModel = null;
+		}
+		if(alignment != null) {
+			if(alignment.equals("") || alignment.equals("basic")) alignment = null;
+		}
+		System.out.println(alignment);
 		//페이징 처리정보
 		int currentPageNum;
 		try {
@@ -37,27 +51,29 @@ public class brandService {
 		} catch (Exception e) {
 			return "페이징번호가 int값이 아니다.";
 		}
-		if(data != null) {
+		if(map.get("data") != null) {
 			if(data.equals("prev")) currentPageNum -= 1;
 			if(data.equals("next")) currentPageNum += 1;
 		}
 		
-		ArrayList<BrandDTO> brandList = brandDao.brandList();//해외브랜드리스트
+		ArrayList<BrandDTO> brandList = brandDao.brandList(brand,brandModel);//해외브랜드리스트
 	
-		//ArrayList<CarDTO> brandModelAllList = brandDao.brandModelAllList(); // 브랜드 차 모델정보 필터창에 넣을 것
+		String stringCount = brandDao.brandCarAllCnt(brand,brandModel);
 		
-		//int totalCount = brandDao.brandCarAllCnt();
-		int totalCount = 0;
-		for(BrandDTO b : brandList) {
-			totalCount +=  b.getCount();
+		if(stringCount == null) {
+			stringCount = "0";
+		}
+		
+		int totalCount = Integer.parseInt(stringCount);
+		if(brand == null && brandModel == null) {
+			this.totalCnt = totalCount;
 		}
 		int block = 15;
-		int totalPage =  totalCount / block;
-		if(totalCount % block != 0) totalPage += 1;
 		int end = currentPageNum * block;
 		int start = end - block + 1;
-		
-		ArrayList<CarDTO> brandCarAllList = brandDao.brandCarAllList(start,end);//해외브랜드차량 전체리스트
+		int totalPage =  totalCount / block;
+		if(totalCount % block != 0) totalPage += 1;
+		ArrayList<CarDTO> brandCarAllList = brandDao.brandCarAllList(start,end,brand,brandModel);//해외브랜드차량 전체리스트
 		
 		//carTag정보
 		for (int i = 0; i < brandCarAllList.size(); i++) {
@@ -74,12 +90,14 @@ public class brandService {
 		}
 		
 		if(data != null) {
-			String ajaxBrandCarAllList = ajaxBrandCarAllList(brandCarAllList,currentPageNum,totalPage,totalCount);
+			String ajaxBrandCarAllList = ajaxBrandCarAllList(brandCarAllList,currentPageNum,totalPage,totalCount,this.totalCnt,brand,brandModel,alignment);
+			System.out.println(this.totalCnt);
 			return ajaxBrandCarAllList;
 		}
 		
 		
-		model.addAttribute("brandCarAllCount", totalCount);
+		model.addAttribute("brandCarAllCount", this.totalCnt);
+		model.addAttribute("filterCarAllCount", totalCount);
 		model.addAttribute("brandList", brandList);
 		model.addAttribute("brandCarAllList", brandCarAllList);
 		//model.addAttribute("brandModelAllList", brandModelAllList);
@@ -88,22 +106,27 @@ public class brandService {
 		
 		return null;
 	}
-	public String ajaxBrandCarAllList(ArrayList<CarDTO> brandCarAllList, int currentPageNum, int totalPage, int totalCount) {
-		System.out.println(currentPageNum);
-		String result = "					<div class=\"listLine\">\r\n"
+	
+	public String ajaxBrandCarAllList(ArrayList<CarDTO> brandCarAllList, int currentPageNum, int totalPage, int totalCount,int totalCnt,String brand, String brandModel,String alignment) {
+		String result = "				<input type=\"hidden\" id=\"brandCarAllCount\"value=\""+totalCnt+"\">\r\n"
+				+ "						<input type=\"hidden\" id=\"filterCarAllCount\"value=\""+totalCount+"\">"	
+				+ "						<input type=\"hidden\" id=\"brandHidden\" value=\""+brand+"\">\r\n"
+				+ "						<input type=\"hidden\" id=\"modelHidden\" value=\""+brandModel+"\">"
+				+ "						<input type=\"hidden\" id=\"alignmentHidden\" value=\""+alignment+"\">"
+				+ "						<div class=\"listLine\">\r\n"
 				+ "							<ul>\r\n"
 				+ "								<li class=\"carTotal\">총 <span class=\"textRed\">"+ totalCount +"</span>대\r\n"
 				+ "								</li>\r\n"
 				+ "								<li class=\"listBtn\"><div class=\"searchTrigger box el-row\">\r\n"
 				+ "										<button type=\"button\" class=\"button lineApply\"\r\n"
-				+ "											style=\"white-space: normal;\">제조사/모델선택</button>\r\n"
+				+ "											style=\"white-space: normal;\" onclick=\"modalMenuOpen()\">제조사/모델선택</button>\r\n"
 				+ "									</div>\r\n"
 				+ "									<div class=\"el-select listSelect\">\r\n"
 				+ "										<!---->\r\n"
 				+ "										<div class=\"el-input el-input--suffix\">\r\n"
 				+ "											<!---->\r\n"
 				+ "											<input type=\"text\" readonly=\"readonly\" autocomplete=\"off\"\r\n"
-				+ "												placeholder=\"최근 연식순\" class=\"el-input__inner\">\r\n"
+				+ "												placeholder=\""+alignment+"\" class=\"el-input__inner\" id=\"alignment\">\r\n"
 				+ "											<!---->\r\n"
 				+ "											<span class=\"el-input__suffix\"><span\r\n"
 				+ "												class=\"el-input__suffix-inner\"><i\r\n"
@@ -117,20 +140,20 @@ public class brandService {
 				+ "											<div class=\"el-scrollbar\" style=\"\">\r\n"
 				+ "												<div class=\"el-select-dropdown__wrap el-scrollbar__wrap\"\r\n"
 				+ "													style=\"margin-bottom: -19px; margin-right: -19px;\">\r\n"
-				+ "													<ul class=\"el-scrollbar__view el-select-dropdown__list\">\r\n"
+				+ "													<ul class=\"el-scrollbar__view el-select-dropdown__list\" id=\"alignmentMethod\">\r\n"
 				+ "														<!---->\r\n"
-				+ "														<li class=\"el-select-dropdown__item\"><span>기본정렬</span></li>\r\n"
-				+ "														<li class=\"el-select-dropdown__item\"><span>최근\r\n"
+				+ "														<li class=\"el-select-dropdown__item\" value=\"basic\" onclick=\"alignmentMethodCheck('basic')\"><span>기본정렬</span></li>\r\n"
+				+ "														<li class=\"el-select-dropdown__item\" value=\"recentYear\" onclick=\"alignmentMethodCheck('recentYear')\"><span>최근\r\n"
 				+ "																연식순</span></li>\r\n"
-				+ "														<li class=\"el-select-dropdown__item\"><span>낮은\r\n"
+				+ "														<li class=\"el-select-dropdown__item\" value=\"lateYear\" onclick=\"alignmentMethodCheck('lateYear')\"><span>낮은\r\n"
 				+ "																연식순</span></li>\r\n"
-				+ "														<li class=\"el-select-dropdown__item\"><span>적은\r\n"
+				+ "														<li class=\"el-select-dropdown__item\" value=\"lesserDistance\" onclick=\"alignmentMethodCheck('lesserDistance')\"><span>적은\r\n"
 				+ "																주행거리순</span></li>\r\n"
-				+ "														<li class=\"el-select-dropdown__item\"><span>많은\r\n"
+				+ "														<li class=\"el-select-dropdown__item\" value=\"manyDistance\" onclick=\"alignmentMethodCheck('manyDistance')\"><span>많은\r\n"
 				+ "																주행거리순</span></li>\r\n"
-				+ "														<li class=\"el-select-dropdown__item\"><span>낮은\r\n"
+				+ "														<li class=\"el-select-dropdown__item\" value=\"lowerPrice\" onclick=\"alignmentMethodCheck('lowerPrice')\"><span>낮은\r\n"
 				+ "																가격순</span></li>\r\n"
-				+ "														<li class=\"el-select-dropdown__item\"><span>높은\r\n"
+				+ "														<li class=\"el-select-dropdown__item\" value=\"hightPrice\" onclick=\"alignmentMethodCheck('hightPrice')\"><span>높은\r\n"
 				+ "																가격순</span></li>\r\n"
 				+ "													</ul>\r\n"
 				+ "												</div>\r\n"
@@ -160,62 +183,52 @@ public class brandService {
 				+ "						</div>\r\n"
 				+ "						<div>\r\n"
 				+ "							<div class=\"carListWrap mT20\" id=\"ajaxBrandAllList\">\r\n";
-		
+
 		for(int i = 0; i<brandCarAllList.size();i++) {
-			String data = "<div class=\"carListBox\" style=\"cursor: pointer;\">\r\n"
-					+ "	<!---->\r\n"
-					+ "	<div class=\"carListImg\" style=\"cursor: pointer;\">\r\n"
-					+ "		<!---->\r\n"
-					+ "		<div>\r\n"
-					+ "			<img src=\""+ brandCarAllList.get(i).getC_photo() +"\" alt=\"챠량이미지\"\r\n"
-					+ "				onerror=\"this.src='/images/search/bg_no_Img_lg.png'\"\r\n"
-					+ "				loading=\"lazy\">\r\n"
-					+ "		</div>\r\n"
-					+ "		<ul class=\"listViewBtn\">\r\n"
-					+ "			<li><button type=\"button\"\r\n"
-					+ "					class=\"el-button el-button--default icon icoFav\"\r\n"
-					+ "					id=\"mkt_brandAddWish\">\r\n"
-					+ "					<!---->\r\n"
-					+ "					<!---->\r\n"
-					+ "					<span><span class=\"_hidden\">찜하기</span></span>\r\n"
-					+ "				</button></li>\r\n"
-					+ "		</ul>\r\n"
-					+ "	</div>\r\n"
-					+ "	<ul class=\"listViewLabel\">\r\n"
-					+ "		<!---->\r\n"
-					+ "		<!---->\r\n"
-					+ "	</ul>\r\n"
-					+ "	<div class=\"detailInfo\">\r\n"
-					+ "		<div class=\"carName\">\r\n"
-					+ "			<h3>"+ brandCarAllList.get(i).getCb_brand() + "&nbsp;"+ brandCarAllList.get(i).getCb_m_model() + "&nbsp;"+ brandCarAllList.get(i).getC_fuel() + "\r\n"
-					+ "			</h3>\r\n"
-					+ "		</div>\r\n"
-					+ "		<div class=\"carListFlex\">\r\n"
-					+ "			<div class=\"carExpIn\">\r\n"
-					+ "				<p class=\"carExp\">"+ brandCarAllList.get(i).getC_price() + "만원</p>\r\n"
-					+ "			</div>\r\n"
-					+ "			<p class=\"detailCarCon\">\r\n"
-					+ "				<span class=\"block\">"+ brandCarAllList.get(i).getC_year() + "</span> <span>"+ brandCarAllList.get(i).getC_distance() + "\r\n"
-					+ "					km</span> <span>"+ brandCarAllList.get(i).getC_fuel() + "</span> <span>"+ brandCarAllList.get(i).getC_name() + "</span>\r\n"
-					+ "			</p>\r\n"
-					+ "		</div>\r\n"
-					+ "		<ul class=\"infoTooltip\">\r\n"
-					+ "			<!---->\r\n"
-					+ "			<!---->\r\n";
+			String data =  "<div class=\"carListBox\" style=\"cursor: pointer;\">\r\n"
+				+ "			<div class=\"carListImg\" style=\"cursor: pointer;\">\r\n"
+				+ "			<div>\r\n"
+				+ "			<img src=\""+ brandCarAllList.get(i).getC_photo() +"\" alt=\"챠량이미지\"\r\n"
+				+ "				onerror=\"this.src='/images/search/bg_no_Img_lg.png'\"\r\n"
+				+ "				loading=\"lazy\">\r\n"
+				+ "			</div>\r\n"
+				+ "			<ul class=\"listViewBtn\">\r\n"
+				+ "			<li><button type=\"button\"\r\n"
+				+ "				class=\"el-button el-button--default icon icoFav\"\r\n"
+				+ "				id=\"mkt_brandAddWish\">\r\n"
+				+ "			<span><span class=\"_hidden\">찜하기</span></span>\r\n"
+				+ "			</button></li>\r\n"
+				+ "			</ul>\r\n"
+				+ "			</div>\r\n"
+				+ "			<ul class=\"listViewLabel\">\r\n"
+				+ "			</ul>\r\n"
+				+ "			<div class=\"detailInfo\">\r\n"
+				+ "			<div class=\"carName\">\r\n"
+				+ "			<h3>"+ brandCarAllList.get(i).getCb_brand() + "&nbsp;"+ brandCarAllList.get(i).getCb_m_model() + "&nbsp;"+ brandCarAllList.get(i).getC_fuel() + "\r\n"
+				+ "			</h3>\r\n"
+				+ "			</div>\r\n"
+				+ "			<div class=\"carListFlex\">\r\n"
+				+ "			<div class=\"carExpIn\">\r\n"
+				+ "			<p class=\"carExp\">"+ brandCarAllList.get(i).getC_price() + "만원</p>\r\n"
+				+ "			</div>\r\n"
+				+ "			<p class=\"detailCarCon\">\r\n"
+				+ "			<span class=\"block\">"+ brandCarAllList.get(i).getC_year() + "</span>"
+				+ "			<span>"+ brandCarAllList.get(i).getC_distance() + " km</span>"
+				+ "			<span>"+ brandCarAllList.get(i).getC_fuel() + "</span>"
+				+ "			<span>"+ brandCarAllList.get(i).getSt_name() + "</span>\r\n"
+				+ "			</p>\r\n"
+				+ "			</div>\r\n"
+				+ "			<ul class=\"infoTooltip\">\r\n";
 			for(int j=0;j<brandCarAllList.get(i).getBrandCarInfoTag().size();j++) {
-				data +=   "				<li><button type=\"button\"\r\n"
-						+ "						class=\"el-button el-tooltip yellowLabel item el-button--default\"\r\n"
-						+ "						aria-describedby=\"el-tooltip-7966\" tabindex=\"0\">\r\n"
-						+ "						<!---->\r\n"
-						+ "						<!---->\r\n"
-						+ "						<span> "+ brandCarAllList.get(i).getBrandCarInfoTag().get(j) +"</span>\r\n"
-						+ "					</button></li>\r\n";
+				data +=   "<li><button type=\"button\"\r\n"
+				+ "			class=\"el-button el-tooltip yellowLabel item el-button--default\"\r\n"
+				+ "			aria-describedby=\"el-tooltip-7966\" tabindex=\"0\">\r\n"
+				+ "			<span>"+ brandCarAllList.get(i).getBrandCarInfoTag().get(j) +"</span>\r\n"
+				+ "			</button></li>\r\n";
 			}
-			data += "			<!---->"
-				+ "			<!---->"
-				+ "		</ul>"
-				+ "	</div>"
-				+ "</div>";
+			data += "											</ul>\r\n"
+				+ "										</div>\r\n"
+				+ "									</div>\r\n";
 			result += data;
 		}
 		result += "							</div>\r\n"

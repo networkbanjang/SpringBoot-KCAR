@@ -1284,7 +1284,9 @@ to {
 	padding-right: 25px;
 	border-radius: 3px
 }
-
+.el-select .el-input .el-select__caret.is-reverse {
+    transform: rotate(0);
+}
 .el-pagination button {
 	border: none;
 	padding: 0 6px;
