@@ -4421,7 +4421,7 @@ keyframes v-modal-out {
 바디 위에 span 배경 위에 모달창 - 열공님의 명언언
 
  */
-#modalManuBack {
+#modalMenuBack {
 	display: none;
 	position: fixed;
 	top: 0;
@@ -4429,7 +4429,7 @@ keyframes v-modal-out {
 	width: 100%;
 	height: 100%;
 	background: rgba(0, 0, 0, 0.5);
-	z-index: 2000;
+	z-index: 2010;
 }
 
 .el-message-box {

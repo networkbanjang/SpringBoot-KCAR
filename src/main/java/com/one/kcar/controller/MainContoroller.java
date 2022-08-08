@@ -77,9 +77,9 @@ public class MainContoroller {
 	@ResponseBody
 	@PostMapping(value="modal", produces = "text/html; charset=utf-8")
 	public String modal(@RequestBody(required = false)String brand,@RequestBody(required = false)String model) {
-		brandService.ajaxBrandModal(brand,model);
+		String ajaxModalModelList = brandService.ajaxBrandModal(brand,model);
 			
-		return "실패";
+		return ajaxModalModelList;
 	}
 	
 	

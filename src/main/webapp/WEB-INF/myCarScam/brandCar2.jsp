@@ -42,9 +42,6 @@
 <meta data-n-head="ssr" property="groobee:member_age" content="">
 </head>
 <body style="" class="">
-	<input type="hidden" id="totalCountHidden"value="${brandCarAllCount }">
-	<input type="hidden" id="brandHidden" value="">
-	<input type="hidden" id="modelHidden" value="">
 	<noscript data-n-head="ssr" data-hid="gtm-noscript" data-pbody="true">
 		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXZPHVG&"
 			height="0" width="0" style="display: none; visibility: hidden"
@@ -395,82 +392,49 @@
 						<p>partnership@kcar.com</p>
 					</div>
 				</div>
-
+				
 				<!-- ajax로 버튼 누를때마다 코드 변경 아래 div내부 전체 코드 변경필요-->
 				<div id="ajaxModalHeader">
-					<span id="modalMenuBack"></span>
-					<div class="el-dialog__wrapper popup popCenter wid480 hfix active"
-						id="modalMenu" style="z-index: 2010; display: none;">
-
-						<div role="dialog" class="el-dialog" style="margin-top: 15vh;">
+				<span id="modalMenuBack"></span>
+					<div class="el-dialog__wrapper popup popCenter wid480 hfix active" id="modalMenu"
+						style="z-index: 2010; display:none;">
+						
+						<div role="dialog" aria-modal="true" aria-label="제조사 선택"
+							class="el-dialog" style="margin-top: 15vh;">
 							<div class="el-dialog__header">
+							
 								<span class="el-dialog__title">제조사 선택</span>
-								<!-- 제조사 또는 모델 선택으로 -->
-
+								
 								<button type="button" aria-label="Close"
 									class="el-dialog__headerbtn" onclick="modalMenuClose()">
 									<i class="el-dialog__close el-icon el-icon-close"></i>
 								</button>
-
+								
 							</div>
-
-
+							
+							
 							<div class="el-dialog__body">
 								<div class="popContent  el-scrollbar">
 									<div class="el-scrollbar__wrap"
 										style="margin-bottom: -26px; margin-right: -26px;">
 										<div class="el-scrollbar__view">
-
-											<!-- 브랜드 선택시 생기는 항목 -->
-											<div class="searchBrandTag line" id="searchBrandTag"
-												style="display: none;">
-												<div class="swiperProduct">
-													<div
-														class="swiper-container swiper-container-initialized swiper-container-horizontal">
-														<div class="swiper-wrapper"
-															style="float: left; width: auto; transform: translate3d(0px, 0px, 0px);">
-															<div class="tagBox swiper-slide swiper-slide-active"
-																style="width: 102.75px;">
-																<span class="tagNew  el-tag el-tag--topInfo el-tag--light"
-																	id="searchBrandTagSpan">
-																	<!-- 딱 여기에 브랜드 필터할 브랜드 들어감 -->
-																	<i class="el-tag__close el-icon-close"></i>
-																</span>
-															</div>
-														</div>
-														<span class="swiper-notification" aria-live="assertive"
-															aria-atomic="true"></span>
-														<div class="tagBox swiper-slide swiper-slide-next" style="width: 96.5px;">
-															<span class="tagNew  el-tag el-tag--topInfo el-tag--light" id="searchBrandModelTagSpan">
-																<!-- 딱 여기에 브랜드모델 들어감 -->
-																<i class="el-tag__close el-icon-close"></i>
-															</span>
-														</div>
-													</div>
-												</div>
-											</div>
-											<!-- 여기까지 -->
-
+										
+										
+										
 											<div class="carBrandListPop">
 												<div class="el-row">
-													<div role="radiogroup" class="el-radio-group"
-														id="radioBrandGroup">
-														<c:forEach var="brand" items="${brandList }">
-															<label role="radio" tabindex="-1" class="el-radio"
-																id="modalModel"
-																onclick="modalModelMenu('${brand.cb_brand}','${brand.count }')">
-																<span class="el-radio__input"> <span
-																	class="el-radio__inner"></span> <input type="radio"
-																	aria-hidden="true" tabindex="-1" autocomplete="off"
-																	class="el-radio__original" value="${brand.cb_brand}"></span>
-																<span class="el-radio__label"> ${brand.cb_brand}
-																	<span class="count">${brand.count }대</span>
-															</span>
+													<div role="radiogroup" class="el-radio-group" >
+													
+													<%-- <c:forEach var="" items=""> --%>
+															<label role="radio" tabindex="-1" class="el-radio" id="modalModel" onclick="modalModelMenu('아우디')">
+																<span class="el-radio__input">
+																<span class="el-radio__inner"></span>
+																<input type="radio" aria-hidden="true" tabindex="-1" autocomplete="off"
+																		class="el-radio__original" value="013"></span>
+																<span class="el-radio__label"> 벤츠 <span class="count">396대</span></span>
 															</label>
-														</c:forEach>
+													<%-- </c:forEach> --%>
 													</div>
-													<div role="radiogroup" class="el-radio-group"
-														id="radioBrandModelGroup" style="display: none;"></div>
 												</div>
 											</div>
 										</div>
@@ -486,15 +450,12 @@
 								</div>
 								<!---->
 							</div>
-
-
+							
+							
 							<div class="el-dialog__footer">
 								<span class="dialog-footer"><div class="footerBtnWrap">
 										<div class="searchTrigger box maxW400 el-row">
-											<button class="button apply" id="applyBtn"
-												onclick="applyBtnClick()" value="${brandCarAllCount">차량보기(${brandCarAllCount }
-												대)</button>
-											<!-- 수량 달라짐 -->
+											<button class="button apply">차량보기(1,023대)</button>
 										</div>
 									</div></span>
 							</div>
@@ -552,8 +513,7 @@
 
 		function pageChange() {
 			if (req.readyState == 4 & req.status == 200) {
-				var ajaxBrandAllListPage = document
-						.getElementById('ajaxBrandAllListPage');
+				var ajaxBrandAllListPage = document.getElementById('ajaxBrandAllListPage');
 				ajaxBrandAllListPage.innerHTML = req.responseText;
 				ajaxBrandAllListPage.scrollIntoView({
 					behavior : "smooth",
@@ -562,97 +522,57 @@
 				}); // ajaxBrandAllListPage div태그 위치로 이동
 			}
 		}
-
-		//modal창 태그
-		var modalMenu = document.getElementById('modalMenu');
-		var modalMenuBack = document.getElementById('modalMenuBack');
 		
-		//modal창 brandTag, 각 브랜드, 모델 라디오 그룹
-		var searchBrandTag = document.getElementById('searchBrandTag');
-		var radioBrandGroup = document.getElementById('radioBrandGroup');
-		var radioBrandModelGroup = document.getElementById('radioBrandModelGroup');
-		var searchBrandModelTagSpan = document.getElementById('searchBrandModelTagSpan');
-		//modal창 open radioBrandGroup을 보여줌
-		function modalMenuOpen() {
-			document.body.classList.add('el-popup-parent--hidden');
-			
-			radioBrandGroup.style.display = "flex";
-			radioBrandModelGroup.style.display = "none";
-			
-			modalMenu.style.display = "flex";
-			modalMenuBack.style.display = "flex";
-			
-		}
-		//modal창 close
-		function modalMenuClose() {
-			document.body.classList.remove('el-popup-parent--hidden');
-			radioBrandGroup.style.display = "none";
-			radioBrandModelGroup.style.display = "none";
-			
-			modalMenu.style.display = "none";
-			modalMenuBack.style.display = "none";
-			
-			searchBrandTag.style.display = "none";
-			searchBrandModelTagSpan.style.display = "none";
-			
-			applyBtn.innerHTML = "차량보기( "+ totalCountHidden.value +" 대)";
-			applyBtn.value = totalCountHidden.value;
-			
-		}
-
-		//modal창 radioBrandGroup에서 radioBrandModelGroup로 변경
+		//modal 스크립트
+        var modalMenu = document.getElementById('modalMenu');
+        var modalMenuBack = document.getElementById('modalMenuBack');
+		var ajaxModalHeader = document.getElementById('ajaxModalHeader');
+		var checkHeader = document.getElementById('ajaxModalHeader');
+        function modalMenuOpen(){
+           document.body.classList.add('el-popup-parent--hidden');
+           modalMenu.style.display = "flex";
+           modalMenuBack.style.display = "flex";
+        }
+        
+        function modalMenuClose(){
+           document.body.classList.remove('el-popup-parent--hidden');
+           modalMenu.style.display = "none";
+           modalMenuBack.style.display = "none";
+           ajaxModalHeader.innerHTML = checkHeader.innerHTML;
+        }
+		
 		var cnt = 0;
-		function modalModelMenu(brand,count) {
+		function modalModelMenu(data){
 			//버블링현상 방지 코드 시작
-			if (cnt == 1) {
+			if(cnt == 1){
 				cnt = 0;
 				return;
-			}
+			} 
 			cnt++;
 			//버블링 현상 방지코드 끝
-			searchBrandTag.style.display = "flex";
-			var searchBrandTagSpan = document.getElementById('searchBrandTagSpan');
-			searchBrandTagSpan.innerHTML = brand;			
-			searchBrandTagSpan.value = brand;
-			radioBrandGroup.style.display = "none";
-			radioBrandModelGroup.style.display = "flex";
-			applyBtn.innerHTML = "차량보기( "+ count +" 대)";
-			sendModal(brand);
+			sendModal(data);
 		}
-		function sendModal(brand) {
-			if (req == null) {
+		function sendModal(data){
+			if(req == null){
 				req = new XMLHttpRequest();
 			}
 			req.onreadystatechange = modelMenu;
 			req.open('post', 'modal');
-			req.send(brand);
-			/* 여기서 brand값을 applyBtn에 줄 수 있게 중간 함수 호출해놓기 */
+			req.send(data);
 		}
-
-		function modelMenu() {
-			if (req.readyState == 4 & req.status == 200) {
-				radioBrandModelGroup.innerHTML = req.responseText;
+		
+		
+		function modelMenu(){
+			console.log("1");
+			if(req.readyState == 4 & req.status == 200){
+				console.log("2");
+				ajaxModalHeader.innerHTML = req.responseText;
+				modalMenu = document.getElementById('modalMenu');
+		        modalMenuBack = document.getElementById('modalMenuBack');
+				
 			}
 		}
 		
-		function modalModelAdd(brand,model,count){
-			searchBrandModelTagSpan.innerHTML = model;
-			searchBrandModelTagSpan.value= model;
-			searchBrandModelTagSpan.style.display = "flex";
-			applyBtn.innerHTML = "차량보기( "+ count +" 대)";
-			modelCheck(brand,model);
-			/* 여기서 brand,model값을 applyBtn에 줄 수 있게 중간 함수 호출해놓기 */
-		}
-		function brandCheck(brand){
-			applyBtn.addEventListener("click",function(brand){
-				//여기서 ajax를 통해 data 가져와서 page 재호출 및 paging,,, 어케하냐 시브럴,,
-			})
-		}
-		function modelCheck(brand,model){
-			applyBtn.addEventListener("click",function(brand,model){
-				
-			})
-		}
-	</script>
+		</script>
 </body>
 </html>

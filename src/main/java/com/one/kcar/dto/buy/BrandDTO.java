@@ -7,6 +7,18 @@ public class BrandDTO {
 	private String cb_EnglishLan;
 	private String cb_photo;
 	private String cb_domestic;
+	
+	
+	private int count;
+	
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	
+	
 	public String getCb_brand() {
 		return cb_brand;
 	}
