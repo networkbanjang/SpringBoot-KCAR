@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.ui.Model;
 
 import com.one.kcar.dto.buy.CarDTO;
+import com.one.kcar.dto.buy.QuestionDTO;
 import com.one.kcar.dto.buy.BrandDTO;
 
 @Mapper
@@ -34,8 +35,10 @@ public interface IBrandDAO {
 
 	ArrayList<Map<String,String>> brandCarModelList(String brand);
 
-	ArrayList<CarDTO> brandCarAllList(@Param("start")int start,@Param("end") int end,@Param("brand") String brand,@Param("brandModel") String brandModel);
+	ArrayList<CarDTO> brandCarAllList(@Param("start")int start,@Param("end") int end,@Param("brand") String brand,@Param("brandModel") String brandModel,@Param("alignment") String alignment);
 
 	String brandCarAllCnt(@Param("brand")String brand, @Param("brandModel")String brandModel);
+
+	ArrayList<QuestionDTO> questionList();
 
 }

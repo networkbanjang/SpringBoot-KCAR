@@ -124,7 +124,7 @@
 										<div class="el-input el-input--suffix">
 											<!---->
 											<input type="text" readonly="readonly" autocomplete="off"
-												placeholder="기본 정렬" class="el-input__inner" id="alignment">
+												placeholder="기본 정렬" class="el-input__inner" id="alignment" onclick="alignmentClick()">
 											<!---->
 											<span class="el-input__suffix"><span
 												class="el-input__suffix-inner"><i
@@ -140,19 +140,13 @@
 													style="margin-bottom: -19px; margin-right: -19px;">
 													<ul class="el-scrollbar__view el-select-dropdown__list" id="alignmentMethod">
 														<!---->
-														<li class="el-select-dropdown__item" value="basic" onclick="alignmentMethodCheck('basic')"><span>기본정렬</span></li>
-														<li class="el-select-dropdown__item" value="recentYear" onclick="alignmentMethodCheck('recentYear')"><span>최근
-																연식순</span></li>
-														<li class="el-select-dropdown__item" value="lateYear" onclick="alignmentMethodCheck('lateYear')"><span>낮은
-																연식순</span></li>
-														<li class="el-select-dropdown__item" value="lesserDistance" onclick="alignmentMethodCheck('lesserDistance')"><span>적은
-																주행거리순</span></li>
-														<li class="el-select-dropdown__item" value="manyDistance" onclick="alignmentMethodCheck('manyDistance')"><span>많은
-																주행거리순</span></li>
-														<li class="el-select-dropdown__item" value="lowerPrice" onclick="alignmentMethodCheck('lowerPrice')"><span>낮은
-																가격순</span></li>
-														<li class="el-select-dropdown__item" value="hightPrice" onclick="alignmentMethodCheck('hightPrice')"><span>높은
-																가격순</span></li>
+														<li class="el-select-dropdown__item" value="기본정렬" onclick="alignmentMethodCheck('기본정렬')"><span>기본정렬</span></li>
+														<li class="el-select-dropdown__item" value="최근연식순" onclick="alignmentMethodCheck('최근연식순')"><span>최근연식순</span></li>
+														<li class="el-select-dropdown__item" value="낮은연식순" onclick="alignmentMethodCheck('낮은연식순')"><span>낮은연식순</span></li>
+														<li class="el-select-dropdown__item" value="적은주행거리순" onclick="alignmentMethodCheck('적은주행거리순')"><span>적은주행거리순</span></li>
+														<li class="el-select-dropdown__item" value="많은주행거리순" onclick="alignmentMethodCheck('많은주행거리순')"><span>많은주행거리순</span></li>
+														<li class="el-select-dropdown__item" value="낮은가격순" onclick="alignmentMethodCheck('낮은가격순')"><span>낮은가격순</span></li>
+														<li class="el-select-dropdown__item" value="높은가격순" onclick="alignmentMethodCheck('높은가격순')"><span>높은가격순</span></li>
 													</ul>
 												</div>
 												<div class="el-scrollbar__bar is-horizontal">
@@ -265,120 +259,41 @@
 						<div class="faqWrap">
 							<div class="infoTitleWrap infoTitleWrap2 mb40">
 								<h2 class="infoTitle">자주 묻는 질문</h2>
-								<a class="moreBtn el-link el-link--default is-underline"> <!---->
+								<a class="moreBtn el-link el-link--default is-underline" href="#"> <!---->
 									<span class="el-link--inner"> 전체보기<i
 										class="el-icon-arrow-right"></i></span> <!---->
 								</a>
 							</div>
+							
+							<!-- question start-->
 							<div role="tablist" aria-multiselectable="true"
 								class="el-collapse faqList">
-								<div class="el-collapse-item">
-									<div role="tab" aria-controls="el-collapse-content-3095"
-										aria-describedby="el-collapse-content-3095">
-										<div role="button" id="el-collapse-head-3095" tabindex="0"
-											class="el-collapse-item__header">
-											<i class="el-icon-Q"></i> <span>브랜드 인증 중고차 구매상담은 어디서
-												받나요?</span><i class="el-collapse-item__arrow el-icon-arrow-right"></i>
+								<c:forEach var="question" items="${questionList }" varStatus="status">
+									<div class="el-collapse-item">
+										<div role="tab" aria-controls="el-collapse-content-3095" class="questionTitle" onclick="question('${status.index}')"
+											aria-describedby="el-collapse-content-3095">
+											<div role="button" id="el-collapse-head-3095" tabindex="0"
+												class="el-collapse-item__header">
+												<i class="el-icon-Q"></i> <span>${question.q_title }</span><i class="el-collapse-item__arrow el-icon-arrow-right"></i>
+											</div>
 										</div>
-									</div>
-									<div role="tabpanel" aria-hidden="true"
-										aria-labelledby="el-collapse-head-3095"
-										id="el-collapse-content-3095" class="el-collapse-item__wrap"
-										style="display: none;">
-										<div class="el-collapse-item__content">
-											<div>
-												<i class="el-icon-A"></i>
-												<div class="faqA">
-													브랜드 인증중고차는 공식 딜러사의 까다로운 품질 기준을 통과하여 공식 인증을 받아야만 판매할 수 있는
-													차량입니다. 다음과 같은 장점이 있습니다. <br>1. 수입차 브랜드·공식 딜러사가 직접 품질을
-													점검하기 때문에 믿고 구매할 수 있습니다. 필요 시 브랜드별 자세한 점검 기준과 정비 이력도 받으실 수
-													있습니다. <br>2. 브랜드가 전문적으로 관리하여 상품화를 마친 차량이기에 최상의 상태로 구매할
-													수 있습니다. <br>3. 브랜드의 품질보증서비스가 제공되어 구매 후 안심하고 운행할 수
-													있습니다.
+										<div role="tabpanel" aria-hidden="true"
+											aria-labelledby="el-collapse-head-3095"
+											id="el-collapse-content-3095" class="el-collapse-item__wrap"
+											style="display: none;">
+											<div class="el-collapse-item__content">
+												<div>
+													<i class="el-icon-A"></i>
+													<div class="faqA">
+														${question.q_content }
+													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="el-collapse-item">
-									<div role="tab" aria-controls="el-collapse-content-2604"
-										aria-describedby="el-collapse-content-2604">
-										<div role="button" id="el-collapse-head-2604" tabindex="0"
-											class="el-collapse-item__header">
-											<i class="el-icon-Q"></i> <span>브랜드 인증 중고차는 무엇이 좋나요?</span><i
-												class="el-collapse-item__arrow el-icon-arrow-right"></i>
-										</div>
-									</div>
-									<div role="tabpanel" aria-hidden="true"
-										aria-labelledby="el-collapse-head-2604"
-										id="el-collapse-content-2604" class="el-collapse-item__wrap"
-										style="display: none;">
-										<div class="el-collapse-item__content">
-											<div>
-												<i class="el-icon-A"></i>
-												<div class="faqA">
-													해당 브랜드 인증중고차의 판매담당자를 통하여 구매상담을 진행해주시면 됩니다. 상담을 희망하는 차량의
-													상세정보에서 판매담당자의 연락처 확인이 가능하오니 해당 번호로 연락하셔서 자세한 상담을 진행해보세요. <br>
-													<span class="pointC">※ K Car는 광고등록 시스템만을 제공할 뿐, 차량
-														구매 상담은 인증중고차 판매담당자와 진행 해 주셔야 합니다. 따라서 브랜드 인증중고차의 구입 관련 문의는
-														해당 딜러사에 문의해주세요.</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="el-collapse-item">
-									<div role="tab" aria-controls="el-collapse-content-7528"
-										aria-describedby="el-collapse-content-7528">
-										<div role="button" id="el-collapse-head-7528" tabindex="0"
-											class="el-collapse-item__header">
-											<i class="el-icon-Q"></i> <span>브랜드 인증 중고차 A/S는 어떻게 받을
-												수 있나요?</span><i class="el-collapse-item__arrow el-icon-arrow-right"></i>
-										</div>
-									</div>
-									<div role="tabpanel" aria-hidden="true"
-										aria-labelledby="el-collapse-head-7528"
-										id="el-collapse-content-7528" class="el-collapse-item__wrap"
-										style="display: none;">
-										<div class="el-collapse-item__content">
-											<div>
-												<i class="el-icon-A"></i>
-												<div class="faqA">
-													구입시 상담을 진행한 인증중고차 판매 담당자 혹은 딜러사로 연락하여 A/S 상담을 진행 해 주세요. <br>
-													<span class="pointC">※ 브랜드 인증중고차는 수입 딜러사의 공식 인증중고차
-														판매부서에서 품질보증이 진행되는 차량으로, 해당 딜러사 판매담당자를 통해 A/S를 제공합니다.</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="el-collapse-item">
-									<div role="tab" aria-controls="el-collapse-content-3338"
-										aria-describedby="el-collapse-content-3338">
-										<div role="button" id="el-collapse-head-3338" tabindex="0"
-											class="el-collapse-item__header">
-											<i class="el-icon-Q"></i> <span>리스 승계가 무엇인가요?</span><i
-												class="el-collapse-item__arrow el-icon-arrow-right"></i>
-										</div>
-									</div>
-									<div role="tabpanel" aria-hidden="true"
-										aria-labelledby="el-collapse-head-3338"
-										id="el-collapse-content-3338" class="el-collapse-item__wrap"
-										style="display: none;">
-										<div class="el-collapse-item__content">
-											<div>
-												<i class="el-icon-A"></i>
-												<div class="faqA">
-													리스승계란 다른 사람이 금융사의 리스상품을 이용하여 신차 혹은 중고차를 구입하여 운행중인 자동차를 동일한
-													조건으로 넘겨 받아 리스 잔여기간 동안 리스사에 월 단위로 납입금과 이자를 지불하고 차량을 이용하는
-													방식입니다. <br>리스기간 종료 후 운행하던 자동차를 인수 혹은 반납을 할 수 있습니다. <br>반드시
-													리스 승계 조건, 위약금, 차량 상태 등을 판매 담당자와 꼼꼼히 확인하세요.
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+								</c:forEach>
 							</div>
+							<!-- question end-->
 						</div>
 					</div>
 					<div class="carBrandBox">
@@ -676,13 +591,16 @@
 		}
 		
 		//정렬기능
-		var dropdownAlignment = document.querySelector('.el-select-dropdown.el-popper');
-		
-		var alignment = document.getElementById('alignment');
-		var alignmentMethod = document.getElementById('alignmentMethod');
+		var dropdownAlignment;
+		var alignment;
+		var alignmentMethod;
 		var alignCnt = 0;
-		alignment.addEventListener("click",function(){
+		var alignmentClick = function(){
+			dropdownAlignment = document.querySelector('.el-select-dropdown.el-popper');
+			alignment = document.getElementById('alignment');
+			alignmentMethod = document.getElementById('alignmentMethod');
 			alignCnt ++;
+			
 			if(alignCnt % 2 != 0){
 				dropdownAlignment.style.display = "block"
 				alignmentMethod.style.display = "flex";
@@ -698,19 +616,44 @@
 				alignmentMethod.style.remove = "overFlow"
 				dropdownAlignment.style.display = "none"
 			}
-		})
+		}
 		
-		var alignmentMethodCheck = function(alginMethod){
+		var alignmentMethodCheck = function(alignMethod){
+			dropdownAlignment = document.querySelector('.el-select-dropdown.el-popper');
+			alignment = document.getElementById('alignment');
+			alignmentMethod = document.getElementById('alignmentMethod');
+			
 			alignCnt ++;
-			alignmentHidden.value=alginMethod;
 			alignmentMethod.style.remove = "display"
 			alignmentMethod.style.remove = "alignContent"
 			alignmentMethod.style.remove = "flexDirection"
 			alignmentMethod.style.remove = "flexWrap"
 			alignmentMethod.style.remove = "overFlow"
 			dropdownAlignment.style.display = "none"
-			
-			send('','1');
+			if(alignMethod != alignmentHidden.value){
+				alignmentHidden.value=alignMethod;
+				send('','1');
+			}
+		}
+		var questionContent = document.querySelectorAll('.el-collapse-item__wrap'); // content클래스들
+		var questionCnt = 0; // 클릭시마다 cnt 세기 열기 닫기 구분용
+		var questionIndex = -1; // content열고 다시 다른 content 열때 기존 content닫기 위한 index
+		var question = function(index){ // title 클릭 함수
+			console.log(index);
+			console.log(questionCnt);
+			console.log(questionIndex);
+			if(questionIndex != index & questionIndex != -1){
+				questionContent[questionIndex].style.display = "none";
+				questionCnt = 0;
+			}
+			questionCnt++;
+			if(questionCnt % 2 != 0){
+				questionContent[index].style.display = "block";
+				questionIndex = index;
+			}else{
+				questionContent[index].style.display = "none";
+				questionIndex = -1;
+			}
 		}
 	</script>
 </body>

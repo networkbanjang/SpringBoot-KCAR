@@ -12,6 +12,7 @@ import com.one.kcar.dao.buy.IBrandDAO;
 import com.one.kcar.dto.buy.BrandDTO;
 import com.one.kcar.dto.buy.CarDTO;
 import com.one.kcar.dto.buy.CarTagDTO;
+import com.one.kcar.dto.buy.QuestionDTO;
 
 @Service
 public class brandService {
@@ -41,9 +42,8 @@ public class brandService {
 			if(brandModel.equals("")) brandModel = null;
 		}
 		if(alignment != null) {
-			if(alignment.equals("") || alignment.equals("basic")) alignment = null;
+			if(alignment.equals("") || alignment.equals("기본정렬")) alignment = null;
 		}
-		System.out.println(alignment);
 		//페이징 처리정보
 		int currentPageNum;
 		try {
@@ -55,7 +55,7 @@ public class brandService {
 			if(data.equals("prev")) currentPageNum -= 1;
 			if(data.equals("next")) currentPageNum += 1;
 		}
-		
+		//상단 브랜드리스트
 		ArrayList<BrandDTO> brandList = brandDao.brandList(brand,brandModel);//해외브랜드리스트
 	
 		String stringCount = brandDao.brandCarAllCnt(brand,brandModel);
@@ -73,7 +73,9 @@ public class brandService {
 		int start = end - block + 1;
 		int totalPage =  totalCount / block;
 		if(totalCount % block != 0) totalPage += 1;
-		ArrayList<CarDTO> brandCarAllList = brandDao.brandCarAllList(start,end,brand,brandModel);//해외브랜드차량 전체리스트
+		
+		//해외브랜드차량 전체리스트
+		ArrayList<CarDTO> brandCarAllList = brandDao.brandCarAllList(start,end,brand,brandModel,alignment);//해외브랜드차량 전체리스트
 		
 		//carTag정보
 		for (int i = 0; i < brandCarAllList.size(); i++) {
@@ -89,13 +91,15 @@ public class brandService {
 			brandCarAllList.get(i).setBrandCarInfoTag(carTag.getBrandCarInfoTag());
 		}
 		
+		//AJAX비동기통신으로 //해외브랜드차량 전체리스트 HTML 코드로 변경
 		if(data != null) {
 			String ajaxBrandCarAllList = ajaxBrandCarAllList(brandCarAllList,currentPageNum,totalPage,totalCount,this.totalCnt,brand,brandModel,alignment);
-			System.out.println(this.totalCnt);
 			return ajaxBrandCarAllList;
 		}
+		//자주하는질문리스트
+		ArrayList<QuestionDTO> questionList = brandDao.questionList();
 		
-		
+		model.addAttribute("questionList", questionList);
 		model.addAttribute("brandCarAllCount", this.totalCnt);
 		model.addAttribute("filterCarAllCount", totalCount);
 		model.addAttribute("brandList", brandList);
@@ -126,7 +130,7 @@ public class brandService {
 				+ "										<div class=\"el-input el-input--suffix\">\r\n"
 				+ "											<!---->\r\n"
 				+ "											<input type=\"text\" readonly=\"readonly\" autocomplete=\"off\"\r\n"
-				+ "												placeholder=\""+alignment+"\" class=\"el-input__inner\" id=\"alignment\">\r\n"
+				+ "												placeholder=\""+alignment+"\" class=\"el-input__inner\" id=\"alignment\" onclick=\"alignmentClick()\">\r\n"
 				+ "											<!---->\r\n"
 				+ "											<span class=\"el-input__suffix\"><span\r\n"
 				+ "												class=\"el-input__suffix-inner\"><i\r\n"
@@ -142,19 +146,13 @@ public class brandService {
 				+ "													style=\"margin-bottom: -19px; margin-right: -19px;\">\r\n"
 				+ "													<ul class=\"el-scrollbar__view el-select-dropdown__list\" id=\"alignmentMethod\">\r\n"
 				+ "														<!---->\r\n"
-				+ "														<li class=\"el-select-dropdown__item\" value=\"basic\" onclick=\"alignmentMethodCheck('basic')\"><span>기본정렬</span></li>\r\n"
-				+ "														<li class=\"el-select-dropdown__item\" value=\"recentYear\" onclick=\"alignmentMethodCheck('recentYear')\"><span>최근\r\n"
-				+ "																연식순</span></li>\r\n"
-				+ "														<li class=\"el-select-dropdown__item\" value=\"lateYear\" onclick=\"alignmentMethodCheck('lateYear')\"><span>낮은\r\n"
-				+ "																연식순</span></li>\r\n"
-				+ "														<li class=\"el-select-dropdown__item\" value=\"lesserDistance\" onclick=\"alignmentMethodCheck('lesserDistance')\"><span>적은\r\n"
-				+ "																주행거리순</span></li>\r\n"
-				+ "														<li class=\"el-select-dropdown__item\" value=\"manyDistance\" onclick=\"alignmentMethodCheck('manyDistance')\"><span>많은\r\n"
-				+ "																주행거리순</span></li>\r\n"
-				+ "														<li class=\"el-select-dropdown__item\" value=\"lowerPrice\" onclick=\"alignmentMethodCheck('lowerPrice')\"><span>낮은\r\n"
-				+ "																가격순</span></li>\r\n"
-				+ "														<li class=\"el-select-dropdown__item\" value=\"hightPrice\" onclick=\"alignmentMethodCheck('hightPrice')\"><span>높은\r\n"
-				+ "																가격순</span></li>\r\n"
+				+ "														<li class=\"el-select-dropdown__item\" value=\"기본정렬\" onclick=\"alignmentMethodCheck('기본정렬')\"><span>기본정렬</span></li>\r\n"
+				+ "														<li class=\"el-select-dropdown__item\" value=\"최근연식순\" onclick=\"alignmentMethodCheck('최근연식순')\"><span>최근연식순</span></li>\r\n"
+				+ "														<li class=\"el-select-dropdown__item\" value=\"낮은연식순\" onclick=\"alignmentMethodCheck('낮은연식순')\"><span>낮은연식순</span></li>\r\n"
+				+ "														<li class=\"el-select-dropdown__item\" value=\"적은주행거리순\" onclick=\"alignmentMethodCheck('적은주행거리순')\"><span>적은주행거리순</span></li>\r\n"
+				+ "														<li class=\"el-select-dropdown__item\" value=\"많은주행거리순\" onclick=\"alignmentMethodCheck('많은주행거리순')\"><span>많은주행거리순</span></li>\r\n"
+				+ "														<li class=\"el-select-dropdown__item\" value=\"낮은가격순\" onclick=\"alignmentMethodCheck('낮은가격순')\"><span>낮은가격순</span></li>\r\n"
+				+ "														<li class=\"el-select-dropdown__item\" value=\"높은가격순\" onclick=\"alignmentMethodCheck('높은가격순')\"><span>높은가격순</span></li>\r\n"
 				+ "													</ul>\r\n"
 				+ "												</div>\r\n"
 				+ "												<div class=\"el-scrollbar__bar is-horizontal\">\r\n"
@@ -169,13 +167,6 @@ public class brandService {
 				+ "											<!---->\r\n"
 				+ "										</div>\r\n"
 				+ "									</div>\r\n"
-				+ "									<button type=\"button\"\r\n"
-				+ "										class=\"el-button listIs mL8 el-button--default\"\r\n"
-				+ "										aria-pressed=\"false\">\r\n"
-				+ "										<!---->\r\n"
-				+ "										<!---->\r\n"
-				+ "										<span><i class=\"is_wide\"></i><span class=\"_hidden\">리스트형버튼</span></span>\r\n"
-				+ "									</button></li>\r\n"
 				+ "							</ul>\r\n"
 				+ "							<ul>\r\n"
 				+ "								<!---->\r\n"

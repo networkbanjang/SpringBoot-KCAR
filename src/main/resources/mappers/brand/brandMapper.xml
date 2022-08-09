@@ -41,6 +41,27 @@
 		<if test="brand != null and brandModel == null">
 			AND cb_brand = #{brand}
 		</if>
+		<if test="alignment == '기본정렬' or alignment == null">
+			ORDER BY RN
+		</if>
+		<if test="alignment == '최근연식순'">
+			ORDER BY c_year desc,c_distance asc
+		</if>
+		<if test="alignment == '낮은연식순'">
+			ORDER BY c_year asc,c_distance asc
+		</if>
+		<if test="alignment == '적은주행거리순'">
+			ORDER BY c_distance asc
+		</if>
+		<if test="alignment == '많은주행거리순'">
+			ORDER BY c_distance desc
+		</if>
+		<if test="alignment == '낮은가격순'">
+			ORDER BY c_price asc,c_distance asc
+		</if>
+		<if test="alignment == '높은가격순'">
+			ORDER BY c_price desc,c_distance asc
+		</if>
 	</select>
 	<select id="brandCarModelList" parameterType="String" resultType="map">
 		SELECT cb.cb_m_model, count(c.c_num) count
@@ -60,6 +81,10 @@
 			WHERE cb_brand = #{brand}
 		</if>
 		group by cb_brand
+	</select>
+	
+	<select id="questionList" resultType="com.one.kcar.dto.buy.QuestionDTO">
+		SELECT * FROM KCAR_QUESTION
 	</select>
 	<!-- 특정브랜드가 아니고 전체 브랜드라 필터기능시 브랜드항목도 추가해야하기 떄문에 브랜드컬럼도 가져오기 -->
 	<!-- <select id="brandModelAllList" resultType="com.one.kcar.dto.buy.CarDTO">
