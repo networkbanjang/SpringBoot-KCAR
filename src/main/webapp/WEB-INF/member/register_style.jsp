@@ -21407,7 +21407,7 @@ header#adminHeader nav ul.adminMenu>li.el-menu-item.is-active:after {
 }
 
 .button.apply {
-	background: #d8dee8;
+	background: #f01d29;
 }
 
 .button.apply, .button.chosenApply {
@@ -28798,9 +28798,9 @@ header#adminHeader nav ul.adminMenu>li.el-menu-item.is-active:after {
 	background: #f1f1f4
 }
 
-.button.apply {
-	background: #b70f28
-}
+/* .button.apply { */
+/* 	background: #b70f28 */
+/* } */
 
 .button.apply, .button.chosenApply {
 	width: 100%;
@@ -73089,7 +73089,7 @@ table .hidden {
 	height: 4.8rem;
 	color: #fff;
 	font-size: 1.5rem;
-	letter-spacing: -.047rem
+	letter-spacing: -.047rem;
 }
 
 .button.chosenApply {

@@ -53,6 +53,7 @@ public class MemberService {
 		
 		
 		session.invalidate();// 인증번호 및 인증 상태 제거
+		memberDao.insertMember(member);
 		return "가입 완료";
 	}
 
