@@ -59,17 +59,5 @@ public class HomeController{
 	public String city() {
 		return "city/city";
 	}
-	@GetMapping("csQstn")
-	public String csQstn() {
-		return "cs/csQstn";
-	}
-	@GetMapping("csVoc")
-	public String csVoc() {
-		return "cs/csVoc";
-	}
-	@GetMapping("222_style")
-	public String dsa() {
-		return "222_style";
-	}
 	
 }
