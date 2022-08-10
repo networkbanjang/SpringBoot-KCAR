@@ -4420,7 +4420,7 @@ keyframes v-modal-out {
 	background-color: rgba(0, 0, 0, 0.4);
 }
 /* 모달창 배경 버튼등 튀어나오는거 
-바디 위에 span 배경 위에 모달창 - 열공님의 명언언
+바디 위에 span 배경 위에 모달
 
  */
 #modalMenuBack {

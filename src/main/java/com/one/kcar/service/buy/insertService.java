@@ -133,4 +133,54 @@ public class insertService {
 		return "model테이블 insert 성공";
 	}
 
+	public String insertContract() throws FileNotFoundException, IOException {
+		ClassPathResource resource = new ClassPathResource("contract.json");
+		FileReader reader = new FileReader(resource.getFile());
+
+		Gson gson = new Gson();
+		JsonObject obj = gson.fromJson(reader, JsonObject.class);
+
+		JsonArray arr = obj.getAsJsonArray("contract");
+
+		for (int i = 0; i < arr.size(); i++) {
+			JsonObject tmp = (JsonObject) arr.get(i);
+			
+			String c_num = tmp.get("c_num").getAsString();
+			String c_c_b_email = tmp.get("c_c_b_email").getAsString();
+			String c_c_s_email = tmp.get("c_c_s_email").getAsString();
+			
+			int result = brandDao.insertContract(c_num, c_c_b_email,c_c_s_email);
+			if (result != 1) {
+				return "model테이블 insert 실패";
+			}
+		}
+		return "model테이블 insert 성공";
+	}
+
+	public String insertReview() throws FileNotFoundException, IOException {
+		ClassPathResource resource = new ClassPathResource("buyReview.json");
+		FileReader reader = new FileReader(resource.getFile());
+
+		Gson gson = new Gson();
+		JsonObject obj = gson.fromJson(reader, JsonObject.class);
+
+		JsonArray arr = obj.getAsJsonArray("buyReview");
+
+		for (int i = 0; i < arr.size(); i++) {
+			JsonObject tmp = (JsonObject) arr.get(i);
+			
+			String c_c_index = tmp.get("c_c_index").getAsString();
+			String m_r_title = tmp.get("m_r_title").getAsString();
+			String m_r_review = tmp.get("m_r_review").getAsString();
+			String m_r_registDate = tmp.get("m_r_registDate").getAsString();
+			String m_r_image = tmp.get("m_r_image").getAsString();
+			
+			int result = brandDao.insertReview(c_c_index, m_r_title,m_r_review,m_r_registDate,m_r_image);
+			if (result != 1) {
+				return "model테이블 insert 실패";
+			}
+		}
+		return "model테이블 insert 성공";
+	}
+
 }

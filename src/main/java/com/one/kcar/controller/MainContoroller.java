@@ -20,6 +20,8 @@ import com.one.kcar.service.buy.*;
 public class MainContoroller {
 	@Autowired
 	private brandService brandService;
+	@Autowired
+	private buyReviewService buyReviewService;
 	
 	//차량검색
 	@GetMapping(value = "vehicleSearch")
@@ -48,10 +50,20 @@ public class MainContoroller {
 	}
 	//내차사기 고객후기
 	@GetMapping(value="BuyCustReview")
-	public String BuyCustReview() {
+	public String BuyCustReview(@RequestParam(value="currentPage",required = false,defaultValue="1")String currentPage,
+			@RequestBody(required = false) String data, Model model) {
+		HashMap<String, String> map = new HashMap<>();
+		map.put("currentPage", currentPage);
+		map.put("data", data);
+		buyReviewService.buyReivewAllList(map,model);
 		return "myCarScam/BuyCustReview";
 	}
-	
+	@ResponseBody
+	@PostMapping(value="buyReviewPaging", produces = "text/html; charset=utf-8")
+	public String buyReviewPaging(@RequestBody(required = false) HashMap<String,String> map, Model model) {
+		String revieList = buyReviewService.buyReivewAllList(map, model);
+		return revieList;
+	}
 	//브랜드인증관 페이지 필터 없는 경우
 	@GetMapping(value="brandCar")
 	public String brandCar(@RequestParam(value="currentPage",required = false,defaultValue="1") String currentPage,
@@ -106,6 +118,7 @@ public class MainContoroller {
 		return "myCarScam/detail/carInfoVr";
 	}
 	
+	
 	//DB 대량데이터 INSERT용
 	@Autowired
 	private insertService inserService;
@@ -113,32 +126,34 @@ public class MainContoroller {
 	@GetMapping(value="insertCarBrand")
 	public String insertCarBrand() throws FileNotFoundException, IOException {
 		String msg = inserService.insertCarBrand();
-		
 		return "redirect:/brandCar";
-		
 	}
 	@GetMapping(value="insertCarBrandModel")
 	public String insertCarBrandModel() throws FileNotFoundException, IOException {
 		String msg = inserService.insertCarBrandModel();
-		
 		return "redirect:/brandCar";
-		
 	}
 	
 	@GetMapping(value="insertCar")
 	public String insertCar() throws FileNotFoundException, IOException {
 		String msg = inserService.insertCar();
-		
 		return "redirect:/brandCar";
 		
 	}
 	@GetMapping(value="insertCarTag")
 	public String insertCarTag() throws FileNotFoundException, IOException {
 		String msg = inserService.insertCarTag();
-		
 		return "redirect:/brandCar";
-		
 	}
-	
-	
+	@GetMapping(value="insertContract")
+	public String insertContract() throws FileNotFoundException, IOException {
+		String msg = inserService.insertContract();
+		System.out.println(msg);
+		return "redirect:/brandCar";
+	}
+	@GetMapping(value="insertReview")
+	public String insertReview() throws FileNotFoundException, IOException {
+		String msg = inserService.insertReview();
+		return "redirect:/brandCar";
+	}
 }

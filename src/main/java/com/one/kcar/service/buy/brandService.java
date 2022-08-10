@@ -35,6 +35,7 @@ public class brandService {
 		String brand = map.get("brand");
 		String brandModel = map.get("model");
 		String alignment = map.get("alignment");
+		
 		if(brand != null) {
 			if(brand.equals("")) brand = null;
 		}

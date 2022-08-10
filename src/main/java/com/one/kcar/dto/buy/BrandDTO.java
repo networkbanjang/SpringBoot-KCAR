@@ -8,7 +8,6 @@ public class BrandDTO {
 	private String cb_photo;
 	private String cb_domestic;
 	
-	
 	private int count;
 	
 	public int getCount() {
