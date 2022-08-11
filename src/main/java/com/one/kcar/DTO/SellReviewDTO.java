@@ -2,13 +2,13 @@ package com.one.kcar.DTO;
 
 public class SellReviewDTO {
 	
-	int m_id;
-	String m_email;
-	String s_r_title;
-	String s_r_content;
-	String s_r_image;
-	String s_r_date;
-	String s_r_model;
+	private int m_id;
+	private String m_email;
+	private String s_r_title;
+	private String s_r_content;
+	private String s_r_image;
+	private String s_r_date;
+	private String s_r_model;
 	int s_r_num;
 	public int getS_r_num() {
 		return s_r_num;

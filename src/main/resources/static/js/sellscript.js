@@ -53,4 +53,6 @@ function nullcheck(){
 		document.getElementById('form').method = 'post';
 		document.getElementById('form').submit();
 	}
+	
+	
 }

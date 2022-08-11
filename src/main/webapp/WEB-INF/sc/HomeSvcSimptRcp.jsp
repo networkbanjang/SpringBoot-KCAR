@@ -31,7 +31,7 @@ input[type='checkbox']:checked+label span {
 	left: 0;
 	bottom: 0;
 	right: 0;
-	background: rgba(8, 8, 8, 8.10);
+	background: rgba(8, 8, 8, 0.75);
 	z-index: 1;
 }
 

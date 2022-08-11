@@ -69,6 +69,7 @@ public class HomeController{
 	
 	@GetMapping("logintest")
 	public String logintest(HttpSession session) {
+		session.invalidate();
 		session.setAttribute("m_id", 1);
 		session.setAttribute("m_email", "tmddud73@naver.com");
 		session.setAttribute("m_tel", "010-1234-1234");
@@ -81,4 +82,14 @@ public class HomeController{
 		session.invalidate();
 		return "redirect:/sc/HomeSvcMain";
 	}
+	@GetMapping("adminlogintest")
+	public String adminlogintest(HttpSession session) {
+		session.invalidate();
+		session.setAttribute("m_id", 2);
+		session.setAttribute("m_email", "admin@istrator.com");
+		session.setAttribute("m_tel", "010-1234-1234");
+		session.setAttribute("m_name", "관리자");
+		return "redirect:/sc/HomeSvcMain";
+	}
+
 }

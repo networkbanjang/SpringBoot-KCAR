@@ -40,7 +40,7 @@ var req;
 	left: 0;
 	bottom: 0;
 	right: 0;
-	background: rgba(8, 8, 8, 8.11);
+	background: rgba(8, 8, 8, 0.75);
 	z-index: 1;
 }
 </style>

@@ -14,6 +14,12 @@ public class SellDTO {
 	public void setS_r_model(String s_r_model) {
 		this.s_r_model = s_r_model;
 	}
+	public String getS_r_date() {
+		return s_r_date;
+	}
+	public void setS_r_date(String s_r_date) {
+		this.s_r_date = s_r_date;
+	}
 	public int getS_r_distance() {
 		return s_r_distance;
 	}
@@ -38,14 +44,15 @@ public class SellDTO {
 	public void setS_r_progress(String s_r_progress) {
 		this.s_r_progress = s_r_progress;
 	}
-	String s_r_num;
-	String s_r_model;
-	int s_r_distance;
-	int m_id;
-	String m_email;
-	String s_r_progress;
-	String s_r_marketing;
-	int s_r_when;
+	private String s_r_num;
+	private String s_r_model;
+	private int s_r_distance;
+	private int m_id;
+	private String m_email;
+	private String s_r_progress;
+	private String s_r_marketing;
+	private int s_r_when;
+	private String s_r_date;
 	public String getS_r_marketing() {
 		return s_r_marketing;
 	}

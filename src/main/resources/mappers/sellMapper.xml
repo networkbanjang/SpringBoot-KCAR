@@ -5,7 +5,7 @@
 
 	<insert id="sellRequest" parameterType="SellDTO">
 		Insert into kcar_Sell_request values
-		(#{s_r_num}, #{s_r_model}, #{s_r_distance}, #{m_id},#{m_email},#{s_r_progress},#{s_r_when},#{s_r_marketing})
+		(#{s_r_num}, #{s_r_model}, #{s_r_distance}, #{m_id},#{m_email},#{s_r_progress},#{s_r_when},#{s_r_marketing},#{s_r_date})
 	</insert>
 	
 	<select id="brandlist" resultType="String">
