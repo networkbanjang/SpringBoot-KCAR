@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <style
-	data-vue-ssr-id="3e5c2f4e:0 7f914dc6:0 71336ca0:0 2b3cf7a0:0 f9014860:0 cb46bfd2:0 21d20780:0 4ec507c6:0 4ec507c6:1 f907bb2c:0 f907bb2c:1 954d13f4:0 d05f915c:0 d05f915c:1 2ce31966:0 b620baf8:0 600cde27:0">
+	data-vue-ssr-id="3e5c2f4e:0 7f914dc6:0 71336ca0:0 2b3cf7a0:0 f9014860:0 cb46bfd2:0 21d20780:0 4ec507c6:0 4ec507c6:1 f907bb2c:0 f907bb2c:1 954d13f4:0 d05f915c:0 d05f915c:1 2ce31966:0 b620baf8:0">
 @font-face {
 	font-family: "icomoon";
 	src: url(/_nuxt/fonts/icomoon.96196af.eot);
@@ -4414,21 +4414,6 @@ keyframes v-modal-out {
 
 .el-popup-parent--hidden {
 	overflow: hidden
-}
-
-/* 모달창 배경 버튼등 튀어나오는거 
-바디 위에 span 배경 위에 모달
-
- */
-#reviewModalBack {
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.5);
-	z-index: 2010;
 }
 
 .el-message-box {
@@ -23708,6 +23693,10 @@ a.button.DarkColor:active, button.DarkColor:active {
 	color: #d8dee8
 }
 
+.el-date-picker .el-date-table tbody tr td.next-month {
+	color: #000
+}
+
 .el-date-picker .el-date-table tbody .el-date-table__row td {
 	border: none;
 	border-radius: 50%;
@@ -31098,6 +31087,10 @@ a.button.DarkColor:active, button.DarkColor:active {
 
 .el-date-picker .el-date-table tbody tr td.disabled div {
 	color: #d8dee8
+}
+
+.el-date-picker .el-date-table tbody tr td.next-month {
+	color: #000
 }
 
 .el-date-picker .el-date-table tbody .el-date-table__row td {
@@ -45732,6 +45725,17 @@ textarea {
 .contWrap .hsBanner .desc.small {
 	font-size: 1.6rem;
 	line-height: 2.2rem
+}
+
+.contWrap .hsBanner .desc_red {
+	width: 122rem;
+	margin: .7rem auto;
+	padding-left: 6rem;
+	font-size: 3.2rem;
+	color: #b70f28;
+	line-height: 3rem;
+	letter-spacing: -.04rem;
+	font-weight: 500
 }
 
 .contWrap .hsListStep {
@@ -64152,14 +64156,15 @@ table .hidden {
 
 .carInfoWrap .carInfoContainer .carInfoContent .carInfoDetailWrap .carInfoLeft .snsCtaLists li.item3.likeIt a:before
 	{
-	background: url(/images/carInfo/icon-toggle-favorite-red.svg) no-repeat
-		0 0;
+	background: url(/images/carInfo/icon-toggle-favorite01-red.svg)
+		no-repeat 0 0;
 	background-size: 2.4rem 2.4rem
 }
 
 .carInfoWrap .carInfoContainer .carInfoContent .carInfoDetailWrap .carInfoLeft .snsCtaLists li.item3 a:before
 	{
-	background: url(/images/carInfo/icon-toggle-favorite.svg) no-repeat 0 0;
+	background: url(/images/carInfo/icon-toggle-favorite01.svg) no-repeat 0
+		0;
 	background-size: 2.4rem 2.4rem
 }
 
@@ -75382,6 +75387,10 @@ a.button.DarkColor:active, button.DarkColor:active {
 	color: #d8dee8
 }
 
+.el-date-picker .el-date-table tbody tr td.next-month {
+	color: #000
+}
+
 .el-date-picker .el-date-table tbody .el-date-table__row td {
 	border: none;
 	border-radius: 50%;
@@ -76418,11 +76427,11 @@ a.button.DarkColor:active, button.DarkColor:active {
 	font-size: 0;
 	text-indent: -9999px
 }
-
-.swiper-container[data-v-bd45f60c] {
-	float: left
-}
 </style>
+<script
+	src="//rum.beusable.net/script/checker/b171101e144206u678/f88ad03cce?url=https%3A%2F%2Fwww.kcar.com%2Fbr%2FBrandCarList%3FmnuftrCd%3D011"
+	async="" type="text/javascript"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/7f85a56ba4.css">
 <style id="ab-css-definitions-3-2-0">
 .ab-pause-scrolling, body.ab-pause-scrolling, html.ab-pause-scrolling {
 	overflow: hidden;
@@ -78495,15 +78504,15 @@ body>.ab-feed .ab-no-cards-message {
 <meta http-equiv="origin-trial"
 	content="A9wkrvp9y21k30U9lU7MJMjBj4USjLrGwV+Z8zO3J3ZBH139DOnCv3XLK2Ii40S94HG1SZ/Zeg2GSHOD3wlWngYAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
 <script type="text/javascript" async=""
-	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/938190343/?random=1659350465953&amp;cv=9&amp;fst=1659350465953&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1040&amp;u_aw=1920&amp;u_cd=24&amp;u_his=7&amp;u_tz=540&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2wg7r0&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.kcar.com%2Fbc%2FvrCar%2Flist&amp;ref=https%3A%2F%2Fwww.google.com%2F&amp;tiba=3D%20%EB%9D%BC%EC%9D%B4%EB%B8%8C%20%EB%B7%B0&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
+	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/938190343/?random=1659496611003&amp;cv=9&amp;fst=1659496611003&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1040&amp;u_aw=1920&amp;u_cd=24&amp;u_his=13&amp;u_tz=540&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2wg811&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.kcar.com%2Fbr%2FBrandCarList%3FmnuftrCd%3D011&amp;ref=https%3A%2F%2Fwww.google.com%2F&amp;tiba=K%20Car%20-%20%EC%A7%81%EC%A0%91%20%EB%A7%A4%EC%9E%85%20%EC%A7%81%EC%A0%91%20%ED%8C%90%EB%A7%A4%ED%95%98%EB%8A%94%20%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%20No.1%20%EC%A7%81%EC%98%81%20%EC%A4%91%EA%B3%A0%EC%B0%A8%20%EC%BC%80%EC%9D%B4%EC%B9%B4&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
 <meta http-equiv="origin-trial"
 	content="Azy2GzGQxPvGmQwVDdEL1jRuKSXIdSSASA06JCA6PCeaVHpFYf8Rw5/q+9adc9CrBTxfCeUwxkuDM4PWEmdqywwAAACKeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZWFkc2VydmljZXMuY29tOjQ0MyIsImZlYXR1cmUiOiJQcml2YWN5U2FuZGJveEFkc0FQSXMiLCJleHBpcnkiOjE2NjEyOTkxOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
 <script type="text/javascript" async=""
-	src="https://www.googleadservices.com/pagead/conversion/938190343/?random=1659350465956&amp;cv=9&amp;fst=1659350465956&amp;num=1&amp;value=0&amp;label=07NXCJrT4bcDEIfMrr8D&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1040&amp;u_aw=1920&amp;u_cd=24&amp;u_his=7&amp;u_tz=540&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2wg7r0&amp;sendb=1&amp;ig=1&amp;gclaw=Cj0KCQjw852XBhC6ARIsAJsFPN13Ry6GfnLusI1Hf2KzxeH92okx_ObjE1bgzfhkVlrZoxqT9WEbFGcaAvuxEALw_wcB&amp;gac=UA-23566107-15%3ACj0KCQjw852XBhC6ARIsAJsFPN13Ry6GfnLusI1Hf2KzxeH92okx_ObjE1bgzfhkVlrZoxqT9WEbFGcaAvuxEALw_wcB&amp;frm=0&amp;url=https%3A%2F%2Fwww.kcar.com%2Fbc%2FvrCar%2Flist&amp;ref=https%3A%2F%2Fwww.google.com%2F&amp;tiba=3D%20%EB%9D%BC%EC%9D%B4%EB%B8%8C%20%EB%B7%B0&amp;auid=826476001.1659003798&amp;hn=www.googleadservices.com&amp;bttype=purchase&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
+	src="https://www.googleadservices.com/pagead/conversion/938190343/?random=1659496611006&amp;cv=9&amp;fst=1659496611006&amp;num=1&amp;value=0&amp;label=07NXCJrT4bcDEIfMrr8D&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1040&amp;u_aw=1920&amp;u_cd=24&amp;u_his=13&amp;u_tz=540&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2wg811&amp;sendb=1&amp;ig=1&amp;gclaw=CjwKCAjwlqOXBhBqEiwA-hhitPrWZNxaaWPvIs7npYUwB2XBaWVshdB8Jxfpc8W22P4JDlDTi6NolRoCKVEQAvD_BwE&amp;gac=UA-23566107-15%3ACjwKCAjwlqOXBhBqEiwA-hhitPrWZNxaaWPvIs7npYUwB2XBaWVshdB8Jxfpc8W22P4JDlDTi6NolRoCKVEQAvD_BwE&amp;frm=0&amp;url=https%3A%2F%2Fwww.kcar.com%2Fbr%2FBrandCarList%3FmnuftrCd%3D011&amp;ref=https%3A%2F%2Fwww.google.com%2F&amp;tiba=K%20Car%20-%20%EC%A7%81%EC%A0%91%20%EB%A7%A4%EC%9E%85%20%EC%A7%81%EC%A0%91%20%ED%8C%90%EB%A7%A4%ED%95%98%EB%8A%94%20%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%20No.1%20%EC%A7%81%EC%98%81%20%EC%A4%91%EA%B3%A0%EC%B0%A8%20%EC%BC%80%EC%9D%B4%EC%B9%B4&amp;auid=826476001.1659003798&amp;hn=www.googleadservices.com&amp;bttype=purchase&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
 <script type="text/javascript" async=""
 	src="//tpc.googlesyndication.com/sodar/1s9mPOHO.js"></script>
 <style type="text/css">
-.error-wrap[data-v-3153780a] {
+.error-wrap[data-v-694b65bc] {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -78512,22 +78521,22 @@ body>.ab-feed .ab-no-cards-message {
 	color: #575757
 }
 
-.error-wrap .wrapper .error[data-v-3153780a] {
+.error-wrap .wrapper .error[data-v-694b65bc] {
 	height: 30rem;
 	padding: 2rem
 }
 
-.error-wrap .wrapper .error h1[data-v-3153780a] {
+.error-wrap .wrapper .error h1[data-v-694b65bc] {
 	padding-bottom: 4rem;
 	font-size: 7rem;
 	font-weight: 700
 }
 
-.error-wrap .wrapper .error div.text>p[data-v-3153780a] {
+.error-wrap .wrapper .error div.text>p[data-v-694b65bc] {
 	font-size: 2.4rem
 }
 
-.error-wrap .wrapper .error div.text>p>span[data-v-3153780a] {
+.error-wrap .wrapper .error div.text>p>span[data-v-694b65bc] {
 	color: #b70f28;
 	font-weight: 700
 }
@@ -80046,498 +80055,5 @@ body>.ab-feed .ab-no-cards-message {
 
 .tui-grid-cell-dummy {
 	background-color: #fff
-}
-</style>
-<meta http-equiv="origin-trial"
-	content="A+Mt6wQ7St5J869uXW1A/aL3lJaYJYff4gUwPvwSbTuZ7z/T1l4np41d/t4W9TdeS/EMua5fYfBoz4v4TT9tdAgAAACAeyJvcmlnaW4iOiJodHRwczovL2NyaXRlby5uZXQ6NDQzIiwiZmVhdHVyZSI6IlByaXZhY3lTYW5kYm94QWRzQVBJcyIsImV4cGlyeSI6MTY2MTI5OTE5OSwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0=">
-<meta http-equiv="origin-trial"
-	content="AxFuPIivbOVh9A1iWigZYBKLEsd09F0TKyZCh3vhaAKunGI5SMnDaV1g2yqrnkAKqythLyd+bS8ShWXWx388aQIAAACAeyJvcmlnaW4iOiJodHRwczovL2NyaXRlby5jb206NDQzIiwiZmVhdHVyZSI6IlByaXZhY3lTYW5kYm94QWRzQVBJcyIsImV4cGlyeSI6MTY2MTI5OTE5OSwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0=">
-<style type="text/css">
-@media screen {
-	#printPaymentHistory {
-		display: none
-	}
-}
-
-@media print {
-	body>div {
-		display: none
-	}
-	#printPaymentHistory {
-		display: block
-	}
-}
-</style>
-<style type="text/css">
-.printWrap[data-v-412441c4] {
-	width: 900px;
-	margin: 0 auto;
-	padding: 2rem 0
-}
-
-div.onepage[data-v-412441c4] {
-	page-break-before: always
-}
-
-.pd16[data-v-412441c4] {
-	padding: 1.4rem 1.6rem !important
-}
-
-@page {
-	size: A4;
-	margin: 11mm 17mm 17mm 17mm
-}
-
-@media print {
-	.content-block[data-v-412441c4], p[data-v-412441c4] {
-		page-break-inside: avoid
-	}
-	body[data-v-412441c4], html[data-v-412441c4] {
-		width: 210mm;
-		height: 297mm
-	}
-	*[data-v-412441c4] {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-		-webkit-print-color-adjust: exact;
-		print-color-adjust: exact
-	}
-}
-
-.aboutMyCar[data-v-412441c4] {
-	display: flex;
-	justify-content: center;
-	padding: 3.2rem;
-	border-radius: .8rem 4rem .8rem 4rem;
-	border: 1px solid #d8dee8;
-	background-color: #fff
-}
-
-.aboutMyCar .carIcon[data-v-412441c4] {
-	margin-right: 3.2rem
-}
-
-.aboutMyCar .aboutCarArea[data-v-412441c4] {
-	display: flex;
-	flex-direction: column;
-	justify-content: center
-}
-
-.aboutMyCar .aboutCarArea .carNumber[data-v-412441c4] {
-	font-size: 2rem;
-	font-weight: 700;
-	line-height: 1.3;
-	letter-spacing: -.4px;
-	color: #16171d
-}
-
-.aboutMyCar .aboutCarArea .carNameDetail[data-v-412441c4] {
-	margin: .8rem 0;
-	font-size: 1.4rem;
-	font-weight: 400;
-	line-height: 1.43;
-	letter-spacing: normal;
-	color: #16171d;
-	word-break: keep-all
-}
-
-.aboutMyCar .aboutCarArea .searchDay[data-v-412441c4] {
-	font-size: 1.2rem;
-	font-weight: 400;
-	line-height: 1.33;
-	letter-spacing: normal;
-	color: #9fa0a2
-}
-
-.popTitWrap[data-v-412441c4] {
-	position: relative;
-	margin-top: 3.2rem;
-	padding: 1.6rem 0
-}
-
-.popTitWrap .popTit[data-v-412441c4] {
-	font-size: 2rem;
-	font-weight: 700;
-	line-height: 1.3;
-	letter-spacing: -.05rem;
-	color: #16171d
-}
-
-.popTitWrap .Inner02[data-v-412441c4] {
-	position: absolute;
-	width: auto;
-	top: 50%;
-	transform: translateY(-50%);
-	right: 0
-}
-
-.popTitWrap .Inner02 .button[data-v-412441c4] {
-	width: 7.2rem;
-	min-width: auto;
-	padding: 0
-}
-
-.notiMsg[data-v-412441c4] {
-	color: #54555a;
-	font-size: 1.4rem;
-	font-weight: 400;
-	margin-top: 2rem;
-	padding: 3.2rem;
-	border-radius: .8rem;
-	line-height: 1.43;
-	letter-spacing: -.4px;
-	border: 1px solid #e2e8ee;
-	text-align: center
-}
-
-.infoItemArea[data-v-412441c4] {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	padding: 2.4rem;
-	background-color: #f9fafb
-}
-
-.infoItemArea dt[data-v-412441c4] {
-	margin-top: .8rem;
-	font-size: 1.3rem;
-	font-weight: 400;
-	line-height: 1.38;
-	letter-spacing: -.5px
-}
-
-.infoItemArea dd[data-v-412441c4] {
-	font-size: 1.4rem;
-	font-weight: 700;
-	line-height: 1.43;
-	letter-spacing: normal
-}
-
-.infoItemArea dl[data-v-412441c4] {
-	color: #54555a;
-	width: 14.4rem;
-	text-align: center;
-	margin-top: 1.6rem
-}
-
-.infoItemArea dl[data-v-412441c4]:before {
-	content: "";
-	display: inline-block;
-	width: 8rem;
-	height: 8rem;
-	background-size: 8rem 8rem
-}
-
-.aboutServiceBox[data-v-412441c4] {
-	padding: 3.2rem 2rem;
-	margin-top: 4rem;
-	border-radius: .8rem;
-	border: 1px solid #e2e8ee
-}
-
-.aboutServiceBox>h3.tabTit[data-v-412441c4] {
-	margin-top: 0
-}
-
-.aboutServiceBox>.legalBox>.el-col[data-v-412441c4] {
-	color: #54555a;
-	margin-top: .8rem
-}
-
-.aboutServiceBox .serviceVisual[data-v-412441c4] {
-	margin-top: 4rem;
-	display: flex;
-	align-items: center;
-	justify-content: center
-}
-
-.aboutServiceBox .serviceVisual>li[data-v-412441c4] {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	margin: 0 3rem
-}
-
-.aboutServiceBox .serviceVisual>li>img[data-v-412441c4] {
-	width: 7.2rem
-}
-
-.aboutServiceBox .serviceVisual>li>span[data-v-412441c4] {
-	font-size: 1.4rem;
-	font-weight: 400;
-	line-height: 1.38;
-	letter-spacing: normal;
-	text-align: center;
-	color: #16171d
-}
-
-.aboutServiceBox .serviceFooter[data-v-412441c4] {
-	display: flex;
-	flex-direction: column;
-	margin-top: 4rem
-}
-
-.aboutServiceBox .serviceFooter>p[data-v-412441c4] {
-	margin: 0 auto;
-	font-size: 1.3rem;
-	font-weight: 700;
-	line-height: 1.38;
-	letter-spacing: normal;
-	text-align: center;
-	color: #16171d
-}
-
-.aboutServiceBox .serviceFooter>p .whSpace[data-v-412441c4] {
-	white-space: nowrap
-}
-
-.aboutServiceBox .serviceFooter>.date[data-v-412441c4] {
-	margin: 4rem 0 .8rem;
-	font-size: 1.4rem;
-	font-weight: 400;
-	line-height: 1.38;
-	letter-spacing: normal;
-	text-align: center;
-	color: #999ea1
-}
-
-.aboutServiceBox .serviceFooter>strong[data-v-412441c4] {
-	font-size: 2rem;
-	font-weight: 500;
-	line-height: 1.3;
-	letter-spacing: -.4px;
-	text-align: center;
-	color: #16171d
-}
-
-.resultCard[data-v-412441c4] {
-	color: #16171d;
-	font-size: 1.4rem;
-	line-height: 1.43;
-	letter-spacing: -.04rem;
-	padding: 1.6rem;
-	border-radius: .8rem;
-	border: 1px solid #e2e8ee
-}
-
-.resultCard.dataNone[data-v-412441c4] {
-	padding: 0 1.6rem;
-	margin-bottom: 1.6rem
-}
-
-.resultCard.dataNone>.cardDetailLists li[data-v-412441c4] {
-	height: 4.4rem;
-	line-height: 4.4rem
-}
-
-.resultCard.dataNone>.cardTit[data-v-412441c4] {
-	display: none
-}
-
-.resultCard.leftType[data-v-412441c4] {
-	margin-top: .8rem
-}
-
-.resultCard.leftType[data-v-412441c4]:first-child {
-	margin-top: 0
-}
-
-.resultCard.leftType>.cardDetailLists>li[data-v-412441c4] {
-	justify-content: flex-start
-}
-
-.resultCard.leftType>.cardDetailLists>li>span[data-v-412441c4]:first-child
-	{
-	color: #54555a;
-	width: 9.6rem;
-	margin-right: 1.6rem
-}
-
-.resultCard>.cardTit[data-v-412441c4] {
-	display: flex;
-	justify-content: space-between;
-	padding-bottom: 1.2rem;
-	margin-bottom: 1.2rem;
-	border-bottom: 1px dashed #e2e8ee;
-	font-weight: 700
-}
-
-.resultCard>.cardTit>span[data-v-412441c4] {
-	color: #b70f28
-}
-
-.resultCard>.cardDetailLists>li[data-v-412441c4] {
-	display: flex;
-	justify-content: space-between;
-	margin-top: .8rem;
-	font-weight: 400
-}
-
-.resultCard>.cardDetailLists>li[data-v-412441c4]:first-child {
-	margin-top: 0
-}
-
-.tagDate[data-v-412441c4] {
-	display: inline-block;
-	color: #fff;
-	font-size: 1.3rem;
-	font-weight: 500;
-	line-height: 1.38;
-	letter-spacing: normal;
-	text-align: center;
-	margin-bottom: 2rem;
-	padding: .4rem .8rem;
-	border-radius: .4rem;
-	background-color: rgba(22, 23, 29, .4)
-}
-
-.notiConts[data-v-412441c4] {
-	font-size: 1.4rem;
-	font-weight: 400;
-	line-height: 1.43;
-	letter-spacing: -.4px;
-	color: #54555a;
-	word-break: keep-all;
-	margin-top: 2rem
-}
-
-.notiConts .highlight[data-v-412441c4] {
-	font-weight: 500;
-	color: #16171d
-}
-</style>
-<style type="text/css">
-@media screen {
-	#contractPrint, .printWrap {
-		display: none
-	}
-}
-
-@media print {
-	body>div {
-		display: none
-	}
-	#contractPrint {
-		display: block
-	}
-}
-</style>
-<style type="text/css">
-@media screen {
-	#carInspPrint {
-		display: none
-	}
-}
-
-@media print {
-	body>div {
-		display: none
-	}
-	#carInspPrint {
-		display: block;
-		position: absolute;
-		left: 0;
-		top: 0
-	}
-}
-
-.flexWrap {
-	flex-wrap: wrap
-}
-
-.carInspPrice label {
-	padding-right: 20px
-}
-
-.carInspPrice span {
-	display: inline-block;
-	min-width: 20px;
-	height: 28px;
-	padding: 1px;
-	border: 1px dotted #ccc;
-	vertical-align: middle
-}
-</style>
-<style type="text/css">
-@media screen {
-	#dgnosPrint {
-		display: none
-	}
-}
-
-@media print {
-	body>div {
-		display: none
-	}
-	#dgnosPrint {
-		display: block;
-		position: absolute;
-		left: 0;
-		top: 0
-	}
-	.printMt40 {
-		margin-top: 40rem !important
-	}
-}
-</style>
-<style type="text/css">
-.fullPopup .el-dialog {
-	max-height: 100rem
-}
-
-.car_detail_box {
-	padding: 40px 10px;
-	background: #fafafa;
-	text-align: center
-}
-
-.car_result_list {
-	display: table;
-	text-align: center;
-	white-space: nowrap;
-	margin: 0 auto
-}
-
-.car_result_list li {
-	display: table-cell;
-	max-width: 18%;
-	padding: 0 40px;
-	text-align: left;
-	font-size: 16px;
-	color: #888;
-	vertical-align: top
-}
-
-.car_result_list li strong {
-	display: block;
-	max-width: 250px;
-	margin-top: 15px;
-	color: #111;
-	white-space: normal;
-	word-break: break-all
-}
-
-strong {
-	font-weight: 500
-}
-
-@media screen {
-	#carInspPhotoPrint {
-		display: none
-	}
-}
-
-@media print {
-	body>div {
-		display: none
-	}
-	#carInspPhotoPrint {
-		display: block;
-		position: absolute;
-		left: 0;
-		top: 0
-	}
 }
 </style>

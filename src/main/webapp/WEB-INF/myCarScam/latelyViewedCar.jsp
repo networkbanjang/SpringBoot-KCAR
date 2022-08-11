@@ -1267,23 +1267,5 @@
 			</div>
 		</div>
 	</div>
-	<div class="el-menu--horizontal gnbSubMenu typeCenter1"
-		style="position: absolute; top: 106px; left: 190px; z-index: 2004; display: none;"
-		x-placement="bottom-start">
-		<ul role="menu"
-			class="el-menu el-menu--popup el-menu--popup-bottom-start">
-			<div class="menuTitArea">
-				<strong class="menuTit">내차팔기</strong>
-			</div>
-			<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-				내차팔기 홈서비스</li>
-			<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-				법인차매각신청</li>
-			<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-				폐차신청</li>
-			<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-				내차팔기 고객후기</li>
-		</ul>
-	</div>
 </body>
 </html>
