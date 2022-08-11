@@ -22,6 +22,8 @@ public class MainContoroller {
 	private brandService brandService;
 	@Autowired
 	private buyReviewService buyReviewService;
+	@Autowired
+	private homeService homeService;
 	
 	//차량검색
 	@GetMapping(value = "vehicleSearch")
@@ -30,7 +32,8 @@ public class MainContoroller {
 	}
 	//내차사기 홈서비스
 	@GetMapping(value="homeSvc")
-	public String homeSvc() {
+	public String homeSvc(Model model) {
+		homeService.homeServiceMain(model);
 		return "myCarScam/homeSvc";
 	}
 	//판매준비차량
@@ -48,6 +51,7 @@ public class MainContoroller {
 	public String latelyViewedCar() {
 		return "myCarScam/latelyViewedCar";
 	}
+	
 	//내차사기 고객후기
 	@GetMapping(value="BuyCustReview")
 	public String BuyCustReview(@RequestParam(value="currentPage",required = false,defaultValue="1")String currentPage,
@@ -58,6 +62,7 @@ public class MainContoroller {
 		buyReviewService.buyReivewAllList(map,model);
 		return "myCarScam/BuyCustReview";
 	}
+	
 	@ResponseBody
 	@PostMapping(value="buyReviewPaging", produces = "text/html; charset=utf-8")
 	public String buyReviewPaging(@RequestBody(required = false) HashMap<String,String> map, Model model) {

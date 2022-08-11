@@ -452,8 +452,8 @@
 				data : data,
 				currentPage : currentPage,
 				brand : brandHidden.value,
-				model : modelHidden.value,
-				alignment : alignmentHidden.value
+				model : modelHidden.value, 
+				alignment : alignmentHidden.value //정렬
 				//alignmentMethod : modelHidden.value
 			}
 			result = JSON.stringify(result);
