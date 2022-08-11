@@ -1,0 +1,13 @@
+{
+"kcarCarRent" : [
+{ "crNumber" : "30호0898", "crPrice" : "월40만원", "crMonth" : "24개월", "crFirstPrice" : "396만원", "crCc" : "2999cc",
+ "crYear" : "19년04월(20년식)", "crColor" : "청색",	"crDistance" : "61791km", "crMission" : "오토", "crFuel" : "가솔린",
+  "crNewPrice" : "3978만원", "crGrade" : "3.0 GDI", "crSpecialPrice" : "", "crBrand" : "기아"},
+{ "crNumber" : "333우5212", "crPrice" : "월72만원", "crMonth" : "24개월", "crFirstPrice" : "900만원", "crCc" : "3470cc",
+ "crYear" : "21년11월(22년식)", "crColor" : "진주색",	"crDistance" : "15436km", "crMission" : "오토", "crFuel" : "가솔린",
+  "crNewPrice" : "4950만원", "crGrade" : "3.5 2WD", "crSpecialPrice" : "", "crBrand" : "기아"},
+{ "crNumber" : "166호3954", "crPrice" : "월52만원", "crMonth" : "24개월", "crFirstPrice" : "264만원", "crCc" : "1997cc",
+ "crYear" : "21년06월(21년식)", "crColor" : "쥐색",	"crDistance" : "38060km", "crMission" : "오토", "crFuel" : "가솔린",
+  "crNewPrice" : "3374만원", "crGrade" : "가솔린 2.0", "crSpecialPrice" : "", "crBrand" : "르노코리아"}
+]
+}

@@ -8,7 +8,7 @@
 <!-- </select> -->
 <!-- </mapper> -->
 
-<mapper namespace="com.one.kcar.dao.rent.IKrnDAO">
+<mapper namespace="com.one.kcar.dao.rent.IKrnDAO, com.one.kcar.dto.rent.IKcarCarRentDAO">
 	<select id="rnrList" resultType="Kcar_Repair_NormalDTO">
 		SELECT B.* FROM(
 		SELECT rownum rn, A.* FROM(
@@ -32,4 +32,9 @@
 		)A
 		)B WHERE rn BETWEEN 1 and 27
 	</select>
+	
+<!-- 	<select id="kcarCarRentList" resultType="com.one.kcar.dto.rent.kcarCarRentDTO"> -->
+<!-- 		SELECT * FROM kcarCarRent -->
+<!-- 	</select> -->
 </mapper>
+

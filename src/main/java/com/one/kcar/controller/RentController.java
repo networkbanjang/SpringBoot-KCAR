@@ -1,8 +1,13 @@
 package com.one.kcar.controller;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,14 +18,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.one.kcar.service.rent.IRentService;
+import com.one.kcar.service.rent.IrentCarService;
 
 @Controller
 public class RentController {
-	//중고차렌트
-		@GetMapping(value = "rentUsed")
-		public String rentUsed() {
-			return "rent/rentUsed";
-		}
+		//중고차렌트
+//		@GetMapping(value = "rentUsed")
+//		public String rentUsed() {
+//			return "rent/rentUsed";
+//		}
 		
 		//렌트특가
 		@GetMapping(value = "rentSpecialPrice")
@@ -71,6 +77,7 @@ public class RentController {
 //		}
 		
 		@Autowired private IRentService rentService;
+		@Autowired private IrentCarService carRentService;
 //		@Mapper private IRentService rentService;
 
 		//렌트일반정비소
@@ -87,4 +94,46 @@ public class RentController {
 			return "rent/rentAccidentRepair";
 		}
 		
+		@GetMapping("rentUsed")
+		public String rentUsed() {
+			return "rent/rentUsed";
+		}
+		@ResponseBody
+		@PostMapping(value = "rentUsed")
+		public String rentUsedPost() throws FileNotFoundException, IOException {
+			ClassPathResource resource = new ClassPathResource("kcarCarRent.json");
+			FileReader reader = new FileReader(resource.getFile());
+			BufferedReader buffer = new BufferedReader(reader);
+			
+			String data = "";
+			while(true) {
+				String tmp = buffer.readLine(); // kcarCarRent.json에서 한 줄씩 데이터를 읽어와서 반환, 파일 끝이라면 null을 반환
+				if(tmp == null) //  파일의 끝이면 반복문 종료
+					break;
+				
+				data += tmp;
+			}
+			buffer.close();
+			return data;
+		}
+		
+//		@RequestMapping(value = "rentUsed")
+//		public String kcarCarRentList(@RequestParam(required=false, defaultValue = "1") String select, String search) {
+//			String check = carRentService.kcarCarRentList();
+//			return "rent/rentUsed";
+//		}
+		
+//		@RequestMapping(value = "rentUsed")
+//		public String kcarCarRentList(@RequestParam(required=false, defaultValue = "1") String select, String search) {
+//			String check = carRentService.kcarCarRentList();
+//			return "rent/rentUsed";
+//		}
+		
+//		@RequestMapping(value = "rentUsed")
+//		public String kcarCarRentList(Model model, @RequestParam(required=false, defaultValue = "1") ) {
+//			carRentService.kcarCarRentList();
+//			ArrayList<kcarCarRentDTO> kcarCarRentList = carRentService.kcarCarRentList();
+//			model.addAttribute("kcarCarRentList", kcarCarRentList);
+//			return "rent/rentUsed";
+//		}
 }
