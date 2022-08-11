@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.one.kcar.service.rent.IRentService;
-import com.one.kcar.service.rent.IrentCarService;
+import com.one.kcar.service.rent.rentCarService;
 
 @Controller
 public class RentController {
@@ -77,7 +77,7 @@ public class RentController {
 //		}
 		
 		@Autowired private IRentService rentService;
-		@Autowired private IrentCarService carRentService;
+		@Autowired private rentCarService carRentService;
 //		@Mapper private IRentService rentService;
 
 		//렌트일반정비소
@@ -115,6 +115,17 @@ public class RentController {
 			}
 			buffer.close();
 			return data;
+		}
+		
+		@GetMapping("rentUsed3")
+		public String rentUsed3() {
+			return "rent/rentUsed3";
+		}
+		
+		@ResponseBody
+		@PostMapping(value = "rentUsed3")
+		public String rentUsed3(@RequestBody(required = false) HashMap<String, String> map) {
+			return carRentService.choose(map);
 		}
 		
 //		@RequestMapping(value = "rentUsed")

@@ -127,89 +127,23 @@
 						</div>
 
 
-						<div data-v-1e88d8ab="" class="sectionInner el-row">
-							<div data-v-1e88d8ab="" class="centerSearchForm">
-								<div data-v-1e88d8ab="" class="areaSearch">
-									<div data-v-1e88d8ab="" class="el-select">
-										<!---->
-										<div class="el-input el-input--suffix">
-											<!---->
-											<input type="text" readonly="readonly" autocomplete="off"
-												placeholder="직접 입력" class="el-input__inner">
-											<!---->
-											<span class="el-input__suffix"><span
-												class="el-input__suffix-inner"><i
-													class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-													<!----> <!----> <!----> <!----> <!----></span> <!----></span>
-											<!---->
-											<!---->
-										</div>
-										<div class="el-select-dropdown el-popper"
-											style="display: none; min-width: 512px;">
-											<div class="el-scrollbar" style="">
-												<div class="el-select-dropdown__wrap el-scrollbar__wrap"
-													style="margin-bottom: -17px; margin-right: -17px;">
-													<ul class="el-scrollbar__view el-select-dropdown__list">
-														<!---->
-														<li data-v-1e88d8ab=""
-															class="el-select-dropdown__item selected"
-															id="repairLocation" onmouseclick="dropdownL"><span>전체(27)</span></li>
-														<li data-v-1e88d8ab="" class="el-select-dropdown__item"
-															set-ref-id="bsrsRgnCd"><span>서울(9)</span></li>
-														<li data-v-1e88d8ab="" class="el-select-dropdown__item"
-															set-ref-id="bsrsRgnCd"><span>대전(1)</span></li>
-														<li data-v-1e88d8ab="" class="el-select-dropdown__item"
-															set-ref-id="bsrsRgnCd"><span>부산(1)</span></li>
-														<li data-v-1e88d8ab="" class="el-select-dropdown__item"
-															set-ref-id="bsrsRgnCd"><span>경기(3)</span></li>
-														<li data-v-1e88d8ab="" class="el-select-dropdown__item"
-															set-ref-id="bsrsRgnCd"><span>강원(5)</span></li>
-														<li data-v-1e88d8ab="" class="el-select-dropdown__item"
-															set-ref-id="bsrsRgnCd"><span>경남(1)</span></li>
-														<li data-v-1e88d8ab="" class="el-select-dropdown__item"
-															set-ref-id="bsrsRgnCd"><span>경북(1)</span></li>
-														<li data-v-1e88d8ab="" class="el-select-dropdown__item"
-															set-ref-id="bsrsRgnCd"><span>전남(1)</span></li>
-														<li data-v-1e88d8ab="" class="el-select-dropdown__item"
-															set-ref-id="bsrsRgnCd"><span>전북(1)</span></li>
-														<li data-v-1e88d8ab="" class="el-select-dropdown__item"
-															set-ref-id="bsrsRgnCd"><span>충남(1)</span></li>
-														<li data-v-1e88d8ab="" class="el-select-dropdown__item"
-															set-ref-id="bsrsRgnCd"><span>충북(2)</span></li>
-														<li data-v-1e88d8ab="" class="el-select-dropdown__item"
-															set-ref-id="bsrsRgnCd"><span>포항(1)</span></li>
-													</ul>
-												</div>
-												<div class="el-scrollbar__bar is-horizontal">
-													<div class="el-scrollbar__thumb"
-														style="transform: translateX(0%);"></div>
-												</div>
-												<div class="el-scrollbar__bar is-vertical">
-													<div class="el-scrollbar__thumb"
-														style="transform: translateY(0%);"></div>
-												</div>
-											</div>
-											<!---->
-										</div>
-									</div>
-									<div data-v-1e88d8ab="" class="el-input">
-										<!---->
-										<input type="text" autocomplete="off"
-											placeholder="정비소명을 입력해주세요" class="el-input__inner">
-										<!---->
-										<!---->
-										<!---->
-										<!---->
-									</div>
-								</div>
-								<button data-v-1e88d8ab="" type="button"
-									class="el-button icon-search-search el-button--default">
-									<!---->
-									<!---->
-									<!---->
-								</button>
-							</div>
+						<div class="repairSearch">
+							<form>
+								<table>
+									<tr>
+										<td><select name="select" style="width: 100px; height: 50px;">
+												<option value="">전체</option>
+												<option value="location">지역</option>
+												<option value="name">정비소명</option>
+										</select> <input type=text name='search' placeholder="검색어를 입력하세요."
+													 style="width: 500px; height: 50px;"/>
+												  <input type=submit name='searchBtn' value='검색' 
+												 	 placeholder="검색어를 입력하세요." style="width: 100px; height: 50px;" /></td>
+									</tr>
+								</table>
+							</form>
 						</div>
+						
 
 
 						<div data-v-1e88d8ab="" class="sectionInner el-row">
@@ -246,21 +180,6 @@
 							</tr>
 							</table>
 							
-							<form>
-								<table>
-									<tr>
-										<td><select name="select" style="width: 100px; height: 50px;">
-												<option value="">전체</option>
-												<option value="location">지역</option>
-												<option value="name">정비소명</option>
-										</select> <input type=text name='search' placeholder="검색어를 입력하세요."
-													 style="width: 200px; height: 50px;"/>
-												  <input type=submit name='searchBtn' value='검색' 
-												 	 placeholder="검색어를 입력하세요." style="width: 100px; height: 50px;" /></td>
-									</tr>
-								</table>
-							</form>
-						
 						
 							<ul data-v-1e88d8ab="" class="guideTxt mT16">
 								<li data-v-1e88d8ab="">K Car 전국직영점 및 KW 정비소와는 무관하며 K Car

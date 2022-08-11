@@ -1,6 +1,7 @@
 package com.one.kcar.dao.rent;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -24,5 +25,7 @@ public interface IKcarCarRentDAO {
 	ArrayList<kcarCarRentDTO> kcarCarRentList();
 	
 	int insert(kcarCarRentDTO carRentdto);
+	
+	ArrayList<kcarCarRentDTO> choose(HashMap<String, String> map);
 
 }

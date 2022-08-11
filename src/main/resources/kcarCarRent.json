@@ -8,6 +8,9 @@
   "crNewPrice" : "4950만원", "crGrade" : "3.5 2WD", "crSpecialPrice" : "", "crBrand" : "기아"},
 { "crNumber" : "166호3954", "crPrice" : "월52만원", "crMonth" : "24개월", "crFirstPrice" : "264만원", "crCc" : "1997cc",
  "crYear" : "21년06월(21년식)", "crColor" : "쥐색",	"crDistance" : "38060km", "crMission" : "오토", "crFuel" : "가솔린",
-  "crNewPrice" : "3374만원", "crGrade" : "가솔린 2.0", "crSpecialPrice" : "", "crBrand" : "르노코리아"}
+  "crNewPrice" : "3374만원", "crGrade" : "가솔린 2.0", "crSpecialPrice" : "", "crBrand" : "르노코리아"},
+{ "crNumber" : "135마1729", "crPrice" : "월71만원", "crMonth" : "24개월", "crFirstPrice" : "666만원", "crCc" : "2157cc",
+ "crYear" : "21년12월(21년식)", "crColor" : "흰색",	"crDistance" : "1260km", "crMission" : "오토", "crFuel" : "디젤",
+  "crNewPrice" : "4473만원", "crGrade" : "디젤 2.2", "crSpecialPrice" : "", "crBrand" : "쌍용"}
 ]
 }

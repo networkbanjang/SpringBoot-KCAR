@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ include file="rent_style.jsp"%>
 <html lang="ko" class="chrome">
 <head>
 <title>렌트사고수리정비소</title>
@@ -125,97 +126,23 @@
 								확인하실 수 있습니다</p>
 						</div>
 					</div>
-					<div data-v-0e031c16="" class="sectionInner el-row">
-						<div data-v-0e031c16="" class="centerSearchForm">
-							<div data-v-0e031c16="" class="areaSearch">
-								<div data-v-0e031c16="" class="el-select">
-									<!---->
-									<div class="el-input el-input--suffix">
-										<!---->
-										<input type="text" readonly="readonly" autocomplete="off"
-											placeholder="직접 입력" class="el-input__inner">
-										<!---->
-										<span class="el-input__suffix"><span
-											class="el-input__suffix-inner"><i
-												class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-											<!---->
-												<!---->
-												<!---->
-												<!---->
-												<!----></span>
-										<!----></span>
-										<!---->
-										<!---->
-									</div>
-									<div class="el-select-dropdown el-popper"
-										style="display: none; min-width: 512px;">
-										<div class="el-scrollbar" style="">
-											<div class="el-select-dropdown__wrap el-scrollbar__wrap"
-												style="margin-bottom: -17px; margin-right: -17px;">
-												<ul class="el-scrollbar__view el-select-dropdown__list">
-													<!---->
-													<li data-v-0e031c16=""
-														class="el-select-dropdown__item selected"><span>전체(27)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>서울(5)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>인천(1)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>대전(2)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>대구(1)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>부산(2)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>울산(1)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>경기(5)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>강원(1)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>경남(2)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>전남(2)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>전북(1)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>충남(2)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>충북(1)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>제주(1)</span></li>
-												</ul>
-											</div>
-											<div class="el-scrollbar__bar is-horizontal">
-												<div class="el-scrollbar__thumb"
-													style="transform: translateX(0%);"></div>
-											</div>
-											<div class="el-scrollbar__bar is-vertical">
-												<div class="el-scrollbar__thumb"
-													style="transform: translateY(0%);"></div>
-											</div>
-										</div>
-										<!---->
-									</div>
-								</div>
-								<div data-v-0e031c16="" class="el-input">
-									<!---->
-									<input type="text" autocomplete="off"
-										placeholder="정비소명을 입력해주세요" class="el-input__inner">
-									<!---->
-									<!---->
-									<!---->
-									<!---->
-								</div>
-							</div>
-							<button data-v-0e031c16="" type="button"
-								class="el-button icon-search-search el-button--default">
-								<!---->
-								<!---->
-								<!---->
-							</button>
+					
+					<div class="repairSearch">
+							<form>
+								<table>
+									<tr>
+										<td><select name="select1" style="width: 100px; height: 50px;">
+												<option value="">전체</option>
+												<option value="location">지역</option>
+												<option value="name">정비소명</option>
+										</select> <input type=text name='search1' placeholder="검색어를 입력하세요."
+													 style="width: 500px; height: 50px;"/>
+												  <input type=submit name='searchBtn1' value='검색' 
+												 	 placeholder="검색어를 입력하세요." style="width: 100px; height: 50px;" /></td>
+									</tr>
+								</table>
+							</form>
 						</div>
-					</div>
 					
 					
 					<div data-v-1e88d8ab="" class="sectionInner el-row">
@@ -252,21 +179,6 @@
 							</tr>
 							</table>
 							
-							<form>
-								<table>
-									<tr>
-										<td><select name="select1" style="width: 100px; height: 50px;">
-												<option value="">전체</option>
-												<option value="location">지역</option>
-												<option value="name">정비소명</option>
-										</select> <input type=text name='search1' placeholder="검색어를 입력하세요."
-													 style="width: 200px; height: 50px;"/>
-												  <input type=submit name='searchBtn1' value='검색' 
-												 	 placeholder="검색어를 입력하세요." style="width: 100px; height: 50px;" /></td>
-									</tr>
-								</table>
-							</form>
-					
 					
 					
 						<ul data-v-0e031c16="" class="legalBox">
