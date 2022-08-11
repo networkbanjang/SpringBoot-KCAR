@@ -31,14 +31,14 @@
 							<strong class="menuTit">내차팔기</strong>
 						</div>
 
+<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
+<a href="/sc/HomeSvcMain">						내차팔기 홈서비스</a></li>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							내차팔기 홈서비스</li>
-						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							법인차매각신청</li>
-						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							폐차신청</li>
-						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							내차팔기 고객후기</li>
+							<a href="/sc/CorpCarDispslApl">	법인차매각신청</a></li>
+						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem"><a href="/sc/ScrpcaApl" onClick="window.open('/sc/ScrpcaApl','폐차 신청','resizable,height=1000,width=900'); return false;">
+							폐차신청</a></li>
+						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem"><a href="/sc/SellCustReview">	
+							내차팔기 고객후기</a></li>
 					</ul>
 				</div>
 				<li role="menuitem" aria-haspopup="true" class="el-submenu"><div
@@ -182,16 +182,16 @@
 								<ul>
 									<li><a>내차팔기</a>
 										<ul>
-											<li><a>내차팔기 홈서비스</a></li>
+											<li><a href="/sc/HomeSvcMain">내차팔기 홈서비스</a></li>
 										</ul>
 										<ul>
-											<li><a>법인차매각신청</a></li>
+											<li><a href="/sc/HomeSvcMain">	법인차매각신청</a></li>
 										</ul>
 										<ul>
-											<li><a>폐차신청</a></li>
+											<li><a href="/sc/ScrpcaApl" onClick="window.open('/sc/ScrpcaApl','폐폐차 신청','resizable,height=1000,width=800'); return false;">	폐차신청</a></li>
 										</ul>
 										<ul>
-											<li><a>내차팔기 고객후기</a></li>
+											<li><<a href="/sc/HomeSvcMain">	내차팔기 고객후기</a></li>
 										</ul></li>
 									<li><a>내차사기</a>
 										<ul>
