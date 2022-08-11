@@ -17,8 +17,13 @@ public interface IMemberDAO {
 
 	void delete(MemberDTO member);
 
-
-
 	void pw_update(MemberDTO member);
+
+	MemberDTO check_kakao(String kakao_email);
+	
+
+
+	
+
 
 }

@@ -1,18 +1,41 @@
-	<%@ page contentType="text/html; charset=UTF-8"%>
-<html lang="ko" class="chrome">
+
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <head>
 <title>K Car - 직접 매입 직접 판매하는 대한민국 No.1 직영 중고차 케이카</title>
-<%@include file= "loginstyle.jsp" %>
+<%@include file="loginstyle.jsp"%>
+<style type="text/css">
+input[type="checkbox"] {
+	display: none;
+}
+
+input[type='checkbox']+label span {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url('/images/common/checkbox-single-default.svg') no-repeat
+		0 0px/contain;
+}
+
+input[type='checkbox']:checked+label span {
+	background: url('/images/common/checkbox-single-checked.svg') no-repeat
+		0 0px/contain;
+}
+</style>
 </head>
 <body>
-	
+
+
 	<div id="__nuxt">
 		<!---->
 		<div id="__layout">
 			<div id="app">
 				<div class="contentsWrap">
 					<div class="logListWrap">
-						<h1 class="kcarLogo" style="cursor: pointer;"><a href="home">K car logo</a></h1>
+						<h1 class="kcarLogo" style="cursor: pointer;">
+							<a href="home">K car logo</a>
+						</h1>
 						<div class="userLogin">
 							<div class="el-row">
 								<div class="tabsCol02 el-tabs el-tabs--top">
@@ -32,18 +55,20 @@
 											</div>
 										</div>
 									</div>
+									
 									<div class="el-tabs__content">
 										<div role="tabpanel" id="pane-tab01"
 											aria-labelledby="tab-tab01" class="el-tab-pane">
 											<div class="loginWrap">
-												<form class="el-form loginForm" action="logins" method="post">
+												<form class="el-form loginForm" action="logins" onsubmit="return frm_check();"
+													method="post">
 													<div class="el-form-item idArea">
 														<!---->
 														<div class="el-form-item__content">
 															<div class="titLabel">아이디</div>
 															<div class="el-input el-input--suffix">
 																<!---->
-																<input type="text"  id="m_email" name= "m_email"
+																<input type="text" id="m_email" name="m_email"  value="${cookieid.value }"
 																	placeholder="아이디 입력" class="el-input__inner">
 																<!---->
 																<!---->
@@ -63,13 +88,9 @@
 																	placeholder="비밀번호 입력" class="el-input__inner">
 																<!---->
 																<span class="el-input__suffix"><span
-																	class="el-input__suffix-inner">
-																		<!---->
-																		<!---->
-																		<!---->
-																		<!---->
-																</span>
-																<!----></span>
+																	class="el-input__suffix-inner"> <!----> <!---->
+																		<!----> <!---->
+																</span> <!----></span>
 																<!---->
 																<!---->
 															</div>
@@ -77,35 +98,114 @@
 														</div>
 													</div>
 													<div class="roundCheck el-row">
-														<label class="el-checkbox"><span
-															class="el-checkbox__input"><span
-																class="el-checkbox__inner"></span><input type="checkbox"
-																aria-hidden="false" class="el-checkbox__original"
-																value=""></span><span class="el-checkbox__label">
-																로그인 상태 유지 <!---->
-														</span></label> <label class="el-checkbox"><span
-															class="el-checkbox__input"><span
-																class="el-checkbox__inner"></span><input type="checkbox"
-																aria-hidden="false" class="el-checkbox__original"
-																value=""></span><span class="el-checkbox__label">
-																아이디 저장 <!---->
-														</span></label>
+														<div class="item">
+															<div class="input__check">
+																<input class="form-check-input" type="checkbox"
+																	name="agree" id="termsOfService"> <label
+																	class="form-check-label" for="termsOfService"><span></span>
+																	로그인 상태 유지 <!----></label>
+															</div>
+														</div>
+
+														<div class="item">
+															<div class="input__check">
+																<input class="form-check-input" type="checkbox"
+																	name="agree" id="rememberId"> <label
+																	class="form-check-label" for="rememberId"><span></span>
+																	아이디 저장 <!----></label>
+															</div>
+														</div>
+
 													</div>
 													<div class="btnLogIn">
 														<div class="searchTrigger box el-row">
-															<button class="button apply">로그인</button>
+															<button class="button apply" id="loginbtn">로그인</button>
 														</div>
 													</div>
 												</form>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+ 
+ 
+<script type="text/javascript">
+     $(function() {
+         
+           fnInit();
+         
+     });
+     
+     function frm_check(){
+         saveid();
+     }
+ 
+    function fnInit(){
+        var cookieid = getCookie("rememberId");
+        console.log(cookieid);
+        if(cookieid !=""){
+            $("input:checkbox[id='rememberId']").prop("checked", true);
+            $('#m_email').val(cookieid);
+        }
+        
+    }    
+ 
+    function setCookie(name, value, expiredays) {
+        var todayDate = new Date();
+        todayDate.setTime(todayDate.getTime() + 0);
+        if(todayDate > expiredays){
+            document.cookie = name + "=" + escape(value) + "; path=/; expires=" + expiredays + ";";
+        }else if(todayDate < expiredays){
+            todayDate.setDate(todayDate.getDate() + expiredays);
+            document.cookie = name + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";";
+        }
+        
+        
+        console.log(document.cookie);
+    }
+ 
+    function getCookie(Name) {
+        var search = Name + "=";
+        console.log("search : " + search);
+        
+        if (document.cookie.length > 0) { // 쿠키가 설정되어 있다면 
+            offset = document.cookie.indexOf(search);
+            console.log("offset : " + offset);
+            if (offset != -1) { // 쿠키가 존재하면 
+                offset += search.length;
+                // set index of beginning of value
+                end = document.cookie.indexOf(";", offset);
+                console.log("end : " + end);
+                // 쿠키 값의 마지막 위치 인덱스 번호 설정 
+                if (end == -1)
+                    end = document.cookie.length;
+                console.log("end위치  : " + end);
+                
+                return unescape(document.cookie.substring(offset, end));
+            }
+        }
+        return "";
+    }
+ 
+    function saveid() {
+        var expdate = new Date();
+        if ($("#rememberId").is(":checked")){
+            expdate.setTime(expdate.getTime() + 1000 * 3600 * 24 * 30);
+            setCookie("rememberId", $("#m_email").val(), expdate);
+            }else{
+           expdate.setTime(expdate.getTime() - 1000 * 3600 * 24 * 30);
+            setCookie("rememberId", $("#m_email").val(), expdate);
+             
+        }
+    }
+
+</script>
+
 												<div class="el-row">
 													<div class="loginOptions">
 														<p>
 															<a href="register" class="link_more"> 회원가입 </a>
 														</p>
 														<p>
-															<a href="#" class="link_more"> 아이디 찾기
-															</a> <a href="find_pw_email" class="link_more"> 비밀번호
-																찾기 </a>
+															<a href="#" class="link_more"> 아이디 찾기 </a> <a
+																href="find_pw_email" class="link_more"> 비밀번호 찾기 </a>
 														</p>
 													</div>
 												</div>
@@ -114,9 +214,46 @@
 														<div class="el-divider el-divider--horizontal">
 															<div class="el-divider__text is-center">간편로그인</div>
 														</div>
-														<div class="el-col el-col-24">
-															<a class="kakao">카카오로 로그인</a> <a class="naver">네이버로
-																로그인</a> <a class="apple">Apple로 로그인</a>
+														<div align="center" style="margin: 30px;">
+														
+														<a href="https://kauth.kakao.com/oauth/authorize?
+																client_id=3149b002ff0c86f42cbcaba90c8bed3e&
+																redirect_uri=http://localhost/kakaoLogin&
+																response_type=code&prompt=login" style="padding: 20px;">
+				<img src="/images/user/icon-login-kakao.svg" style="width: 40px;height: 40px;"width="111" alt="카카오 로그인 버튼" /></a>
+				
+				
+				
+				
+				
+									<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+			
+		
+											<!-- 네이버아이디로로그인 버튼 노출 영역 -->
+								<!-- 			<div id="naverIdLogin"></div> -->
+								<a id="naverIdLogin" class="btn_start btn_naver" style="padding: 20px;"><span><i class="icon-ic_login_naver" ></i>네이버로 로그인</span></a>
+								
+											
+											<!-- //네이버 아이디로 로그인 버튼 노출 영역 -->
+											 
+											<!-- 네이버 아이디로 로그인 초기화 Script -->
+											<script type="text/javascript">
+											    var naverLogin = new naver.LoginWithNaverId(
+											        {
+											            //클라이언트 id와 콜백 url (결과페이지)
+											            clientId: "KmwKqMBFgMMFiMkfyFGj",
+											            callbackUrl: "http://localhost/naverCallback",
+											            isPopup: false, /* 팝업을 통한 연동처리 여부 */
+											            loginButton: {color: "green", type:1, height: 40, width: 40} /* 로그인 버튼의 타입을 지정 */
+											        }
+											    );
+											    
+											    /* 설정정보를 초기화하고 연동을 준비 */
+											    naverLogin.init();
+											</script> 
+															
+															
+															
 														</div>
 													</div>
 												</div>
@@ -269,6 +406,6 @@
 			</div>
 		</div>
 	</div>
-	
+
 </body>
 </html>

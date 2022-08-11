@@ -136,10 +136,18 @@ input[type='checkbox']:checked+label span {
 										<div class="el-input el-input--suffix">
 											<div class="titLabel">이름</div>
 
-											<!---->
-											<input type="text" name="m_name" id="m_name"
-												onblur="nameCheck()" placeholder="이름"
-												class="el-input__inner"> <br>
+											<c:choose>
+												<c:when test="${empty sessionScope.kakao_email }">
+													<input type="text" name="m_name" id="m_name"
+														onblur="nameCheck()" placeholder="이름"
+														class="el-input__inner"> <br>
+												</c:when>
+												<c:otherwise>
+													<input type="text" name="m_name" id="m_name" value="${sessionScope.kakao_name }"
+														onblur="nameCheck()" placeholder="이름"
+														class="el-input__inner"> <br>
+												</c:otherwise>
+											</c:choose>
 											<!---->
 											<!---->
 											<!---->

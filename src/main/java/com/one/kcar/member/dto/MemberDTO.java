@@ -9,8 +9,9 @@ package com.one.kcar.member.dto;
 //m_addr1 varchar2(150) not null,
 //m_addr2 varchar2(150) not null,
 //m_tel varchar2(15) not null,
-//m_oauth varchar2(15) null,
 //m_role varchar2(10) not null,
+//m_oauth varchar2(15) null,
+//m_oauthEmail varchar2(30) null,
 //  constraint pk_k_m primary key (m_id,m_email)
 // );
 // 
@@ -25,6 +26,10 @@ public class MemberDTO {
 	private String m_addr1;
 	private String m_addr2;
 	private String m_tel;
+	private Role m_role;
+	private String m_oauth;
+	private String m_oauthEmail;
+	
 	
 	
 	
@@ -76,6 +81,25 @@ public class MemberDTO {
 	public void setM_tel(String m_tel) {
 		this.m_tel = m_tel;
 	}
+	public Role getM_role() {
+		return m_role;
+	}
+	public void setM_role(Role m_role) {
+		this.m_role = m_role;
+	}
+	public String getM_oauth() {
+		return m_oauth;
+	}
+	public void setM_oauth(String m_oauth) {
+		this.m_oauth = m_oauth;
+	}
+	public String getM_oauthEmail() {
+		return m_oauthEmail;
+	}
+	public void setM_oauthEmail(String m_oauthEmail) {
+		this.m_oauthEmail = m_oauthEmail;
+	}
+	
 	
 	
 
