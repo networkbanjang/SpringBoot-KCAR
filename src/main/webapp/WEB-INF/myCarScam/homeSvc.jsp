@@ -446,17 +446,19 @@ function reviewModalClose() {
 }
 
 var swiperWrapper = document.querySelector('.swiper-wrapper');
+//홈페이지 접근시 domTree 생성 시 함수 실행
 document.addEventListener("DOMContentLoaded", function(){
 	slide();
 })
 var slide = function(){
 	var checkIndex = 0;
+	//1.5초마다 오른쪽으로 이동
 	setInterval(function(){
 		swiperWrapper.style.transition = '0.3s';
 		swiperWrapper.style.transform = "translate3d(-"+245.6*(checkIndex)+"px, 0px, 0px)";
 		
 		checkIndex ++;
-		
+		// index값 15 일 때(= 오른쪽 끝일떄) 0.2초 후 slide 처음으로 돌아가기
 		if(checkIndex == 15){
 			setTimeout(function(){
 				swiperWrapper.style.transition = '1s';
