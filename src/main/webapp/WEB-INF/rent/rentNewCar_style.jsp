@@ -1,6 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <style
 	data-vue-ssr-id="3e5c2f4e:0 7f914dc6:0 71336ca0:0 2b3cf7a0:0 f9014860:0 cb46bfd2:0 21d20780:0 4ec507c6:0 4ec507c6:1 f907bb2c:0 f907bb2c:1 954d13f4:0 d05f915c:0 d05f915c:1 2ce31966:0 b620baf8:0">
+
+
+
 @font-face {
 	font-family: "icomoon";
 	src: url(/_nuxt/fonts/icomoon.96196af.eot);

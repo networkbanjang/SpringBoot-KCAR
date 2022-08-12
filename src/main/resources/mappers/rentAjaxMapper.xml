@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- <mapper namespace="com.care.boot.rent.IKrnDAO"> -->
+<!-- <select id="rnList" -->
+<!-- resultType="com.care.boot.rent.Kcar_Repair_NormalDTO"> -->
+<!-- SELECT * FROM kcar_repair_normal -->
+<!-- </select> -->
+<!-- </mapper> -->
+
+<mapper namespace="com.one.kcar.dao.rent.IKcarCarRentDAO">
+	<select id="kcarCarRentList" resultType="com.one.kcar.dto.rent.kcarCarRentDTO">
+		SELECT * FROM kcarCarRent
+	</select>
+	<select id="choose" resultType="com.one.kcar.dto.rent.kcarCarRentDTO">
+		SELECT * FROM kcarCarRent
+		<where>
+			<if test="sel.equals('crNumber')">
+				crNumber like '%'||#{inputData}||'%'
+			</if>
+			<if test="sel.equals('crPrice')">
+				crPrice like '%'||#{crPrice}||'%'
+			</if>
+			<if test="sel.equals('crMonth')">
+				crMonth like '%'||#{crMonth}||'%'
+			</if>
+			<if test="sel.equals('crFirstPrice')">
+				crFirstPrice like '%'||#{crFirstPrice}||'%'
+			</if>
+			<if test="sel.equals('crCc')">
+				crCc like '%'||#{crCc}||'%'
+			</if>
+			<if test="sel.equals('crYear')">
+				crYear like '%'||#{crYear}||'%'
+			</if>
+			<if test="sel.equals('crColor')">
+				crColor like '%'||#{crColor}||'%'
+			</if>
+			<if test="sel.equals('crDistance')">
+				crDistance like '%'||#{crDistance}||'%'
+			</if>
+			<if test="sel.equals('crMission')">
+				crMission like '%'||#{crMission}||'%'
+			</if>
+			<if test="sel.equals('crFuel')">
+				crFuel like '%'||#{crFuel}||'%'
+			</if>
+			<if test="sel.equals('crNewPrice')">
+				crNewPrice like '%'||#{crNewPrice}||'%'
+			</if>
+			<if test="sel.equals('crGrade')">
+				crGrade like '%'||#{crGrade}||'%'
+			</if>
+			<if test="sel.equals('crSpecialPrice')">
+				crSpecialPrice like '%'||#{crSpecialPrice}||'%'
+			</if>
+			<if test="sel.equals('crBrand')">
+				crBrand like '%'||#{inputData}||'%'
+			</if>
+		</where>
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

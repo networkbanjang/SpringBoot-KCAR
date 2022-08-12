@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.one.kcar.DTO.SellDTO;
-import com.one.kcar.DTO.SellReviewDTO;
-import com.one.kcar.service.SellService;
+import com.one.kcar.dto.sell.SellDTO;
+import com.one.kcar.dto.sell.SellReviewDTO;
+import com.one.kcar.service.sell.SellService;
 
 @Controller
 public class sellController {

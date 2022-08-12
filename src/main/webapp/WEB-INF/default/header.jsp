@@ -1,10 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="footer_style.jsp"%>
 <header id="header" class="kcarHeader">
+
 	<div class="gnbArea">
 		<div class="topNavi">
 			<h1 class="kcarHeaderLogo">
-				<a>대한민국 No.1 직영중고차 KCar</a>
+				<a href="home">대한민국 No.1 직영중고차 KCar</a>
 			</h1>
 			<button class="menuAll">
 				<span class="_hidden">전체메뉴</span>
@@ -31,14 +33,14 @@
 							<strong class="menuTit">내차팔기</strong>
 						</div>
 
-<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-<a href="/sc/HomeSvcMain">						내차팔기 홈서비스</a></li>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							<a href="/sc/CorpCarDispslApl">	법인차매각신청</a></li>
-						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem"><a href="/sc/ScrpcaApl" onClick="window.open('/sc/ScrpcaApl','폐차 신청','resizable,height=1000,width=900'); return false;">
-							폐차신청</a></li>
-						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem"><a href="/sc/SellCustReview">	
-							내차팔기 고객후기</a></li>
+							내차팔기 홈서비스</li>
+						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
+							법인차매각신청</li>
+						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
+							폐차신청</li>
+						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
+							내차팔기 고객후기</li>
 					</ul>
 				</div>
 				<li role="menuitem" aria-haspopup="true" class="el-submenu"><div
@@ -59,14 +61,11 @@
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">차량검색</li>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">내차사기
 							홈서비스</li>
-						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">판매준비차량</li>
-						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">3D
-							라이브 뷰</li>
+					
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">최근
 							본 차량</li>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">내차사기
 							고객후기</li>
-						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">리스차량</li>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">브랜드
 							인증관</li>
 					</ul>
@@ -88,8 +87,7 @@
 						</div>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
 							중고차렌트</li>
-						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							렌트특가</li>
+						
 						<li role="menuitem" tabindex="-1"
 							class="el-menu-item menuItem is-active">신차렌트</li>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
@@ -105,16 +103,23 @@
 
 			</ul>
 			<div class="navLink">
-				<a><span>브랜드 인증관</span></a> <a><span>전국 직영점</span></a> <a><img
-					src="/images/common/icon-clock.png" alt=""><span>위클리
-						특가</span></a>
+				<a><span>브랜드 인증관</span></a> <a><span>전국 직영점</span></a> 
 			</div>
 		</div>
 		<div class="utilArea">
 			<div class="utilMenu">
 				<!---->
 				<!---->
-				<a><span>마이페이지</span></a> <a><span>로그아웃</span></a>
+				<c:choose>
+					<c:when test="${empty sessionScope.id }">
+						<a href="logins"><span>로그인</span></a>
+						<a href="register"><span>회원가입</span></a>
+					</c:when>
+					<c:otherwise>
+						<a href="logout"><span>로그아웃</span></a>
+						<a href="mypage"><span>마이페이지</span></a>
+					</c:otherwise>
+				</c:choose>
 			</div>
 			<div class="searchArea">
 				<div class="el-input topinput">
@@ -144,16 +149,41 @@
 			</div>
 			<div class="el-dialog__body">
 				<div class="gnbMenu">
+
+
+				<c:choose>
+				
+					<c:when test="${empty sessionScope.id }">
+						<div class="leftMenu">
+						<div class="firstMember">
+							<div class="subTitle">
+								<strong>안녕하세요! K Car 입니다.</strong>
+							</div>
+							<ul class="gnbEtc">
+								<li><a href="logins"><i class="el-login el-icon-undefined"></i>로그인</a></li>
+								<li><a><i class="el-event el-icon-undefined"></i>이벤트</a></li>
+								<li><a><i class="el-history el-icon-undefined"></i>최근 본차량</a></li>
+										
+								<li class="menuWhy"><a>왜 K Car를 선택할까요?</a></li>
+							</ul>
+						</div>
+						<div class="bannerWrap el-row">
+							<div></div>
+						</div>
+					</div>
+					</c:when>
+					
+					<c:otherwise>
+					
 					<div class="leftMenu">
 						<div class="kcarMember">
 							<div class="subTitle">
-								<strong>성승영 고객님</strong>
-								<p class="subTxt">
-									<span class="textRed">4</span>일째 K Car와 함께해서 고마워요!
-								</p>
+								<strong>${sessionScope.name } 고객님</strong>
+								
 								<div class="btnLogout">
 									<button type="button"
-										class="el-button logout el-button--default">
+										class="el-button logout el-button--default"
+										onclick="location.href='logout'">
 										<!---->
 										<!---->
 										<span> 로그아웃 </span>
@@ -161,7 +191,8 @@
 								</div>
 							</div>
 							<ul class="gnbEtc">
-								<li><a><i class="el-mypage el-icon-undefined"></i>마이페이지</a></li>
+								<li><a href="mypage"><i
+										class="el-mypage el-icon-undefined"></i>마이페이지</a></li>
 								<li><a><i class="el-history el-icon-undefined"></i>최근 본
 										차량</a></li>
 								<li><a><i class="el-favorite el-icon-undefined"></i>찜한차량</a></li>
@@ -176,22 +207,32 @@
 							</div>
 						</div>
 					</div>
+					
+						
+						
+					</c:otherwise>
+				</c:choose>
+
+
+					
+
+
 					<div class="gnbAllWrap">
 						<div class="gnbCell">
 							<div class="menuList">
 								<ul>
 									<li><a>내차팔기</a>
 										<ul>
-											<li><a href="/sc/HomeSvcMain">내차팔기 홈서비스</a></li>
+											<li><a href="">내차팔기 홈서비스</a></li>
 										</ul>
 										<ul>
-											<li><a href="/sc/HomeSvcMain">	법인차매각신청</a></li>
+											<li><a href="register">법인차매각신청</a></li>
 										</ul>
 										<ul>
-											<li><a href="/sc/ScrpcaApl" onClick="window.open('/sc/ScrpcaApl','폐폐차 신청','resizable,height=1000,width=800'); return false;">	폐차신청</a></li>
+											<li><a>폐차신청</a></li>
 										</ul>
 										<ul>
-											<li><<a href="/sc/HomeSvcMain">	내차팔기 고객후기</a></li>
+											<li><a>내차팔기 고객후기</a></li>
 										</ul></li>
 									<li><a>내차사기</a>
 										<ul>
@@ -200,21 +241,14 @@
 										<ul>
 											<li><a>내차사기 홈서비스</a></li>
 										</ul>
-										<ul>
-											<li><a id="mkt_prepare">판매준비차량</a></li>
-										</ul>
-										<ul>
-											<li><a>3D 라이브 뷰</a></li>
-										</ul>
+										
 										<ul>
 											<li><a>최근 본 차량</a></li>
 										</ul>
 										<ul>
 											<li><a>내차사기 고객후기</a></li>
 										</ul>
-										<ul>
-											<li><a>리스차량</a></li>
-										</ul>
+										
 										<ul>
 											<li><a>브랜드 인증관</a></li>
 										</ul></li>
@@ -222,9 +256,7 @@
 										<ul>
 											<li><a>중고차렌트</a></li>
 										</ul>
-										<ul>
-											<li><a>렌트특가</a></li>
-										</ul>
+										
 										<ul>
 											<li><a>신차렌트</a></li>
 										</ul>
@@ -240,51 +272,16 @@
 										<ul>
 											<li><a>렌트사고정비소</a></li>
 										</ul></li>
-									<li><a>금융</a>
-										<ul>
-											<li><a>할부</a></li>
-										</ul>
-										<ul>
-											<li><a>리스</a></li>
-										</ul></li>
-								</ul>
-							</div>
-							<div class="menuList">
-								<ul>
-									<li><a>K Car 프로모션</a>
-										<ul>
-											<li><a>위클리특가</a></li>
-											<li><a>테마기획전</a></li>
-											<li><a>K Car 인기차</a></li>
-											<li><a>렌트특가</a></li>
-										</ul></li>
-									<li><a>보증서비스</a>
-										<ul>
-											<li><a>K Car Warranty</a></li>
-										</ul></li>
-									<li><a>전국직영점</a>
-										<ul>
-											<li><a>전국직영점</a></li>
-										</ul></li>
-									<li><a>고객지원</a>
-										<ul>
-											<li><a>자주하는 질문</a></li>
-											<li><a>보증서비스 수리접수</a></li>
-											<li><a>카카오톡 문의</a></li>
-											<li><a>제안/칭찬접수</a></li>
-											<li><a>모바일팩스</a></li>
-										</ul></li>
-								</ul>
-							</div>
-							<div class="menuList">
-								<ul>
-									<li><a>공지사항</a>
+										<li><a>공지사항</a>
 										<ul>
 											<li><a>공지사항</a></li>
 											<li><a>이벤트</a></li>
 										</ul></li>
+									
 								</ul>
 							</div>
+							
+							
 							<div class="rightLink">
 								<span><a>회사소개</a></span> <span><a>개인정보처리방침</a></span>
 							</div>
@@ -344,7 +341,8 @@
 		}
 
 		var allMenuOpenBtn = document.querySelector('.menuAll');
-		var allMenu = document.querySelector('.el-dialog__wrapper.popup.gnbAllMenu');
+		var allMenu = document
+				.querySelector('.el-dialog__wrapper.popup.gnbAllMenu');
 		allMenuOpenBtn.addEventListener('click', function() {
 			if (allMenu.style.display == 'none') {
 				allMenu.style.display = 'block';

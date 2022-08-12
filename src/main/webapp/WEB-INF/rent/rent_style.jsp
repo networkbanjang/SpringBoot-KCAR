@@ -26,6 +26,13 @@
 	-moz-osx-font-smoothing: grayscale
 }
 
+.repairSearch {
+	margin : auto;
+	width : 900px;
+	height : 100px;
+}
+
+
 .icon-rate-face-off:before {
 	content: "\e900"
 }

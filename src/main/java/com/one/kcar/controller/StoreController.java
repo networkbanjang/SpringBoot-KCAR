@@ -1,5 +1,6 @@
 package com.one.kcar.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,8 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.one.kcar.DTO.StoreDTO;
-import com.one.kcar.service.StoreService;
+
+import com.one.kcar.dto.store.StoreDTO;
+import com.one.kcar.service.store.StoreService;
 
 @Controller
 public class StoreController {
@@ -83,8 +85,14 @@ public class StoreController {
 	}
 
 	//차량 검색
-	@RequestMapping(value = "db/storeSearchView", produces = "text/html; charset=UTF-8")
-	public String StoreSerarchview(StoreDTO store, HttpSession session, String st_name) {
+	@ResponseBody
+	@PostMapping(value = "db/storeSearchView", produces = "text/html; charset=UTF-8")
+	public String StoreSerarchview(@RequestBody(required = false)HashMap<String, String> map) {
+		String[] spli=map.get("option").split("@");
+		ArrayList<String> option = new ArrayList<>();
+		for(String i : spli)
+			option.add(i);
+		System.out.println(option);
 		return "/store/storeview";
 	}
 

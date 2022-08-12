@@ -21407,7 +21407,7 @@ header#adminHeader nav ul.adminMenu>li.el-menu-item.is-active:after {
 }
 
 .button.apply {
-	background: #b70f28
+	background: #f01d29;
 }
 
 .button.apply, .button.chosenApply {
@@ -21481,7 +21481,7 @@ header#adminHeader nav ul.adminMenu>li.el-menu-item.is-active:after {
 	height: 5.6rem;
 	border: 1px solid #b70f28;
 	border-radius: .8rem;
-	color: #b70f28;
+	color: #d8dee8;
 	font-size: 1.6rem;
 	font-weight: 500;
 	letter-spacing: -.04rem;
@@ -21538,13 +21538,13 @@ header#adminHeader nav ul.adminMenu>li.el-menu-item.is-active:after {
 
 .searchTrigger .button.apply {
 	color: #fff;
-	background: #b70f28
+	background: #d8dee8
 }
 
 .searchTrigger .button.apply:active {
 	color: #fff;
-	background: #f01d29;
-	border-color: #f01d29
+	background: #d8dee8;
+	border-color: #d8dee8
 }
 
 .searchTrigger .button.apply.disabled {
@@ -28798,9 +28798,9 @@ header#adminHeader nav ul.adminMenu>li.el-menu-item.is-active:after {
 	background: #f1f1f4
 }
 
-.button.apply {
-	background: #b70f28
-}
+/* .button.apply { */
+/* 	background: #b70f28 */
+/* } */
 
 .button.apply, .button.chosenApply {
 	width: 100%;
@@ -28928,22 +28928,22 @@ header#adminHeader nav ul.adminMenu>li.el-menu-item.is-active:after {
 	width: 79%
 }
 
-.searchTrigger .button.apply {
-	color: #fff;
-	background: #b70f28
-}
+/* .searchTrigger .button.apply { */
+/* 	color: #fff; */
+/* 	background: #b70f28 */
+/* } */
 
-.searchTrigger .button.apply:active {
-	color: #fff;
-	background: #f01d29;
-	border-color: #f01d29
-}
+/* .searchTrigger .button.apply:active { */
+/* 	color: #fff; */
+/* 	background: #f01d29; */
+/* 	border-color: #f01d29 */
+/* } */
 
-.searchTrigger .button.apply.disabled {
-	background-color: #d8dee8;
-	color: #fff;
-	border: none
-}
+/* .searchTrigger .button.apply.disabled { */
+/* 	background-color: #d8dee8; */
+/* 	color: #fff; */
+/* 	border: none */
+/* } */
 
 .searchTrigger .button.lineApply {
 	color: #b70f28;
@@ -73089,7 +73089,7 @@ table .hidden {
 	height: 4.8rem;
 	color: #fff;
 	font-size: 1.5rem;
-	letter-spacing: -.047rem
+	letter-spacing: -.047rem;
 }
 
 .button.chosenApply {
