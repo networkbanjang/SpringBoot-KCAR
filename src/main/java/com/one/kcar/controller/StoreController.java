@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.one.kcar.DTO.StoreDTO;
+import com.one.kcar.dto.StoreDTO;
 import com.one.kcar.service.StoreService;
 
 @Controller

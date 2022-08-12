@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.one.kcar.DTO.StoreDTO;
+import com.one.kcar.dto.StoreDTO;
 
 @Mapper
 public interface IStoreDAO {

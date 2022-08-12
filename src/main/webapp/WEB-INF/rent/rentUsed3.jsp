@@ -15,8 +15,13 @@
 	function send(){ 
 		req = new XMLHttpRequest();
 		req.onreadystatechange = textChange;
-		req.open('post', 'rentUsed');
-		req.send(null); 
+		req.open('post', 'rentUsed3');
+		var t = document.getElementById('inputData').value;
+		var s = document.getElementById('sel').value;
+		var data = {inputData:t, sel:s};
+		data = JSON.stringify(data); // JSON 데이터를 String 자료형으로 변환
+		req.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+		req.send(data); 
 	}
 	function textChange(){
 		if(req.readyState == 4 && req.status == 200){
@@ -48,7 +53,24 @@
 	}
 </script></head>
 <body>
-	<button id="button" type="button">데이터 가져오기</button>
+	<select id="sel">
+		<option value="crNumber">차량번호</option>
+		<option value="crPrice">렌트가격</option>
+		<option value="crMonth">렌트개월</option>
+		<option value="crFirstPrice">초기납입금</option>
+		<option value="crCc">배기량</option>
+		<option value="crYear">연식</option>
+		<option value="crColor">색상</option>
+		<option value="crDistance">주행거리</option>
+		<option value="crMission">변속기</option>
+		<option value="crFuel">연료</option>
+		<option value="crNewPrice">제조사 신차가</option>
+		<option value="crGrade">등급</option>
+		<option value="crSpecialPrice">특가유무</option>
+		<option value="crBrand">브랜드</option>
+	</select>
+	<input type="text" id="inputData" > 
+	<button id="button" type="button" onclick="send()">데이터 가져오기</button>
 	<table border=1>
 		<thead>
 			<tr>

@@ -294,9 +294,8 @@
 						</div>
 						<div class="pageContWrap el-row">
 							<ul class="contactBox">
-								<li><strong>전화 상담</strong><a href="tel:02-2231-3719">02-2231-3719</a></li>
-								<li><strong>이메일 상담</strong><a
-									href="mailto:yapclub@kcar.com">yapclub@kcar.com</a></li>
+								<li><strong>전화 상담</strong><a href="#">02-1234-5678</a></li>
+								<li><strong>이메일 상담</strong><a href="#">abcde@kcar.com</a></li>
 							</ul>
 						</div>
 					</div>

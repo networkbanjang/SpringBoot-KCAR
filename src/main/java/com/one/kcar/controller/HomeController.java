@@ -61,11 +61,14 @@ public class HomeController{
 	public String city() {
 		return "city/city";
 	}
+<<<<<<< HEAD
 
 	@GetMapping("222_style")
 	public String dsa() {
 		return "222_style";
 	}
+=======
+>>>>>>> Lee
 	
 	@GetMapping("logintest")
 	public String logintest(HttpSession session) {

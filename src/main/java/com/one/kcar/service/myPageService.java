@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.one.kcar.DTO.SellDTO;
+import com.one.kcar.dto.SellDTO;
 import com.one.kcar.repository.IMyPageDAO;
 
 @Service

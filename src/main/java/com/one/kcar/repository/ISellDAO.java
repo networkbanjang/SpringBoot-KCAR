@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.one.kcar.DTO.SellDTO;
-import com.one.kcar.DTO.SellReviewDTO;
+import com.one.kcar.dto.SellDTO;
+import com.one.kcar.dto.SellReviewDTO;
 
 @Mapper
 public interface ISellDAO {

@@ -87,19 +87,19 @@
 							<strong class="menuTit">렌트</strong>
 						</div>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							중고차렌트</li>
+							<a href="rentUsed"> 중고차렌트</li>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							렌트특가</li>
-						<li role="menuitem" tabindex="-1"
-							class="el-menu-item menuItem is-active">신차렌트</li>
+							<a href="rentSpecialPrice"> 렌트특가</li>
+						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem is-active">
+							<a href="rentNewCar"> 신차렌트</li>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							기사포함렌트</li>
+							<a href="rentDriver"> 기사포함렌트</li>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							렌트지점</li>
+							<a href="rentShop"> 렌트지점</li>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							렌트일반정비소</li>
+							<a href="rentNormalRepair"> 렌트일반정비소</li>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							렌트사고정비소</li>
+							<a href="rentAccidentRepair"> 렌트사고정비소</li>
 					</ul>
 				</div>
 
