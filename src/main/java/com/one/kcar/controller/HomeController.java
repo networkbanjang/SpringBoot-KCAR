@@ -61,6 +61,19 @@ public class HomeController{
 	public String city() {
 		return "city/city";
 	}
+	@GetMapping("test2")
+	public String test() {
+		return "test2";
+	}
+	
+	// 비밀번호 찾기
+	@GetMapping("find_pw_email")
+	public String find_pw_email() {
+		return "member/find_pw_email";
+	}
+	@GetMapping("pw_find")
+	public String pw_find() {
+		return "member/pw_find";
 <<<<<<< HEAD
 
 	@GetMapping("222_style")
@@ -69,6 +82,8 @@ public class HomeController{
 	}
 =======
 >>>>>>> Lee
+	
+	
 	
 	@GetMapping("logintest")
 	public String logintest(HttpSession session) {
