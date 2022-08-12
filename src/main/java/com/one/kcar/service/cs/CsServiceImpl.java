@@ -1,4 +1,4 @@
-package com.one.kcar.cs.service;
+package com.one.kcar.service.cs;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -13,9 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.one.kcar.cs.dao.ICsDAO;
-import com.one.kcar.cs.dto.CsDTO;
-import com.one.kcar.cs.dto.NoticeDTO;
+import com.one.kcar.dao.cs.ICsDAO;
+import com.one.kcar.dto.cs.CsDTO;
+import com.one.kcar.dto.cs.NoticeDTO;
 
 @Service
 public class CsServiceImpl implements ICsService{

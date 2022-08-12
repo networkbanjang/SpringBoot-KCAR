@@ -1,4 +1,4 @@
-package com.one.kcar.service;
+package com.one.kcar.service.sell;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -11,9 +11,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.one.kcar.dto.SellDTO;
-import com.one.kcar.dto.SellReviewDTO;
-import com.one.kcar.repository.ISellDAO;
+import com.one.kcar.dao.sell.ISellDAO;
+import com.one.kcar.dto.sell.SellDTO;
+import com.one.kcar.dto.sell.SellReviewDTO;
 
 @Service
 public class SellService {

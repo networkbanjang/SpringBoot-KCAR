@@ -1,4 +1,4 @@
-package com.one.kcar.member.dto;
+package com.one.kcar.dto.member;
 
 public enum Role {
 	USER("ROLE_USER"),

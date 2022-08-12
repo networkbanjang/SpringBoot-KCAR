@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.one.kcar.member.dto.MemberDTO;
-import com.one.kcar.service.KakaoService;
-import com.one.kcar.service.MemberService;
+import com.one.kcar.dto.member.MemberDTO;
+import com.one.kcar.service.member.KakaoService;
+import com.one.kcar.service.member.MemberService;
 
 @Controller
 public class MemberController {

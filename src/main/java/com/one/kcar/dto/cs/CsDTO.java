@@ -1,4 +1,4 @@
-package com.one.kcar.cs.dto;
+package com.one.kcar.dto.cs;
 
 public class CsDTO {
 	private String s_category;

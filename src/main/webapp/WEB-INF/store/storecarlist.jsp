@@ -1543,7 +1543,8 @@
 											style="width: 150px; height: 40px;">
 											<select class="form-select"
 												aria-label="Default select example"
-												style="width: 155px; height: 40px; border-radius: 10px; padding: 6px;" id="max_year">
+												style="width: 155px; height: 40px; border-radius: 10px; padding: 6px;"
+												id="max_year">
 
 												<c:forEach var="i" begin="2001" end="2021">
 													<option value='${i }'>${i}년</option>
@@ -1609,7 +1610,8 @@
 					<span class="dialog-footer"><div class="footerBtnWrap">
 							<div class="searchTrigger box multBtn el-row">
 								<button type="reset" class="button chosenApply">초기화</button>
-								<button type="button" class="button apply" onclick="resultcheck()">적용하기</button>
+								<button type="button" class="button apply"
+									onclick="resultcheck()">적용하기</button>
 							</div>
 						</div></span>
 				</div>
@@ -1758,8 +1760,8 @@
 								<div class="searchTrigger box multBtn el-row"
 									style="padding: 5px; margin: 3px;">
 
-									<button type="button" class="button apply" onclick="optionclose()">옵션
-										적용하기</button>
+									<button type="button" class="button apply"
+										onclick="optionclose()">옵션 적용하기</button>
 								</div>
 							</div>
 						</ul>
@@ -1797,26 +1799,45 @@
 		}
 	}
 	function resultcheck() {
-		var min_year=document.getElementById('min_year').value;
-		var max_year=document.getElementById('max_year').value;
-		var min_price=document.getElementById('min_price').value;
-		var max_price=document.getElementById('max_price').value;
-		var range=document.getElementById('range').value;
-		var searchOption="";
+		var min_year = document.getElementById('min_year').value;
+		var max_year = document.getElementById('max_year').value;
+		var min_price = document.getElementById('min_price').value;
+		var max_price = document.getElementById('max_price').value;
+		var range = document.getElementById('range').value;
+		var searchOption = "";
 		for (var i = 0; i < check.length; i++) {
 			if (check[i].checked == true) {
-			searchOption+=check[i].value+"@";
-			
+				searchOption += check[i].value + "@";
+
 			}
 		}
-	 	if(min_year>max_year){
+		if (min_year > max_year) {
 			alert("최소연식이 최대연식보다 큽니다.")
-		}else if(min_price>max_price){
+		} else if (min_price > max_price) {
 			alert("최소금액이 최대금액보다 큽니다.")
-		} else{
-		var jsonData ={minyear:min_year, maxyer:max_year,minprice:min_price,maxprice:max_price,ran:range,option:searchOption};
-		jsonData =JSON.stringify(jsonData); // JSON 데이터를 String 자료형으로 변환
-		console.log(jsonData)
-		} 
+		} else {
+			var jsonData = {
+				minyear : min_year,
+				maxyer : max_year,
+				minprice : min_price,
+				maxprice : max_price,
+				ran : range,
+				option : searchOption
+			};
+			jsonData = JSON.stringify(jsonData); // JSON 데이터를 String 자료형으로 변환		}
+			var req_list
+			req_list = new XMLHttpRequest();
+			req_list.onreadystatechange = listChange;
+			req_list.open('post', '/db/storeSearchView');
+			req_list.setRequestHeader('Content-Type',
+					'application/json; charset=UTF-8');
+			req_list.send(jsonData);
+			
+		}
+		function listChange() {
+			if (req_list.readyState == 4 && req_list.status == 200) {
+				modalclose()
+			}
+		}
 	}
 </script>

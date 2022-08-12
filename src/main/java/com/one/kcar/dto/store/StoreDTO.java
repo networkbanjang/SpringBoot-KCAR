@@ -1,4 +1,4 @@
-package com.one.kcar.dto;
+package com.one.kcar.dto.store;
 
 public class StoreDTO {
 	private String st_name;

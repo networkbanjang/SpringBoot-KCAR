@@ -1,12 +1,12 @@
-package com.one.kcar.service;
+package com.one.kcar.service.store;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.one.kcar.dto.StoreDTO;
-import com.one.kcar.repository.IStoreDAO;
+import com.one.kcar.dao.store.IStoreDAO;
+import com.one.kcar.dto.store.StoreDTO;
 
 @Service
 public class StoreService {

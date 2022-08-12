@@ -1,12 +1,12 @@
-package com.one.kcar.repository;
+package com.one.kcar.dao.sell;
 
 import java.util.List;
 
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.one.kcar.dto.SellDTO;
-import com.one.kcar.dto.SellReviewDTO;
+import com.one.kcar.dto.sell.SellDTO;
+import com.one.kcar.dto.sell.SellReviewDTO;
 
 @Mapper
 public interface ISellDAO {

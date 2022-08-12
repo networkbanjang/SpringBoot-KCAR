@@ -9,8 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.one.kcar.dto.SellDTO;
-import com.one.kcar.service.myPageService;
+import com.one.kcar.dto.sell.SellDTO;
+import com.one.kcar.service.sell.myPageService;
 
 @Controller
 public class myPageController {

@@ -1,8 +1,8 @@
-package com.one.kcar.member.dao;
+package com.one.kcar.dao.member;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.one.kcar.member.dto.MemberDTO;
+import com.one.kcar.dto.member.MemberDTO;
 
 @Mapper
 public interface IMemberDAO {

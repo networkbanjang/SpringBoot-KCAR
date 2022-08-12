@@ -1,4 +1,4 @@
-package com.one.kcar.member.dto;
+package com.one.kcar.dto.member;
 
 //  create table kcar_member(
 //m_id number(6) not null,

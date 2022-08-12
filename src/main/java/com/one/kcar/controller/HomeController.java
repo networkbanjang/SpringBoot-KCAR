@@ -74,15 +74,11 @@ public class HomeController{
 	@GetMapping("pw_find")
 	public String pw_find() {
 		return "member/pw_find";
-<<<<<<< HEAD
-
+	}
 	@GetMapping("222_style")
 	public String dsa() {
 		return "222_style";
 	}
-=======
->>>>>>> Lee
-	
 	
 	
 	@GetMapping("logintest")

@@ -6,9 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.one.kcar.member.dto.MemberDTO;
-import com.one.kcar.service.MailCheckService;
-import com.one.kcar.service.MemberService;
+import com.one.kcar.dto.member.MemberDTO;
+import com.one.kcar.service.member.MailCheckService;
+import com.one.kcar.service.member.MemberService;
 
 @Controller
 public class MailCheckController {

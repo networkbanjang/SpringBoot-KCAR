@@ -1,11 +1,11 @@
-package com.one.kcar.cs.dao;
+package com.one.kcar.dao.cs;
 
 import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.one.kcar.cs.dto.CsDTO;
-import com.one.kcar.cs.dto.NoticeDTO;
+import com.one.kcar.dto.cs.CsDTO;
+import com.one.kcar.dto.cs.NoticeDTO;
 
 @Mapper
 public interface ICsDAO {

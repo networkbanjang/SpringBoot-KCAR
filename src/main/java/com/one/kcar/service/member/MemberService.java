@@ -1,4 +1,4 @@
-package com.one.kcar.service;
+package com.one.kcar.service.member;
 
 import java.lang.reflect.Member;
 
@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.one.kcar.member.dao.IMemberDAO;
-import com.one.kcar.member.dto.MemberDTO;
-import com.one.kcar.member.dto.Role;
+import com.one.kcar.dao.member.IMemberDAO;
+import com.one.kcar.dto.member.MemberDTO;
+import com.one.kcar.dto.member.Role;
 
 @Service
 public class MemberService {

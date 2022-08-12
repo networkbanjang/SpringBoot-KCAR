@@ -1,4 +1,4 @@
-package com.one.kcar.service;
+package com.one.kcar.service.member;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

@@ -1,4 +1,4 @@
-package com.one.kcar.dto;
+package com.one.kcar.dto.sell;
 
 public class SellReviewDTO {
 	
