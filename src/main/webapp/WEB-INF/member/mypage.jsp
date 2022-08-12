@@ -227,37 +227,30 @@
 											class="nuxt-link-exact-active nuxt-link-active"> 마이페이지 </a>
 									</h2>
 									<ul>
-										<li><a href="/mp/myCarBuyOrderManage" class=""> 내차사기
+										<li><a href="BuyOrderManage" class=""> 내차사기
 												주문관리 </a></li>
-										<li><a href="/mp/MyCarSellAplMgtList" class=""> 내차팔기
+										<li><a href="SellAplMgtList" class=""> 내차팔기
 												신청관리 </a></li>
-										<li><a href="/mp/RentAplList" class=""> 렌트 신청내역 </a></li>
+										<li><a href="RentAplList" class=""> 렌트 신청내역 </a></li>
 									</ul>
 									<ul>
-										<li><a href="/mp/DrcmgtStrVstResvLst" class=""> 직영점
+										<li><a href="DrcmgtStrVstResvLst" class=""> 직영점
 												방문예약 신청내역 </a></li>
-										<li><a href="/mp/GurnteReprRcpLst" class=""> 보증수리
-												접수내역 </a></li>
-									</ul>
-									<ul>
-										<li><a href="/ci/Intrst/IntrstCarList" class=""> 관심차량
-										</a></li>
-										<li><a href="/mp/SellRdyCarList" class=""> 판매준비차량 알림
+										<li><a href="SellRdyCarList" class=""> 판매준비차량 알림
 										</a></li>
 									</ul>
 									<ul>
-										<li><a href="/mp/WishCarList" class=""> 찜한 차량 </a></li>
-										<li><a href="/bc/LatelyViewedCar/list" class=""> 최근 본
+										<li><a href="WishCarList" class=""> 찜한 차량 </a></li>
+										<li><a href="LatelyViewedCar" class=""> 최근 본
 												차량 </a></li>
 									</ul>
 									<ul>
-										<li><a href="/mp" aria-current="page"
+										<li><a href="update" aria-current="page"
 											class="nuxt-link-exact-active nuxt-link-active"> 회원정보 </a></li>
 										<li><a href="/mp" aria-current="page"
 											class="nuxt-link-exact-active nuxt-link-active"> SNS 로그인
 												설정 </a></li>
-										<li><a href="/mp" aria-current="page"
-											class="nuxt-link-exact-active nuxt-link-active"> 맞춤정보설정 </a></li>
+										
 									</ul>
 								</div>
 							</nav>
@@ -266,8 +259,8 @@
 							<div class="contentsBox section01 el-row">
 								<div class="myInfoBox">
 									<div>
-										<p class="myName">김태원님</p>
-										<a href="/mp/myinfo/auth" class="txtButton"> 정보 수정 </a>
+										<p class="myName"> ${sessionScope.name }님</p>
+										<a href="update" class="txtButton"> 정보 수정 </a>
 									</div>
 									<div class="totalList">
 										<ul>
@@ -277,7 +270,7 @@
 											<li><span>판매준비차량</span> <a href="/mp/SellRdyCarList"
 												class=""><strong>0</strong></a></li>
 											<li><span>최근본차량</span> <a
-												href="/bc/LatelyViewedCar/list" class=""><strong>4</strong></a></li>
+												href="/bc/LatelyViewedCar/list" class=""><strong>0</strong></a></li>
 										</ul>
 									</div>
 								</div>
