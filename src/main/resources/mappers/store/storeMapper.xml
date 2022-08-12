@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.one.kcar.repository.IStoreDAO">
+<mapper namespace="com.one.kcar.dao.store.IMyPageDAO">
 	
-	<select id="storelistAll" resultType="StoreDTO">
+	<select id="storelistAll" resultType="com.one.kcar.dto.store.StoreDTO">
 		select * from kcar_store
 	</select>
 
-	<select id="storelist"  parameterType="String" resultType="StoreDTO">
+	<select id="storelist"  parameterType="String" resultType="com.one.kcar.dto.store.StoreDTO">
 		select * from kcar_store where st_name = #{name}
 	</select>
 
