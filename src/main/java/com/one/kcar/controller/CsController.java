@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.one.kcar.cs.service.ICsService;
+import com.one.kcar.service.cs.ICsService;
 
 @Controller
 public class CsController {

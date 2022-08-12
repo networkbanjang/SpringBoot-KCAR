@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ include file="rent_style.jsp"%>
 <html lang="ko" class="chrome">
 <head>
 <title>렌트사고수리정비소</title>
@@ -125,346 +126,61 @@
 								확인하실 수 있습니다</p>
 						</div>
 					</div>
-					<div data-v-0e031c16="" class="sectionInner el-row">
-						<div data-v-0e031c16="" class="centerSearchForm">
-							<div data-v-0e031c16="" class="areaSearch">
-								<div data-v-0e031c16="" class="el-select">
-									<!---->
-									<div class="el-input el-input--suffix">
-										<!---->
-										<input type="text" readonly="readonly" autocomplete="off"
-											placeholder="직접 입력" class="el-input__inner">
-										<!---->
-										<span class="el-input__suffix"><span
-											class="el-input__suffix-inner"><i
-												class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-											<!---->
-												<!---->
-												<!---->
-												<!---->
-												<!----></span>
-										<!----></span>
-										<!---->
-										<!---->
-									</div>
-									<div class="el-select-dropdown el-popper"
-										style="display: none; min-width: 512px;">
-										<div class="el-scrollbar" style="">
-											<div class="el-select-dropdown__wrap el-scrollbar__wrap"
-												style="margin-bottom: -17px; margin-right: -17px;">
-												<ul class="el-scrollbar__view el-select-dropdown__list">
-													<!---->
-													<li data-v-0e031c16=""
-														class="el-select-dropdown__item selected"><span>전체(27)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>서울(5)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>인천(1)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>대전(2)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>대구(1)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>부산(2)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>울산(1)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>경기(5)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>강원(1)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>경남(2)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>전남(2)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>전북(1)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>충남(2)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>충북(1)</span></li>
-													<li data-v-0e031c16="" class="el-select-dropdown__item"
-														set-ref-id="bsrsRgnCd"><span>제주(1)</span></li>
-												</ul>
-											</div>
-											<div class="el-scrollbar__bar is-horizontal">
-												<div class="el-scrollbar__thumb"
-													style="transform: translateX(0%);"></div>
-											</div>
-											<div class="el-scrollbar__bar is-vertical">
-												<div class="el-scrollbar__thumb"
-													style="transform: translateY(0%);"></div>
-											</div>
-										</div>
-										<!---->
-									</div>
-								</div>
-								<div data-v-0e031c16="" class="el-input">
-									<!---->
-									<input type="text" autocomplete="off"
-										placeholder="정비소명을 입력해주세요" class="el-input__inner">
-									<!---->
-									<!---->
-									<!---->
-									<!---->
-								</div>
-							</div>
-							<button data-v-0e031c16="" type="button"
-								class="el-button icon-search-search el-button--default">
-								<!---->
-								<!---->
-								<!---->
-							</button>
+					
+					<div class="repairSearch">
+							<form>
+								<table>
+									<tr>
+										<td><select name="select1" style="width: 100px; height: 50px;">
+												<option value="">전체</option>
+												<option value="location">지역</option>
+												<option value="name">정비소명</option>
+										</select> <input type=text name='search1' placeholder="검색어를 입력하세요."
+													 style="width: 500px; height: 50px;"/>
+												  <input type=submit name='searchBtn1' value='검색' 
+												 	 placeholder="검색어를 입력하세요." style="width: 100px; height: 50px;" /></td>
+									</tr>
+								</table>
+							</form>
 						</div>
-					</div>
-					<div data-v-0e031c16="" class="sectionInner el-row">
-						<p data-v-0e031c16="" class="TBcaption">
-							총 <span data-v-0e031c16="" class="countNum">27</span>개의 사고정비소가
-							있습니다.
-						</p>
-						<div data-v-0e031c16="" class="table_ty01 mT40">
-							<table data-v-0e031c16="">
-								<colgroup data-v-0e031c16="">
-									<col data-v-0e031c16="" style="width: 134px;">
-									<col data-v-0e031c16="" style="width: 250px;">
-									<col data-v-0e031c16="" style="width: 132px;">
-									<col data-v-0e031c16="" style="width: auto;">
-								</colgroup>
-								<thead data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<th data-v-0e031c16="">지역</th>
-										<th data-v-0e031c16="">정비소명</th>
-										<th data-v-0e031c16="">전화번호</th>
-										<th data-v-0e031c16="">주소</th>
-									</tr>
-								</thead>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">서울</td>
-										<td data-v-0e031c16="" class="cursorStyle">광성모터스</td>
-										<td data-v-0e031c16="">02-463-8875</td>
-										<td data-v-0e031c16="">서울특별시 성동구 광나루로8길 12 (성수동2가) 1층</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">서울</td>
-										<td data-v-0e031c16="" class="cursorStyle">케이모터스 주식회사</td>
-										<td data-v-0e031c16="">02-2631-2323</td>
-										<td data-v-0e031c16="">서울특별시 금천구 시흥대로 125 (시흥동, K타워)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">서울</td>
-										<td data-v-0e031c16="" class="cursorStyle">그린서비스</td>
-										<td data-v-0e031c16="">02-2668-5607</td>
-										<td data-v-0e031c16="">서울특별시 강서구 남부순환로19길 48-37 (외발산동,
-											금만물산) 그린서비스</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">서울</td>
-										<td data-v-0e031c16="" class="cursorStyle">역삼현대서비스</td>
-										<td data-v-0e031c16="">02-561-9830</td>
-										<td data-v-0e031c16="">서울특별시 강남구 역삼로 238 (역삼동)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">서울</td>
-										<td data-v-0e031c16="" class="cursorStyle">수정모터스</td>
-										<td data-v-0e031c16="">02-63226-6511</td>
-										<td data-v-0e031c16="">서울특별시 영등포구 경인로77길 9 (문래동2가)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">인천</td>
-										<td data-v-0e031c16="" class="cursorStyle">유너모터스 주식회사</td>
-										<td data-v-0e031c16="">032-865-3934</td>
-										<td data-v-0e031c16="">인천광역시 미추홀구 염전로 381 (주안동)1동 201호</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">대전</td>
-										<td data-v-0e031c16="" class="cursorStyle">주식회사 서대전현대서비스
-										</td>
-										<td data-v-0e031c16="">042-534-8400</td>
-										<td data-v-0e031c16="">대전광역시 서구 가수원로 103-13 (가수원동) 주식회사
-											서대전현대서비스</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">대전</td>
-										<td data-v-0e031c16="" class="cursorStyle">대화자동차공업사</td>
-										<td data-v-0e031c16="">042-635-0051</td>
-										<td data-v-0e031c16="">대전광역시 대덕구 대화로52번안길 34 (대화동)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">대구</td>
-										<td data-v-0e031c16="" class="cursorStyle">하나정비</td>
-										<td data-v-0e031c16="">053-964-1177</td>
-										<td data-v-0e031c16="">대구광역시 동구 안심로55길 25 (동호동)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">부산</td>
-										<td data-v-0e031c16="" class="cursorStyle">스마트종합정비</td>
-										<td data-v-0e031c16="">051-728-1471</td>
-										<td data-v-0e031c16="">부산광역시 기장군 정관읍 매곡길 8 (매학리)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">부산</td>
-										<td data-v-0e031c16="" class="cursorStyle">청호자동차정비</td>
-										<td data-v-0e031c16="">051-305-3700</td>
-										<td data-v-0e031c16="">부산광역시 사상구 사상로393번길 27 (덕포동)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">울산</td>
-										<td data-v-0e031c16="" class="cursorStyle">태양종합정비(주)</td>
-										<td data-v-0e031c16="">052-268-1113</td>
-										<td data-v-0e031c16="">울산광역시 남구 산업로585번길 24 (여천동)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">경기</td>
-										<td data-v-0e031c16="" class="cursorStyle">코리아모터스</td>
-										<td data-v-0e031c16="">031-686-7311</td>
-										<td data-v-0e031c16="">경기도 평택시 오성면 서동대로 1986 (죽리)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">경기</td>
-										<td data-v-0e031c16="" class="cursorStyle">효성1급자동차공업사</td>
-										<td data-v-0e031c16="">031-634-5614</td>
-										<td data-v-0e031c16="">경기도 이천시 호법면 중부대로 920 (유산리)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">경기</td>
-										<td data-v-0e031c16="" class="cursorStyle">금호자동차공업사</td>
-										<td data-v-0e031c16="">031-429-4940</td>
-										<td data-v-0e031c16="">경기도 안양시 동안구 흥안대로427번길 76-2 (관양동)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">경기</td>
-										<td data-v-0e031c16="" class="cursorStyle">형제자동차정비</td>
-										<td data-v-0e031c16="">031-405-5454</td>
-										<td data-v-0e031c16="">경기도 안산시 상록구 안산천서로6길 6 (월피동,
-											형제자동차정비)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">경기</td>
-										<td data-v-0e031c16="" class="cursorStyle">고경모터스</td>
-										<td data-v-0e031c16="">031-216-8610</td>
-										<td data-v-0e031c16="">경기도 수원시 영통구 중부대로448번길 61 (원천동)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">강원</td>
-										<td data-v-0e031c16="" class="cursorStyle">
-											제이케이(JK)자동차공업사</td>
-										<td data-v-0e031c16="">010-2006-6707</td>
-										<td data-v-0e031c16="">강원도 강릉시 성덕포남로 166 (포남동)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">경남</td>
-										<td data-v-0e031c16="" class="cursorStyle">신세계정비</td>
-										<td data-v-0e031c16="">055-252-7145</td>
-										<td data-v-0e031c16="">경상남도 창원시 마산회원구 봉암공단7길 61 (봉암동,
-											신세계자동차정비)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">경남</td>
-										<td data-v-0e031c16="" class="cursorStyle">주식회사 대운모터스</td>
-										<td data-v-0e031c16="">055-757-7184</td>
-										<td data-v-0e031c16="">경상남도 진주시 큰들로126번길 7 (상평동)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">전남</td>
-										<td data-v-0e031c16="" class="cursorStyle">(유)봉화자동차1급공업사
-										</td>
-										<td data-v-0e031c16="">061-726-2646</td>
-										<td data-v-0e031c16="">전라남도 순천시 해룡면 율촌산단4로 77-53 (신성리)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">전남</td>
-										<td data-v-0e031c16="" class="cursorStyle">일급혁신자동차 주식회사</td>
-										<td data-v-0e031c16="">061-332-4300</td>
-										<td data-v-0e031c16="">전라남도 나주시 남평읍 교원교촌길 22-3 (교원리,
-											1급자동차정비소)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">전북</td>
-										<td data-v-0e031c16="" class="cursorStyle">(유)코리아모터스</td>
-										<td data-v-0e031c16="">063-212-8888</td>
-										<td data-v-0e031c16="">전라북도 전주시 덕진구 팔복로 115 (팔복동2가)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">충남</td>
-										<td data-v-0e031c16="" class="cursorStyle">에이젠모터스(주)</td>
-										<td data-v-0e031c16="">041-564-4949</td>
-										<td data-v-0e031c16="">충청남도 천안시 서북구 성거읍 소댕이3길 9 (송남리) 2동
-										</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">충남</td>
-										<td data-v-0e031c16="" class="cursorStyle">합사회사 공주종합모터스</td>
-										<td data-v-0e031c16="">041-858-4293</td>
-										<td data-v-0e031c16="">충청남도 공주시 장척로 30 (송선동)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">충북</td>
-										<td data-v-0e031c16="" class="cursorStyle">우일자동차공업사</td>
-										<td data-v-0e031c16="">043-272-5151</td>
-										<td data-v-0e031c16="">충청북도 청주시 흥덕구 1순환로436번길 30 (신봉동)</td>
-									</tr>
-								</tbody>
-								<tbody data-v-0e031c16="">
-									<tr data-v-0e031c16="">
-										<td data-v-0e031c16="" class="alignC">제주</td>
-										<td data-v-0e031c16="" class="cursorStyle">세기자동차공업사</td>
-										<td data-v-0e031c16="">064-743-9114</td>
-										<td data-v-0e031c16="">제주특별자치도 제주시 서광로 77 (용담이동)</td>
-									</tr>
-								</tbody>
+					
+					
+					<div data-v-1e88d8ab="" class="sectionInner el-row">
+							<p data-v-1e88d8ab="" class="TBcaption">
+								총 <span data-v-1e88d8ab="" class="countNum">27</span>개의 일반정비소가
+								있습니다.
+							</p><br><br>
+							
+						<table style="width: 1150px;">
+							<thead>
+								<tr>
+									<th style="width: 100px; height: 20px;" align="center">지역</th>
+									<th style="width: 300px; height: 20px;" align="center">정비소명</th>
+									<th style="width: 200px; height: 20px;" align="center">전화번호</th>
+									<th style="width: 550px; height: 20px;" align="center">주소</th>
+								</tr>
+							</thead>
+							<tr>
+								<td style="width: 100px; height: 20px;" align="center"><hr /></td>
+								<td style="width: 300px; height: 20px;" align="center"><hr /></td>
+								<td style="width: 200px; height: 20px;" align="center"><hr /></td>
+								<td style="width: 550px; height: 20px;" align="center"><hr /></td>
+							</tr>
+							<c:forEach var="db" items="${rarList }">
+								<tr>
+									<td style="width: 100px; height: 40px;" align="center">${db.cra_location }</td>
+									<td style="width: 300px; height: 40px;" align="left">${db.cra_name }</td>
+									<td style="width: 200px; height: 40px;" align="left">${db.cra_tel }</td>
+									<td style="width: 550px; height: 40px;" align="left">${db.cra_addr }</td>
+								</tr>
+							</c:forEach>
+							<tr>
+								<td colspan=4><hr /></td>
+							</tr>
 							</table>
-							<!---->
-						</div>
+							
+					
+					
 						<ul data-v-0e031c16="" class="legalBox">
 							<li data-v-0e031c16="">K Car 전국직영점 및 KW 정비소와는 무관하며 K Car 렌트를
 								통해 직접 운영됩니다</li>
@@ -476,7 +192,7 @@
 						<div data-v-0e031c16="" class="repairShopArea">
 							<ul data-v-0e031c16="" class="shopLists">
 								<li data-v-0e031c16=""><a data-v-0e031c16=""
-									href="./RentCenter"><div data-v-0e031c16="">
+									href="rentShop"><div data-v-0e031c16="">
 											<strong data-v-0e031c16=""> 렌트지점 </strong>
 											<p data-v-0e031c16="">
 												신차에서 중고차까지 <br data-v-0e031c16="">렌트 전문 지점에서 최상의 서비스를
@@ -484,7 +200,7 @@
 											</p>
 										</div></a></li>
 								<li data-v-0e031c16=""><a data-v-0e031c16=""
-									href="./RentGnrlCenter"><div data-v-0e031c16="">
+									href="rentNormalRepair"><div data-v-0e031c16="">
 											<strong data-v-0e031c16=""> 렌트일반정비소 </strong>
 											<p data-v-0e031c16="">
 												일반 수리 및 차량 점검, 소모품교환이 필요할 때 <br data-v-0e031c16="">가까운
