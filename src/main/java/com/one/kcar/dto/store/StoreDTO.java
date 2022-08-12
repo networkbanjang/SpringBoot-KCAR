@@ -4,7 +4,8 @@ public class StoreDTO {
 	private String st_name;
 	private String st_addr;
 	private String st_tel;
-	private String st_photo ;
+	private String st_photo;
+	
 	public String getSt_name() {
 		return st_name;
 	}
