@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.one.kcar.cs.dao.ICsDAO">
+<mapper namespace="com.one.kcar.dao.cs.ICsDAO">
 
-	<insert id="csWriteProc" parameterType="CsDTO">
+	<insert id="csWriteProc" parameterType="com.one.kcar.dto.cs.CsDTO">
 		INSERT INTO KCAR_SERVICE VALUES(#{s_category}, #{s_title}, #{s_content}, #{s_file}, #{s_id}, #{s_reply}, #{s_replyValue}, #{s_replyStatus})
 	</insert>
 
-	<insert id="noticeWriteProc" parameterType="NoticeDTO">
+	<insert id="noticeWriteProc" parameterType="com.one.kcar.dto.cs.NoticeDTO">
 		<selectKey keyProperty="n_no" resultType="int" order="BEFORE">
 			SELECT nvl(max(n_no), 0)+1 FROM KCAR_NOTICE
 		</selectKey>
 		INSERT INTO KCAR_NOTICE VALUES(#{n_no}, #{n_title}, #{n_content}, #{n_date})
 	</insert>
 	
-	<select id="noticeProc" resultType="com.one.kcar.cs.dto.NoticeDTO">
+	<select id="noticeProc" resultType="com.one.kcar.dto.cs.NoticeDTO">
 		SELECT * FROM KCAR_NOTICE ORDER BY n_no DESC
 	</select>
 	
-	<select id="noticeViewProc" resultType="com.one.kcar.cs.dto.NoticeDTO" parameterType="int">
+	<select id="noticeViewProc" resultType="com.one.kcar.dto.cs.NoticeDTO" parameterType="int">
 		SELECT * FROM KCAR_NOTICE WHERE n_no=#{viewNo}
 	</select> 
 </mapper>
