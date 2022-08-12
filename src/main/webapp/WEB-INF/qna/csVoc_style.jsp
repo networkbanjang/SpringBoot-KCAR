@@ -26,6 +26,8 @@
 	-moz-osx-font-smoothing: grayscale
 }
 
+
+
 .icon-rate-face-off:before {
 	content: "\e900"
 }
@@ -8912,7 +8914,7 @@ to {
 }
 
 .el-upload__input {
-	display: none
+	display: block;
 }
 
 .el-upload__tip {
@@ -52265,7 +52267,7 @@ html {
 .radioBoxs .el-radio-button__orig-radio:checked+.el-radio-button__inner
 	{
 	color: #16171d;
-	border-color: #b70f28;
+	/* border-color: #b70f28; */
 	background-color: #fff;
 	box-shadow: 0 2px 4px 0 rgba(22, 23, 29, .04) !important
 }
@@ -54339,7 +54341,8 @@ html {
 	margin-top: 2rem;
 	border-radius: .4rem;
 	border: .1rem solid #e2e8ee;
-	overflow: hidden
+	overflow: hidden;
+	
 }
 
 .formEBox h5 {

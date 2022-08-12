@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ include file="NotcMatrList_style.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html lang="ko" class="chrome">
 <head>
 <title>공지사항 및 이벤트</title>
@@ -178,35 +180,36 @@
 								<div class="el-tabs__header is-top">
 									<div class="el-tabs__nav-wrap is-top">
 										<div class="el-tabs__nav-scroll">
-											<div role="tablist" class="el-tabs__nav is-top"
+											<div role="tablist" class="el-tabs__nav is-top" 
 												style="transform: translateX(0px);">
-												<div class="el-tabs__active-bar is-top"
+												<div class="el-tabs__active-bar is-top" id="navBar"
 													style="width: 610px; transform: translateX(0px);"></div>
 												<div id="tab-innertab01" aria-controls="pane-innertab01"
 													role="tab" aria-selected="true" tabindex="0"
-													class="el-tabs__item is-top is-active">공지사항</div>
+													class="el-tabs__item is-top is-active" onclick="noticeClick()"><span id="navNotice">공지사항</span></div>
 												<div id="tab-innertab02" aria-controls="pane-innertab02"
-													role="tab" tabindex="-1" class="el-tabs__item is-top">이벤트</div>
+													role="tab" tabindex="-1" class="el-tabs__item is-top" onclick="eventClick()"><span id="navEvent">이벤트</span></div>
 											</div>
 										</div>
 									</div>
 								</div>
 								<div class="el-tabs__content">
-									<div role="tabpanel" id="pane-innertab01"
+
+									<div role="tabpanel" id="pane-innertab01" style="display: block;"
 										aria-labelledby="tab-innertab01" class="el-tab-pane">
 										<div class="boardList">
 											<div class="boardSearch">
 												<p>
-													<span>총 260 건</span>의 글이 있습니다.
+													<span>총 0 건</span>의 글이 있습니다.
 												</p>
 												<ul class="boardSearchForm">
 													<li class="searchSelect"><div class="el-select">
 															<!---->
-															<div class="el-input el-input--suffix">
+															<div class="el-input el-input--suffix" onclick="searchDrop()">
 																<!---->
 																<input type="text" readonly="readonly"
-																	autocomplete="off" placeholder="전체"
-																	class="el-input__inner">
+																	autocomplete="off" placeholder="전체" id="selectValue"
+																	class="el-input__inner" name="select">
 																<!---->
 																<span class="el-input__suffix"><span
 																	class="el-input__suffix-inner"><i
@@ -220,7 +223,7 @@
 																<!---->
 																<!---->
 															</div>
-															<div class="el-select-dropdown el-popper"
+															<div class="el-select-dropdown el-popper" id="dropdown"
 																style="display: none; min-width: 246px;">
 																<div class="el-scrollbar" style="">
 																	<div
@@ -229,9 +232,9 @@
 																		<ul
 																			class="el-scrollbar__view el-select-dropdown__list">
 																			<!---->
-																			<li class="el-select-dropdown__item selected"><span>전체</span></li>
-																			<li class="el-select-dropdown__item"><span>제목</span></li>
-																			<li class="el-select-dropdown__item"><span>내용</span></li>
+																			<li class="el-select-dropdown__item" onclick="item1()"><span>전체</span></li>
+																			<li class="el-select-dropdown__item" onclick="item2()"><span>제목</span></li>
+																			<li class="el-select-dropdown__item" onclick="item3()"><span>내용</span></li>
 																		</ul>
 																	</div>
 																	<div class="el-scrollbar__bar is-horizontal">
@@ -248,7 +251,7 @@
 														</div></li>
 													<li class="searchInput"><div class="el-input">
 															<!---->
-															<input type="text" autocomplete="off"
+															<input type="text" autocomplete="off" name="search"
 																placeholder="검색어를 입력해주세요" class="el-input__inner">
 															<!---->
 															<!---->
@@ -263,6 +266,9 @@
 														</button></li>
 												</ul>
 											</div>
+											
+						<!-- form -->		<form action="" id="f" method="post">
+											<input type="hidden" name="no" id="no" />
 											<div class="boardListTable">
 												<div
 													class="el-table el-table--fit el-table--enable-row-hover el-table--enable-row-transition"
@@ -307,207 +313,23 @@
 																<col name="el-table_3_column_11" width="140">
 															</colgroup>
 															<tbody>
+															<c:forEach var="list" items="${noticeList }">
 																<tr class="el-table__row">
 																	<td rowspan="1" colspan="1"
 																		class="el-table_3_column_9   el-table__cell"><div
-																			class="cell">260</div></td>
+																			class="cell">${list.n_no }</div></td>
 																	<td rowspan="1" colspan="1"
 																		class="el-table_3_column_10   el-table__cell"><div
 																			class="cell">
-																			<a class="el-link el-link--default is-underline">
 																				<!---->
-																				<span class="el-link--inner"><span>[공지]
-																						K Car 시스템 점검에 따른 서비스 일시 중단 안내</span> <span
-																					class="el-tag el-tag--NEW el-tag--light">
-																						NEW </span></span>
+																				<span class="el-link--inner"><span class="title" id="${list.n_no }">${list.n_title }</span></span>
 																			<!---->
-																			</a>
 																		</div></td>
 																	<td rowspan="1" colspan="1"
 																		class="el-table_3_column_11   el-table__cell"><div
-																			class="cell">2022.08.01</div></td>
+																			class="cell">${list.n_date }</div></td>
 																</tr>
-																<tr class="el-table__row">
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_9   el-table__cell"><div
-																			class="cell">259</div></td>
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_10   el-table__cell"><div
-																			class="cell">
-																			<a class="el-link el-link--default is-underline">
-																				<!---->
-																				<span class="el-link--inner"><span>[공지]
-																						K Car 사이트 개편에 따른 이용 가이드 안내</span> <span
-																					class="el-tag el-tag--none el-tag--light">
-																						NEW </span></span>
-																			<!---->
-																			</a>
-																		</div></td>
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_11   el-table__cell"><div
-																			class="cell">2022.07.18</div></td>
-																</tr>
-																<tr class="el-table__row">
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_9   el-table__cell"><div
-																			class="cell">258</div></td>
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_10   el-table__cell"><div
-																			class="cell">
-																			<a class="el-link el-link--default is-underline">
-																				<!---->
-																				<span class="el-link--inner"><span>[공지]
-																						침수차 안심 보상 서비스 </span> <span
-																					class="el-tag el-tag--none el-tag--light">
-																						NEW </span></span>
-																			<!---->
-																			</a>
-																		</div></td>
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_11   el-table__cell"><div
-																			class="cell">2022.07.01</div></td>
-																</tr>
-																<tr class="el-table__row">
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_9   el-table__cell"><div
-																			class="cell">257</div></td>
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_10   el-table__cell"><div
-																			class="cell">
-																			<a class="el-link el-link--default is-underline">
-																				<!---->
-																				<span class="el-link--inner"><span>[공지]
-																						K Car 시스템 점검에 따른 서비스 일시 중단 안내</span> <span
-																					class="el-tag el-tag--none el-tag--light">
-																						NEW </span></span>
-																			<!---->
-																			</a>
-																		</div></td>
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_11   el-table__cell"><div
-																			class="cell">2022.06.21</div></td>
-																</tr>
-																<tr class="el-table__row">
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_9   el-table__cell"><div
-																			class="cell">256</div></td>
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_10   el-table__cell"><div
-																			class="cell">
-																			<a class="el-link el-link--default is-underline">
-																				<!---->
-																				<span class="el-link--inner"><span>[당첨자
-																						발표] 22년 5월 고객후기 이벤트 우수작</span> <span
-																					class="el-tag el-tag--none el-tag--light">
-																						NEW </span></span>
-																			<!---->
-																			</a>
-																		</div></td>
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_11   el-table__cell"><div
-																			class="cell">2022.06.13</div></td>
-																</tr>
-																<tr class="el-table__row">
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_9   el-table__cell"><div
-																			class="cell">255</div></td>
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_10   el-table__cell"><div
-																			class="cell">
-																			<a class="el-link el-link--default is-underline">
-																				<!---->
-																				<span class="el-link--inner"><span>[EVENT]
-																						22년 6월 고객후기 이벤트 - 후기만 작성해도 100% 당첨!</span> <span
-																					class="el-tag el-tag--none el-tag--light">
-																						NEW </span></span>
-																			<!---->
-																			</a>
-																		</div></td>
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_11   el-table__cell"><div
-																			class="cell">2022.05.31</div></td>
-																</tr>
-																<tr class="el-table__row">
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_9   el-table__cell"><div
-																			class="cell">254</div></td>
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_10   el-table__cell"><div
-																			class="cell">
-																			<a class="el-link el-link--default is-underline">
-																				<!---->
-																				<span class="el-link--inner"><span>[공지]
-																						K Car 전국 직영점 6월 휴점 안내 </span> <span
-																					class="el-tag el-tag--none el-tag--light">
-																						NEW </span></span>
-																			<!---->
-																			</a>
-																		</div></td>
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_11   el-table__cell"><div
-																			class="cell">2022.05.25</div></td>
-																</tr>
-																<tr class="el-table__row">
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_9   el-table__cell"><div
-																			class="cell">253</div></td>
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_10   el-table__cell"><div
-																			class="cell">
-																			<a class="el-link el-link--default is-underline">
-																				<!---->
-																				<span class="el-link--inner"><span>[공지]
-																						K Car 시스템 점검에 따른 서비스 일시 중단 안내</span> <span
-																					class="el-tag el-tag--none el-tag--light">
-																						NEW </span></span>
-																			<!---->
-																			</a>
-																		</div></td>
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_11   el-table__cell"><div
-																			class="cell">2022.05.11</div></td>
-																</tr>
-																<tr class="el-table__row">
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_9   el-table__cell"><div
-																			class="cell">252</div></td>
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_10   el-table__cell"><div
-																			class="cell">
-																			<a class="el-link el-link--default is-underline">
-																				<!---->
-																				<span class="el-link--inner"><span>[당첨자
-																						발표] 22년 4월 고객후기 이벤트 우수작</span> <span
-																					class="el-tag el-tag--none el-tag--light">
-																						NEW </span></span>
-																			<!---->
-																			</a>
-																		</div></td>
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_11   el-table__cell"><div
-																			class="cell">2022.05.11</div></td>
-																</tr>
-																<tr class="el-table__row">
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_9   el-table__cell"><div
-																			class="cell">251</div></td>
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_10   el-table__cell"><div
-																			class="cell">
-																			<a class="el-link el-link--default is-underline">
-																				<!---->
-																				<span class="el-link--inner"><span>[공지]
-																						K Car 전국 직영점 5월 휴점 안내 </span> <span
-																					class="el-tag el-tag--none el-tag--light">
-																						NEW </span></span>
-																			<!---->
-																			</a>
-																		</div></td>
-																	<td rowspan="1" colspan="1"
-																		class="el-table_3_column_11   el-table__cell"><div
-																			class="cell">2022.05.03</div></td>
-																</tr>
-																<!---->
+															</c:forEach>
 															</tbody>
 														</table>
 														<!---->
@@ -518,7 +340,7 @@
 													<!---->
 													<!---->
 													<div class="el-table__column-resize-proxy"
-														style="display: none;"></div>
+														style="display: block;"></div>
 												</div>
 												<div class="mT40 pagination -sm">
 													<!---->
@@ -532,8 +354,10 @@
 														<span><img
 															src="/images/common/pagenation-btn-right.svg" alt="다음"></span>
 													</button>
+													<button type="button" style="width: 100px;" onclick="location.href='writeForm'">글쓰기</button>
 												</div>
 											</div>
+											</form>
 										</div>
 									</div>
 									<div role="tabpanel" aria-hidden="true" id="pane-innertab02"
@@ -547,7 +371,7 @@
 												<ul class="boardSearchForm">
 													<li class="searchSelect"><div class="el-select">
 															<!---->
-															<div class="el-input el-input--suffix">
+															<div class="el-input el-input--suffix" >
 																<!---->
 																<input type="text" readonly="readonly"
 																	autocomplete="off" placeholder="전체"
@@ -819,6 +643,7 @@
 														<!---->
 													</div>
 												</div>
+												
 											</div>
 										</div>
 									</div>
@@ -1050,5 +875,68 @@
 	<script type="text/javascript" id="">window.criteo_q=window.criteo_q||[];var deviceType=/iPad/.test(navigator.userAgent)?"t":/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent)?"m":"d";window.criteo_q.push({event:"setAccount",account:73896},{event:"setSiteType",type:deviceType},{event:"viewHome"});</script>
 
 	<script type="text/javascript" id="">kakaoPixel("8101473052006960319").pageView();</script>
+	
+	
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		
+	var navBar = document.getElementById("navBar");
+	var navNotice = document.getElementById("navNotice");
+	var navEvent = document.getElementById("navEvent");
+	
+		function noticeClick() {
+			if(document.getElementById("pane-innertab02").style.display = "block"){
+				document.getElementById("pane-innertab02").style.display = "none";
+			}
+			document.getElementById("pane-innertab01").style.display = "block";
+			
+			navBar.style.transform = "translateX(0px)";
+			
+			navNotice.style.color = "#b70f28";
+			navEvent.style.color = "black";
+			
+		}
+		
+		function eventClick() {
+			if(document.getElementById("pane-innertab01").style.display = "block"){
+				document.getElementById("pane-innertab01").style.display = "none";
+			}
+			document.getElementById("pane-innertab02").style.display = "block";
+			
+			navBar.style.transform = "translateX(610px)";
+			navEvent.style.color = "#b70f28";
+			navNotice.style.color = "black";
+		}
+		
+		function searchDrop() {
+			$("#dropdown").show();
+		}
+		
+		function item1(){
+			$("#selectValue").val("");
+			$("#dropdown").hide();
+		}
+		
+		function item2(){
+			$("#selectValue").val("제목");
+			$("#dropdown").hide();
+		}
+		
+		function item3(){
+			$("#selectValue").val("내용");
+			$("#dropdown").hide();
+		}
+		
+		$("document").ready(function(){
+			$("span.title").css("cursor", "pointer").click(function(){
+				let WriteNo = $(this).attr("id");
+				$("#no").val(WriteNo);
+				$("#f").attr("action", "noticeViewProc");
+				$("#f").submit();
+			})
+		});
+		
+	</script>
 </body>
 </html>

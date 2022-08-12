@@ -138,129 +138,50 @@
 							<section>
 								<h3 id="kcarRentC0061" class="centerTit">서울역지점</h3>
 								<div class="infoBox">
-									<div class="mapBox">
-										<div>
-											<div class="mapArea"
-												style="position: relative; overflow: hidden; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/bg_tile.png&quot;);">
-												<div
-													style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; touch-action: none; cursor: url(&quot;https://t1.daumcdn.net/mapjsapi/images/cursor/openhand.cur.ico&quot;) 7 5, url(&quot;https://t1.daumcdn.net/mapjsapi/images/cursor/openhand.cur.ico&quot;), default;">
-													<div style="position: absolute;">
-														<div style="position: absolute; z-index: 0;"></div>
-														<div
-															style="position: absolute; z-index: 1; left: 0px; top: 0px;">
-															<img
-																src="https://map0.daumcdn.net/map_2d/2205pfk/L3/1992/888.png"
-																alt="" draggable="false"
-																style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -22px; top: 202px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-																src="https://map1.daumcdn.net/map_2d/2205pfk/L3/1992/889.png"
-																alt="" draggable="false"
-																style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 234px; top: 202px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-																src="https://map2.daumcdn.net/map_2d/2205pfk/L3/1992/890.png"
-																alt="" draggable="false"
-																style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 490px; top: 202px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-																src="https://map0.daumcdn.net/map_2d/2205pfk/L3/1993/888.png"
-																alt="" draggable="false"
-																style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -22px; top: -54px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-																src="https://map1.daumcdn.net/map_2d/2205pfk/L3/1993/889.png"
-																alt="" draggable="false"
-																style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 234px; top: -54px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-																src="https://map2.daumcdn.net/map_2d/2205pfk/L3/1993/890.png"
-																alt="" draggable="false"
-																style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 490px; top: -54px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-																src="https://map0.daumcdn.net/map_2d/2205pfk/L3/1994/888.png"
-																alt="" draggable="false"
-																style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -22px; top: -310px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-																src="https://map1.daumcdn.net/map_2d/2205pfk/L3/1994/889.png"
-																alt="" draggable="false"
-																style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 234px; top: -310px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img
-																src="https://map2.daumcdn.net/map_2d/2205pfk/L3/1994/890.png"
-																alt="" draggable="false"
-																style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 490px; top: -310px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;">
-														</div>
-														<div style="position: absolute; z-index: 1;"></div>
-														<div
-															style="width: 510px; height: 340px; position: absolute; z-index: 1;"></div>
-														<div style="position: absolute; z-index: 1;">
-															<svg version="1.1"
-																style="stroke: none; stroke-dashoffset: 0.5; stroke-linejoin: round; fill: none; transform: translateZ(0px); position: absolute; width: 2550px; height: 1700px; left: -1020px; top: -680px;"
-																viewBox="0 0 2550 1700">
-																<defs></defs></svg>
-														</div>
-														<div
-															style="position: absolute; z-index: 1; width: 100%; height: 0px; transform: translateZ(0px);">
-															<div
-																style="position: absolute; margin: -69px 0px 0px -27px; z-index: 0; left: 255px; top: 170px;">
-																<img draggable="false"
-																	src="/images/directcenter/icon_map_mark.svg " alt=""
-																	title=""
-																	style="min-width: 0px; min-height: 0px; max-width: 99999px; max-height: none; border: 0px; display: block; position: absolute; user-select: none; -webkit-user-drag: none; clip: rect(0px, 64px, 69px, 0px); top: 0px; left: 0px; width: 64px; height: 69px;">
-															</div>
-														</div>
-													</div>
-												</div>
-												<div
-													style="position: absolute; cursor: default; z-index: 1; margin: 0px 6px; height: 19px; line-height: 14px; left: 0px; bottom: 0px; color: rgb(0, 0, 0);">
-													<div
-														style="color: rgb(0, 0, 0); text-align: center; font-size: 10px; float: left;">
-														<div
-															style="float: left; margin: 2px 3px 0px 4px; height: 6px; transition: width 0.1s ease 0s; border-top: none rgb(0, 0, 0); border-right: 2px solid rgb(0, 0, 0); border-bottom: 2px solid rgb(0, 0, 0); border-left: 2px solid rgb(0, 0, 0); border-image: initial; width: 46px;"></div>
-														<div
-															style="float: left; margin: 0px 4px 0px 0px; font-family: AppleSDGothicNeo-Regular, 돋움, dotum, sans-serif; font-weight: bold; color: rgb(0, 0, 0);">50m</div>
-													</div>
-													<div style="margin: 0px 4px; float: left;">
-														<a target="_blank" href="http://map.kakao.com/"
-															title="Kakao 지도로 보시려면 클릭하세요."
-															style="float: left; width: 32px; height: 10px;"><img
-															src="https://t1.daumcdn.net/mapjsapi/images/m_bi_b.png"
-															alt="Kakao 지도로 이동"
-															style="float: left; width: 32px; height: 10px; border: none;"></a>
-														<div
-															style="font: 11px/11px Arial, Tahoma, Dotum, sans-serif; float: left;"></div>
-													</div>
-												</div>
-												<div
-													style="cursor: auto; position: absolute; z-index: 2; left: 0px; top: 0px;">
-													<div
-														style="width: 32px; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px; position: absolute; left: 475px; top: 3px;">
-														<button draggable="false" title="확대" type="button"
-															style="float: left; cursor: pointer; width: 32px; height: 32px; user-select: none; -webkit-user-drag: none; border-top: none; border-right: none; border-bottom: 1px solid rgb(226, 226, 226); border-left: none; border-image: initial; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) -40px 0px/116px 264px no-repeat rgb(255, 255, 255); border-radius: 3px 3px 0px 0px;"></button>
-														<div
-															style="float: left; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/bg_zoom_control.png&quot;) repeat; padding: 7px 0px; transition: height 0s ease 0s, margin 0.1s ease 0s;">
-															<div
-																style="cursor: pointer; position: relative; background-size: 116px 264px; transition: height 0.1s ease 0s; margin: 2px 0px; display: block; width: 32px; height: 104px;">
-																<div
-																	style="position: absolute; width: 4px; height: 100%; background-color: rgb(51, 150, 255); left: 50%; margin: 0px 0px 0px -2px;">
-																	<div
-																		style="width: 4px; height: 2px; margin-bottom: -2px; bottom: 0px; position: absolute; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) -50px -127px/116px 264px;"></div>
-																	<div
-																		style="width: 4px; height: 2px; margin-top: -2px; top: 0px; position: absolute; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) -40px -100px/116px 264px;"></div>
-																</div>
-																<div
-																	style="position: absolute; background-color: rgb(204, 204, 204); transition: height 0.1s ease 0s; left: 50%; margin: 0px 0px 0px -2px; width: 4px; height: 16px;"></div>
-																<div
-																	style="cursor: row-resize; position: absolute; width: 20px; height: 10px; margin: -4px 0px 0px -10px; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) -40px -80px/116px 264px; left: 50%; transition: top 0.1s ease 0s; top: 16px;"></div>
-															</div>
-														</div>
-														<button draggable="false" title="축소" type="button"
-															style="float: left; cursor: pointer; width: 32px; height: 32px; user-select: none; -webkit-user-drag: none; border-top: 1px solid rgb(226, 226, 226); border-right: none; border-bottom: none; border-left: none; border-image: initial; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) -40px -32px/116px 264px no-repeat rgb(255, 255, 255); border-radius: 0px 0px 3px 3px; margin: 0px;"></button>
-														<div
-															style="position: absolute; margin: 41px 0px 0px -30px; background-size: 116px 264px; width: 30px; height: 104px; display: none;">
-															<div
-																style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) 0px -80px/116px 264px; left: 0px; top: 8px;"></div>
-															<div
-																style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) 0px -100px/116px 264px; left: 0px; top: 32px;"></div>
-															<div
-																style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) 0px -120px/116px 264px; left: 0px; top: 64px;"></div>
-															<div
-																style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) 0px -140px/116px 264px; left: 0px; top: 80px;"></div>
-															<div
-																style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&amp;quot;https://t1.daumcdn.net/mapjsapi/images/control.png&amp;quot;) 0px -160px/116px 264px; left: 0px; top: 96px;"></div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
+								
+								
+									<div id="map" style="width:650px;height:350px;"></div>
+
+										<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=25b6215a33995fb8cff8835aecce271b&libraries=services"></script>
+										<script>
+										var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+										    mapOption = {
+										        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+										        level: 4 // 지도의 확대 레벨(숫자낮을수록 확대)
+										    };  
+										
+										// 지도를 생성합니다    
+										var map = new kakao.maps.Map(mapContainer, mapOption); 
+										
+										// 주소-좌표 변환 객체를 생성합니다
+										var geocoder = new kakao.maps.services.Geocoder();
+										
+										// 주소로 좌표를 검색합니다
+										geocoder.addressSearch('서울특별시 용산구 한강대로 372', function(result, status) {
+										
+										    // 정상적으로 검색이 완료됐으면 
+										     if (status === kakao.maps.services.Status.OK) {
+										
+										        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+										
+										        // 결과값으로 받은 위치를 마커로 표시합니다
+										        var marker = new kakao.maps.Marker({
+										            map: map,
+										            position: coords
+										        });
+										
+										        // 인포윈도우로 장소에 대한 설명을 표시합니다
+										        var infowindow = new kakao.maps.InfoWindow({
+										            content: '<div style="width:150px;text-align:center;padding:6px 0;">서울역지점</div>'
+										        });
+										        infowindow.open(map, marker);
+										
+										        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+										        map.setCenter(coords);
+										    } 
+										});    
+										</script>
+										
 									<div>
 										<ul class="centerInfo">
 											<li><strong>지점주소</strong>
@@ -304,11 +225,51 @@
 							<section>
 								<h3 id="kcarRentC0062" class="centerTit">K Car 렌트 사업부문</h3>
 								<div class="infoBox">
-									<div class="mapBox">
-										<div>
-											<div class="mapArea"></div>
-										</div>
-									</div>
+								
+								
+									<div id="map2" style="width:600px;height:350px;"></div>
+
+										<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=25b6215a33995fb8cff8835aecce271b&libraries=services"></script>
+										<script>
+										var mapContainer = document.getElementById('map2'), // 지도를 표시할 div 
+										    mapOption = {
+										        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+										        level: 4 // 지도의 확대 레벨(숫자낮을수록 확대)
+										    };  
+										
+										// 지도를 생성합니다    
+										var map2 = new kakao.maps.Map(mapContainer, mapOption); 
+										
+										// 주소-좌표 변환 객체를 생성합니다
+										var geocoder = new kakao.maps.services.Geocoder();
+										
+										// 주소로 좌표를 검색합니다
+										geocoder.addressSearch('서울특별시 중구 청계천로 100', function(result, status) {
+										
+										    // 정상적으로 검색이 완료됐으면 
+										     if (status === kakao.maps.services.Status.OK) {
+										
+										        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+										
+										        // 결과값으로 받은 위치를 마커로 표시합니다
+										        var marker = new kakao.maps.Marker({
+										            map2: map2,
+										            position: coords
+										        });
+										
+										        // 인포윈도우로 장소에 대한 설명을 표시합니다
+										        var infowindow = new kakao.maps.InfoWindow({
+										            content: '<div style="width:150px;text-align:center;padding:6px 0;">K Car 렌트 사업부문</div>'
+										        });
+										        infowindow.open(map2, marker);
+										
+										        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+										        map2.setCenter(coords);
+										    } 
+										});    
+										</script>
+									
+									
 									<div>
 										<ul class="centerInfo">
 											<li><strong>지점주소</strong>
@@ -351,11 +312,51 @@
 							<section>
 								<h3 id="kcarRentC0001" class="centerTit">대전지점</h3>
 								<div class="infoBox">
-									<div class="mapBox">
-										<div>
-											<div class="mapArea"></div>
-										</div>
-									</div>
+								
+								
+									<div id="map3" style="width:600px;height:350px;"></div>
+
+										<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=25b6215a33995fb8cff8835aecce271b&libraries=services"></script>
+										<script>
+										var mapContainer = document.getElementById('map3'), // 지도를 표시할 div 
+										    mapOption = {
+										        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+										        level: 4 // 지도의 확대 레벨(숫자낮을수록 확대)
+										    };  
+										
+										// 지도를 생성합니다    
+										var map3 = new kakao.maps.Map(mapContainer, mapOption); 
+										
+										// 주소-좌표 변환 객체를 생성합니다
+										var geocoder = new kakao.maps.services.Geocoder();
+										
+										// 주소로 좌표를 검색합니다
+										geocoder.addressSearch('대전광역시 유성구 온천로 45', function(result, status) {
+										
+										    // 정상적으로 검색이 완료됐으면 
+										     if (status === kakao.maps.services.Status.OK) {
+										
+										        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+										
+										        // 결과값으로 받은 위치를 마커로 표시합니다
+										        var marker = new kakao.maps.Marker({
+										            map3: map3,
+										            position: coords
+										        });
+										
+										        // 인포윈도우로 장소에 대한 설명을 표시합니다
+										        var infowindow = new kakao.maps.InfoWindow({
+										            content: '<div style="width:150px;text-align:center;padding:6px 0;">대전지점</div>'
+										        });
+										        infowindow.open(map3, marker);
+										
+										        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+										        map3.setCenter(coords);
+										    } 
+										});    
+										</script>
+									
+									
 									<div>
 										<ul class="centerInfo">
 											<li><strong>지점주소</strong>
@@ -399,14 +400,14 @@
 						<div class="el-row">
 							<div class="repairShopArea">
 								<ul class="shopLists">
-									<li><a href="./RentGnrlCenter"><div>
+									<li><a href="rentNormalRepair"><div>
 												<strong> 렌트일반정비소 </strong>
 												<p>
 													일반 수리 및 차량 점검, 소모품교환이 필요할 때 <br>가까운 렌트일반정비소를 방문해 서비스를
 													이용해보세요.
 												</p>
 											</div></a></li>
-									<li><a href="./RentAccidentCenter"><div>
+									<li><a href="rentAccidentRepair"><div>
 												<strong> 렌트사고정비소 </strong>
 												<p>
 													24시간 사고·고장 발생 시 접수부터 수리까지 신속하고 편리하게! <br>전국 언제 어디서나 믿고

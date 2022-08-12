@@ -110,6 +110,8 @@
 					</div>
 					<div class="tabsWrap el-row">
 						<div class="tabsCol02 el-tabs el-tabs--top">
+						
+						
 							<div class="el-tabs__header is-top">
 								<div class="el-tabs__nav-wrap is-top">
 									<div class="el-tabs__nav-scroll">
@@ -117,12 +119,26 @@
 											style="transform: translateX(0px);">
 											<div class="el-tabs__active-bar is-top"
 												style="width: 610px; transform: translateX(0px);"></div>
+											
+											
+												
 											<div id="tab-innertab01" aria-controls="pane-innertab01"
 												role="tab" aria-selected="true" tabindex="0"
-												class="el-tabs__item is-top is-active">신차렌트</div>
+												class="el-tabs__item is-top is-active">
+<!-- 												<button class="tab-button" data-tab-section="tab-section-1"> -->
+												신차렌트
+<!-- 												</button> -->
+												</div>
+												
 											<div id="tab-innertab02" aria-controls="pane-innertab02"
-												role="tab" tabindex="-1" class="el-tabs__item is-top">신차렌트
+												role="tab" tabindex="-1" class="el-tabs__item is-top">
+<!-- 												<button class="tab-button" data-tab-section="tab-section-2"> -->
+												신차렌트
+<!-- 												</button> -->
 												이용안내</div>
+												
+											
+												
 										</div>
 									</div>
 								</div>
@@ -130,7 +146,10 @@
 							<div class="el-tabs__content">
 								<div role="tabpanel" id="pane-innertab01"
 									aria-labelledby="tab-innertab01" class="el-tab-pane">
+									
+<!-- 									<section id="tab-section-1" class="tab-section"> -->
 									<div class="newRent">
+									
 										<h4 class="tit02">케이카 인기차종</h4>
 										<p class="txt02 mT8">놓치면 아쉬울 신차 TOP 14!</p>
 										<div class="newRentWrap">
@@ -288,11 +307,17 @@
 											</div>
 										</div>
 									</div>
+									</section>
+									
+									
 								</div>
 								<div role="tabpanel" aria-hidden="true" id="pane-innertab02"
 									aria-labelledby="tab-innertab02" class="el-tab-pane"
 									style="display: none;">
+									
+<!-- 									<section id="tab-section-2" class="tab-section" hidden> -->
 									<div class="newRentInfo">
+									
 										<h4 class="tit02">신차렌트, 무엇이 좋나요?</h4>
 										<p class="txt02 mT8">신차 구매보다 합리적인 신차렌트의 장점을 확인해 보세요.</p>
 										<div class="table_ty01 mT40">
@@ -423,6 +448,31 @@
 											</ul>
 										</div>
 									</div>
+									</section>
+									<script>
+    const $nav = document.querySelector('#tab-button-nav')
+    const $sections = document.querySelectorAll('.tab-section');
+
+    $nav.addEventListener('click', (e) => {
+      if (!e.target.classList.contains('tab-button')) {
+        return;
+      }
+      
+      const focusedTabId = e.target.dataset.tabSection;
+
+      $sections.forEach(($section) => {
+        if ($section.id === focusedTabId) {
+          $section.removeAttribute('hidden');
+        } else {
+          $section.setAttribute('hidden', true);
+        }
+      });
+    });
+  </script>
+									
+									
+									
+									
 								</div>
 							</div>
 						</div>
