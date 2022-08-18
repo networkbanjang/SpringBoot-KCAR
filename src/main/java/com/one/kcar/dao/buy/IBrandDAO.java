@@ -45,5 +45,7 @@ public interface IBrandDAO {
 
 	int insertReview(@Param("c_c_index")String c_c_index,@Param("m_r_title") String m_r_title,@Param("m_r_review") String m_r_review,@Param("m_r_registDate") String m_r_registDate,@Param("m_r_image") String m_r_image);
 
+	int insertCarPhoto(@Param("c_num")String c_num,@Param("c_p_photoNum") String c_p_photoNum,@Param("c_p_photo") String c_p_photo);
+
 	
 }

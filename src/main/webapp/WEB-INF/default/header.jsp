@@ -112,7 +112,7 @@
 				<!---->
 				<c:choose>
 					<c:when test="${empty sessionScope.id }">
-						<a href="logins"><span>로그인</span></a>
+						<a href="/logins"><span>로그인</span></a>
 						<a href="register"><span>회원가입</span></a>
 					</c:when>
 					<c:otherwise>

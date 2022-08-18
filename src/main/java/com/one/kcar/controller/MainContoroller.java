@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +25,8 @@ public class MainContoroller {
 	private buyReviewService buyReviewService;
 	@Autowired
 	private homeService homeService;
-	
+	@Autowired
+	private detailService detailService;
 	//차량검색
 	@GetMapping(value = "vehicleSearch")
 	public String vehicleSearch() {
@@ -114,16 +116,24 @@ public class MainContoroller {
 	}
 	//구매차량정보
 	@GetMapping(value="detail/carInfo")
-	public String carInfo() {
+	public String carInfo(@RequestParam(value="c_num", required=false)String c_num,Model model) {
+		if(c_num == null || c_num.isEmpty()) 
+			return "myCarScam/brandCar";
+		
+		detailService.carDetail(c_num,model);
 		return "myCarScam/detail/carInfo";
 	}
-	//구매차량정보 3D (3D는 못가져옴,,)
-	@GetMapping(value="detail/carInfoVr")
-	public String carInfoVr() {
-		return "myCarScam/detail/carInfoVr";
+	@ResponseBody
+	@PostMapping(value="detail/installmentChange",produces = "text/html;charset=utf-8")
+	public Map<String, String> installmentChange(@RequestBody(required = false) Map<String,String> data) {
+		System.out.println("d");
+		String c_price = data.get("c_price");
+		String installmentIndex = data.get("installmentIndex");
+		int index = Integer.parseInt(installmentIndex);
+		Map<String,String> installmentAjax = detailService.installmentChange(c_price,index);
+		System.out.println(installmentAjax);
+		return installmentAjax;
 	}
-	
-	
 	//DB 대량데이터 INSERT용
 	@Autowired
 	private insertService inserService;
@@ -159,6 +169,12 @@ public class MainContoroller {
 	@GetMapping(value="insertReview")
 	public String insertReview() throws FileNotFoundException, IOException {
 		String msg = inserService.insertReview();
+		return "redirect:/brandCar";
+	}
+	
+	@GetMapping(value="insertCarPhoto")
+	public String insertCarPhoto() throws FileNotFoundException, IOException {
+		String msg = inserService.insertCarPhoto();
 		return "redirect:/brandCar";
 	}
 }

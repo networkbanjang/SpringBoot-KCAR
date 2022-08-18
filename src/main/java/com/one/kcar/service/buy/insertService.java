@@ -183,4 +183,28 @@ public class insertService {
 		return "model테이블 insert 성공";
 	}
 
+	public String insertCarPhoto() throws FileNotFoundException, IOException {
+		ClassPathResource resource = new ClassPathResource("carPhoto.json");
+		FileReader reader = new FileReader(resource.getFile());
+
+		Gson gson = new Gson();
+		JsonObject obj = gson.fromJson(reader, JsonObject.class);
+
+		JsonArray arr = obj.getAsJsonArray("carPhoto");
+
+		for (int i = 0; i < arr.size(); i++) {
+			JsonObject tmp = (JsonObject) arr.get(i);
+			
+			String c_num = tmp.get("c_num").getAsString();
+			String c_p_photoNum = tmp.get("c_p_photoNum").getAsString();
+			String c_p_photo = tmp.get("c_p_photo").getAsString();
+			
+			int result = brandDao.insertCarPhoto(c_num, c_p_photoNum,c_p_photo);
+			if (result != 1) {
+				return "model테이블 insert 실패";
+			}
+		}
+		return "model테이블 insert 성공";
+	}
+
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.one.kcar.dao.buy.ICarDetailDAO">
+	<select id="car" parameterType="String" resultType="com.one.kcar.dto.buy.CarDTO">
+		SELECT * FROM KCAR_CAR WHERE c_num=#{c_num}
+	</select>
+	<select id="carInfo" parameterType="String" resultType="com.one.kcar.dto.buy.CarInfoDTO">
+		SELECT * FROM KCAR_CAR_INFO WHERE c_num=#{c_num}
+	</select>
+	<select id="carPhotoList" parameterType="String" resultType="com.one.kcar.dto.buy.CarPhotoDTO">
+		SELECT * FROM KCAR_CAR_PHOTO WHERE c_num=#{c_num} ORDER BY c_p_photoNum
+	</select>
+	<select id="carOptionPhoto" resultType="com.one.kcar.dto.buy.CarOptionPhotoDTO">
+		SELECT * FROM KCAR_CAR_OPTION_PHOTO
+	</select>
+	<select id="carOption" parameterType="String" resultType="com.one.kcar.dto.buy.CarOptionDTO">
+		SELECT * FROM KCAR_CAR_OPTION WHERE c_num=#{c_num}
+	</select>
+	<select id="quesionList" resultType="com.one.kcar.dto.buy.QuestionDTO">
+		SELECT * FROM KCAR_QUESTION WHERE q_classification = '브랜드'
+	</select>
+	<select id="reviewList" resultType="com.one.kcar.dto.buy.BuyReviewDTO">
+		SELECT * FROM kcar_buy_review WHERE ROWNUM <![CDATA[<=]]> 3 ORDER BY c_c_index desc
+	</select>
+</mapper>

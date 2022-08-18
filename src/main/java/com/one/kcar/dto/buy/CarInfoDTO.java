@@ -47,7 +47,6 @@ public class CarInfoDTO {
 	public void setC_i_insurance(String c_i_insurance) {
 		this.c_i_insurance = c_i_insurance;
 	}
-
 	
 	
 }

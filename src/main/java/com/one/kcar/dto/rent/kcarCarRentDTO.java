@@ -14,6 +14,7 @@ crFuel varchar2(20) not null,
 crNewPrice varchar2(15) not null,
 crGrade varchar2(15) not null,
 crSpecialPrice varchar2(15) null,
+crBrand varchar2(25) null,
 constraint pkCr primary key (crNumber)
 );
  */
