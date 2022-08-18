@@ -6,6 +6,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
@@ -16,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.one.kcar.dto.rent.kcarCarRentDTO;
 import com.one.kcar.service.rent.IRentService;
 import com.one.kcar.service.rent.rentCarService;
 
@@ -52,29 +57,6 @@ public class RentController {
 			return "rent/rentShop";
 		}
 		
-		@RequestMapping(value = "test")
-		public String test() {
-			return "rent/test";
-		}
-		
-		@RequestMapping(value = "modalTest")
-		public String modalTest() {
-			return "rent/modalTest";
-		}
-		
-		@RequestMapping(value = "map1")
-		public String map1() {
-			return "rentRepairMap/map1";
-		}
-		
-//		@RequestMapping(value = "test")
-//		public String rnList(Model model, @RequestParam(required=false, defaultValue = "1") String select, String search) {
-//			rentService.rnList(select, search);
-//			ArrayList<Kcar_Repair_NormalDTO> rnList = rentService.rnList();
-//			model.addAttribute("rnList", rnList);
-//			System.out.println(rnList);
-//			return "rent/test";
-//		}
 		
 		@Autowired private IRentService rentService;
 		@Autowired private rentCarService carRentService;
@@ -94,13 +76,45 @@ public class RentController {
 			return "rent/rentAccidentRepair";
 		}
 		
-		@GetMapping("rentUsed")
-		public String rentUsed() {
+		//중고차렌트
+		@RequestMapping(value = "rentUsed")
+		public String rentUsed(Model model) {
+			carRentService.kcarCarRentList(model);
 			return "rent/rentUsed";
 		}
+		
+		//중고차렌트 상세페이지
+		@RequestMapping(value = "rentUsedInfo")
+		public String rentUsedInfo() {
+			return "rent/rentUsedInfo";
+		}
+		
+		@GetMapping(value="rentUsedInfoProc")
+		public String ruiProc(HttpServletRequest request, String crNumber, Model model) {
+			crNumber = request.getParameter("crNumber");
+//			System.out.println(crNumber);
+			if(crNumber == null || crNumber.isEmpty())
+				return "rent/rentUsed";
+			else{
+				kcarCarRentDTO kcar = carRentService.rentUsedInfo(crNumber);
+				model.addAttribute("rentUsedInfo",kcar);
+				return "rent/rentUsedInfo";
+			}
+		}
+		
+		//JSON파일 DTO로 전송
 		@ResponseBody
-		@PostMapping(value = "rentUsed")
-		public String rentUsedPost() throws FileNotFoundException, IOException {
+		@GetMapping(value = "rentUsedInsert", produces = "text/html; charset=UTF-8")
+		public String rentUsed3Insert() throws FileNotFoundException, IOException {
+			int result = carRentService.insert();
+			if(result == 0)
+				return "DB 입력 실패";
+			return "파일 -> DB로 이전 완료";
+		}
+		
+		@ResponseBody
+		@PostMapping(value = "rentUsed22")
+		public String rentUsed22Post() throws FileNotFoundException, IOException {
 			ClassPathResource resource = new ClassPathResource("kcarCarRent.json");
 			FileReader reader = new FileReader(resource.getFile());
 			BufferedReader buffer = new BufferedReader(reader);
@@ -117,21 +131,12 @@ public class RentController {
 			return data;
 		}
 		
-		@GetMapping("rentUsed3")
-		public String rentUsed3() {
-			return "rent/rentUsed3";
-		}
 		
-		@ResponseBody
-		@PostMapping(value = "rentUsed3")
-		public String rentUsed3(@RequestBody(required = false) HashMap<String, String> map) {
-			return carRentService.choose(map);
-		}
 		
-//		@RequestMapping(value = "rentUsed")
-//		public String kcarCarRentList(@RequestParam(required=false, defaultValue = "1") String select, String search) {
-//			String check = carRentService.kcarCarRentList();
-//			return "rent/rentUsed";
+//		@ResponseBody
+//		@PostMapping(value = "rentUsed3")
+//		public String rentUsed3(@RequestBody(required = false) HashMap<String, String> map) {
+//			return carRentService.choose(map);
 //		}
 		
 //		@RequestMapping(value = "rentUsed")

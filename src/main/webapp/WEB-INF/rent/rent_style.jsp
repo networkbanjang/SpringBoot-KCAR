@@ -6673,7 +6673,8 @@ to {
 
 }
 .el-row {
-	box-sizing: border-box
+	box-sizing: border-box;
+	
 }
 
 .el-row:after, .el-row:before {

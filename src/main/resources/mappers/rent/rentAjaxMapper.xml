@@ -9,6 +9,13 @@
 <!-- </mapper> -->
 
 <mapper namespace="com.one.kcar.dao.rent.IKcarCarRentDAO">
+	<insert id="insert" parameterType="com.one.kcar.dto.rent.kcarCarRentDTO">
+		INSERT INTO kcarCarRent
+		VALUES(#{crNumber}, #{crPrice}, #{crMonth}, #{crFirstPrice}, #{crCc}, #{crYear},
+		 #{crColor}, #{crDistance}, #{crMission}, #{crFuel}, #{crNewPrice},
+		 #{crGrade}, #{crSpecialPrice}, #{crBrand}, #{crpPhoto}, #{crName})
+	</insert>
+	
 	<select id="kcarCarRentList" resultType="com.one.kcar.dto.rent.kcarCarRentDTO">
 		SELECT * FROM kcarCarRent
 	</select>
@@ -19,45 +26,49 @@
 				crNumber like '%'||#{inputData}||'%'
 			</if>
 			<if test="sel.equals('crPrice')">
-				crPrice like '%'||#{crPrice}||'%'
+				crPrice like '%'||#{inputData}||'%'
 			</if>
 			<if test="sel.equals('crMonth')">
-				crMonth like '%'||#{crMonth}||'%'
+				crMonth like '%'||#{inputData}||'%'
 			</if>
 			<if test="sel.equals('crFirstPrice')">
-				crFirstPrice like '%'||#{crFirstPrice}||'%'
+				crFirstPrice like '%'||#{inputData}||'%'
 			</if>
 			<if test="sel.equals('crCc')">
-				crCc like '%'||#{crCc}||'%'
+				crCc like '%'||#{inputData}||'%'
 			</if>
 			<if test="sel.equals('crYear')">
-				crYear like '%'||#{crYear}||'%'
+				crYear like '%'||#{inputData}||'%'
 			</if>
 			<if test="sel.equals('crColor')">
-				crColor like '%'||#{crColor}||'%'
+				crColor like '%'||#{inputData}||'%'
 			</if>
 			<if test="sel.equals('crDistance')">
-				crDistance like '%'||#{crDistance}||'%'
+				crDistance like '%'||#{inputData}||'%'
 			</if>
 			<if test="sel.equals('crMission')">
-				crMission like '%'||#{crMission}||'%'
+				crMission like '%'||#{inputData}||'%'
 			</if>
 			<if test="sel.equals('crFuel')">
-				crFuel like '%'||#{crFuel}||'%'
+				crFuel like '%'||#{inputData}||'%'
 			</if>
 			<if test="sel.equals('crNewPrice')">
-				crNewPrice like '%'||#{crNewPrice}||'%'
+				crNewPrice like '%'||#{inputData}||'%'
 			</if>
 			<if test="sel.equals('crGrade')">
-				crGrade like '%'||#{crGrade}||'%'
+				crGrade like '%'||#{inputData}||'%'
 			</if>
 			<if test="sel.equals('crSpecialPrice')">
-				crSpecialPrice like '%'||#{crSpecialPrice}||'%'
+				crSpecialPrice like '%'||#{inputData}||'%'
 			</if>
 			<if test="sel.equals('crBrand')">
 				crBrand like '%'||#{inputData}||'%'
 			</if>
 		</where>
+	</select>
+	
+	<select id="rentUsedInfo" resultType="com.one.kcar.dto.rent.kcarCarRentDTO">
+		SELECT * FROM kcarCarRent WHERE crNumber=#{crNumber}
 	</select>
 </mapper>
 
