@@ -145,19 +145,16 @@
 										</ul>
 									</div>
 								</div>
-								
 								<!-- 여기가 이미지슬라이딩 파트 -->
 								
   								<div id="slideShow">
 								    <ul class="slides">
-								    <c:forEach var="crPhotoList" items="${crPhotoList }">
-								      <li><img src="${crPhotoList.crpPhoto }" alt=""></li>
-<!-- 								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_005.jpg?1660884326016" alt=""></li> -->
-<!-- 								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_006.jpg?1660884326016" alt=""></li> -->
-<!-- 								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_007.jpg?1660884326016" alt=""></li> -->
-<!-- 								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_008.jpg?1660884326016" alt=""></li> -->
-<!-- 								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_009.jpg?1660884326016" alt=""></li> -->
-								    </c:forEach>
+								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_004.jpg?1660884326016" alt=""></li>
+								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_005.jpg?1660884326016" alt=""></li>
+								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_006.jpg?1660884326016" alt=""></li>
+								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_007.jpg?1660884326016" alt=""></li>
+								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_008.jpg?1660884326016" alt=""></li>
+								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_009.jpg?1660884326016" alt=""></li>
 								    </ul>  
 								    <p class="controller">
 								      
@@ -205,12 +202,22 @@
   								});
   								</script>
 								
-								<!-- 일단 여기까지 이미지 슬라이딩 & 스크립트 -->
+								<!-- 일단 여기까지 이미지 슬라이딩 -->
 								
 							</div>
 							<div class="carInfoDetailWrap" data-v-ec1dd4fa="">
 								<div class="carInfoLeft" data-v-ec1dd4fa="">
-									
+									<ul class="snsCtaLists" style="margin-top: 0rem;"
+										data-v-ec1dd4fa="">
+										<li class="item1" data-v-ec1dd4fa=""><a
+											data-v-ec1dd4fa="">공유</a></li>
+										<li class="item3" data-v-ec1dd4fa=""><a
+											data-v-ec1dd4fa="">관심차량</a></li>
+										<li class="item4" data-v-ec1dd4fa=""><a
+											data-v-ec1dd4fa="">PC에 저장</a></li>
+										<li class="item5" data-v-ec1dd4fa=""><a
+											data-v-ec1dd4fa="">인쇄</a></li>
+									</ul>
 									<ul class="carOptionLists" data-v-ec1dd4fa="">
 										<li data-v-ec1dd4fa=""><button type="button"
 												class="el-button el-button--default" data-v-ec1dd4fa="">
@@ -482,47 +489,44 @@
 												해야합니다. -A/S불가 항목 블랙박스 및 기타 소모품은 렌트비에 미반영된 항목으로 A/S가 불가합니다.</div></li>
 										<li id="menu4" data-menu-section="4" data-v-ec1dd4fa=""><h2
 												class="infoHead2 pT100" data-v-ec1dd4fa="">
-												이미지만 나온부분은 <span data-v-ec1dd4fa="">옵션이 없는 차량입니다.</span>
+												편안하게 타실 수 있도록, <span data-v-ec1dd4fa="">옵션까지 한눈에
+													보여드립니다.</span>
 											</h2>
 											<div class="carOptions" data-v-ec1dd4fa="">
 												<ul class="iconLists" data-v-ec1dd4fa="">
-													<li data-v-ec1dd4fa="">
-													<img src="https://www.kcar.com/images/carInfo/icon-detail-option-02.svg" /> 
-													<span data-v-ec1dd4fa="">${rentOptionInfo.croSunRoof }</span>
-													</li>
-													<li data-v-ec1dd4fa="">
-													<img src="https://www.kcar.com/images/carInfo/icon-detail-option-11.svg" /> 
-													<span data-v-ec1dd4fa="">${rentOptionInfo.croHiPass }</span>
-													</li>
-													<li data-v-ec1dd4fa="">
-													<img src="https://www.kcar.com/images/carInfo/icon-detail-option-08.svg" /> 
-													<span data-v-ec1dd4fa="">${rentOptionInfo.croBackSensor }</span>
-													</li>
-													<li data-v-ec1dd4fa="">
-													<img src="https://www.kcar.com/images/carInfo/icon-detail-option-09.svg" /> 
-													<span data-v-ec1dd4fa="">${rentOptionInfo.croCamera }</span>
-													</li>
-													<li data-v-ec1dd4fa="">
-													<img src="https://www.kcar.com/images/carInfo/icon-detail-option-07.svg" /> 
-													<span data-v-ec1dd4fa="">${rentOptionInfo.croNavigation }</span>
-													</li>
-													<li data-v-ec1dd4fa="">
-													<img src="https://www.kcar.com/images/carInfo/icon-detail-option-16.svg" /> 
-													<span data-v-ec1dd4fa="">${rentOptionInfo.croHandleHot }</span>
-													</li>
-													<li data-v-ec1dd4fa="">
-													<img src="https://www.kcar.com/images/carInfo/icon-detail-option-19.svg" /> 
-													<span data-v-ec1dd4fa="">${rentOptionInfo.croAirBag }</span>
-													</li>
-													<li data-v-ec1dd4fa="">
-													<img src="https://www.kcar.com/images/carInfo/icon-detail-option-06.svg" /> 
-													<span data-v-ec1dd4fa="">${rentOptionInfo.croSmartKey }</span>
-													</li>
-													<li data-v-ec1dd4fa="">
-													<img src="https://www.kcar.com/images/carInfo/icon-detail-option-17.svg" /> 
-													<span data-v-ec1dd4fa="">${rentOptionInfo.croBlackBox }</span>
-													</li>
-													
+													<li data-v-ec1dd4fa=""><i data-v-ec1dd4fa=""
+														class="icon-detail-option-11"></i> <span
+														data-v-ec1dd4fa="">하이패스</span></li>
+													<li data-v-ec1dd4fa=""><i data-v-ec1dd4fa=""
+														class="icon-detail-option-03"></i> <span
+														data-v-ec1dd4fa="">가죽시트</span></li>
+													<li data-v-ec1dd4fa=""><i data-v-ec1dd4fa=""
+														class="icon-detail-option-04"></i> <span
+														data-v-ec1dd4fa="">열선시트</span></li>
+													<li data-v-ec1dd4fa=""><i data-v-ec1dd4fa=""
+														class="icon-detail-option-05"></i> <span
+														data-v-ec1dd4fa="">통풍시트</span></li>
+													<li data-v-ec1dd4fa=""><i data-v-ec1dd4fa=""
+														class="icon-detail-option-06"></i> <span
+														data-v-ec1dd4fa="">스마트키</span></li>
+													<li data-v-ec1dd4fa=""><i data-v-ec1dd4fa=""
+														class="icon-detail-option-07"></i> <span
+														data-v-ec1dd4fa="">내비게이션</span></li>
+													<li data-v-ec1dd4fa=""><i data-v-ec1dd4fa=""
+														class="icon-detail-option-08"></i> <span
+														data-v-ec1dd4fa="">후측방 경보시스템</span></li>
+													<li data-v-ec1dd4fa=""><i data-v-ec1dd4fa=""
+														class="icon-detail-option-12"></i> <span
+														data-v-ec1dd4fa="">LDWS:차선이탈경보 시스템</span></li>
+													<li data-v-ec1dd4fa=""><i data-v-ec1dd4fa=""
+														class="icon-detail-option-14"></i> <span
+														data-v-ec1dd4fa="">스마트 크루즈컨트롤</span></li>
+													<li data-v-ec1dd4fa=""><i data-v-ec1dd4fa=""
+														class="icon-detail-option-16"></i> <span
+														data-v-ec1dd4fa="">핸들열선</span></li>
+													<li data-v-ec1dd4fa=""><i data-v-ec1dd4fa=""
+														class="icon-detail-option-18"></i> <span
+														data-v-ec1dd4fa="">무선충전</span></li>
 												</ul>
 											</div>
 											<div class="searchTrigger box Large DarkColor mT24 el-row"
@@ -1515,58 +1519,7 @@
 												<span class="swiper-notification" aria-live="assertive"
 													aria-atomic="true"></span>
 											</div>
-											<div>
-												<div>
-													<div class="el-dialog__wrapper popup confirm noTitle"
-														style="display: none;">
-														<div role="dialog" aria-modal="true"
-															aria-label="관심 차량 등록 알림" class="el-dialog"
-															style="margin-top: 15vh;">
-															<div class="el-dialog__header">
-																<span class="el-dialog__title">관심 차량 등록 알림</span>
-																<button type="button" aria-label="Close"
-																	class="el-dialog__headerbtn">
-																	<i class="el-dialog__close el-icon el-icon-close"></i>
-																</button>
-															</div>
-															<!---->
-															<div class="el-dialog__footer">
-																<span class="dialog-footer"><div></div></span>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div>
-												<div>
-													<div class="el-dialog__wrapper popup popCenter  active"
-														style="display: none;">
-														<div role="dialog" aria-modal="true"
-															aria-label="관심 차량 등록 알림" class="el-dialog"
-															style="margin-top: 15vh;">
-															<div class="el-dialog__header">
-																<span class="el-dialog__title">관심 차량 등록 알림</span>
-																<button type="button" aria-label="Close"
-																	class="el-dialog__headerbtn">
-																	<i class="el-dialog__close el-icon el-icon-close"></i>
-																</button>
-															</div>
-															<!---->
-															<div class="el-dialog__footer">
-																<span class="dialog-footer"><div
-																		class="footerBtnWrap">
-																		<div class="searchTrigger box multBtn el-row">
-																			<button id="" class="button chosenApply">취소
-																			</button>
-																			<button id="mkt_intrstCarAplId" class="button apply">
-																				신청하기</button>
-																		</div>
-																	</div></span>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
+											
 											<div class="el-dialog__wrapper popup confirm noTitle"
 												style="display: none;">
 												<div role="dialog" aria-modal="true" aria-label="dialog"

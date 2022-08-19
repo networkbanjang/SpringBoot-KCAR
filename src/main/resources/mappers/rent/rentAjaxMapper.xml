@@ -70,6 +70,67 @@
 	<select id="rentUsedInfo" resultType="com.one.kcar.dto.rent.kcarCarRentDTO">
 		SELECT * FROM kcarCarRent WHERE crNumber=#{crNumber}
 	</select>
+	
+	<select id="crPhotoList" resultType="com.one.kcar.dto.rent.kcarCarRentPhotoDTO">
+		SELECT * FROM kcarCarRentPhoto WHERE crNumber=#{crNumber}
+	</select>
+	
+	<select id="rentOptionInfo" resultType="com.one.kcar.dto.rent.kcarCarRentOptionDTO">
+		SELECT * FROM kcarCarRentOption WHERE crNumber=#{crNumber}
+	</select>
+	<!--
+	<select id="optionList"	resultType="com.one.kcar.dto.rent.kcarCarRentDTO">
+		select * from kcarCarRent a left join kcarCarRentOption b on a.crnumber =
+		b.crnumber
+		<choose>
+			<when test="!brand.equals('')">
+				WHERE crbrand = #{brand}
+				<if test="!model.equals('')"> and crname = #{model}</if>
+				<if test="!list.isEmpty()">
+					<foreach collection="list" item="detail">
+						<if test="detail.equals('에어백')"> and croairbag='에어백'</if>
+						<if test="detail.equals('네비게이션')"> and cronavigation='네비게이션'</if>
+						<if test="detail.equals('하이패스')"> and crohiPass='하이패스'</if>
+						<if test="detail.equals('후방센서')"> and crobackSensor='후방센서'</if>
+						<if test="detail.equals('후방카메라')"> and crocamera ='후방카메라'</if>
+						<if test="detail.equals('핸들열선')"> and crohandleHot ='핸들열선'</if>
+						<if test="detail.equals('스마트키')"> and crosmartKey ='스마트키'</if>
+						<if test="detail.equals('블랙박스')"> and croblackBox ='블랙박스'</if>
+						<if test="detail.equals('선루프')"> and crosunRoof ='선루프'</if>
+					</foreach>
+				</if>
+			</when>
+			<when test="!model.equals('')">
+				where crname = #{model}
+				<foreach collection="list" item="detail">
+					<if test="detail.equals('에어백')"> and croairbag='에어백'</if>
+					<if test="detail.equals('네비게이션')"> and cronavigation='네비게이션'</if>
+					<if test="detail.equals('하이패스')"> and crohiPass='하이패스'</if>
+					<if test="detail.equals('후방센서')"> and crobackSensor='후방센서'</if>
+					<if test="detail.equals('후방카메라')"> and crocamera ='후방카메라'</if>
+					<if test="detail.equals('핸들열선')"> and crohandleHot ='핸들열선'</if>
+					<if test="detail.equals('스마트키')"> and crosmartKey ='스마트키'</if>
+					<if test="detail.equals('블랙박스')"> and croblackBox ='블랙박스'</if>
+					<if test="detail.equals('선루프')"> and crosunRoof ='선루프'</if>
+				</foreach>
+			</when>
+			<otherwise>
+				where a.crnumber is not null
+				<foreach collection="list" item="detail">
+					<if test="detail.equals('에어백')"> and croairbag='에어백'</if>
+					<if test="detail.equals('네비게이션')"> and cronavigation='네비게이션'</if>
+					<if test="detail.equals('하이패스')"> and crohiPass='하이패스'</if>
+					<if test="detail.equals('후방센서')"> and crobackSensor='후방센서'</if>
+					<if test="detail.equals('후방카메라')"> and crocamera ='후방카메라'</if>
+					<if test="detail.equals('핸들열선')"> and crohandleHot ='핸들열선'</if>
+					<if test="detail.equals('스마트키')"> and crosmartKey ='스마트키'</if>
+					<if test="detail.equals('블랙박스')"> and croblackBox ='블랙박스'</if>
+					<if test="detail.equals('선루프')"> and crosunRoof ='선루프'</if>
+				</foreach>
+			</otherwise>
+
+		</choose>
+	</select>   -->
 </mapper>
 
 

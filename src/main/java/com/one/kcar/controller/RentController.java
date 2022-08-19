@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +23,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.one.kcar.dto.rent.kcarCarRentDTO;
+import com.one.kcar.dto.rent.kcarCarRentOptionDTO;
+import com.one.kcar.dto.rent.kcarCarRentPhotoDTO;
 import com.one.kcar.service.rent.IRentService;
 import com.one.kcar.service.rent.rentCarService;
 
@@ -85,8 +88,15 @@ public class RentController {
 		
 		//중고차렌트 상세페이지
 		@RequestMapping(value = "rentUsedInfo")
-		public String rentUsedInfo() {
+		public String rentUsedInfo(Model model2) {
+//			carRentService.crPhotoList(model2);
 			return "rent/rentUsedInfo";
+		}
+		
+		//중고차렌트 상세페이지
+		@RequestMapping(value = "rentUsedInfo22")
+		public String rentUsedInfo22() {
+			return "rent/rentUsedInfo22";
 		}
 		
 		@GetMapping(value="rentUsedInfoProc")
@@ -98,9 +108,20 @@ public class RentController {
 			else{
 				kcarCarRentDTO kcar = carRentService.rentUsedInfo(crNumber);
 				model.addAttribute("rentUsedInfo",kcar);
+				ArrayList<kcarCarRentPhotoDTO> crPhotoList = carRentService.crPhotoList(crNumber);
+				model.addAttribute("crPhotoList", crPhotoList);
+				kcarCarRentOptionDTO option = carRentService.rentOptionInfo(crNumber);
+				model.addAttribute("rentOptionInfo", option);
 				return "rent/rentUsedInfo";
 			}
 		}
+		
+		//상세페이지 이미지슬라이딩 리스트
+//		@RequestMapping(value = "rentUsedInfo")
+//		public String rentUsedInfoPhoto(Model model) {
+//			carRentService.crPhotoList(model);
+//			return "rent/rentUsedInfo";
+//		}
 		
 		//JSON파일 DTO로 전송
 		@ResponseBody

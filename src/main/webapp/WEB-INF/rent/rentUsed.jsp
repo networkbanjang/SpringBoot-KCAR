@@ -175,14 +175,6 @@
 											
 											</div>
 											
-											<ul data-v-86c920d0="" class="infoLabel">
-												<li data-v-86c920d0="" class="redLabel">특가</li>
-												<li data-v-86c920d0="" class="redLabel">렌트</li>
-												<li data-v-86c920d0="" class="grayLabel">선루프</li>
-												<li data-v-86c920d0="" class="grayLabel">네비게이션</li>
-												<li data-v-86c920d0="" class="grayLabel">후방카메라</li>
-											</ul>
-											
 										</div>
 									
 									</div>

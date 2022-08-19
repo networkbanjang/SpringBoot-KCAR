@@ -16,19 +16,23 @@ public interface IKcarCarRentDAO {
 	
 	void insertKcarCarRent(kcarCarRentDTO kcarCarRent);
 	
-	void insertKcarCarRentOption(kcarCarRentOptionDTO kcarCarRentOption);
+//	void insertKcarCarRentOption(kcarCarRentOptionDTO kcarCarRentOption);
 	
-	void insertKcarCarRentPhoto(kcarCarRentPhotoDTO kcarCarRentPhoto);
+//	void insertKcarCarRentPhoto(kcarCarRentPhotoDTO kcarCarRentPhoto);
 	
-	void insertKcarCarRentInfo(kcarCarRentInfoDTO kcarCarRentInfo);
+//	void insertKcarCarRentInfo(kcarCarRentInfoDTO kcarCarRentInfo);
 	
 	//AJAX부분
 	int insert(kcarCarRentDTO carRentdto);
 
 	ArrayList<kcarCarRentDTO> kcarCarRentList();
 	
-	ArrayList<kcarCarRentDTO> choose(HashMap<String, String> map);
+//	ArrayList<kcarCarRentDTO> choose(HashMap<String, String> map);
 	
 	kcarCarRentDTO rentUsedInfo(String crNumber);
+
+	ArrayList<kcarCarRentPhotoDTO> crPhotoList(String crNumber);
+	
+	kcarCarRentOptionDTO rentOptionInfo(String crNumber);
 
 }

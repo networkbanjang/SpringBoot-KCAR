@@ -17,6 +17,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.one.kcar.dao.rent.IKcarCarRentDAO;
 import com.one.kcar.dto.rent.kcarCarRentDTO;
+import com.one.kcar.dto.rent.kcarCarRentOptionDTO;
+import com.one.kcar.dto.rent.kcarCarRentPhotoDTO;
 
 @PropertySource("classpath:adminAccount.properties")
 @Service
@@ -54,7 +56,7 @@ public class rentCarService{
 		ArrayList<kcarCarRentDTO> kcarCarRentList = kcarCarRentDao.kcarCarRentList();
 //		System.out.println(kcarCarRentList.get(0).getCrBrand());
 		
-		String result = fromJson(kcarCarRentList);
+//		String result = fromJson(kcarCarRentList);
 		model.addAttribute("kcarCarRentList",kcarCarRentList);
 		return null;
 	}
@@ -98,6 +100,7 @@ public class rentCarService{
 	}
 	
 	//필터 적용하려는데 화면에 출력이안나와..
+	/*
 	public String choose(HashMap<String, String> map) {
 		System.out.println(map.get("inputData"));
 		System.out.println(map.get("sel"));
@@ -106,16 +109,25 @@ public class rentCarService{
 		if(list.isEmpty() == false)
 			return fromJson(list);
 		return "";
-	}
+	}*/
 	
 	public kcarCarRentDTO rentUsedInfo(String crNumber) {
 		kcarCarRentDTO kcar = kcarCarRentDao.rentUsedInfo(crNumber);
 		return kcar;
-		
-		
 	}
-		
-
+	
+	public ArrayList<kcarCarRentPhotoDTO> crPhotoList(String crNumber) {
+		ArrayList<kcarCarRentPhotoDTO> photoList = kcarCarRentDao.crPhotoList(crNumber);
+//		System.out.println(photoList.get(0).getCrpPhoto());
+		return photoList;
+	}
+	
+	public kcarCarRentOptionDTO rentOptionInfo(String crNumber) {
+		kcarCarRentOptionDTO kcarRentOption = kcarCarRentDao.rentOptionInfo(crNumber);
+//		System.out.println(kcarRentOption.getCroNavigation());
+//		System.out.println(kcarRentOption.getCroHandleHot());
+		return kcarRentOption;
+	}
 	
 
 }
