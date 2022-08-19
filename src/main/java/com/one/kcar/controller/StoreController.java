@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.one.kcar.dto.buy.CarDTO;
 import com.one.kcar.dto.store.StoreDTO;
 import com.one.kcar.service.store.StoreService;
 
@@ -67,13 +68,19 @@ public class StoreController {
 		session.setAttribute("st_photo", stores.getSt_photo());
 		session.setAttribute("st_tel", stores.getSt_tel());
 		model.addAttribute("model","db/storeview");
+		
+		session.setAttribute("current", 1);
+		List<CarDTO> list = service.storeCarAll(st_name);
+		model.addAttribute("totalsize",list.size());
+		model.addAttribute("list",list);
 		return "/store/storedetail";
 	}
 
 	
 	//직영점 차량 리스트
 	@RequestMapping(value = "db/carlist", produces = "text/html; charset=UTF-8")
-	public String Storecarlist(StoreDTO store, HttpSession session, String st_name) {
+	public String Storecarlist(Model model, String st_name) {
+
 		return "/store/storecarlist";
 	}
 
@@ -94,6 +101,17 @@ public class StoreController {
 			option.add(i);
 		System.out.println(option);
 		return "/store/storeview";
+	}
+	
+	//정렬
+	@ResponseBody
+	@PostMapping(value = "carlist_sort", produces = "application/json; charset=UTF-8")
+	public String carlist_sort(@RequestBody(required = false)String ali,HttpSession session) {
+		String st_name=(String) session.getAttribute("st_name");
+		int currentPage=(int) session.getAttribute("current");
+		
+		String result =service.storeCarSort(ali,st_name,currentPage);
+		return result;
 	}
 
 }

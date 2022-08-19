@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.one.kcar.dao.store.IMyPageDAO">
+<mapper namespace="com.one.kcar.dao.store.IStoreDAO">
 	
 	<select id="storelistAll" resultType="com.one.kcar.dto.store.StoreDTO">
 		select * from kcar_store
@@ -10,5 +10,33 @@
 	<select id="storelist"  parameterType="String" resultType="com.one.kcar.dto.store.StoreDTO">
 		select * from kcar_store where st_name = #{name}
 	</select>
-
+	
+	<select id="storeCarall"  parameterType="String" resultType="com.one.kcar.dto.buy.CarDTO">
+		select * from kcar_car where st_name = #{st_name}
+	</select>
+	
+	
+		<select id="storeCarsort"  parameterType="String" resultType="com.one.kcar.dto.buy.CarDTO">
+		select * from kcar_car where st_name = #{st_name} 
+				<if test="alignment == '최근연식순'">
+					ORDER BY c_year desc
+				</if>
+				<if test="alignment == '낮은연식순'">
+					ORDER BY c_year asc
+				</if>
+				<if test="alignment == '적은주행거리순'">
+					ORDER BY c_distance asc
+				</if>
+				<if test="alignment == '많은주행거리순'">
+					ORDER BY c_distance desc
+				</if>
+				<if test="alignment.equals('낮은가격순')">
+					ORDER BY c_price asc
+				</if>
+				<if test="alignment == '높은가격순'">
+					ORDER BY c_price desc
+				</if>
+		
+	</select>
+	
 </mapper>

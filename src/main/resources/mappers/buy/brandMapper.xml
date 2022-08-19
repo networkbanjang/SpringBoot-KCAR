@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.one.kcar.dao.buy.IBrandDAO">
+
 	<select id="brandList" resultType="com.one.kcar.dto.buy.BrandDTO">
 		SELECT cbc.cb_brand, cbcb.cb_domestic,cbcb.cb_englishlan,cbcb.cb_korealan,cbcb.cb_photo,cbc.count FROM
 			(SELECT cb.cb_brand,  COUNT(c.c_num) count FROM
@@ -40,7 +41,7 @@
 				</if>
 				<if test="alignment == '기본정렬' or alignment == null">
 					ORDER BY DBMS_RANDOM.RANDOM
-				</if>
+				</if>C_T_SPECIALOPTION
 				<if test="alignment == '최근연식순'">
 					ORDER BY c_year desc,c_distance asc
 				</if>
@@ -106,8 +107,9 @@
 	<insert id="insertReview" parameterType="String">
 		INSERT INTO KCAR_BUY_REVIEW VALUES(#{c_c_index}, #{m_r_title},#{m_r_review},#{m_r_registDate},#{m_r_image})
 	</insert>
+	-->
 	<insert id="insertCar" parameterType="String">
-		INSERT INTO KCAR_CAR VALUES(#{c_num},#{c_model},#{cb_brand},#{cb_m_model},#{c_year},#{c_distance},#{c_price},#{c_color},#{c_fuel},#{c_change},#{c_acident},#{c_seat},#{c_rent},#{st_name},#{c_photo})
+		INSERT INTO KCAR_CAR VALUES(#{c_num},#{c_model},#{cb_brand},#{cb_m_model},#{c_year},#{c_distance},#{c_price},#{c_color},#{c_fuel},#{c_change},#{c_acident},#{c_seat},#{c_rent},#{c_photo},#{st_name},'test@test.com',0)
 	</insert>
-	 -->
+	 
 </mapper>
