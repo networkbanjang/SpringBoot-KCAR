@@ -33,7 +33,21 @@ public class kcarCarRentDTO {
 	private String crGrade;
 	private String crSpecialPrice;
 	private String crBrand;
+	private String crpPhoto;
+	private String crName;
 	
+	public String getCrpPhoto() {
+		return crpPhoto;
+	}
+	public void setCrpPhoto(String crpPhoto) {
+		this.crpPhoto = crpPhoto;
+	}
+	public String getCrName() {
+		return crName;
+	}
+	public void setCrName(String crName) {
+		this.crName = crName;
+	}
 	public String getCrNumber() {
 		return crNumber;
 	}
@@ -119,5 +133,6 @@ public class kcarCarRentDTO {
 	public void setCrBrand(String crBrand) {
 		this.crBrand = crBrand;
 	}
+	
 	
 }

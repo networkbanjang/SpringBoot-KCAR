@@ -3,129 +3,9 @@
 <head>
 <title>K Car - 직접 매입 직접 판매하는 대한민국 No.1 직영 중고차 케이카</title>
 <%@ include file="mypage_style.jsp" %>
-<meta data-n-head="ssr" charset="utf-8">
-<meta data-n-head="ssr" name="viewport"
-	content="width=device-width, initial-scale=1">
-<meta data-n-head="ssr" data-hid="description" name="description"
-	content="대한민국 No.1 직영 중고차. 중고차 매입, 중고차 판매, 중고차 최초 환불 서비스, 중고차 온라인 구매 홈서비스, 중고차 매매, 중고차 사이트 ">
-<meta data-n-head="ssr" data-hid="title" name="title"
-	content="K Car - 직접 매입 직접 판매하는 대한민국 No.1 직영 중고차 케이카 ">
-<meta data-n-head="ssr" data-hid="keywords" name="keywords"
-	content="중고차, 중고차 시세, K Car 직영차, 중고차팔기, 보험, 보증, 진단, 대출, 중고차 매매, 국산차, 수입차 ">
-<meta data-n-head="ssr" data-hid="og-title" name="og:title"
-	content="K Car - 직접 매입 직접 판매하는 대한민국 No.1 직영 중고차 케이카 ">
-<meta data-n-head="ssr" data-hid="og-description" name="og:description"
-	content="대한민국 No.1 직영 중고차. 중고차 매입, 중고차 판매, 중고차 최초 환불 서비스, 중고차 온라인 구매 홈서비스, 중고차 매매, 중고차 사이트 ">
-<meta data-n-head="ssr" data-hid="og-image" name="og:image"
-	content="https://api.kcar.com/BASE/kcar_share_kakao.jpg">
-<meta data-n-head="ssr" data-hid="og-type" name="og:type"
-	content="website">
-<meta data-n-head="ssr" data-hid="twitter-card" name="twitter:card"
-	content="summary_large_image">
-<meta data-n-head="ssr" data-hid="twitter-title" name="twitter:title"
-	content="K Car - 직접 매입 직접 판매하는 대한민국 No.1 직영 중고차 케이카">
-<meta data-n-head="ssr" data-hid="twitter-description"
-	name="twitter:description"
-	content="대한민국 No.1 직영 중고차. 중고차 매입, 중고차 판매, 중고차 최초 환불 서비스, 중고차 온라인 구매 홈서비스, 중고차 매매, 중고차 사이트 ">
-<meta data-n-head="ssr" data-hid="twitter-image-src"
-	name="twitter:image:src"
-	content="https://api.kcar.com/BASE/kcar_share_kakao.jpg">
-<meta data-n-head="ssr" name="format-detection" content="telephone=no">
-<link data-n-head="ssr" rel="icon" type="image/x-icon"
-	href="/favicon.ico">
-<script
-	src="https://connect.facebook.net/signals/config/771045850193577?v=2.9.69&amp;r=stable"
-	async=""></script>
-<script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script>
-<script type="text/javascript" async=""
-	src="https://www.googleadservices.com/pagead/conversion_async.js"></script>
-<script type="text/javascript" async=""
-	src="https://www.google-analytics.com/analytics.js"></script>
-<script type="text/javascript" async=""
-	src="https://www.googletagmanager.com/gtag/js?id=G-12BKR6ZT1H&amp;l=dataLayer&amp;cx=c"></script>
-<script async=""
-	src="https://www.googletagmanager.com/gtm.js?id=GTM-NXZPHVG"></script>
-<script type="text/javascript"
-	src="https://js.appboycdn.com/web-sdk/3.2/appboy.min.js" async=""></script>
-<script type="text/javascript"
-	integrity="sha384-vYYnQ3LPdp/RkQjoKBTGSq0X5F73gXU3G2QopHaIfna0Ct1JRWzwrmEz115NzOta"
-	crossorigin="anonymous" async=""
-	src="https://cdn.amplitude.com/libs/amplitude-5.8.0-min.gz.js"></script>
-<script data-n-head="ssr" src="/mobile_redirect.js"></script>
-<script data-n-head="ssr" src="/static_mma_common.js"></script>
-<script src="//rum.beusable.net/script/b171101e144206u678/f88ad03cce"
-	async="" type="text/javascript"></script>
-<script data-n-head="ssr" src="//t1.daumcdn.net/adfit/static/kp.js"
-	charset="utf-8"></script>
-<script data-n-head="ssr" data-hid="gtm-script">if(!window._gtm_init){window._gtm_init=1;(function(w,n,d,m,e,p){w[d]=(w[d]==1||n[d]=='yes'||n[d]==1||n[m]==1||(w[e]&&w[e][p]&&w[e][p]()))?1:0})(window,navigator,'doNotTrack','msDoNotTrack','external','msTrackingProtectionEnabled');(function(w,d,s,l,x,y){w[x]={};w._gtm_inject=function(i){if(w.doNotTrack||w[x][i])return;w[x][i]=1;w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;f.parentNode.insertBefore(j,f);};w[y]('GTM-NXZPHVG')})(window,document,'script','dataLayer','_gtm_ids','_gtm_inject')}</script>
-<link rel="preload" href="/_nuxt/f7a91b8.js" as="script">
-<link rel="preload" href="/_nuxt/89fbbcc.js" as="script">
-<link rel="preload" href="/_nuxt/38f7038.js" as="script">
-<link rel="preload" href="/_nuxt/32ff197.js" as="script">
-<link rel="preload" href="/_nuxt/cc0bf6b.js" as="script">
-
-<script type="text/javascript" async=""
-	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/938190343/?random=1659343382076&amp;cv=9&amp;fst=1659343382076&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635471&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1040&amp;u_aw=1920&amp;u_cd=24&amp;u_his=25&amp;u_tz=540&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2wg7r0&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.kcar.com%2Fmp&amp;ref=https%3A%2F%2Fwww.kcar.com%2Faccount%2Flogin%3FreturnUrl%3Dhttps%253A%252F%252Fwww.kcar.com%252Faccount%252Fsignup%252Fauth&amp;tiba=K%20Car%20-%20%EC%A7%81%EC%A0%91%20%EB%A7%A4%EC%9E%85%20%EC%A7%81%EC%A0%91%20%ED%8C%90%EB%A7%A4%ED%95%98%EB%8A%94%20%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%20No.1%20%EC%A7%81%EC%98%81%20%EC%A4%91%EA%B3%A0%EC%B0%A8%20%EC%BC%80%EC%9D%B4%EC%B9%B4&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
-<script type="text/javascript" async=""
-	src="https://www.googleadservices.com/pagead/conversion/938190343/?random=1659343382079&amp;cv=9&amp;fst=1659343382079&amp;num=1&amp;value=0&amp;label=07NXCJrT4bcDEIfMrr8D&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635471&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1040&amp;u_aw=1920&amp;u_cd=24&amp;u_his=25&amp;u_tz=540&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2wg7r0&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.kcar.com%2Fmp&amp;ref=https%3A%2F%2Fwww.kcar.com%2Faccount%2Flogin%3FreturnUrl%3Dhttps%253A%252F%252Fwww.kcar.com%252Faccount%252Fsignup%252Fauth&amp;tiba=K%20Car%20-%20%EC%A7%81%EC%A0%91%20%EB%A7%A4%EC%9E%85%20%EC%A7%81%EC%A0%91%20%ED%8C%90%EB%A7%A4%ED%95%98%EB%8A%94%20%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%20No.1%20%EC%A7%81%EC%98%81%20%EC%A4%91%EA%B3%A0%EC%B0%A8%20%EC%BC%80%EC%9D%B4%EC%B9%B4&amp;auid=759781911.1659003796&amp;hn=www.googleadservices.com&amp;bttype=purchase&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
-<script charset="utf-8" src="/_nuxt/28f6986.js"></script>
-<script charset="utf-8" src="/_nuxt/4f587d5.js"></script>
-<script charset="utf-8" src="/_nuxt/820dbfb.js"></script>
-<script charset="utf-8" src="/_nuxt/f507642.js"></script>
-<meta data-n-head="ssr" property="groobee:member_id" content="tw2655">
-<meta data-n-head="ssr" property="groobee:member_grade" content="">
-<meta data-n-head="ssr" property="groobee:member_gender" content="">
-<meta data-n-head="ssr" property="groobee:member_type" content="">
-<meta data-n-head="ssr" property="groobee:member_age" content="">
-<script data-n-head="ssr">
-                  (function(a,i,u,e,o) {
-                    a[u]=a[u]||function(){(a[u].q=a[u].q||[]).push(arguments)};
-                    })(window, document, "groobee");
-                    groobee("serviceKey", "312cb99ca46746198062497017c773c5");groobee("siteType", "custom");</script>
-<script data-n-head="ssr"
-	src="https://static.groobee.io/dist/g2/groobee.init.min.js"
-	charset="utf-8"></script>
-<link rel="stylesheet" type="text/css"
-	href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet" type="text/css"
-	href="//static.groobee.io/dist/g2/css/grb-recommend-list_v2.css">
-<script charset="utf-8" src="/_nuxt/4511323.js"></script>
-<script charset="utf-8" src="/_nuxt/eeabe6b.js"></script>
-<script charset="utf-8" src="/_nuxt/1b05769.js"></script>
-<script charset="utf-8" src="/_nuxt/96e960e.js"></script>
-<script charset="utf-8" src="/_nuxt/079e888.js"></script>
-<script charset="utf-8" src="/_nuxt/6678c1c.js"></script>
-<script charset="utf-8" src="/_nuxt/62e488e.js"></script>
-<script charset="utf-8" src="/_nuxt/406cd05.js"></script>
-<script charset="utf-8" src="/_nuxt/5b683d7.js"></script>
-<script charset="utf-8" src="/_nuxt/739777c.js"></script>
-<script charset="utf-8" src="/_nuxt/6a63164.js"></script>
-<script charset="utf-8" src="/_nuxt/3e82b23.js"></script>
-<script charset="utf-8" src="/_nuxt/74740d2.js"></script>
-<script type="text/javascript" async=""
-	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/938190343/?random=1659343387921&amp;cv=9&amp;fst=1659343387921&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635471&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1040&amp;u_aw=1920&amp;u_cd=24&amp;u_his=26&amp;u_tz=540&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2wg7r0&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.kcar.com%2Fmp%2Fmyinfo%2Fauth%3Ftab%3Dinnertab01&amp;ref=https%3A%2F%2Fwww.kcar.com%2Faccount%2Flogin%3FreturnUrl%3Dhttps%253A%252F%252Fwww.kcar.com%252Faccount%252Fsignup%252Fauth&amp;tiba=K%20Car%20-%20%EC%A7%81%EC%A0%91%20%EB%A7%A4%EC%9E%85%20%EC%A7%81%EC%A0%91%20%ED%8C%90%EB%A7%A4%ED%95%98%EB%8A%94%20%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%20No.1%20%EC%A7%81%EC%98%81%20%EC%A4%91%EA%B3%A0%EC%B0%A8%20%EC%BC%80%EC%9D%B4%EC%B9%B4&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
-<script type="text/javascript" async=""
-	src="https://www.googleadservices.com/pagead/conversion/938190343/?random=1659343387926&amp;cv=9&amp;fst=1659343387926&amp;num=1&amp;value=0&amp;label=07NXCJrT4bcDEIfMrr8D&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635471&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1040&amp;u_aw=1920&amp;u_cd=24&amp;u_his=26&amp;u_tz=540&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2wg7r0&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.kcar.com%2Fmp%2Fmyinfo%2Fauth%3Ftab%3Dinnertab01&amp;ref=https%3A%2F%2Fwww.kcar.com%2Faccount%2Flogin%3FreturnUrl%3Dhttps%253A%252F%252Fwww.kcar.com%252Faccount%252Fsignup%252Fauth&amp;tiba=K%20Car%20-%20%EC%A7%81%EC%A0%91%20%EB%A7%A4%EC%9E%85%20%EC%A7%81%EC%A0%91%20%ED%8C%90%EB%A7%A4%ED%95%98%EB%8A%94%20%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%20No.1%20%EC%A7%81%EC%98%81%20%EC%A4%91%EA%B3%A0%EC%B0%A8%20%EC%BC%80%EC%9D%B4%EC%B9%B4&amp;auid=759781911.1659003796&amp;hn=www.googleadservices.com&amp;bttype=purchase&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
-<script charset="utf-8" src="/_nuxt/848bb45.js"></script>
-<script type="text/javascript" async=""
-	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/938190343/?random=1659343392039&amp;cv=9&amp;fst=1659343392039&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635471&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1040&amp;u_aw=1920&amp;u_cd=24&amp;u_his=27&amp;u_tz=540&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2wg7r0&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.kcar.com%2Fmp%2Fmyinfo&amp;ref=https%3A%2F%2Fwww.kcar.com%2Faccount%2Flogin%3FreturnUrl%3Dhttps%253A%252F%252Fwww.kcar.com%252Faccount%252Fsignup%252Fauth&amp;tiba=K%20Car%20-%20%EC%A7%81%EC%A0%91%20%EB%A7%A4%EC%9E%85%20%EC%A7%81%EC%A0%91%20%ED%8C%90%EB%A7%A4%ED%95%98%EB%8A%94%20%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%20No.1%20%EC%A7%81%EC%98%81%20%EC%A4%91%EA%B3%A0%EC%B0%A8%20%EC%BC%80%EC%9D%B4%EC%B9%B4&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
-<script type="text/javascript" async=""
-	src="https://www.googleadservices.com/pagead/conversion/938190343/?random=1659343392041&amp;cv=9&amp;fst=1659343392041&amp;num=1&amp;value=0&amp;label=07NXCJrT4bcDEIfMrr8D&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635471&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1040&amp;u_aw=1920&amp;u_cd=24&amp;u_his=27&amp;u_tz=540&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2wg7r0&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.kcar.com%2Fmp%2Fmyinfo&amp;ref=https%3A%2F%2Fwww.kcar.com%2Faccount%2Flogin%3FreturnUrl%3Dhttps%253A%252F%252Fwww.kcar.com%252Faccount%252Fsignup%252Fauth&amp;tiba=K%20Car%20-%20%EC%A7%81%EC%A0%91%20%EB%A7%A4%EC%9E%85%20%EC%A7%81%EC%A0%91%20%ED%8C%90%EB%A7%A4%ED%95%98%EB%8A%94%20%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%20No.1%20%EC%A7%81%EC%98%81%20%EC%A4%91%EA%B3%A0%EC%B0%A8%20%EC%BC%80%EC%9D%B4%EC%B9%B4&amp;auid=759781911.1659003796&amp;hn=www.googleadservices.com&amp;bttype=purchase&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
-<script type="text/javascript" async=""
-	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/938190343/?random=1659343398424&amp;cv=9&amp;fst=1659343398424&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635471&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1040&amp;u_aw=1920&amp;u_cd=24&amp;u_his=28&amp;u_tz=540&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2wg7r0&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.kcar.com%2Fmp&amp;ref=https%3A%2F%2Fwww.kcar.com%2Faccount%2Flogin%3FreturnUrl%3Dhttps%253A%252F%252Fwww.kcar.com%252Faccount%252Fsignup%252Fauth&amp;tiba=K%20Car%20-%20%EC%A7%81%EC%A0%91%20%EB%A7%A4%EC%9E%85%20%EC%A7%81%EC%A0%91%20%ED%8C%90%EB%A7%A4%ED%95%98%EB%8A%94%20%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%20No.1%20%EC%A7%81%EC%98%81%20%EC%A4%91%EA%B3%A0%EC%B0%A8%20%EC%BC%80%EC%9D%B4%EC%B9%B4&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
-<script type="text/javascript" async=""
-	src="https://www.googleadservices.com/pagead/conversion/938190343/?random=1659343398429&amp;cv=9&amp;fst=1659343398429&amp;num=1&amp;value=0&amp;label=07NXCJrT4bcDEIfMrr8D&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635471&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1040&amp;u_aw=1920&amp;u_cd=24&amp;u_his=28&amp;u_tz=540&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2wg7r0&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.kcar.com%2Fmp&amp;ref=https%3A%2F%2Fwww.kcar.com%2Faccount%2Flogin%3FreturnUrl%3Dhttps%253A%252F%252Fwww.kcar.com%252Faccount%252Fsignup%252Fauth&amp;tiba=K%20Car%20-%20%EC%A7%81%EC%A0%91%20%EB%A7%A4%EC%9E%85%20%EC%A7%81%EC%A0%91%20%ED%8C%90%EB%A7%A4%ED%95%98%EB%8A%94%20%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD%20No.1%20%EC%A7%81%EC%98%81%20%EC%A4%91%EA%B3%A0%EC%B0%A8%20%EC%BC%80%EC%9D%B4%EC%B9%B4&amp;auid=759781911.1659003796&amp;hn=www.googleadservices.com&amp;bttype=purchase&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
-<link data-n-head="ssr" rel="stylesheet" type="text/css"
-	href="/html/crosscert/CC_WSTD_home/unisignweb/rsrc/css/certcommon.css?v=1">
-<script data-n-head="ssr"
-	src="/html/crosscert/CC_WSTD_home/unisignweb/js/unisignwebclient.js?v=1"></script>
 </head>
 <body>
-	<noscript data-n-head="ssr" data-hid="gtm-noscript" data-pbody="true">
-		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXZPHVG&"
-			height="0" width="0" style="display: none; visibility: hidden"
-			title="gtm"></iframe>
-	</noscript>
+	
 	<div id="__nuxt">
 		<!---->
 		<div id="__layout">
@@ -229,7 +109,7 @@
 									<ul>
 										<li><a href="BuyOrderManage" class=""> 내차사기
 												주문관리 </a></li>
-										<li><a href="SellAplMgtList" class=""> 내차팔기
+										<li><a href="mp/MyCarSellAplMgtList" class=""> 내차팔기
 												신청관리 </a></li>
 										<li><a href="RentAplList" class=""> 렌트 신청내역 </a></li>
 									</ul>
@@ -268,7 +148,7 @@
 											<li><span>관심차량</span> <a href="/ci/Intrst/IntrstCarList"
 												class=""><strong>0</strong></a></li>
 											<li><span>판매준비차량</span> <a href="/mp/SellRdyCarList"
-												class=""><strong>0</strong></a></li>
+												class=""><strong>${check}</strong></a></li>
 											<li><span>최근본차량</span> <a
 												href="/bc/LatelyViewedCar/list" class=""><strong>0</strong></a></li>
 										</ul>

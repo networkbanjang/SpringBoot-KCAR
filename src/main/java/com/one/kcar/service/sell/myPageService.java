@@ -36,4 +36,7 @@ public class myPageService {
 		return list;
 		
 	}
+
+
+	
 }

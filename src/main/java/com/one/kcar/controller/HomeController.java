@@ -4,13 +4,23 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+import com.one.kcar.dto.sell.SellDTO;
+import com.one.kcar.service.member.MemberService;
 
 @Controller
 public class HomeController{
+	@Autowired MemberService service;
+	
+	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	//헤더
 	@GetMapping("header")
@@ -49,8 +59,13 @@ public class HomeController{
 	}
 	// 마이 페이지
 	@GetMapping("mypage")
-	public String mypage() {
+	public String mypage(@RequestBody(required = false)String m_email,HttpSession session,Model model) {
+		m_email = (String)session.getAttribute("id");
+		int count = service.check(m_email);
+		model.addAttribute("check",count);
 		return "member/mypage";
+		
+	
 	}
 	@GetMapping("warranty_service")
 	public String warranty_service() {
@@ -79,6 +94,7 @@ public class HomeController{
 	public String dsa() {
 		return "222_style";
 	}
+	
 	
 	
 	@GetMapping("logintest")

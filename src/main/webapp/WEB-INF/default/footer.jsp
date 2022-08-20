@@ -55,7 +55,7 @@
 			</p>
 			<ul>
 				<li>상호명 : 케이카 주식회사</li>
-				<li>대표자 : 정인국</li>
+				<li><a href="/main_login" style="text-decoration: none; color: #54555a;" >대표자 : 정인국</a></li>
 				<li>개인정보관리책임자 : 이우근</li>
 				<li>사업자등록번호 : 787-87-00729</li>
 			</ul>
