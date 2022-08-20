@@ -64866,10 +64866,10 @@ table .hidden {
 }
 
 .carInfoWrap .carInfoContainer .carInfoContent .carInfoDetailWrap .carInfoRight .stikyWrap
-	{
+{
 	position: -webkit-sticky;
 	position: sticky;
-	top: 6.4rem
+	top: 6.4rem;
 }
 
 .carInfoWrap .carInfoContainer .carInfoContent .carInfoDetailWrap .carInfoRight .sumSummaryWrap
@@ -80825,7 +80825,7 @@ body>.ab-feed .ab-no-cards-message {
 	content: "";
 	width: 12rem;
 	height: 5.6rem;
-	background: url(/images/common/pop-sticker-car.png) no-repeat 0 0;
+	background: url(https://www.kcar.com/images/common/pop-sticker-car.png) no-repeat 0 0;
 	background-size: 12rem 5.6rem
 }
 

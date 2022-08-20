@@ -114,6 +114,7 @@ public class brandService {
 	}
 	
 	public String ajaxBrandCarAllList(ArrayList<CarDTO> brandCarAllList, int currentPageNum, int totalPage, int totalCount,int totalCnt,String brand, String brandModel,String alignment) {
+		if(alignment == null) alignment = "기본정렬";
 		String result = "				<input type=\"hidden\" id=\"brandCarAllCount\"value=\""+totalCnt+"\">\r\n"
 				+ "						<input type=\"hidden\" id=\"filterCarAllCount\"value=\""+totalCount+"\">"	
 				+ "						<input type=\"hidden\" id=\"brandHidden\" value=\""+brand+"\">\r\n"

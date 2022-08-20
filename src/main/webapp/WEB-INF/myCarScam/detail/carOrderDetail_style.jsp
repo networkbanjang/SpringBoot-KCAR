@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <style
-	data-vue-ssr-id="3e5c2f4e:0 7f914dc6:0 71336ca0:0 2b3cf7a0:0 f9014860:0 cb46bfd2:0 21d20780:0 4ec507c6:0 4ec507c6:1 f907bb2c:0 f907bb2c:1 954d13f4:0 d05f915c:0 d05f915c:1 2ce31966:0 b620baf8:0 56585916:0 53bdf9b8:0 3db6d580:0 f893b4e2:0 388bac9f:0 58f7e804:0 201d41f8:0">
+	data-vue-ssr-id="3e5c2f4e:0 7f914dc6:0 71336ca0:0 2b3cf7a0:0 f9014860:0 cb46bfd2:0 21d20780:0 4ec507c6:0 4ec507c6:1 f907bb2c:0 f907bb2c:1 954d13f4:0 d05f915c:0 d05f915c:1 2ce31966:0 b620baf8:0 94664e6c:0 5bf7d526:0 53bdf9b8:0 a1b550da:0 34d78e76:0 f893b4e2:0 19e4961c:0 388bac9f:0 58f7e804:0 201d41f8:0">
 @font-face {
 	font-family: "icomoon";
 	src: url(/_nuxt/fonts/icomoon.96196af.eot);
@@ -21958,7 +21958,7 @@ a.button.DarkColor:active, button.DarkColor:active {
 
 .el-scrollbar .el-scrollbar__bar.is-vertical {
 	border-radius: .4rem;
-	width: 8px;
+	width: 12px;
 	top: 0;
 	right: 0;
 	background-color: #f2f2f2
@@ -23691,6 +23691,10 @@ a.button.DarkColor:active, button.DarkColor:active {
 
 .el-date-picker .el-date-table tbody tr td.disabled div {
 	color: #d8dee8
+}
+
+.el-date-picker .el-date-table tbody tr td.next-month {
+	color: #000
 }
 
 .el-date-picker .el-date-table tbody .el-date-table__row td {
@@ -29350,7 +29354,7 @@ a.button.DarkColor:active, button.DarkColor:active {
 
 .el-scrollbar .el-scrollbar__bar.is-vertical {
 	border-radius: .4rem;
-	width: 8px;
+	width: 12px;
 	top: 0;
 	right: 0;
 	background-color: #f2f2f2
@@ -31083,6 +31087,10 @@ a.button.DarkColor:active, button.DarkColor:active {
 
 .el-date-picker .el-date-table tbody tr td.disabled div {
 	color: #d8dee8
+}
+
+.el-date-picker .el-date-table tbody tr td.next-month {
+	color: #000
 }
 
 .el-date-picker .el-date-table tbody .el-date-table__row td {
@@ -34634,7 +34642,7 @@ a.button.DarkColor:active, button.DarkColor:active {
 }
 
 .mainContents .servBnnr.ty3 {
-	background: #5755aa url(/images/main/img-rent.png) no-repeat 100% 0
+	background: #5755aa url(/images/main/img_rent.png) no-repeat 100% 0
 }
 
 .mainContents .servBnnr.ty4 {
@@ -39577,13 +39585,16 @@ textarea {
 }
 
 .pagination {
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	height: 3.2rem
 }
 
-.pagination .el-button {
+.pagination, .pagination .paging ul {
+	display: flex;
+	align-items: center;
+	justify-content: center
+}
+
+.pagination .paging ul .el-button {
 	display: block;
 	width: 3.2rem;
 	height: 3.2rem;
@@ -39592,22 +39603,23 @@ textarea {
 	border-radius: 0
 }
 
-.pagination .el-button.pagePrev {
+.pagination .paging ul .el-button.pagePrev {
 	background: url(/images/common/pagenation-btn-left.svg) no-repeat 50%
 }
 
-.pagination .el-button.pageNext {
+.pagination .paging ul .el-button.pageNext {
 	background: url(/images/common/pagenation-btn-right.svg) no-repeat 50%
 }
 
-.pagination .pagingNum {
+.pagination .paging ul .pagingNum {
 	font-size: 1.6rem;
 	font-weight: 400;
 	line-height: 1.38;
 	letter-spacing: -.4px;
 	text-align: center;
 	color: #16171d;
-	margin: 0 3.2rem
+	padding: 0 1.6rem;
+	cursor: pointer
 }
 
 @media ( -ms-high-contrast :none) , screen and
@@ -45719,6 +45731,17 @@ textarea {
 	line-height: 2.2rem
 }
 
+.contWrap .hsBanner .desc_red {
+	width: 122rem;
+	margin: .7rem auto;
+	padding-left: 6rem;
+	font-size: 3.2rem;
+	color: #b70f28;
+	line-height: 3rem;
+	letter-spacing: -.04rem;
+	font-weight: 500
+}
+
 .contWrap .hsListStep {
 	width: 122rem;
 	margin: 4rem auto 0
@@ -46187,6 +46210,43 @@ textarea {
 	line-height: 1.33;
 	text-align: center;
 	color: #54555a
+}
+
+.homeServiceWrap .searchTrigger {
+	justify-content: space-evenly
+}
+
+.homeServiceWrap .searchTrigger .subTxt {
+	margin-top: 10px;
+	font-size: 1.3rem
+}
+
+.homeServiceWrap .searchTrigger.btnPayWayWrap>div {
+	width: calc(50% - 8rem)
+}
+
+.homeServiceWrap .searchTrigger.btnPayWayWrap>div>button {
+	width: 100%
+}
+
+.homeServiceWrap .searchTrigger.btnPayWayWrap>div>button:hover {
+	background-color: #b70f28
+}
+
+.homeServiceWrap .searchTrigger.btnPayWayWrap>div>button:active {
+	color: #fff;
+	background: #f01d29;
+	border-color: #f01d29
+}
+
+.homeServiceWrap .faqWrap {
+	margin-top: 10px;
+	width: auto
+}
+
+.homeServiceWrap .faqWrap .titleWrap {
+	padding: 0 2rem;
+	margin-bottom: 1.6rem
 }
 
 .homeServiceWrap .progressWrap {
@@ -47111,8 +47171,8 @@ textarea {
 }
 
 .homeServiceWrap .homeCont .warrantyList ul li i.iconWarr02 {
-	background: url(/images/warranty/illust-warranty-benefit-02.png) 0 0
-		no-repeat;
+	background: url(/images/warranty/illust-warranty-benefit-02-change.svg)
+		0 0 no-repeat;
 	background-size: 100%
 }
 
@@ -47194,7 +47254,7 @@ textarea {
 	padding: 4rem;
 	border-radius: .8rem;
 	box-shadow: 0 .2rem .4rem 0 rgba(22, 23, 29, .04);
-	border: 1px solid #e2e8ee;
+	border: 3px solid #e2e8ee;
 	height: 21.6rem;
 	display: flex;
 	align-items: flex-start;
@@ -52480,11 +52540,15 @@ html {
 }
 
 .carSellHome .hsBanner .title {
-	position: relative
+	position: relative;
+	color: #16171d
 }
 
-.carSellHome .hsBanner .desc, .carSellHome .hsBanner .title {
-	color: #16171d
+.carSellHome .hsBanner .desc {
+	color: #16171d;
+	font-size: 1.6rem;
+	line-height: 2rem;
+	letter-spacing: -.02rem
 }
 
 .carSellHome .hsBanner .btnWrap {
@@ -63806,7 +63870,8 @@ table .hidden {
 	font-weight: 700;
 	line-height: 1.24;
 	letter-spacing: -.5px;
-	color: #16171d
+	color: #16171d;
+	padding-right: 7rem
 }
 
 .carInfoWrap .carInfoContainer .carInfoContent .carInfoKeyArea .carNameWrap .left>div
@@ -63838,7 +63903,8 @@ table .hidden {
 	font-weight: 700;
 	line-height: 1.46;
 	letter-spacing: -.5px;
-	color: #b70f28
+	color: #b70f28;
+	text-align: right
 }
 
 .carInfoWrap .carInfoContainer .carInfoContent .carInfoKeyArea .carNameWrap .right .carPriceView .price span
@@ -64137,14 +64203,15 @@ table .hidden {
 
 .carInfoWrap .carInfoContainer .carInfoContent .carInfoDetailWrap .carInfoLeft .snsCtaLists li.item3.likeIt a:before
 	{
-	background: url(/images/carInfo/icon-toggle-favorite-red.svg) no-repeat
-		0 0;
+	background: url(/images/carInfo/icon-toggle-favorite01-red.svg)
+		no-repeat 0 0;
 	background-size: 2.4rem 2.4rem
 }
 
 .carInfoWrap .carInfoContainer .carInfoContent .carInfoDetailWrap .carInfoLeft .snsCtaLists li.item3 a:before
 	{
-	background: url(/images/carInfo/icon-toggle-favorite.svg) no-repeat 0 0;
+	background: url(/images/carInfo/icon-toggle-favorite01.svg) no-repeat 0
+		0;
 	background-size: 2.4rem 2.4rem
 }
 
@@ -65062,7 +65129,7 @@ table .hidden {
 
 .carInfoWrap .carInfoContainer .carInfoContent .carInfoDetailWrap .carInfoRight .sumSummaryWrap .expectedRentPrice>div
 	{
-	text-align: right
+	text-align: left
 }
 
 .carInfoWrap .carInfoContainer .carInfoContent .carInfoDetailWrap .carInfoRight .sumSummaryWrap .expectedRentPrice>div p
@@ -65422,7 +65489,7 @@ table .hidden {
 
 .carInfoWrap .carInfoContainer .carInfoContent .panelLists>li:nth-of-type(2)
 	{
-	background: url(/images/carInfo/illust-warranty-benefit-02.png)
+	background: url(/images/carInfo/illust-warranty-benefit-02-change.svg)
 		no-repeat 3.2rem 3.2rem;
 	background-size: 64px
 }
@@ -65572,7 +65639,7 @@ table .hidden {
 	font-weight: 700;
 	line-height: 1.38;
 	letter-spacing: -.5px;
-	text-align: right;
+	text-align: left;
 	color: #16171d
 }
 
@@ -66371,7 +66438,8 @@ table .hidden {
 	padding: 4.5rem 0 4.5rem 31.8rem;
 	border-radius: .8rem 4rem .8rem 4rem;
 	border: 1px solid #d8dee8;
-	background: url(/images/carInfo/illust-finance-installment-01.svg)
+	background:
+		url(/images/carInfo/illust-finance-installment-01-change.svg)
 		no-repeat 20.2rem 3.2rem;
 	background-size: 8rem 8rem
 }
@@ -67452,7 +67520,7 @@ table .hidden {
 .carCompWrap .compContainer .category .descTxt {
 	margin-right: .4rem;
 	color: #16171d;
-	font-size: 1rem;
+	font-size: 1.3rem;
 	letter-spacing: normalrem;
 	line-height: 1.2
 }
@@ -68334,6 +68402,19 @@ table .hidden {
 	width: .3rem;
 	height: .3rem;
 	display: block
+}
+
+.searchTrigger.carDtlBtnWrap .apply {
+	flex-wrap: wrap
+}
+
+.searchTrigger.carDtlBtnWrap .apply span {
+	flex: 1 1 100%
+}
+
+.searchTrigger.carDtlBtnWrap .apply span+.expctDlvrDt {
+	margin-top: -10px;
+	font-size: 1.2rem
 }
 
 .el-button.apply, .el-button.btnguide {
@@ -72112,7 +72193,8 @@ table .hidden {
 }
 
 .whyKCarWrap .processList>li:first-of-type:before {
-	background: url(/images/why/icon-refund-process-01.svg) no-repeat 50%;
+	background: url(/images/why/icon-refund-process-01-change.svg) no-repeat
+		50%;
 	background-size: 4.8rem 4.8rem
 }
 
@@ -72297,7 +72379,8 @@ table .hidden {
 }
 
 .whyKCarWrap .stepCardLists>li:first-of-type:before {
-	background: url(/images/why/icon-homeservice-step-01.svg) no-repeat 50%;
+	background: url(/images/why/icon-homeservice-step-01-change.svg)
+		no-repeat 50%;
 	background-size: 4.8rem 4.8rem
 }
 
@@ -72312,7 +72395,8 @@ table .hidden {
 }
 
 .whyKCarWrap .stepCardLists>li:nth-of-type(4):before {
-	background: url(/images/why/icon-homeservice-step-04.svg) no-repeat 50%;
+	background: url(/images/why/icon-homeservice-step-04-change.svg)
+		no-repeat 50%;
 	background-size: 4.8rem 4.8rem
 }
 
@@ -72468,7 +72552,8 @@ table .hidden {
 }
 
 .whyKCarWrap .stepLists>li:nth-of-type(2):before {
-	background: #fff url(/images/why/icon-time-step-02.svg) no-repeat 50%;
+	background: #fff url(/images/why/icon-time-step-02-change.svg) no-repeat
+		50%;
 	background-size: 4.8rem 4.8rem
 }
 
@@ -72549,7 +72634,8 @@ table .hidden {
 }
 
 .whyKCarWrap .plusLists>li:first-of-type {
-	background: url(/images/why/icon-info-search-01.svg) no-repeat 0 0;
+	background: url(/images/why/icon-info-search-01-change.svg) no-repeat 0
+		0;
 	background-size: 9rem 9rem
 }
 
@@ -72558,7 +72644,8 @@ table .hidden {
 }
 
 .whyKCarWrap .plusLists>li:nth-of-type(2) {
-	background: url(/images/why/icon-info-search-02.svg) no-repeat 0 0;
+	background: url(/images/why/icon-info-search-02-change.svg) no-repeat 0
+		0;
 	background-size: 9rem 9rem
 }
 
@@ -72758,8 +72845,8 @@ table .hidden {
 }
 
 .whyKCarWrap .el-tabs .el-tabs__content .pointLists>li:nth-of-type(2) {
-	background: url(/images/why/icon-point-list-02.svg) no-repeat center
-		4rem;
+	background: url(/images/why/icon-point-list-02-change.svg) no-repeat
+		center 4rem;
 	background-size: 9rem 8rem
 }
 
@@ -73632,7 +73719,7 @@ a.button.DarkColor:active, button.DarkColor:active {
 
 .el-scrollbar .el-scrollbar__bar.is-vertical {
 	border-radius: .4rem;
-	width: 8px;
+	width: 12px;
 	top: 0;
 	right: 0;
 	background-color: #f2f2f2
@@ -75367,6 +75454,10 @@ a.button.DarkColor:active, button.DarkColor:active {
 	color: #d8dee8
 }
 
+.el-date-picker .el-date-table tbody tr td.next-month {
+	color: #000
+}
+
 .el-date-picker .el-date-table tbody .el-date-table__row td {
 	border: none;
 	border-radius: 50%;
@@ -76404,8 +76495,13 @@ a.button.DarkColor:active, button.DarkColor:active {
 	text-indent: -9999px
 }
 
-.carInfoKeyArea.wrap3d+.carInfoDetailWrap[data-v-59a16f56] {
+.carInfoKeyArea.wrap3d+.carInfoDetailWrap[data-v-f2142914] {
 	margin-top: 64px
+}
+
+[data-v-f2142914] .productWrap .swiper-slide {
+	margin-left: .3rem;
+	width: 236px !important
 }
 
 .fade-enter-active[data-v-59b869e3], .fade-leave-active[data-v-59b869e3]
@@ -76417,50 +76513,57 @@ a.button.DarkColor:active, button.DarkColor:active {
 	opacity: 0
 }
 
-div.base_ext[data-v-6b3a86a8] { -
+div.base_ext[data-v-0b4372e5] { -
 	-color-fix: #f57153; -
 	-color-replace: #658bef;
 	height: 400px;
 	transform: scale(.65) translate(-40%, -25%)
 }
 
-div.base_ext div.repair[status="3"] img[data-v-6b3a86a8] {
+div.base_ext div.repair[status="3"] img[data-v-0b4372e5] {
 	filter: opacity(.7) drop-shadow(2px 2px 0 var(- -color-fix))
 		drop-shadow(-2px -2px 0 var(- -color-fix))
 }
 
-div.base_ext div.repair[status="2"] img[data-v-6b3a86a8] {
+div.base_ext div.repair[status="2"] img[data-v-0b4372e5] {
 	filter: opacity(.7) drop-shadow(2px 2px 0 var(- -color-replace))
 		drop-shadow(-2px -2px 0 var(- -color-replace))
 }
 
-div.base_frame[data-v-6b3a86a8] { -
+div.base_frame[data-v-0b4372e5] { -
 	-color-fix: #f57153; -
 	-color-replace: #658bef; -
-	-color-scan: red;
+	-color-scan: #68cf85;
 	height: 400px;
 	transform: scale(.65) translate(-40%, -10%)
 }
 
-div.base_frame div.repair[status="3"] img[data-v-6b3a86a8] {
+div.base_frame div.repair[status="3"] img[data-v-0b4372e5] {
 	filter: opacity(.7) drop-shadow(2px 2px 0 var(- -color-fix))
 		drop-shadow(-2px -2px 0 var(- -color-fix))
 }
 
-div.base_frame div.repair[status="2"] img[data-v-6b3a86a8] {
+div.base_frame div.repair[status="2"] img[data-v-0b4372e5] {
 	filter: opacity(.7) drop-shadow(2px 2px 0 var(- -color-replace))
 		drop-shadow(-2px -2px 0 var(- -color-replace))
 }
 
-div.base_frame div.repair[status="5"] img[data-v-6b3a86a8] {
+div.base_frame div.repair[status="5"] img[data-v-0b4372e5] {
 	filter: opacity(.3) drop-shadow(2px 2px 0 var(- -color-scan))
 		drop-shadow(-2px -2px 0 var(- -color-scan))
 }
 
-.ext[data-v-6b3a86a8] {
+.ext[data-v-0b4372e5] {
 	width: 50%;
 	height: 250px;
 	padding-left: 20px
+}
+
+[data-v-6538404c] .carExpadd {
+	color: #999ea1;
+	text-decoration: line-through;
+	letter-spacing: -.05rem;
+	padding-left: .1rem
 }
 
 .tabsCol02sm .el-tabs__header .el-tabs__nav-wrap .el-tabs__nav .el-tabs__item+.el-tabs__item
@@ -76492,6 +76595,18 @@ div.base_frame div.repair[status="5"] img[data-v-6b3a86a8] {
 		size: A4 portrait;
 		margin: 10
 	}
+}
+
+[data-v-b113bdaa] .fullPopup .el-dialog {
+	width: 110rem
+}
+
+[data-v-b113bdaa] .popup .el-dialog {
+	max-height: 88rem
+}
+
+[data-v-b113bdaa] .tabMenuSm.sticky {
+	width: 102rem
 }
 
 .hidden[data-v-adb17354] {
@@ -76594,7 +76709,9 @@ strong {
 	}
 }
 </style>
-
+<script
+	src="//rum.beusable.net/script/checker/b171101e144206u678/f88ad03cce?url=https%3A%2F%2Fwww.kcar.com%2Fbc%2Fdetail%2FcarInfoDtl%3Fi_sCarCd%3DEC60707587"
+	async="" type="text/javascript"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/7f85a56ba4.css">
 <style id="ab-css-definitions-3-2-0">
 .ab-pause-scrolling, body.ab-pause-scrolling, html.ab-pause-scrolling {
@@ -78667,8 +78784,10 @@ body>.ab-feed .ab-no-cards-message {
 </style>
 <meta http-equiv="origin-trial"
 	content="A9wkrvp9y21k30U9lU7MJMjBj4USjLrGwV+Z8zO3J3ZBH139DOnCv3XLK2Ii40S94HG1SZ/Zeg2GSHOD3wlWngYAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjYxMjk5MTk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+<script type="text/javascript" async=""
+	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/938190343/?random=1660833520839&amp;cv=9&amp;fst=1660833520839&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1040&amp;u_aw=1920&amp;u_cd=24&amp;u_his=1&amp;u_tz=540&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=2&amp;gtm=2wg8h0&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.kcar.com%2Fbc%2Fdetail%2FcarInfoDtl%3Fi_sCarCd%3DEC60707587&amp;ref=https%3A%2F%2Fwww.kcar.com%2Fbc%2Fsearch&amp;tiba=%EC%B0%A8%EB%9F%89%EC%83%81%EC%84%B8%20%EC%A7%81%EC%98%81%20%EC%A4%91%EA%B3%A0%EC%B0%A8&amp;auid=1333308707.1660535068&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
 <style type="text/css">
-.error-wrap[data-v-3153780a] {
+.error-wrap[data-v-694b65bc] {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -78677,22 +78796,22 @@ body>.ab-feed .ab-no-cards-message {
 	color: #575757
 }
 
-.error-wrap .wrapper .error[data-v-3153780a] {
+.error-wrap .wrapper .error[data-v-694b65bc] {
 	height: 30rem;
 	padding: 2rem
 }
 
-.error-wrap .wrapper .error h1[data-v-3153780a] {
+.error-wrap .wrapper .error h1[data-v-694b65bc] {
 	padding-bottom: 4rem;
 	font-size: 7rem;
 	font-weight: 700
 }
 
-.error-wrap .wrapper .error div.text>p[data-v-3153780a] {
+.error-wrap .wrapper .error div.text>p[data-v-694b65bc] {
 	font-size: 2.4rem
 }
 
-.error-wrap .wrapper .error div.text>p>span[data-v-3153780a] {
+.error-wrap .wrapper .error div.text>p>span[data-v-694b65bc] {
 	color: #b70f28;
 	font-weight: 700
 }
@@ -80272,6 +80391,16 @@ body>.ab-feed .ab-no-cards-message {
 }
 </style>
 <style type="text/css">
+.detailOptions li.active[data-v-0b93100c] {
+	color: #b70f28;
+	font-weight: 400
+}
+
+.discList dt[data-v-0b93100c] {
+	color: #16171d
+}
+</style>
+<style type="text/css">
 .carSlide {
 	position: relative;
 	margin: 2.4rem 0;
@@ -80857,27 +80986,12 @@ body>.ab-feed .ab-no-cards-message {
 	top: 6.4rem
 }
 </style>
-<link rel="stylesheet" type="text/css"
-	href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet" type="text/css"
-	href="//static.groobee.io/dist/g2/css/grb-recommend-list_v2.css">
-
 <style type="text/css">
-.mapArea {
-	width: 510px;
-	height: 340px
-}
-</style>
-
-<style type="text/css">
-.cursorStyle[data-v-1e88d8ab] {
-	cursor: pointer
-}
-</style>
-
-<style type="text/css">
-.cursorStyle[data-v-0e031c16] {
-	cursor: pointer
+[data-v-64faeeff] .steps ul li+li {
+	margin-left: 2rem
 }
 
+[data-v-64faeeff] .steps ul li p {
+	display: flex
+}
 </style>

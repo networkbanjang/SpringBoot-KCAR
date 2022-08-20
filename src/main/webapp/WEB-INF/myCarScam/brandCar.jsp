@@ -112,7 +112,7 @@
 						<input type="hidden" id="filterCarAllCount"value="${filterCarAllCount }">
 						<input type="hidden" id="brandHidden">
 						<input type="hidden" id="modelHidden">
-						<input type="hidden" id="alignmentHidden" value="basic">
+						<input type="hidden" id="alignmentHidden" value="기본정렬">
 						<div class="listLine">
 							<ul>
 								<li class="carTotal">총 <span class="textRed">${filterCarAllCount }</span>대
@@ -232,16 +232,15 @@
 									</div>
 								</c:forEach>
 								<script>
-								var carListImg = document.querySelectorAll('.carListImg');
-								var ListViewLabel = document.querySelectorAll('.ListViewLabel');
-								var carName = document.querySelectorAll('.carName');
-								var carNumHidden = document.querySelectorAll('.carNumHidden');
-								
-								var detailPage = function(index){
-									var carNum = carNumHidden[index].value;
-									window.open('detail/carInfo?c_num='+carNum);
-								}
-								
+									var carListImg = document.querySelectorAll('.carListImg');
+									var ListViewLabel = document.querySelectorAll('.ListViewLabel');
+									var carName = document.querySelectorAll('.carName');
+									var carNumHidden = document.querySelectorAll('.carNumHidden');
+									
+									var detailPage = function(index){
+										var carNum = carNumHidden[index].value;
+										window.open('detail/carInfo?c_num='+carNum);
+									}
 								</script>
 							</div>
 						</div>

@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<fmt:requestEncoding value="utf-8"/>
+<fmt:requestEncoding value="utf-8" />
 <!DOCTYPE html>
 <html lang="ko" data-n-head="%7B%22lang%22:%7B%22ssr%22:%22ko%22%7D%7D"
 	class="chrome">
@@ -94,24 +94,25 @@
 					<div class="carInfoContainer" data-v-59a16f56="">
 						<div class="carInfoContent" data-v-59a16f56="">
 							<div class="carInfoKeyArea" data-v-59a16f56="">
-							
+
 								<!-- 상단 차량정보 -->
 								<div class="carNameWrap" data-v-59a16f56="">
 									<div class="left" data-v-59a16f56="">
-										<h2 data-v-59a16f56="" class="carName">${car.cb_brand } ${car.cb_m_model } ${car.c_fuel }</h2>
+										<h2 data-v-59a16f56="" class="carName">${car.cb_brand }
+											${car.cb_m_model } ${car.c_fuel }</h2>
 										<div data-v-59a16f56="">
 											<span class="carNum" data-v-59a16f56="">${car.c_num }</span>
 											<ul class="dotLists" data-v-59a16f56="">
 												<li data-v-59a16f56="">${car.c_acident }</li>
 												<li data-v-59a16f56="">${car.c_year }</li>
-												<li data-v-59a16f56="">${car.c_distance } km</li>
+												<li data-v-59a16f56="">${car.c_distance }km</li>
 												<li data-v-59a16f56="">${car.c_fuel }</li>
 												<li data-v-59a16f56="">${car.c_color }</li>
 												<li data-v-59a16f56="">${car.c_change }</li>
 												<li data-v-59a16f56="">${car.st_name }</li>
 											</ul>
 										</div>
-										
+
 										<!-- 상단 차량 태그정보 -->
 										<ul class="flagLists" data-v-59a16f56="">
 											<li class="redC" data-v-59a16f56="">직영</li>
@@ -189,19 +190,18 @@
 													style="transform: translateX(0px) scale(1);">
 													<!---->
 													<div class="image-wrap">
-														<img
-															src="${CarPhotoFirst.c_p_photo }">
+														<img src="${CarPhotoFirst.c_p_photo }">
 														<!---->
 													</div>
 												</div>
 												<!-- forEach 시작 1번index부터 -->
-												<c:forEach var="carPhotoCenter" items="${CarPhotoListCenter }" varStatus="status" >
+												<c:forEach var="carPhotoCenter"
+													items="${CarPhotoListCenter }" varStatus="status">
 													<div class="el-carousel__item"
 														style="transform: translateX(1220px) scale(1);">
 														<!---->
 														<div class="image-wrap">
-															<img
-																src="${carPhoto.c_p_photo }">
+															<img src="${carPhoto.c_p_photo }">
 															<!---->
 														</div>
 													</div>
@@ -220,10 +220,11 @@
 										<div class="el-carousel-thumbnail">
 											<div always=""
 												class="el-carousel-thumbnail-scroll el-scrollbar">
-												<div class="el-scrollbar__wrap" 
+												<div class="el-scrollbar__wrap"
 													style="margin-bottom: -21px; margin-right: -21px; display: flex;">
 													<!-- forEach start 사진 약 31개 -->
-													<c:forEach var="carPhotoBottom" items="${CarPhotoListBottom }" varStatus="status">
+													<c:forEach var="carPhotoBottom"
+														items="${CarPhotoListBottom }" varStatus="status">
 														<div class="el-scrollbar__view">
 															<div class="el-carousel-thumbnail-wrap">
 																<div data-thumbnail-item-index="${status.index }"
@@ -232,12 +233,12 @@
 																		style="background-image: url(${carPhotoBottom.c_p_photo});"></button>
 																</div>
 															</div>
-														</div>	
+														</div>
 													</c:forEach>
-													
+
 													<!-- forEach end -->
-													
-													
+
+
 												</div>
 												<div class="el-scrollbar__bar is-horizontal">
 													<div class="el-scrollbar__thumb"
@@ -276,14 +277,6 @@
 									<ul class="snsCtaLists" data-v-59a16f56="">
 										<li class="item1" data-v-59a16f56=""><a
 											id="mkt_sharebtnId" data-v-59a16f56="">공유</a></li>
-										<li class="item2" data-v-59a16f56=""><a
-											data-v-59a16f56="">비교</a></li>
-										<li class="item3" data-v-59a16f56=""><a
-											data-v-59a16f56="">관심차량</a></li>
-										<li class="item4" data-v-59a16f56=""><a
-											data-v-59a16f56="">PC에 저장</a></li>
-										<li class="item5" data-v-59a16f56=""><a
-											data-v-59a16f56="">인쇄</a></li>
 									</ul>
 									<ul class="carOptionLists" data-v-59a16f56="">
 										<li data-v-59a16f56=""><button type="button"
@@ -319,7 +312,8 @@
 															data-v-59a16f56="">
 															<!---->
 															<input type="text" disabled="disabled" autocomplete="off"
-																class="el-input__inner" value="${carPriceInfo.carPrice/10000 }">
+																class="el-input__inner"
+																value="${carPriceInfo.carPrice/10000 }">
 															<!---->
 															<!---->
 															<!---->
@@ -341,7 +335,8 @@
 														<div class="inputManWon el-input" data-v-59a16f56="">
 															<!---->
 															<input type="text" autocomplete="off"
-																class="el-input__inner" value="${carPriceInfo.advancePayment/10000 }">
+																class="el-input__inner"
+																value="${carPriceInfo.advancePayment/10000 }">
 															<!---->
 															<!---->
 															<!---->
@@ -369,10 +364,10 @@
 																	<!---->
 																	<span><i class="el-icon-info2"
 																		data-v-59a16f56=""></i></span>
-																</button>
-																<!---->
+																</button> <!---->
 														</span></label>
-														<div class="price" data-v-59a16f56="">${carPriceInfo.managePrice } 원</div>
+														<div class="price" data-v-59a16f56="">${carPriceInfo.managePrice }
+															원</div>
 													</div>
 													<!---->
 												</div>
@@ -459,42 +454,55 @@
 											<div id="ajaxInstallment">
 												<div class="el-form-item" data-v-59a16f56="">
 													<!---->
-													
+
 													<div class="el-form-item__content">
 														<div class="titLabel" data-v-59a16f56="">할부기간</div>
+														<input type="hidden" id="hiddenCarPrice" value="${car.c_price}">
 														<div role="radiogroup" class="el-radio-group radioBoxs"
 															data-v-59a16f56="">
 															<label role="radio" tabindex="-1" class="el-radio-button"
-																data-v-59a16f56=""><input type="radio" name="installment"
-																tabindex="-1" autocomplete="off" value="0"
-																class="el-radio-button__orig-radio installment" onclick="installmentCheck('12','${car.c_price}')"><span
+																data-v-59a16f56=""><input type="radio"
+																name="installment" tabindex="-1" autocomplete="off"
+																value="0"
+																class="el-radio-button__orig-radio installment"
+																onclick="installmentCheck('12','${car.c_price}')"><span
 																class="el-radio-button__inner"> 12개월 <!----></span></label><label
 																role="radio" tabindex="-1" class="el-radio-button"
-																data-v-59a16f56=""><input type="radio" name="installment"
-																tabindex="-1" autocomplete="off" value="1"
-																class="el-radio-button__orig-radio installment" onclick="installmentCheck('24','${car.c_price}')"><span
+																data-v-59a16f56=""><input type="radio"
+																name="installment" tabindex="-1" autocomplete="off"
+																value="1"
+																class="el-radio-button__orig-radio installment"
+																onclick="installmentCheck('24','${car.c_price}')"><span
 																class="el-radio-button__inner"> 24개월 <!----></span></label><label
 																role="radio" aria-checked="true" tabindex="0"
 																class="el-radio-button is-active" data-v-59a16f56=""><input
-																type="radio" name="installment" tabindex="-1" autocomplete="off" value="2"
-																checked="checked" class="el-radio-button__orig-radio installment"  onclick="installmentCheck('36','${car.c_price}')"><span
+																type="radio" name="installment" tabindex="-1"
+																autocomplete="off" value="2" checked="checked"
+																class="el-radio-button__orig-radio installment"
+																onclick="installmentCheck('36','${car.c_price}')"><span
 																class="el-radio-button__inner"
 																style="background-color:; border-color:; box-shadow:; color:;">
 																	36개월 <!---->
 															</span></label><label role="radio" tabindex="-1" class="el-radio-button"
-																data-v-59a16f56=""><input type="radio" name="installment"
-																tabindex="-1" autocomplete="off" value="3"
-																class="el-radio-button__orig-radio installment" onclick="installmentCheck('48','${car.c_price}')"><span
+																data-v-59a16f56=""><input type="radio"
+																name="installment" tabindex="-1" autocomplete="off"
+																value="3"
+																class="el-radio-button__orig-radio installment"
+																onclick="installmentCheck('48','${car.c_price}')"><span
 																class="el-radio-button__inner"> 48개월 <!----></span></label><label
 																role="radio" tabindex="-1" class="el-radio-button"
-																data-v-59a16f56=""><input type="radio" name="installment"
-																tabindex="-1" autocomplete="off" value="4"
-																class="el-radio-button__orig-radio installment" onclick="installmentCheck('60','${car.c_price}')"><span
+																data-v-59a16f56=""><input type="radio"
+																name="installment" tabindex="-1" autocomplete="off"
+																value="4"
+																class="el-radio-button__orig-radio installment"
+																onclick="installmentCheck('60','${car.c_price}')"><span
 																class="el-radio-button__inner"> 60개월 <!----></span></label><label
 																role="radio" tabindex="-1" class="el-radio-button"
-																data-v-59a16f56=""><input type="radio" name="installment"
-																tabindex="-1" autocomplete="off" value="5"
-																class="el-radio-button__orig-radio installment" onclick="installmentCheck('72','${car.c_price}')"><span
+																data-v-59a16f56=""><input type="radio"
+																name="installment" tabindex="-1" autocomplete="off"
+																value="5"
+																class="el-radio-button__orig-radio installment"
+																onclick="installmentCheck('72','${car.c_price}')"><span
 																class="el-radio-button__inner"> 72개월 <!----></span></label>
 														</div>
 														<!---->
@@ -514,46 +522,57 @@
 																<span><i class="el-icon-info2" data-v-59a16f56=""></i></span>
 															</button>
 														</div>
-														<input type="hidden" id="hidden7" value>
-														<input type="hidden" id="hidden8" value>
-														<input type="hidden" id="hidden9" value>
-														<input type="hidden" id="hidden11" value>
-														<input type="hidden" id="hidden13" value>
+														<input type="hidden" id="hidden7" value="null"> <input
+															type="hidden" id="hidden8"value="null"> <input
+															type="hidden" id="hidden9"value="null"> <input
+															type="hidden" id="hidden11"value="null"> <input
+															type="hidden" id="hidden13"value="null">
 														<div role="radiogroup" class="el-radio-group radioBoxs"
 															data-v-59a16f56="">
 															<label role="radio" aria-checked="true" tabindex="0"
 																id="interestbtn1" class="el-radio-button is-active"
-																data-v-59a16f56=""><input name="rate" type="radio"
-																tabindex="-1" autocomplete="off" value="0"
-																checked="checked" class="el-radio-button__orig-radio" onclick="rateCheck('${carPriceInfo.result }','7')">
+																data-v-59a16f56=""><input name="rate"
+																type="radio" tabindex="-1" autocomplete="off" value="0"
+																checked="checked" class="el-radio-button__orig-radio"
+																onclick="rateCheck('${carPriceInfo.result }','7')">
 																<span class="el-radio-button__inner rate" id="7"
 																style="background-color:; border-color:; box-shadow:; color:;">연
 																	7% <br>${carPriceInfo.result2 } 만원
 															</span></label><label role="radio" tabindex="-1" id="interestbtn2"
-																class="el-radio-button" data-v-59a16f56=""><input name="rate"
-																type="radio" tabindex="-1" autocomplete="off" value="1"
-																class="el-radio-button__orig-radio" onclick="rateCheck('${carPriceInfo8.result }','8')"><span
-																class="el-radio-button__inner rate" id="8">연 8% <br>${carPriceInfo8.result2 } 만원
+																class="el-radio-button" data-v-59a16f56=""><input
+																name="rate" type="radio" tabindex="-1"
+																autocomplete="off" value="1"
+																class="el-radio-button__orig-radio"
+																onclick="rateCheck('${carPriceInfo8.result }','8')"><span
+																class="el-radio-button__inner rate" id="8">연 8% <br>${carPriceInfo8.result2 }
+																	만원
 															</span></label><label role="radio" tabindex="-1" id="interestbtn3"
-																class="el-radio-button" data-v-59a16f56=""><input name="rate"
-																type="radio" tabindex="-1" autocomplete="off" value="2"
-																class="el-radio-button__orig-radio" onclick="rateCheck('${carPriceInfo9.result }','9')"><span
-																class="el-radio-button__inner rate"id="9">연 9% <br>${carPriceInfo9.result2 } 만원
+																class="el-radio-button" data-v-59a16f56=""><input
+																name="rate" type="radio" tabindex="-1"
+																autocomplete="off" value="2"
+																class="el-radio-button__orig-radio"
+																onclick="rateCheck('${carPriceInfo9.result }','9')"><span
+																class="el-radio-button__inner rate" id="9">연 9% <br>${carPriceInfo9.result2 }
+																	만원
 															</span></label><label role="radio" tabindex="-1" id="interestbtn4"
-																class="el-radio-button" data-v-59a16f56=""><input name="rate"
-																type="radio" tabindex="-1" autocomplete="off" value="3"
-																class="el-radio-button__orig-radio" onclick="rateCheck('${carPriceInfo11.result }','11')"><span
-																class="el-radio-button__inner rate" id="11">연 11% <br>${carPriceInfo11.result2 }
-																	만원
+																class="el-radio-button" data-v-59a16f56=""><input
+																name="rate" type="radio" tabindex="-1"
+																autocomplete="off" value="3"
+																class="el-radio-button__orig-radio"
+																onclick="rateCheck('${carPriceInfo11.result }','11')"><span
+																class="el-radio-button__inner rate" id="11">연 11%
+																	<br>${carPriceInfo11.result2 } 만원
 															</span></label><label role="radio" tabindex="-1" id="interestbtn5"
-																class="el-radio-button" data-v-59a16f56=""><input name="rate"
-																type="radio" tabindex="-1" autocomplete="off" value="4"
-																class="el-radio-button__orig-radio" onclick="rateCheck('${carPriceInfo13.result }','13')"><span
-																class="el-radio-button__inner rate" id="13">연 13% <br>${carPriceInfo13.result2 }
-																	만원
+																class="el-radio-button" data-v-59a16f56=""><input
+																name="rate" type="radio" tabindex="-1"
+																autocomplete="off" value="4"
+																class="el-radio-button__orig-radio"
+																onclick="rateCheck('${carPriceInfo13.result }','13')"><span
+																class="el-radio-button__inner rate" id="13">연 13%
+																	<br>${carPriceInfo13.result2 } 만원
 															</span></label>
 														</div>
-														
+
 														<!---->
 													</div>
 												</div>
@@ -564,21 +583,14 @@
 										<ul class="calcDescLists" data-v-59a16f56="">
 											<li data-v-59a16f56=""><span data-v-59a16f56="">총
 													할부 신청 금액</span> <strong data-v-59a16f56="">${carPriceInfo.installment }원</strong></li>
-											<li data-v-59a16f56=""><span data-v-59a16f56="" >월
-													납부금(예상)</span> <strong class="pointC" data-v-59a16f56="" id="monthResult">${carPriceInfo.result }
-													원</strong></li>
+											<li data-v-59a16f56=""><span data-v-59a16f56="">월
+													납부금(예상)</span> <strong class="pointC" data-v-59a16f56=""
+												id="monthResult">${carPriceInfo.result } 원</strong></li>
 										</ul>
 										<div class="calcBtnArea" data-v-59a16f56="">
 											<div class="searchTrigger box btnSpace20 pT0 el-row"
 												data-v-59a16f56="">
-												<button class="button chosenApply" data-v-59a16f56="">
-													다시 계산</button>
-												<button id="mkt_vsoutLmtCalcId" class="button apply"
-													data-v-59a16f56="">한도 조회</button>
 											</div>
-											<ul class="guideTxt" data-v-59a16f56="">
-												<li data-v-59a16f56="">개인신용평점 영향 없이, 24시간 한도 조회가 가능합니다.</li>
-											</ul>
 										</div>
 									</div>
 									<div class="cardPayInfoTxt" data-v-59a16f56="">
@@ -1095,72 +1107,6 @@
 											</div>
 											<h3 class="infoHead3 mT40" data-v-59a16f56="">K Car는
 												고객님의 안전이, 그 무엇보다 중요합니다.</h3>
-<!-- 											<ul class="checkSummary" data-v-59a16f56="">
-												<li data-v-59a16f56=""><div class="colum2Type"
-														data-v-59a16f56="">
-														<ul class="summaryDescLists" data-v-59a16f56="">
-															<li data-v-59a16f56=""><span data-v-59a16f56="">타이어</span>
-																<span data-v-59a16f56="">통과 <i
-																	class="iconCheck pass" data-v-59a16f56=""></i></span></li>
-															
-															
-															
-															
-															
-														</ul>
-														<ul data-v-59a16f56="" class="summaryDescLists">
-															<li data-v-59a16f56=""><span data-v-59a16f56="">타이어
-																	잔존량</span> <span data-v-59a16f56="">운전석 앞 4mm/뒤 4mm <br
-																	data-v-59a16f56="">조수석 앞 3.9mm/뒤 4mm
-															</span></li>
-														</ul>
-													</div></li>
-												<li data-v-59a16f56=""><div data-v-59a16f56="">
-														<ul class="summaryDescLists" data-v-59a16f56="">
-															<li data-v-59a16f56=""><span data-v-59a16f56="">각종
-																	오일류</span> <span data-v-59a16f56="">통과 <i
-																	class="iconCheck pass" data-v-59a16f56=""></i></span></li>
-															
-															
-															
-															
-															
-															
-															
-															
-															
-															
-															<li data-v-59a16f56=""><span data-v-59a16f56="">브레이크
-																	패드</span> <span data-v-59a16f56="">통과 <i
-																	class="iconCheck pass" data-v-59a16f56=""></i></span></li>
-															
-															
-															
-															
-														</ul>
-													</div>
-													<div data-v-59a16f56="">
-														<ul class="summaryDescLists" data-v-59a16f56="">
-															<li data-v-59a16f56=""><span data-v-59a16f56="">외관
-																	편의장치</span> <span data-v-59a16f56="">통과 <span
-																	class="pointC" data-v-59a16f56="">3개</span><i
-																	class="iconCheck pass" data-v-59a16f56=""></i></span></li>
-															<li data-v-59a16f56=""><span data-v-59a16f56="">내장
-																	편의장치</span> <span data-v-59a16f56="">통과 <span
-																	class="pointC" data-v-59a16f56="">5개</span><i
-																	class="iconCheck pass" data-v-59a16f56=""></i></span></li>
-															<li data-v-59a16f56=""><span data-v-59a16f56="">안전
-																	편의장치</span> <span data-v-59a16f56="">통과 <span
-																	class="pointC" data-v-59a16f56="">11개</span><i
-																	class="iconCheck pass" data-v-59a16f56=""></i></span></li>
-														</ul>
-													</div></li>
-											</ul>
-											<div class="searchTrigger box Large DarkColor el-row"
-												data-v-59a16f56="">
-												<button id="mkt_dgnosDtlId" class="button lineApply">
-													K Car 진단서</button>
-											</div> -->
 										<li id="menu2" data-menu-section="2" data-v-59a16f56=""><div
 												class="flexSB pT100 mB32" data-v-59a16f56="">
 												<h2 class="infoHead2 mB0" data-v-59a16f56="">
@@ -1170,7 +1116,8 @@
 											</div>
 											<div class="carCard" data-v-59a16f56="">
 												<strong class="carNum" data-v-59a16f56="">${car.c_num }</strong>
-												<p data-v-59a16f56="" class="carName">${car.cb_brand } ${car.cb_m_model } ${car.c_fuel }</p>
+												<p data-v-59a16f56="" class="carName">${car.cb_brand }
+													${car.cb_m_model } ${car.c_fuel }</p>
 											</div>
 											<div class="flexSB mT40 mB20" data-v-59a16f56="">
 												<h3 class="infoHead3 mB0" data-v-59a16f56="">차량정보</h3>
@@ -1195,8 +1142,8 @@
 											</ul></li>
 										<li id="menu3" data-menu-section="3" data-v-59a16f56=""><h2
 												class="infoHead2 pT100" data-v-59a16f56="">
-												K Car 차량 전문가!<br data-v-59a16f56="">
-												<span data-v-59a16f56="">‘윤원기 차량평가사’의 코멘트</span>
+												K Car 차량 전문가!<br data-v-59a16f56=""> <span
+													data-v-59a16f56="">‘윤원기 차량평가사’의 코멘트</span>
 											</h2>
 											<div class="employeeCard" data-v-59a16f56="">
 												<div class="imgbox" data-v-59a16f56="">
@@ -1211,43 +1158,38 @@
 															사원증</span> <span data-v-59a16f56="">21-042-01067</span></li>
 													<li data-v-59a16f56=""><span data-v-59a16f56="">판매차량</span>
 														<a class="el-link el-link--default is-underline"
-														data-v-59a16f56="">
+														data-v-59a16f56=""> <!----> <span
+															class="el-link--inner"><span data-v-59a16f56="">34대</span></span>
 															<!---->
-															<span class="el-link--inner"><span
-																data-v-59a16f56="">34대</span></span>
-														<!---->
 													</a></li>
 												</ul>
 											</div>
+											<c:if test="${not empty carInfo}">
 											<ul class="commentLists" data-v-59a16f56="">
 												<li class="col1" data-v-59a16f56=""><h4 class="tit"
 														data-v-59a16f56="">이 차를 추천하는 이유</h4>
 													<ul class="cmtDescLists" data-v-59a16f56="">
-														<li data-v-59a16f56="">★ 보고계시는 더 뉴 스파크 차량은 "무사고" 차량
-															입니다★ <br>★ 추가옵션 " 썬루프,리어사이드 에어백,블랙 보타이,컨비니언스,스포츠데칼"
-															<br>★ 추가옵션 " 16인 마이핏 전용 휠,라이트패키지,인포테이먼트" 장착되어 있습니다 ★
-															<br>★ 홈서비스 이용하여 3일간 운행 해보시고 결정 하실 수 있습니다 ★
+														<li data-v-59a16f56="">
+														${carInfo.c_i_recommend }
 														</li>
 													</ul></li>
 												<li class="col2" data-v-59a16f56=""><h4 class="tit"
 														data-v-59a16f56="">진단 결과 요점 정리</h4>
 													<ul class="cmtDescLists" data-v-59a16f56="">
-														<li data-v-59a16f56="">- 리프트에 올려 하부진단 결과 미세누유 하나 없이
-															깔끔 한 상태를 유지하고 있습니다. <br>- 실내 상태 진단결과 담배 냄새 없는 "비흡연"
-															차량 입니다. <br>- K카 워런티 가입 가능 한 차량이며 출고 이 후 경정비 부담 없이
-															운행 하실 수 있습니다. <br>- 할부&amp;대차 가능 한 차량이며 기타 궁굼하신점 유선
-															연락 주시면 언제든 친절히 안내해 드리겠습니다.
+														<li data-v-59a16f56="">
+														${carInfo.c_i_summary }
 														</li>
 													</ul></li>
 												<li class="col3" data-v-59a16f56=""><h4 class="tit"
 														data-v-59a16f56="">차량 히스토리 및 특이사항</h4>
 													<ul class="cmtDescLists" data-v-59a16f56="">
-														<li data-v-59a16f56="">대전에 거주하시는 고객님께서 중고차 구입 후 운행하신
-															차량 입니다. <br>차량 구입 후 자녀분과 마실 용도로 운행하신 차량 입니다. <br>이번에
-															차량 변경 하시면서 K카 유성직영점에 매각하신 차량 입니다.
+														<li data-v-59a16f56="">
+														${carInfo.c_i_summary }
 														</li>
 													</ul></li>
-											</ul></li>
+											</ul>
+											</c:if>
+											</li>
 										<li id="menu4" data-menu-section="4" data-v-59a16f56=""><h2
 												class="infoHead2 pT100" data-v-59a16f56="">
 												편안하게 타실 수 있도록, <span data-v-59a16f56="">옵션까지 한눈에
@@ -1278,58 +1220,7 @@
 														data-v-59a16f56="" class="opText">LDWS:차선이탈경보 시스템 </span></li>
 												</ul>
 											</div>
-											<div class="searchTrigger box Large DarkColor mT24 el-row"
-												data-v-59a16f56="">
-												<button class="button lineApply">옵션 전체 보기</button>
-											</div></li>
-										<!-- <li id="menu5" data-menu-section="5" data-v-59a16f56=""><div
-												class="flexSB pT100 mB32" data-v-59a16f56="">
-												<h2 class="infoHead2 mB0" data-v-59a16f56="">
-													안심하세요, 고객님.<br data-v-59a16f56="">
-													<span data-v-59a16f56="">보험이력까지 알려드립니다.</span>
-												</h2>
-												<span class="rightDesc" data-v-59a16f56="">*정보조회일
-													2022.07.13</span>
-											</div>
-											<div class="carCard" data-v-59a16f56="">
-												<strong class="carNum" data-v-59a16f56="">08우8625</strong>
-												<p data-v-59a16f56="" class="carName">쉐보레(GM대우) 더 뉴 스파크
-													마이핏 에디션</p>
-											</div>
-											<div class="flexSB mT40 mB20" data-v-59a16f56="">
-												<h3 class="infoHead3 mB0" data-v-59a16f56="">K Car는
-													고객님의 신뢰가 소중합니다.</h3>
-											</div>
-											<ul class="infoSummary diffWidth mB24" data-v-59a16f56="">
-												<li data-v-59a16f56=""><span data-v-59a16f56="">내차
-														피해</span> <span class="pointC" data-v-59a16f56="">0건</span></li>
-												<li data-v-59a16f56=""><span data-v-59a16f56="">상대차
-														피해</span> <span class="pointC" data-v-59a16f56="">0건</span></li>
-												<li data-v-59a16f56=""><span data-v-59a16f56="">압류/저당</span>
-													<span class="pointC" data-v-59a16f56=""> 없음 </span></li>
-												<li data-v-59a16f56=""><span data-v-59a16f56="">소유주
-														변경</span> <span class="pointC" data-v-59a16f56="">2건</span></li>
-												<li data-v-59a16f56=""><span data-v-59a16f56="">용도
-														변경 이력</span> <span class="pointC" data-v-59a16f56="">없음</span></li>
-												<li data-v-59a16f56=""><span data-v-59a16f56="">특수사고
-														이력</span>
-													<ul data-v-59a16f56="">
-														<li data-v-59a16f56="">전손 <span class="pointC"
-															data-v-59a16f56="">0회</span></li>
-														<li data-v-59a16f56="">도난 <span class="pointC"
-															data-v-59a16f56="">0회</span></li>
-														<li data-v-59a16f56="">침수 <span class="pointC"
-															data-v-59a16f56="">0회</span></li>
-													</ul></li>
-											</ul>
-											<ul class="guideTxt rightDesc" data-v-59a16f56="">
-												<li data-v-59a16f56="">위 보험이력은 보험개발원이 제공하는 정보입니다.</li>
-											</ul>
-											<div class="searchTrigger box Large DarkColor el-row"
-												data-v-59a16f56="">
-												<button id="mkt_insuHistId" class="button lineApply">
-													보험이력 자세히 보기</button>
-											</div></li> -->
+										</li>
 									</ul>
 									<div class="warrantySection el-row" data-v-59a16f56="">
 										<h2 class="infoHead2 mT100" data-v-59a16f56="">
@@ -1337,9 +1228,8 @@
 										</h2>
 										<h3 class="infoHead3 mB64" data-v-59a16f56="">
 											<span data-v-59a16f56="">K Car Warranty로 수리비 걱정 끝!</span> <br
-												data-v-59a16f56="">
-											<span class="pointC" data-v-59a16f56="">엔진·변속기, 제동장치
-												일반부품까지 보증합니다.</span>
+												data-v-59a16f56=""> <span class="pointC"
+												data-v-59a16f56="">엔진·변속기, 제동장치 일반부품까지 보증합니다.</span>
 										</h3>
 										<ul class="progressbarLists" data-v-59a16f56="">
 											<li data-v-59a16f56=""><div class="pbLabel"
@@ -1390,19 +1280,20 @@
 									<div class="faqWrap mT100" data-v-59a16f56="">
 										<div class="infoTitleWrap infoTitleWrap2 mb40">
 											<h2 class="infoTitle">자주 묻는 질문</h2>
-											<a class="moreBtn el-link el-link--default is-underline" href="#">
-												<!---->
-												<span class="el-link--inner"> 전체보기<i
-													class="el-icon-arrow-right"></i></span>
-											<!---->
+											<a class="moreBtn el-link el-link--default is-underline"
+												href="#"> <!----> <span class="el-link--inner">
+													전체보기<i class="el-icon-arrow-right"></i>
+											</span> <!---->
 											</a>
 										</div>
 										<div role="tablist" aria-multiselectable="true"
 											class="el-collapse faqList">
-											
-											<c:forEach var="question" items="${questionList }" varStatus="status">
+
+											<c:forEach var="question" items="${questionList }"
+												varStatus="status">
 												<div class="el-collapse-item">
-													<div role="tab" aria-controls="el-collapse-content-603"  onclick="question('${status.index}')"
+													<div role="tab" aria-controls="el-collapse-content-603"
+														onclick="question('${status.index}')"
 														aria-describedby="el-collapse-content-603">
 														<div role="button" id="el-collapse-head-603" tabindex="0"
 															class="el-collapse-item__header">
@@ -1412,20 +1303,18 @@
 													</div>
 													<div role="tabpanel" aria-hidden="true"
 														aria-labelledby="el-collapse-head-603"
-														id="el-collapse-content-603" class="el-collapse-item__wrap"
-														style="display: none;">
+														id="el-collapse-content-603"
+														class="el-collapse-item__wrap" style="display: none;">
 														<div class="el-collapse-item__content">
 															<div>
 																<i class="el-icon-A"></i>
-																<div class="faqA">
-																	${question.q_content }
-																</div>
+																<div class="faqA">${question.q_content }</div>
 															</div>
 														</div>
 													</div>
 												</div>
 											</c:forEach>
-											
+
 										</div>
 									</div>
 									<!---->
@@ -1450,9 +1339,9 @@
 												style="transform: translate3d(0px, 0px, 0px);">
 												<c:forEach var="buyReview" items="${reviewList }">
 													<div class="swiper-slide roundType swiper-slide-active"
-														style="width: 240px; margin-right: 40px;" onclick="reviewModalOpen('${buyReview.cb_brand } ${buyReview.cb_m_model }', '${buyReview.m_r_title }', '${buyReview.m_r_review }', '${buyReview.m_r_registDate }', '${buyReview.m_r_photo}')">
-														<a class="el-link el-link--default is-underline">
-															<!---->
+														style="width: 240px; margin-right: 40px;"
+														onclick="reviewModalOpen('${buyReview.cb_brand } ${buyReview.cb_m_model }', '${buyReview.m_r_title }', '${buyReview.m_r_review }', '${buyReview.m_r_registDate }', '${buyReview.m_r_photo}')">
+														<a class="el-link el-link--default is-underline"> <!---->
 															<span class="el-link--inner"><div class="prdImg">
 																	<img
 																		src="https://img.kcar.com/FILE_UPLOAD2/IMAGE_UPLOAD/REVIEW/20227/내차사기 03_유동욱_올뉴말리부_0725tgoH62XoIbfjqv1cyNp2.jpg"
@@ -1462,8 +1351,7 @@
 																	<div class="postTit">${buyReview.m_r_title }</div>
 																	<p class="postDesc">${buyReview.m_r_review }</p>
 																	<span class="postDate">${buyReview.m_r_registDate }</span>
-																</div></span>
-														<!---->
+																</div></span> <!---->
 														</a>
 													</div>
 												</c:forEach>
@@ -1492,51 +1380,6 @@
 									<h2 class="infoHead2 mT100" data-v-59a16f56="">
 										이 차량은 ${car.st_name }<span data-v-59a16f56="">에 있습니다.</span>
 									</h2>
-									<!-- <div class="centerInfoBox" data-v-59a16f56="">
-										<div data-v-59a16f56="">
-											<img
-												src="https://img.kcar.com/FILE_UPLOAD2/IMAGE_UPLOAD/CENTER/148/148_000.jpg?1659352715751"
-												alt="" data-v-59a16f56="">
-											<div class="unionInfo" data-v-59a16f56="">
-												<h4 data-v-59a16f56="">조합정보</h4>
-												<ul class="unionInfoDesc" data-v-59a16f56="">
-													<li data-v-59a16f56=""><span data-v-59a16f56="">조합명</span><span
-														data-v-59a16f56="">대전자동차매매사업조합</span></li>
-													<li data-v-59a16f56=""><span data-v-59a16f56="">조합연락처</span><span
-														data-v-59a16f56="">042-222-1551</span></li>
-												</ul>
-											</div>
-										</div>
-										<div data-v-59a16f56="">
-											<ul class="centerDescLists" data-v-59a16f56="">
-												<li data-v-59a16f56=""><strong data-v-59a16f56="">주소</strong>
-													<p data-v-59a16f56="">대전광역시 유성구 복용동로 35 (복용동, 디오토몰) ,
-														1층 116호(복용동, 디오토몰)</p></li>
-												<li data-v-59a16f56=""><strong data-v-59a16f56="">영업시간</strong>
-													<p data-v-59a16f56="">월~토요일 09:00~18:00 공휴일/일요일 휴점</p></li>
-												<li data-v-59a16f56=""><strong data-v-59a16f56="">점심시간</strong>
-													<p class="pointC" data-v-59a16f56="">12:00~13:00</p></li>
-												<li data-v-59a16f56=""><strong data-v-59a16f56="">대표번호</strong>
-													<p data-v-59a16f56="">042-385-4511</p></li>
-												
-												<li data-v-59a16f56=""><strong data-v-59a16f56="">판매차량</strong>
-													<p data-v-59a16f56="">
-														<a class="el-link el-link--default is-underline"
-															data-v-59a16f56="">
-															
-															<span class="el-link--inner"><strong
-																class="pointC" data-v-59a16f56="">233대</strong></span>
-														
-														</a>
-													</p></li>
-											</ul>
-											<div class="searchTrigger box Large btnSpace8 el-row"
-												data-v-59a16f56="">
-												<button class="button chosenApply">찾아오시는 길</button>
-												<button class="button apply">주소문자받기</button>
-											</div>
-										</div>
-									</div> -->
 									<div class="bannerWrap mT40" data-v-59a16f56="">
 										<div class="bannerArea" data-v-59a16f56="">
 											<div data-v-59a16f56="">
@@ -1580,95 +1423,99 @@
 										</div>
 									</div>
 								</div>
-							<form action="order" method="post" id="buyF">
-								<input type="hidden" value="${car.c_num }" name="c_num">
-								<div class="carInfoRight" data-v-59a16f56="">
-									<div class="stikyWrap" data-v-59a16f56="">
-										<div class="sumSummaryWrap" data-v-59a16f56="">
-											<h3 data-v-59a16f56="" class="carName">
-												${car.cb_brand } ${car.cb_m_model } ${car.c_fuel }<br data-v-59a16f56="">
-											</h3>
-											<ul class="dotLists" data-v-59a16f56="">
-												<li data-v-59a16f56="">${car.c_year }</li>
-												<li data-v-59a16f56="">${car.c_distance }km</li>
-												<li data-v-59a16f56="">${car.c_fuel }</li>
-											</ul>
-											<div role="tablist" aria-multiselectable="true"
-												class="el-collapse accordionMenu" data-v-59a16f56="">
-												<div class="el-collapse-item is-active" data-v-59a16f56="">
-													<div role="tab" aria-expanded="true"
-														aria-controls="el-collapse-content-5474"
-														aria-describedby="el-collapse-content-5474">
-														<div role="button" id="el-collapse-head-7034" tabindex="0"
-															class="el-collapse-item__header is-active">
-															고객님의 총 구매 예상 비용 <i
-																class="el-collapse-item__arrow el-icon-arrow-right is-active"></i>
+								<form action="carOrderBuy" method="post" id="buyF">
+									<input type="hidden" value="${car.c_num }" name="c_num">
+									<div class="carInfoRight" data-v-59a16f56="">
+										<div class="stikyWrap" data-v-59a16f56="">
+											<div class="sumSummaryWrap" data-v-59a16f56="">
+												<h3 data-v-59a16f56="" class="carName">
+													${car.cb_brand } ${car.cb_m_model } ${car.c_fuel }<br
+														data-v-59a16f56="">
+												</h3>
+												<ul class="dotLists" data-v-59a16f56="">
+													<li data-v-59a16f56="">${car.c_year }</li>
+													<li data-v-59a16f56="">${car.c_distance }km</li>
+													<li data-v-59a16f56="">${car.c_fuel }</li>
+												</ul>
+												<div role="tablist" aria-multiselectable="true"
+													class="el-collapse accordionMenu" data-v-59a16f56="">
+													<div class="el-collapse-item is-active" data-v-59a16f56="">
+														<div role="tab" aria-expanded="true"
+															aria-controls="el-collapse-content-5474"
+															aria-describedby="el-collapse-content-5474">
+															<div role="button" id="el-collapse-head-7034"
+																tabindex="0" class="el-collapse-item__header is-active">
+																고객님의 총 구매 예상 비용 <i
+																	class="el-collapse-item__arrow el-icon-arrow-right is-active"></i>
+															</div>
 														</div>
-													</div>
-													<div role="tabpanel"
-														aria-labelledby="el-collapse-head-7034"
-														id="el-collapse-content-7034"
-														class="el-collapse-item__wrap">
-														<div class="el-collapse-item__content">
-															<ul class="costDetailLists" data-v-59a16f56="">
-																<li data-v-59a16f56=""><span data-v-59a16f56="">차량가</span>
-																	<span data-v-59a16f56="">${carPriceInfo.carPrice } 원</span></li>
-																<li data-v-59a16f56=""><span data-v-59a16f56="">이전등록비</span>
-																	<span data-v-59a16f56="">${carPriceInfo.registrationPrice } 원</span></li>
-																<li data-v-59a16f56=""><span data-v-59a16f56="">관리비용</span>
-																	<span data-v-59a16f56="">${carPriceInfo.managePrice } 원</span></li>
-																<li data-v-59a16f56=""><span data-v-59a16f56="">등록신청대행수수료</span>
-																	<span data-v-59a16f56="">${carPriceInfo.registPrice } 원</span></li>
-																<li data-v-59a16f56=""><span data-v-59a16f56="">KW보증비<span
-																		class="pointN" data-v-59a16f56="">(KW6 선택 시
-																			예상)*</span></span> <span data-v-59a16f56="">${carPriceInfo.kw } 원</span></li>
-																<li data-v-59a16f56=""><span data-v-59a16f56="">배송비<span
-																		class="pointC" data-v-59a16f56="">*</span></span> <span
-																	data-v-59a16f56="">배송 지역에 따라 달라집니다.</span></li>
-															</ul>
+														<div role="tabpanel"
+															aria-labelledby="el-collapse-head-7034"
+															id="el-collapse-content-7034"
+															class="el-collapse-item__wrap">
+															<div class="el-collapse-item__content">
+																<ul class="costDetailLists" data-v-59a16f56="">
+																	<li data-v-59a16f56=""><span data-v-59a16f56="">차량가</span>
+																		<span data-v-59a16f56="">${carPriceInfo.carPrice }
+																			원</span></li>
+																	<li data-v-59a16f56=""><span data-v-59a16f56="">이전등록비</span>
+																		<span data-v-59a16f56="">${carPriceInfo.registrationPrice }
+																			원</span></li>
+																	<li data-v-59a16f56=""><span data-v-59a16f56="">관리비용</span>
+																		<span data-v-59a16f56="">${carPriceInfo.managePrice }
+																			원</span></li>
+																	<li data-v-59a16f56=""><span data-v-59a16f56="">등록신청대행수수료</span>
+																		<span data-v-59a16f56="">${carPriceInfo.registPrice }
+																			원</span></li>
+																	<li data-v-59a16f56=""><span data-v-59a16f56="">KW보증비<span
+																			class="pointN" data-v-59a16f56="">(KW6 선택 시
+																				예상)*</span></span> <span data-v-59a16f56="">${carPriceInfo.kw }
+																			원</span></li>
+																	<li data-v-59a16f56=""><span data-v-59a16f56="">배송비<span
+																			class="pointC" data-v-59a16f56="">*</span></span> <span
+																		data-v-59a16f56="">배송 지역에 따라 달라집니다.</span></li>
+																</ul>
+															</div>
 														</div>
 													</div>
 												</div>
+												<div class="sumArea" data-v-59a16f56="">
+													<span data-v-59a16f56="">합계</span> <strong
+														data-v-59a16f56="">${carPriceInfo.sum }원</strong>
+												</div>
+												<div class="searchTrigger box pT8 el-row" data-v-59a16f56="">
+													<button type="submit" id="mkt_homeServiceBuyId"
+														class="button apply" data-v-59a16f56="">홈서비스 바로구매</button>
+												</div>
+												<div class="searchSth" data-v-59a16f56="">
+													<button type="button" id="mkt_vsoutLmtnId"
+														class="el-button el-button--text" data-v-59a16f56="">
+														<!---->
+														<!---->
+														<span> 대출한도조회 </span>
+													</button>
+													<button type="button" class="el-button el-button--text"
+														data-v-59a16f56="">
+														<!---->
+														<!---->
+														<span> 자동차보험료조회 </span>
+													</button>
+												</div>
 											</div>
-											<div class="sumArea" data-v-59a16f56="">
-												<span data-v-59a16f56="">합계</span> <strong
-													data-v-59a16f56="">${carPriceInfo.sum }원</strong>
-											</div>
-											<div class="searchTrigger box pT0 el-row" data-v-59a16f56="">
-												<button class="button apply">총 구매 비용 계산</button>
-											</div>
-											<div class="searchTrigger box pT8 el-row" data-v-59a16f56="">
-												<button type="submit" id="mkt_homeServiceBuyId" class="button apply"
-													data-v-59a16f56="">홈서비스 바로구매</button>
-											</div>
-											<div class="searchSth" data-v-59a16f56="">
-												<button type="button" id="mkt_vsoutLmtnId"
-													class="el-button el-button--text" data-v-59a16f56="">
-													<!---->
-													<!---->
-													<span> 대출한도조회 </span>
-												</button>
-												<button type="button" class="el-button el-button--text"
-													data-v-59a16f56="">
-													<!---->
-													<!---->
-													<span> 자동차보험료조회 </span>
-												</button>
-											</div>
-										</div>
-										<div class="bannerArea mT20" data-v-59a16f56="">
-											<div data-v-59a16f56="">
-												<a
-													href="https://nvapi.feeldmc.com:443/ad/p/in/v1_0/clk?slotid=stw_kcar2021_29&amp;adgroupid=adg_kcaradmin_20220607_5&amp;adid=adi_kcaradmin_20220607_9"><img
-													src="https://img.kcar.com/FILE_UPLOAD2/IMAGE_UPLOAD/SLOT/banner-title-row@2x395GfPyDRHNW1OguKyG3.png"></a>
+											<div class="bannerArea mT20" data-v-59a16f56="">
+												<div data-v-59a16f56="">
+													<a
+														href="https://nvapi.feeldmc.com:443/ad/p/in/v1_0/clk?slotid=stw_kcar2021_29&amp;adgroupid=adg_kcaradmin_20220607_5&amp;adid=adi_kcaradmin_20220607_9"><img
+														src="https://img.kcar.com/FILE_UPLOAD2/IMAGE_UPLOAD/SLOT/banner-title-row@2x395GfPyDRHNW1OguKyG3.png"></a>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-							</form>
+								</form>
 							</div>
 						</div>
-						<div class="popSticker PopStickerWrap" data-v-59a16f56="">
+						<div class="popSticker PopStickerWrap" data-v-59a16f56=""
+							onclick="location.href='/homeSvc'">
 							<a><p class="closeBtn">닫기</p> <span>거리가 멀어 고민될 땐?</span>
 								<p>
 									온라인 구매 <br>내차사기 홈서비스
@@ -1687,10 +1534,46 @@
 												<i class="el-dialog__close el-icon el-icon-close"></i>
 											</button>
 										</div>
+										<div class="el-dialog__body">
+											<div class="popContent ">
+												<div class="sharePopup">
+													<div class="shareBtn">
+														<ul>
+															<li><a class="el-link el-link--default is-underline">
+																	<!----> <span class="el-link--inner"><span
+																		class="bgYellow shareIco"><img
+																			src="/images/carinfodetail/ico-kakao.svg" alt="아이콘"></span>
+																		<span class="shareT">카카오톡</span></span> <!---->
+															</a></li>
+															<li><a class="el-link el-link--default is-underline">
+																	<!----> <span class="el-link--inner"><span
+																		class="bgGray shareIco"><img
+																			src="https://www.kcar.com/images/carinfodetail/ico-mail.svg" alt="아이콘"></span>
+																		<span class="shareT">메일</span></span> <!---->
+															</a></li>
+														</ul>
+													</div>
+													<div class="btnInputArea">
+														<div
+															class="input-with-select el-input el-input-group el-input-group--append">
+															<input type="text" autocomplete="off"
+																placeholder="http://localhost/detail/carInfo?c_num="+${car.c_num } readonly="readonly"
+																class="el-input__inner">
+															<div class="el-input-group__append">
+																<button type="button" class="el-button">
+																	<span>복사</span>
+																</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
 										<!---->
 										<!---->
 									</div>
 								</div>
+
 								<div>
 									<div>
 										<div class="el-dialog__wrapper popup fullPopup active"
@@ -1704,7 +1587,189 @@
 														<i class="el-dialog__close el-icon el-icon-close"></i>
 													</button>
 												</div>
-												<!---->
+												<div class="el-dialog__body">
+													<div data-v-6538404c="" class="popContent el-scrollbar">
+														<div class="el-scrollbar__wrap"
+															style="margin-bottom: -17px; margin-right: -17px;">
+															<div class="el-scrollbar__view">
+																<div data-v-6538404c="">
+																	<h3 data-v-6538404c="" class="popupTit">받는사람</h3>
+																	<div data-v-6538404c="" class="mT20">
+																		<form data-v-6538404c="" class="el-form">
+																			<div data-v-6538404c="" class="formPart1">
+																				<div data-v-6538404c=""
+																					class="el-form-item formPartItem">
+																					<!---->
+																					<div class="el-form-item__content">
+																						<div data-v-6538404c="" class="titLabel">이름
+																						</div>
+																						<div data-v-6538404c=""
+																							class="el-input el-input--suffix">
+																							<!---->
+																							<input type="text" autocomplete="off"
+																								placeholder="이름" class="el-input__inner">
+																							<!---->
+																							<!---->
+																							<!---->
+																							<!---->
+																						</div>
+																						<!---->
+																					</div>
+																				</div>
+																				<div data-v-6538404c=""
+																					class="el-form-item formPartItem">
+																					<!---->
+																					<div class="el-form-item__content">
+																						<div data-v-6538404c="" class="titLabel">
+																							이메일</div>
+																						<div data-v-6538404c="" class="emailRow el-row">
+																							<div data-v-6538404c=""
+																								class="email el-input el-input--suffix">
+																								<!---->
+																								<input type="text" autocomplete="off"
+																									placeholder="이메일을 입력하세요"
+																									class="el-input__inner">
+																								<!---->
+																								<!---->
+																								<!---->
+																								<!---->
+																							</div>
+																							<span data-v-6538404c="" class="at">@</span>
+																							<div data-v-6538404c=""
+																								class="emailAddr el-input">
+																								<!---->
+																								<input type="text" autocomplete="off"
+																									placeholder="ex)naver.com"
+																									class="el-input__inner">
+																								<!---->
+																								<!---->
+																								<!---->
+																								<!---->
+																							</div>
+																							<div data-v-6538404c=""
+																								class="el-select emailSelect">
+																								<!---->
+																								<div class="el-input el-input--suffix">
+																									<!---->
+																									<input type="text" readonly="readonly"
+																										autocomplete="off" placeholder="선택"
+																										class="el-input__inner">
+																									<!---->
+																									<span class="el-input__suffix"><span
+																										class="el-input__suffix-inner"><i
+																											class="el-select__caret el-input__icon el-icon-arrow-up"></i>
+																										<!---->
+																											<!---->
+																											<!---->
+																											<!---->
+																											<!----></span>
+																									<!----></span>
+																									<!---->
+																									<!---->
+																								</div>
+																								<div class="el-select-dropdown el-popper"
+																									style="display: none; min-width: 147.875px;">
+																									<div class="el-scrollbar" style="">
+																										<div
+																											class="el-select-dropdown__wrap el-scrollbar__wrap"
+																											style="margin-bottom: -17px; margin-right: -17px;">
+																											<ul
+																												class="el-scrollbar__view el-select-dropdown__list">
+																												<!---->
+																												<li data-v-6538404c=""
+																													class="el-select-dropdown__item selected"><span>직접입력</span></li>
+																												<li data-v-6538404c=""
+																													class="el-select-dropdown__item"><span>naver.com</span></li>
+																												<li data-v-6538404c=""
+																													class="el-select-dropdown__item"><span>gmail.com</span></li>
+																												<li data-v-6538404c=""
+																													class="el-select-dropdown__item"><span>hanmail.net</span></li>
+																												<li data-v-6538404c=""
+																													class="el-select-dropdown__item"><span>nate.com</span></li>
+																												<li data-v-6538404c=""
+																													class="el-select-dropdown__item"><span>daum.net</span></li>
+																												<li data-v-6538404c=""
+																													class="el-select-dropdown__item"><span>kakao.com</span></li>
+																											</ul>
+																										</div>
+																										<div class="el-scrollbar__bar is-horizontal">
+																											<div class="el-scrollbar__thumb"
+																												style="transform: translateX(0%);"></div>
+																										</div>
+																										<div class="el-scrollbar__bar is-vertical">
+																											<div class="el-scrollbar__thumb"
+																												style="transform: translateY(0%);"></div>
+																										</div>
+																									</div>
+																									<!---->
+																								</div>
+																							</div>
+																						</div>
+																						<!---->
+																					</div>
+																				</div>
+																			</div>
+																			<div data-v-6538404c="" class="el-form-item mT20">
+																				<!---->
+																				<div class="el-form-item__content">
+																					<div data-v-6538404c="" class="titLabel">내용</div>
+																					<div data-v-6538404c="" class="textCont">
+																						<div data-v-6538404c="" class="el-textarea">
+																							<textarea autocomplete="off" rows="2"
+																								placeholder="내용을 입력해주세요" maxlength="2000"
+																								class="el-textarea__inner"
+																								style="resize: none; min-height: 194px; height: 194px;"></textarea>
+																							<!---->
+																						</div>
+																						<p data-v-6538404c="" class="counter">
+																							(0/<span data-v-6538404c="">2,000</span>자)
+																						</p>
+																					</div>
+																					<!---->
+																				</div>
+																			</div>
+																		</form>
+																	</div>
+																	<div data-v-6538404c="" class="aboutProd mt40">
+																		<div data-v-6538404c="" class="carVisual">
+																			<p data-v-6538404c="" class="carVisualImg">
+																				<img data-v-6538404c=""
+																					src="${car.c_photo }"
+																					onerror="this.src='/images/common/bg_no_Img_sm.png'"
+																					class="carVisual">
+																			</p>
+																		</div>
+																		<div data-v-6538404c="">
+																			<div data-v-6538404c="" class="badges"></div>
+																			<p data-v-6538404c="" class="carName">${car.cb_brand } ${car.cb_m_model } ${car.c_fuel }</p>
+																			<ul data-v-6538404c="" class="options">
+																				<li data-v-6538404c="">${car.c_year } <span
+																					data-v-6538404c="" class="dot">${car.c_distance }km </span><span
+																					data-v-6538404c="" class="dot">${car.st_name } <span
+																						data-v-6538404c="" class="dot">${car.c_fuel }</span></span></li>
+																			</ul>
+																		</div>
+																		<div data-v-6538404c="" class="price">
+																			<strong data-v-6538404c=""> ${car.c_price}만원 </strong>
+																			<p data-v-6538404c="" class="dis">
+																				할부 <span data-v-6538404c="" class="pointColor">월
+																					${carPriceInfo.result }만원</span>
+																			</p>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="el-scrollbar__bar is-horizontal">
+															<div class="el-scrollbar__thumb"
+																style="transform: translateX(0%);"></div>
+														</div>
+														<div class="el-scrollbar__bar is-vertical">
+															<div class="el-scrollbar__thumb"
+																style="height: 64.8058%; transform: translateY(0%);"></div>
+														</div>
+													</div>
+												</div>
 												<div class="el-dialog__footer">
 													<span class="dialog-footer"><div
 															class="footerBtnWrap">
@@ -1735,6 +1800,7 @@
 										</div>
 									</div>
 								</div>
+
 							</div>
 						</div>
 						<div data-v-59a16f56="">
@@ -2164,55 +2230,52 @@
 								<!---->
 							</div>
 						</div>
-					<!-- 내차사기 고객후기 모달창 -->
-					<div>
-						<span id="reviewModalBack"></span>
-						<div class="el-dialog__wrapper popup popCenter" id="reviewModal"
-							style="z-index: 2010;display:none;">
-							<div role="dialog" aria-modal="true" aria-label="내차사기 고객후기"
-								class="el-dialog" style="margin-top: 15vh;">
-								<div class="el-dialog__header">
-									<span class="el-dialog__title">내차사기 고객후기</span>
-									<button type="button" aria-label="Close"
-										class="el-dialog__headerbtn" onclick="reviewModalClose()">
-										<i class="el-dialog__close el-icon el-icon-close"></i>
-									</button>
-								</div>
-								<div class="el-dialog__body">
-									<div class="popContent el-scrollbar">
-										<div class="el-scrollbar__wrap"
-											style="margin-bottom: -21px; margin-right: -21px;">
-											<div class="el-scrollbar__view">
-												<div class="carSellPopup">
-													<h5 style="word-break: break-all;" id="modalTitle"></h5>
-													<span id="modalModelNDate">
-													</span>
-													<p style="word-break: break-all;" id="modalContent"></p>
-													<div class="carSellPopupImg">
-														<img id="modalPhoto"
-															src=""
-															alt="이미지1">
+						<!-- 내차사기 고객후기 모달창 -->
+						<div>
+							<span id="reviewModalBack"></span>
+							<div class="el-dialog__wrapper popup popCenter" id="reviewModal"
+								style="z-index: 2010; display: none;">
+								<div role="dialog" aria-modal="true" aria-label="내차사기 고객후기"
+									class="el-dialog" style="margin-top: 15vh;">
+									<div class="el-dialog__header">
+										<span class="el-dialog__title">내차사기 고객후기</span>
+										<button type="button" aria-label="Close"
+											class="el-dialog__headerbtn" onclick="reviewModalClose()">
+											<i class="el-dialog__close el-icon el-icon-close"></i>
+										</button>
+									</div>
+									<div class="el-dialog__body">
+										<div class="popContent el-scrollbar">
+											<div class="el-scrollbar__wrap"
+												style="margin-bottom: -21px; margin-right: -21px;">
+												<div class="el-scrollbar__view">
+													<div class="carSellPopup">
+														<h5 style="word-break: break-all;" id="modalTitle"></h5>
+														<span id="modalModelNDate"> </span>
+														<p style="word-break: break-all;" id="modalContent"></p>
+														<div class="carSellPopupImg">
+															<img id="modalPhoto" src="" alt="이미지1">
+														</div>
+														<!---->
+														<!---->
 													</div>
-													<!---->
-													<!---->
 												</div>
 											</div>
-										</div>
-										<div class="el-scrollbar__bar is-horizontal">
-											<div class="el-scrollbar__thumb"
-												style="transform: translateX(0%);"></div>
-										</div>
-										<div class="el-scrollbar__bar is-vertical">
-											<div class="el-scrollbar__thumb"
-												style="transform: translateY(0%);"></div>
+											<div class="el-scrollbar__bar is-horizontal">
+												<div class="el-scrollbar__thumb"
+													style="transform: translateX(0%);"></div>
+											</div>
+											<div class="el-scrollbar__bar is-vertical">
+												<div class="el-scrollbar__thumb"
+													style="transform: translateY(0%);"></div>
+											</div>
 										</div>
 									</div>
+									<!---->
 								</div>
-								<!---->
 							</div>
 						</div>
-					</div>
-					<!-- 모달창 끝 -->
+						<!-- 모달창 끝 -->
 						<div class="el-dialog__wrapper popup fullPopup"
 							style="display: none;" data-v-59a16f56="">
 							<div role="dialog" aria-modal="true" aria-label="차량정보 인쇄하기"
@@ -2236,152 +2299,9 @@
 						</div>
 					</div>
 				</div>
-				<footer class="footerWrap">
-					<div class="infoFsection">
-						<div class="infoIn">
-							<dl>
-								<dt>내차 사고 팔 땐</dt>
-								<dd>
-									<strong>1588-5455</strong>
-								</dd>
-								<dd>
-									<span class="telservice">내차사기 홈서비스 (연결 1번) / 일반문의 (연결
-										4번)</span> <span class="weekday">월~토요일 <strong>09:00~18:00</strong></span>
-									<span class="weekend">법정공휴일/일요일 <strong>휴무</strong></span>
-								</dd>
-								<dd>
-									<span class="telservice">내차팔기 홈서비스 (연결 2번) </span> <span
-										class="weekday">월~일요일 <strong>09:00~18:00</strong></span> <span
-										class="weekend">법정공휴일 <strong>휴무</strong></span>
-								</dd>
-							</dl>
-							<div class="infolink">
-								<ul>
-									<li><a href="/bc/detail/carInfoDtl"
-										class="nuxt-link-active"> 회사소개 </a></li>
-									<li><a href="/bc/detail/carInfoDtl"
-										class="nuxt-link-active"> IR </a></li>
-									<li><a href="/si/KwGurnteSvc" class=""> 보증서비스 </a></li>
-									<li><a href="/cs/menu" class=""> 고객지원 </a></li>
-								</ul>
-								<ul>
-									<li><a href="/bc/detail/carInfoDtl"
-										class="nuxt-link-active"> 인재채용 </a></li>
-									<li><a href="/bc/detail/carInfoDtl"
-										class="nuxt-link-active"> 비윤리제보 </a></li>
-									<li><a href="/bc/detail/carInfoDtl"
-										class="nuxt-link-active"> 윤리강령 </a></li>
-								</ul>
-								<ul>
-									<li><a href="/ci/atcl/ftAtcl?subCd=ATCL004" class=""><strong>개인정보처리방침</strong></a></li>
-									<li><a href="/ci/atcl/ftAtcl" class=""> 이용약관 </a></li>
-									<li><a href="/ci/frgnSp/about" class=""> Foreigner
-											Support </a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="footerSection">
-						<div class="copyWrap">
-							<p class="logoTit">
-								<img src="/images/common/footer-logo-grey.svg" alt="K Car 로고">
-							</p>
-							<ul>
-								<li>상호명 : 케이카 주식회사</li>
-								<li>대표자 : 정인국</li>
-								<li>개인정보관리책임자 : 이우근</li>
-								<li>사업자등록번호 : 787-87-00729</li>
-							</ul>
-							<ul>
-								<li>통신판매업 신고번호 : 제 2018-서울영등포-0562호</li>
-								<li>사업장 소재지 : 서울특별시 영등포구 선유로 43길 27, 3층(양평동3가, 청우오토프라자)</li>
-							</ul>
-							<div class="snsGroup">
-								<a href="/bc/detail/carInfoDtl"
-									class="snsFacebook nuxt-link-active"><img
-									src="/images/common/icon-sns-facebook.svg" alt="페이스북"></a> <a
-									href="/bc/detail/carInfoDtl" class="snsInsta nuxt-link-active"><img
-									src="/images/common/icon-sns-instagram.svg" alt="인스타그램"></a>
-								<a href="/bc/detail/carInfoDtl" class="snsCafe nuxt-link-active"><img
-									src="/images/common/icon-sns-cafe.svg" alt="네이버 카페"></a> <a
-									href="/bc/detail/carInfoDtl" class="snsBlog nuxt-link-active"><img
-									src="/images/common/icon-sns-blog.svg" alt="네이버 블로그"></a> <a
-									href="/bc/detail/carInfoDtl" class="snsPost nuxt-link-active"><img
-									src="/images/common/icon-sns-post.svg" alt="네이버 포스트"></a> <a
-									href="/bc/detail/carInfoDtl"
-									class="snsYoutube nuxt-link-active"><img
-									src="/images/common/icon-sns-youtube.svg" alt="유투브"></a>
-							</div>
-							<p class="copyright">Copyright © 케이카 주식회사 All Rights Reserved
-							</p>
-						</div>
-						<div class="appGroup">
-							<div class="el-select">
-								<!---->
-								<div class="el-input el-input--suffix">
-									<!---->
-									<input type="text" readonly="readonly" autocomplete="off"
-										placeholder="family site" class="el-input__inner">
-									<!---->
-									<span class="el-input__suffix"><span
-										class="el-input__suffix-inner"><i
-											class="el-select__caret el-input__icon el-icon-arrow-up"></i>
-										<!---->
-											<!---->
-											<!---->
-											<!---->
-											<!----></span>
-									<!----></span>
-									<!---->
-									<!---->
-								</div>
-								<div class="el-select-dropdown el-popper"
-									style="display: none; min-width: 225px;">
-									<div class="el-scrollbar" style="">
-										<div class="el-select-dropdown__wrap el-scrollbar__wrap"
-											style="margin-bottom: -21px; margin-right: -21px;">
-											<ul class="el-scrollbar__view el-select-dropdown__list">
-												<!---->
-												<li class="el-select-dropdown__item"><span>K
-														Car옥션</span></li>
-											</ul>
-										</div>
-										<div class="el-scrollbar__bar is-horizontal">
-											<div class="el-scrollbar__thumb"
-												style="transform: translateX(0%);"></div>
-										</div>
-										<div class="el-scrollbar__bar is-vertical">
-											<div class="el-scrollbar__thumb"
-												style="transform: translateY(0%);"></div>
-										</div>
-									</div>
-									<!---->
-								</div>
-							</div>
-							<dl>
-								<dt>APP 다운로드</dt>
-								<dd>
-									<div class="appbox">
-										<a href="/bc/detail/carInfoDtl" class="nuxt-link-active"><img
-											src="/images/common/img-apple.png" alt="App Store"></a>
-										<div class="qr">
-											<img src="/images/common/K_Car_iOS_down_QR.png"
-												alt="App Store QR Code">
-										</div>
-									</div>
-									<div class="appbox">
-										<a href="/bc/detail/carInfoDtl" class="nuxt-link-active"><img
-											src="/images/common/img-google.png" alt="Google Play"></a>
-										<div class="qr">
-											<img src="/images/common/K_Car_android_down_QR.png"
-												alt="Google Play QR Code">
-										</div>
-									</div>
-								</dd>
-							</dl>
-						</div>
-					</div>
-				</footer>
+				<!-- footer start -->
+				<%@include file="/WEB-INF/default/footer.jsp"%>
+				<!-- footer end -->
 			</div>
 		</div>
 	</div>
@@ -2389,34 +2309,39 @@
 <script src="/js/reviewModal.js"></script>
 <script src="/js/installment.js"></script>
 <script type="text/javascript">
-	var rateCheck = function(result,num){
+	var rateCheck = function(result, num) {
 		var result7 = document.getElementById('hidden7').value;
 		var result8 = document.getElementById('hidden8').value;
 		var result9 = document.getElementById('hidden9').value;
 		var result11 = document.getElementById('hidden11').value;
 		var result13 = document.getElementById('hidden13').value;
 		
-		if(num == '7' & result7 != null){
+		if (num == '7' & result7 != "null") {
+			console.log(result7)
 			var monthResult = document.getElementById('monthResult');
 			monthResult.innerHTML = Math.floor(result7 * 10000) + '원';
 			return;
 		}
-		if(num == '8' & result8 != null){
+		if (num == '8' & result8 != "null") {
+			console.log('8')
 			var monthResult = document.getElementById('monthResult');
 			monthResult.innerHTML = Math.floor(result8 * 10000) + '원';
 			return;
 		}
-		if(num == '9' & result9 != null){
+		if (num == '9' & result9 != "null") {
+			console.log('9')
 			var monthResult = document.getElementById('monthResult');
 			monthResult.innerHTML = Math.floor(result9 * 10000) + '원';
 			return;
 		}
-		if(num == '11' & result11 != null){
+		if (num == '11' & result11 != "null") {
+			console.log('11')
 			var monthResult = document.getElementById('monthResult');
 			monthResult.innerHTML = Math.floor(result11 * 10000) + '원';
 			return;
 		}
-		if(num == '13' & result13 != null){
+		if (num == '13' & result13 != "null") {
+			console.log('13')
 			var monthResult = document.getElementById('monthResult');
 			monthResult.innerHTML = Math.floor(result13 * 10000) + '원';
 			return;
@@ -2424,26 +2349,6 @@
 		var monthResult = document.getElementById('monthResult');
 		monthResult.innerHTML = result + '원';
 	}
-	
-// 	var req;
-// 	var installmentCheck = function(installmentIndex,c_price){
-// 		req = new XMLHttpRequest();
-// 		req.onreadystatechange = installmentChange;
-// 		req.open('post','installmentChange');
-// 		var data = {
-// 				installmentIndex : installmentIndex,
-// 				c_price : c_price
-// 		}
-// 		data = JSON.stringify(data);
-// 		req.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-// 		req.send(data);
-// 	}
-// 	var installmentChange = function(){
-// 		if(req.readyState == 4 & req.status == 200){
-// 			var mapDatas = JSON.parse(req.responseText);
-// 			console.log(mapDatas);
-// 		}
-// 	}
 </script>
 </body>
 </html>

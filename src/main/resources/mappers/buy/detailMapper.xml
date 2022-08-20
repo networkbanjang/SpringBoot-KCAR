@@ -23,4 +23,13 @@
 	<select id="reviewList" resultType="com.one.kcar.dto.buy.BuyReviewDTO">
 		SELECT * FROM kcar_buy_review WHERE ROWNUM <![CDATA[<=]]> 3 ORDER BY c_c_index desc
 	</select>
+	<update id="carUpdate" parameterType="String">
+		UPDATE KCAR_CAR SET c_saleStatus=1 WHERE c_num=#{c_num}
+	</update>
+	<update id="contract" parameterType="com.one.kcar.dto.buy.ContractDTO">
+		UPDATE KCAR_CAR_CONTRACT SET c_c_b_email=#{c_c_b_email}, c_c_b_name=#{c_c_b_name}, c_c_b_tel=#{c_c_b_tel},
+		c_c_b_zipcode=#{c_c_b_zipcode}, c_c_b_addr1=#{c_c_b_addr1}, c_c_b_addr2=#{c_c_b_addr2}, c_c_b_totalPrice=#{c_c_b_totalPrice }, 
+		c_c_b_carPrice=#{c_c_b_carPrice }, c_c_b_registrationPrice=#{c_c_b_registrationPrice }, c_c_b_managePrice=#{c_c_b_managePrice },
+		c_c_b_registPrice=#{c_c_b_registPrice }, c_c_b_kw=#{c_c_b_kw } WHERE c_num=#{c_num}
+	</update>
 </mapper>

@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.one.kcar.dto.buy.CarDTO;
+import com.one.kcar.dto.member.MemberDTO;
 import com.one.kcar.service.buy.*;
 
 @Controller
@@ -114,25 +117,69 @@ public class MainContoroller {
 		brandService.brandCarList(brand, model);
 		return "myCarScam/brand/brandCarList";
 	}
+	
 	//구매차량정보
 	@GetMapping(value="detail/carInfo")
 	public String carInfo(@RequestParam(value="c_num", required=false)String c_num,Model model) {
 		if(c_num == null || c_num.isEmpty()) 
-			return "myCarScam/brandCar";
-		
+			return "redirect:/home";
 		detailService.carDetail(c_num,model);
 		return "myCarScam/detail/carInfo";
 	}
-	@ResponseBody
-	@PostMapping(value="detail/installmentChange",produces = "text/html;charset=utf-8")
-	public Map<String, String> installmentChange(@RequestBody(required = false) Map<String,String> data) {
-		System.out.println("d");
-		String c_price = data.get("c_price");
-		String installmentIndex = data.get("installmentIndex");
-		int index = Integer.parseInt(installmentIndex);
-		Map<String,String> installmentAjax = detailService.installmentChange(c_price,index);
-		System.out.println(installmentAjax);
-		return installmentAjax;
+	
+	@GetMapping(value="detail/carOrderBuy")
+	public String carOrderBuy() {
+		return "redirect:/detail/carInfo";
+	}
+	@GetMapping(value="detail/carOrderRequest")
+	public String carOrderRequest() {
+		return "redirect:/detail/carInfo";
+	}
+	@GetMapping(value="detail/carOrderDetail")
+	public String carOrderDetail() {
+		return "redirect:/detail/carInfo";
+	}
+	@GetMapping(value="detail/payment")
+	public String payment() {
+		return "redirect:/detail/carInfo";
+	}
+	//차량구매하기 페이지
+	@PostMapping(value="detail/carOrderBuy")
+	public String carOrderBuy(@RequestParam(required=false) String c_num, Model model) {
+		String msg = detailService.carOrder(c_num,model);
+		if(msg != null) {
+			if(msg.equals("로그인")) return "redirect:/member/login";//로그인 안했을때
+			if(msg.equals("차번호")) return "redirect:carInfo";//차번호 없을때
+		}
+		return "myCarScam/detail/carOrderBuy";
+	}
+	@PostMapping(value="detail/carOrderRequest")
+	public String carOrderRequest(@RequestParam(required=false) String c_num,@RequestParam(required=false) String c_price,Model model) {
+		String msg = detailService.carOrderRequest(c_num,c_price,model);
+		if(msg != null) {
+			if(msg.equals("로그인")) return "redirect:/member/login";//로그인 안했을때
+			if(msg.equals("차번호")) return "redirect:carInfo";//차번호 없을때
+		}
+		return "myCarScam/detail/carOrderRequest";
+	}
+	@PostMapping(value="detail/carOrderDetail")
+	public String carOrderDetail(MemberDTO member,@RequestParam(required=false) String c_num,Model model) {
+		String msg = detailService.carOrderDetail(member,c_num,model);
+		if(msg != null) {
+			if(msg.equals("로그인")) return "redirect:/member/login";//로그인 안했을때
+			if(msg.equals("차번호")) return "redirect:carInfo";//차번호 없을때
+		}
+		return "myCarScam/detail/carOrderDetail";
+	}
+	@PostMapping(value="detail/payment")
+	public String payment(MemberDTO member,@RequestParam(required=false) String c_num,Model model, RedirectAttributes ra) {
+		String msg = detailService.carPayment(member,c_num,model);
+		if(msg != null) {
+			if(msg.equals("로그인")) return "redirect:/member/login";//로그인 안했을때
+			if(msg.equals("차번호")) return "redirect:carInfo";//차번호 없을때
+		}
+		ra.addAttribute("msg", msg);
+		return "redirect:/home";
 	}
 	//DB 대량데이터 INSERT용
 	@Autowired
@@ -175,6 +222,16 @@ public class MainContoroller {
 	@GetMapping(value="insertCarPhoto")
 	public String insertCarPhoto() throws FileNotFoundException, IOException {
 		String msg = inserService.insertCarPhoto();
+		return "redirect:/brandCar";
+	}
+	@GetMapping(value="insertQuestion")
+	public String insertQuestion() throws FileNotFoundException, IOException {
+		String msg = inserService.insertQuestion();
+		return "redirect:/brandCar";
+	}
+	@GetMapping(value="insertMember")
+	public String insertMember() throws FileNotFoundException, IOException {
+		String msg = inserService.insertMember();
 		return "redirect:/brandCar";
 	}
 }
