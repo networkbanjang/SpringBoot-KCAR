@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.ui.Model;
 
 import com.one.kcar.dto.rent.kcarCarRentDTO;
@@ -25,7 +26,8 @@ public interface IKcarCarRentDAO {
 	//AJAX부분
 	int insert(kcarCarRentDTO carRentdto);
 
-	ArrayList<kcarCarRentDTO> kcarCarRentList();
+	ArrayList<kcarCarRentDTO> kcarCarRentList(@Param("b")int begin, @Param("e")int end);
+	int rentCount();
 	
 //	ArrayList<kcarCarRentDTO> choose(HashMap<String, String> map);
 	

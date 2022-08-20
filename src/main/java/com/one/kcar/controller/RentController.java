@@ -81,8 +81,9 @@ public class RentController {
 		
 		//중고차렌트
 		@RequestMapping(value = "rentUsed")
-		public String rentUsed(Model model) {
-			carRentService.kcarCarRentList(model);
+		public String rentUsed(Model model,
+				@RequestParam(value = "currentPage", required=false, defaultValue = "1") int currentPage) {
+			carRentService.kcarCarRentList(currentPage);
 			return "rent/rentUsed";
 		}
 		

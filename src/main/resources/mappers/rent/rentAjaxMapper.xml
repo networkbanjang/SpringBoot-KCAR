@@ -17,8 +17,15 @@
 	</insert>
 	
 	<select id="kcarCarRentList" resultType="com.one.kcar.dto.rent.kcarCarRentDTO">
-		SELECT * FROM kcarCarRent
+		SELECT B.* FROM(
+			SELECT rownum rn, A.* FROM( SELECT * FROM kcarCarRent)A
+		)B WHERE rn BETWEEN #{b} and #{e}
 	</select>
+	
+	<select id="rentCount" resultType="int">
+		SELECT count(*) FROM kcarCarRent
+	</select>
+	
 	<select id="choose" resultType="com.one.kcar.dto.rent.kcarCarRentDTO">
 		SELECT * FROM kcarCarRent
 		<where>

@@ -130,7 +130,7 @@
 										
 										<!-- 차 한칸 -->
 									
-									<c:forEach var="ruList" items="${kcarCarRentList }"> 	
+									<c:forEach var="ruList" items="${sessionScope.kcarCarRentList }"> 	
 									<div data-v-86c920d0="" class="carListBox" style="cursor: pointer;">
 										<div data-v-86c920d0="" class="carListImg">
 											<a data-v-86c920d0="" href="rentUsedInfoProc?crNumber=${ruList.crNumber }" target="_blank">
@@ -154,23 +154,23 @@
 											<div data-v-86c920d0="" class="carListFlex">
 												<div data-v-86c920d0="" class="carExpIn">
 													<p data-v-86c920d0="" class="carExp">
-														<span data-v-86c920d0="" class="textRed">${ruList.crPrice }
+														<span data-v-86c920d0="" class="textRed">월${ruList.crPrice }만원
 <%-- 														<span data-v-86c920d0="" class="expGray">${ruList.crPrice }</span> --%>
-														<span> / ${ruList.crMonth }	</span>
+														<span> / ${ruList.crMonth }개월	</span>
 													</p>
 													
 													<ul data-v-86c920d0="" class="carPayMeth">
 														<li data-v-86c920d0="">초기납입금
-															<span data-v-86c920d0="">${ruList.crFirstPrice }</span>
+															<span data-v-86c920d0="">${ruList.crFirstPrice }만원</span>
 														</li>
 													</ul>
 												</div>
 												
 												<p data-v-86c920d0="" class="detailCarCon">
 													<span data-v-86c920d0="" class="block">${ruList.crYear }</span>
-													<span data-v-86c920d0="">${ruList.crDistance }</span>
+													<span data-v-86c920d0="">${ruList.crDistance }km</span>
 													<span data-v-86c920d0="">${ruList.crFuel }</span>
-													<span data-v-86c920d0="">경기/인천</span>
+													<span data-v-86c920d0="">동작구 노량진</span>
 												</p>
 											
 											</div>
@@ -178,7 +178,8 @@
 										</div>
 									
 									</div>
-									</c:forEach>
+									</c:forEach><br>
+									<div class="center">${sessionScope.page }</div>
 										
 										
 												</div>

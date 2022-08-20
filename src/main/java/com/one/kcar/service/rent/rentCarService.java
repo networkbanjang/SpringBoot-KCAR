@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.ClassPathResource;
@@ -25,7 +27,7 @@ import com.one.kcar.dto.rent.kcarCarRentPhotoDTO;
 public class rentCarService{
 
 	@Autowired private IKcarCarRentDAO kcarCarRentDao;
-//	@Autowired private HttpSession session;
+	@Autowired private HttpSession session;
 	
 	public String fromJson(ArrayList<kcarCarRentDTO> carRentList) {
 		String data = "{\"kcarCarRent\" : [";
@@ -52,13 +54,19 @@ public class rentCarService{
 		return data;
 	}
 	
-	public String kcarCarRentList(Model model) {
-		ArrayList<kcarCarRentDTO> kcarCarRentList = kcarCarRentDao.kcarCarRentList();
-//		System.out.println(kcarCarRentList.get(0).getCrBrand());
+	//중고차 렌트페이지 페이징처리
+	public void kcarCarRentList(int currentPage) {
+		int pageBlock = 6; // 한 화면에 보여줄 데이터 수
+		int totalCount = kcarCarRentDao.rentCount(); // 총 데이터의 수 
+		int end = currentPage * pageBlock; // 데이터의 끝 번호
+		int begin = end+1 - pageBlock; // 데이터의 시작 번호
 		
-//		String result = fromJson(kcarCarRentList);
-		model.addAttribute("kcarCarRentList",kcarCarRentList);
-		return null;
+		ArrayList<kcarCarRentDTO> kcarCarRentList = kcarCarRentDao.kcarCarRentList(begin, end);
+//		System.out.println(kcarCarRentList.get(0).getCrBrand());
+//		model.addAttribute("kcarCarRentList",kcarCarRentList);
+		session.setAttribute("kcarCarRentList",kcarCarRentList);
+		String url = "rentUsed?currentPage=";
+		session.setAttribute("page", PageService.getNavi(currentPage, pageBlock, totalCount, url));
 	}
 	
 	//kcarCarRent.json파일 dto로 전송
@@ -125,7 +133,6 @@ public class rentCarService{
 	public kcarCarRentOptionDTO rentOptionInfo(String crNumber) {
 		kcarCarRentOptionDTO kcarRentOption = kcarCarRentDao.rentOptionInfo(crNumber);
 //		System.out.println(kcarRentOption.getCroNavigation());
-//		System.out.println(kcarRentOption.getCroHandleHot());
 		return kcarRentOption;
 	}
 	
