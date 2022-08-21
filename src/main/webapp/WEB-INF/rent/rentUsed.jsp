@@ -112,15 +112,24 @@
 									<div data-v-3439b587="">
 										<div data-v-3439b587="" class="optionWrap">
 											<div data-v-3439b587="" class="optionContentWrap">
-												<div data-v-3439b587="" class="rentRadio">
-													<button data-v-3439b587="" type="button"
-														class="el-button rentReset el-button--default">
-														<!---->
-														<!---->
-														<span> 초기화 </span>
-													</button>
-													
-												</div>
+											
+											<div class="repairSearch">
+												<form>
+													<table>
+														<tr>
+															<td><select name="select2" style="width: 100px; height: 50px;">
+																	<option value="">전체</option>
+																	<option value="brand">브랜드</option>
+																	<option value="fuel">연료</option>
+															</select> <input type=text name='search2' placeholder="검색어를 입력하세요."
+																		 style="width: 500px; height: 50px;"/>
+																	  <input type=submit name='searchBtn' value='검색' 
+																	 	 placeholder="검색어를 입력하세요." style="width: 100px; height: 50px;" /></td>
+														</tr>
+													</table>
+												</form>
+											</div>
+											
 											</div>
 										</div>
 										

@@ -18,7 +18,13 @@
 	
 	<select id="kcarCarRentList" resultType="com.one.kcar.dto.rent.kcarCarRentDTO">
 		SELECT B.* FROM(
-			SELECT rownum rn, A.* FROM( SELECT * FROM kcarCarRent)A
+			SELECT rownum rn, A.* FROM(
+			SELECT * FROM kcarCarRent
+				<choose>
+					<when test="select2 == 'brand'">WHERE crBrand LIKE '%'||#{search2}||'%'</when>
+					<when test="select2 == 'fuel'">WHERE crFuel LIKE '%'||#{search2}||'%'</when>
+				</choose>
+			)A
 		)B WHERE rn BETWEEN #{b} and #{e}
 	</select>
 	

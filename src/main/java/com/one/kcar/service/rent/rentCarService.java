@@ -55,13 +55,13 @@ public class rentCarService{
 	}
 	
 	//중고차 렌트페이지 페이징처리
-	public void kcarCarRentList(int currentPage) {
+	public void kcarCarRentList(int currentPage, String select2, String search2) {
 		int pageBlock = 6; // 한 화면에 보여줄 데이터 수
 		int totalCount = kcarCarRentDao.rentCount(); // 총 데이터의 수 
 		int end = currentPage * pageBlock; // 데이터의 끝 번호
 		int begin = end+1 - pageBlock; // 데이터의 시작 번호
 		
-		ArrayList<kcarCarRentDTO> kcarCarRentList = kcarCarRentDao.kcarCarRentList(begin, end);
+		ArrayList<kcarCarRentDTO> kcarCarRentList = kcarCarRentDao.kcarCarRentList(begin, end, select2, search2);
 //		System.out.println(kcarCarRentList.get(0).getCrBrand());
 //		model.addAttribute("kcarCarRentList",kcarCarRentList);
 		session.setAttribute("kcarCarRentList",kcarCarRentList);

@@ -26,7 +26,7 @@ public interface IKcarCarRentDAO {
 	//AJAX부분
 	int insert(kcarCarRentDTO carRentdto);
 
-	ArrayList<kcarCarRentDTO> kcarCarRentList(@Param("b")int begin, @Param("e")int end);
+	ArrayList<kcarCarRentDTO> kcarCarRentList(@Param("b")int begin, @Param("e")int end, @Param("select2")String select2, @Param("search2")String search2);
 	int rentCount();
 	
 //	ArrayList<kcarCarRentDTO> choose(HashMap<String, String> map);
