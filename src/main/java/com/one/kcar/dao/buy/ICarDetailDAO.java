@@ -10,8 +10,10 @@ import com.one.kcar.dto.buy.CarDTO;
 import com.one.kcar.dto.buy.CarInfoDTO;
 import com.one.kcar.dto.buy.CarOptionPhotoDTO;
 import com.one.kcar.dto.buy.CarPhotoDTO;
+import com.one.kcar.dto.buy.CarTagDTO;
 import com.one.kcar.dto.buy.ContractDTO;
 import com.one.kcar.dto.buy.QuestionDTO;
+import com.one.kcar.dto.buy.StoreDTO;
 import com.one.kcar.dto.member.MemberDTO;
 import com.one.kcar.dto.buy.CarOptionDTO;
 
@@ -37,5 +39,9 @@ public interface ICarDetailDAO {
 	void contract(ContractDTO contract);
 
 	CarInfoDTO comment(String c_num);
+
+	StoreDTO store(String st_name);
+
+	CarTagDTO carTag(String c_num);
 
 }

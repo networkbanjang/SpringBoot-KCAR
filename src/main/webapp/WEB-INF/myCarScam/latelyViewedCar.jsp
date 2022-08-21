@@ -4,43 +4,6 @@
 <head>
 <title>최근 본 차량</title>
 <%@include file="latelyViewedCar_style.jsp" %>
-<meta data-n-head="ssr" charset="utf-8">
-<meta data-n-head="ssr" name="viewport"
-	content="width=device-width, initial-scale=1">
-<meta data-n-head="ssr" data-hid="og-title" name="og:title"
-	content="K Car - 직접 매입 직접 판매하는 대한민국 No.1 직영 중고차 케이카 ">
-<meta data-n-head="ssr" data-hid="og-description" name="og:description"
-	content="대한민국 No.1 직영 중고차. 중고차 매입, 중고차 판매, 중고차 최초 환불 서비스, 중고차 온라인 구매 홈서비스, 중고차 매매, 중고차 사이트 ">
-<meta data-n-head="ssr" data-hid="og-image" name="og:image"
-	content="https://api.kcar.com/BASE/kcar_share_kakao.jpg">
-<meta data-n-head="ssr" data-hid="og-type" name="og:type"
-	content="website">
-<meta data-n-head="ssr" data-hid="twitter-card" name="twitter:card"
-	content="summary_large_image">
-<meta data-n-head="ssr" data-hid="twitter-title" name="twitter:title"
-	content="K Car - 직접 매입 직접 판매하는 대한민국 No.1 직영 중고차 케이카">
-<meta data-n-head="ssr" data-hid="twitter-description"
-	name="twitter:description"
-	content="대한민국 No.1 직영 중고차. 중고차 매입, 중고차 판매, 중고차 최초 환불 서비스, 중고차 온라인 구매 홈서비스, 중고차 매매, 중고차 사이트 ">
-<meta data-n-head="ssr" data-hid="twitter-image-src"
-	name="twitter:image:src"
-	content="https://api.kcar.com/BASE/kcar_share_kakao.jpg">
-<meta data-n-head="ssr" name="format-detection" content="telephone=no">
-<meta data-n-head="ssr" data-hid="description" name="description"
-	content="대한민국 No.1 직영 중고차. 중고차 매입, 중고차 판매, 중고차 최초 환불 서비스, 중고차 온라인 구매 홈서비스, 중고차 매매, 중고차 사이트 ">
-<meta data-n-head="ssr" data-hid="keywords" name="keywords"
-	content="중고차, 중고차 시세, K Car 직영차, 중고차팔기, 보험, 보증, 진단, 대출, 중고차 매매, 국산차, 수입차">
-<meta data-n-head="ssr" property="groobee:member_id" content="">
-<meta data-n-head="ssr" property="groobee:member_grade" content="">
-<meta data-n-head="ssr" property="groobee:member_gender" content="">
-<meta data-n-head="ssr" property="groobee:member_type" content="">
-<meta data-n-head="ssr" property="groobee:member_age" content="">
-
-<link rel="stylesheet" type="text/css"
-	href="//static.groobee.io/dist/g2/css/grb-recommend-list_v2.css">
-<script charset="utf-8" src="/_nuxt/28f6986.js"></script>
-<script charset="utf-8" src="/_nuxt/4f587d5.js"></script>
-<script charset="utf-8" src="/_nuxt/f507642.js"></script>
 </head>
 <body style="" class="">
 	<noscript data-n-head="ssr" data-hid="gtm-noscript" data-pbody="true">
@@ -198,12 +161,10 @@
 												<div role="tablist" class="el-tabs__nav is-top"
 													style="transform: translateX(0px);">
 													<div class="el-tabs__active-bar is-top"
-														style="width: 43px; transform: translateX(0px);"></div>
+														style="width: 85px; transform: translateX(0px);"></div>
 													<div id="tab-drct" aria-controls="pane-drct" role="tab"
 														aria-selected="true" tabindex="0"
-														class="el-tabs__item is-top is-active">중고차</div>
-													<div id="tab-rent" aria-controls="pane-rent" role="tab"
-														tabindex="-1" class="el-tabs__item is-top">렌트</div>
+														class="el-tabs__item is-top is-active">중고차/렌트</div>
 												</div>
 											</div>
 										</div>
@@ -223,10 +184,6 @@
 																<span class="total">전체 <span class="pointColor">6</span>
 																	건
 																</span>
-																<ul class="sorting">
-																	<li class=""><a href="javascript:void(0)">3D</a></li>
-																	<li class=""><a href="javascript:void(0)">특가</a></li>
-																</ul>
 																<div class="filter">
 																	<div class="el-select">
 																		<!---->

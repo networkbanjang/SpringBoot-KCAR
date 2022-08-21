@@ -32,4 +32,10 @@
 		c_c_b_carPrice=#{c_c_b_carPrice }, c_c_b_registrationPrice=#{c_c_b_registrationPrice }, c_c_b_managePrice=#{c_c_b_managePrice },
 		c_c_b_registPrice=#{c_c_b_registPrice }, c_c_b_kw=#{c_c_b_kw } WHERE c_num=#{c_num}
 	</update>
+	<select id="store" parameterType="String" resultType="com.one.kcar.dto.buy.StoreDTO">
+		SELECT * FROM KCAR_STORE WHERE st_name=#{st_name}
+	</select>
+	<select id="carTag" parameterType="String" resultType="com.one.kcar.dto.buy.CarTagDTO">
+		SELECT * FROM KCAR_CAR_TAG WHERE c_num=#{c_num}
+	</select>
 </mapper>

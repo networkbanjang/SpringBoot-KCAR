@@ -97,6 +97,7 @@
 
 								<!-- 상단 차량정보 -->
 								<div class="carNameWrap" data-v-59a16f56="">
+								<input type="hidden" value="${car.c_num }" id="carNum">
 									<div class="left" data-v-59a16f56="">
 										<h2 data-v-59a16f56="" class="carName">${car.cb_brand }
 											${car.cb_m_model } ${car.c_fuel }</h2>
@@ -190,7 +191,7 @@
 													style="transform: translateX(0px) scale(1);">
 													<!---->
 													<div class="image-wrap">
-														<img src="${CarPhotoFirst.c_p_photo }">
+														<img src="${CarPhotoFirst }">
 														<!---->
 													</div>
 												</div>
@@ -276,7 +277,7 @@
 									</div>
 									<ul class="snsCtaLists" data-v-59a16f56="">
 										<li class="item1" data-v-59a16f56=""><a
-											id="mkt_sharebtnId" data-v-59a16f56="">공유</a></li>
+											id="mkt_sharebtnId" data-v-59a16f56="" onclick="shareModalOpen()">공유</a></li>
 									</ul>
 									<ul class="carOptionLists" data-v-59a16f56="">
 										<li data-v-59a16f56=""><button type="button"
@@ -1384,13 +1385,6 @@
 										<div class="bannerArea" data-v-59a16f56="">
 											<div data-v-59a16f56="">
 												<a
-													href="https://nvapi.feeldmc.com:443/ad/p/in/v1_0/clk?slotid=stw_kcar2021_32&amp;adgroupid=adg_kcaradmin_20220607_8&amp;adid=adi_kcaradmin_20220607_12"><img
-													src="https://img.kcar.com/FILE_UPLOAD2/IMAGE_UPLOAD/SLOT/banner-title-row-1@2xnAMBp1zwKdVP3R0dwqW4.png"></a>
-											</div>
-										</div>
-										<div class="bannerArea" data-v-59a16f56="">
-											<div data-v-59a16f56="">
-												<a
 													href="https://nvapi.feeldmc.com:443/ad/p/in/v1_0/clk?slotid=stw_kcar2021_33&amp;adgroupid=adg_kcaradmin_20220607_9&amp;adid=adi_kcaradmin_20220607_13"><img
 													src="https://img.kcar.com/FILE_UPLOAD2/IMAGE_UPLOAD/SLOT/banner-title-row-1-copy@2xKEXxmggAvnhikFa3nGGV.png"></a>
 											</div>
@@ -1523,14 +1517,16 @@
 						</div>
 						<div data-v-59a16f56="">
 							<div>
-								<div class="el-dialog__wrapper popup popCenter wid480 heigAuto"
-									style="display: none;">
+								<span id="modalMenuBack"></span>
+								<div class="el-dialog__wrapper popup popCenter wid480 heigAuto" id="modalMenu"
+									style="z-index: 2010; display: none;">
+								
 									<div role="dialog" aria-modal="true" aria-label="공유하기"
 										class="el-dialog" style="margin-top: 15vh;">
 										<div class="el-dialog__header">
 											<span class="el-dialog__title">공유하기</span>
 											<button type="button" aria-label="Close"
-												class="el-dialog__headerbtn">
+												class="el-dialog__headerbtn" onclick="shareModalClose()">
 												<i class="el-dialog__close el-icon el-icon-close"></i>
 											</button>
 										</div>
@@ -1539,13 +1535,13 @@
 												<div class="sharePopup">
 													<div class="shareBtn">
 														<ul>
-															<li><a class="el-link el-link--default is-underline">
+															<li><a class="el-link el-link--default is-underline" id="shareKakao" ><!-- onclick="shareKakao()" -->
 																	<!----> <span class="el-link--inner"><span
 																		class="bgYellow shareIco"><img
 																			src="/images/carinfodetail/ico-kakao.svg" alt="아이콘"></span>
 																		<span class="shareT">카카오톡</span></span> <!---->
 															</a></li>
-															<li><a class="el-link el-link--default is-underline">
+															<li><a class="el-link el-link--default is-underline" onclick="modalMailOpen()">
 																	<!----> <span class="el-link--inner"><span
 																		class="bgGray shareIco"><img
 																			src="https://www.kcar.com/images/carinfodetail/ico-mail.svg" alt="아이콘"></span>
@@ -1556,11 +1552,12 @@
 													<div class="btnInputArea">
 														<div
 															class="input-with-select el-input el-input-group el-input-group--append">
-															<input type="text" autocomplete="off"
-																placeholder="http://localhost/detail/carInfo?c_num="+${car.c_num } readonly="readonly"
+															<input type="text" autocomplete="off" id="siteVal"
+																value="http://localhost/detail/carInfo?c_num=${car.c_num }" readonly="readonly"
 																class="el-input__inner">
+															<input type="text"style="display:none;" value="" id="hiddenFocus">  
 															<div class="el-input-group__append">
-																<button type="button" class="el-button">
+																<button type="button" class="el-button" onclick="copySite()">
 																	<span>복사</span>
 																</button>
 															</div>
@@ -1576,13 +1573,13 @@
 
 								<div>
 									<div>
-										<div class="el-dialog__wrapper popup fullPopup active"
-											style="display: none;">
+										<div class="el-dialog__wrapper popup fullPopup active" id="modalMail"
+											style="z-index: 2010; display: none;">
 											<div role="dialog" aria-modal="true" aria-label="메일 보내기"
 												class="el-dialog" style="margin-top: 15vh;">
 												<div class="el-dialog__header">
 													<span class="el-dialog__title">메일 보내기</span>
-													<button type="button" aria-label="Close"
+													<button type="button" aria-label="Close" onclick="shareModalClose()"
 														class="el-dialog__headerbtn">
 														<i class="el-dialog__close el-icon el-icon-close"></i>
 													</button>
@@ -1607,7 +1604,7 @@
 																							class="el-input el-input--suffix">
 																							<!---->
 																							<input type="text" autocomplete="off"
-																								placeholder="이름" class="el-input__inner">
+																								placeholder="이름" class="el-input__inner" id="name">
 																							<!---->
 																							<!---->
 																							<!---->
@@ -1627,8 +1624,8 @@
 																								class="email el-input el-input--suffix">
 																								<!---->
 																								<input type="text" autocomplete="off"
-																									placeholder="이메일을 입력하세요"
-																									class="el-input__inner">
+																									placeholder="이메일"
+																									class="el-input__inner" id="email1">
 																								<!---->
 																								<!---->
 																								<!---->
@@ -1639,8 +1636,8 @@
 																								class="emailAddr el-input">
 																								<!---->
 																								<input type="text" autocomplete="off"
-																									placeholder="ex)naver.com"
-																									class="el-input__inner">
+																									placeholder="ex.com"
+																									class="el-input__inner" id="email2">
 																								<!---->
 																								<!---->
 																								<!---->
@@ -1653,7 +1650,7 @@
 																									<!---->
 																									<input type="text" readonly="readonly"
 																										autocomplete="off" placeholder="선택"
-																										class="el-input__inner">
+																										class="el-input__inner" id="alignment" value onclick="alignmentClick()">
 																									<!---->
 																									<span class="el-input__suffix"><span
 																										class="el-input__suffix-inner"><i
@@ -1674,22 +1671,22 @@
 																											class="el-select-dropdown__wrap el-scrollbar__wrap"
 																											style="margin-bottom: -17px; margin-right: -17px;">
 																											<ul
-																												class="el-scrollbar__view el-select-dropdown__list">
+																												class="el-scrollbar__view el-select-dropdown__list" id="alignmentMethod">
 																												<!---->
 																												<li data-v-6538404c=""
-																													class="el-select-dropdown__item selected"><span>직접입력</span></li>
+																													class="el-select-dropdown__item selected" onclick="email()"><span>직접입력</span></li>
 																												<li data-v-6538404c=""
-																													class="el-select-dropdown__item"><span>naver.com</span></li>
+																													class="el-select-dropdown__item" onclick="email('naver.com')"><span>naver.com</span></li>
 																												<li data-v-6538404c=""
-																													class="el-select-dropdown__item"><span>gmail.com</span></li>
+																													class="el-select-dropdown__item" onclick="email('gmail.com')"><span>gmail.com</span></li>
 																												<li data-v-6538404c=""
-																													class="el-select-dropdown__item"><span>hanmail.net</span></li>
+																													class="el-select-dropdown__item" onclick="email('hanmail.net')"><span>hanmail.net</span></li>
 																												<li data-v-6538404c=""
-																													class="el-select-dropdown__item"><span>nate.com</span></li>
+																													class="el-select-dropdown__item" onclick="email('nate.com')"><span>nate.com</span></li>
 																												<li data-v-6538404c=""
-																													class="el-select-dropdown__item"><span>daum.net</span></li>
+																													class="el-select-dropdown__item" onclick="email('daum.net')"><span>daum.net</span></li>
 																												<li data-v-6538404c=""
-																													class="el-select-dropdown__item"><span>kakao.com</span></li>
+																													class="el-select-dropdown__item" onclick="email('kakao.com')"><span>kakao.com</span></li>
 																											</ul>
 																										</div>
 																										<div class="el-scrollbar__bar is-horizontal">
@@ -1717,11 +1714,11 @@
 																						<div data-v-6538404c="" class="el-textarea">
 																							<textarea autocomplete="off" rows="2"
 																								placeholder="내용을 입력해주세요" maxlength="2000"
-																								class="el-textarea__inner"
-																								style="resize: none; min-height: 194px; height: 194px;"></textarea>
+																								class="el-textarea__inner" id="emailContent"
+																								style="resize: none; min-height: 194px; height: 194px;" onkeyup="countWord()"></textarea>
 																							<!---->
 																						</div>
-																						<p data-v-6538404c="" class="counter">
+																						<p data-v-6538404c="" class="counter" id="counter">
 																							(0/<span data-v-6538404c="">2,000</span>자)
 																						</p>
 																					</div>
@@ -1752,8 +1749,8 @@
 																		<div data-v-6538404c="" class="price">
 																			<strong data-v-6538404c=""> ${car.c_price}만원 </strong>
 																			<p data-v-6538404c="" class="dis">
-																				할부 <span data-v-6538404c="" class="pointColor">월
-																					${carPriceInfo.result }만원</span>
+																				36개월 할부 <span data-v-6538404c="" class="pointColor">월
+																					${carPriceInfo.result2 }만원</span>
 																			</p>
 																		</div>
 																	</div>
@@ -1774,8 +1771,8 @@
 													<span class="dialog-footer"><div
 															class="footerBtnWrap">
 															<div class="searchTrigger box multBtn el-row">
-																<button class="button chosenApply">취소</button>
-																<button class="button apply">보내기</button>
+																<button class="button chosenApply" onclick="shareModalOpen()">취소</button>
+																<button class="button apply" onclick="emailSend()">보내기</button>
 															</div>
 														</div></span>
 												</div>
@@ -1788,7 +1785,7 @@
 											class="el-dialog" style="margin-top: 15vh;">
 											<div class="el-dialog__header">
 												<span class="el-dialog__title"></span>
-												<button type="button" aria-label="Close"
+												<button type="button" aria-label="Close" onclick="shareModalClose()"
 													class="el-dialog__headerbtn">
 													<i class="el-dialog__close el-icon el-icon-close"></i>
 												</button>
@@ -1820,414 +1817,6 @@
 										<!---->
 									</div>
 								</div>
-							</div>
-						</div>
-						<div data-v-59a16f56="">
-							<div>
-								<div class="el-dialog__wrapper popup popCenter hauto"
-									style="display: none;">
-									<div role="dialog" aria-modal="true" aria-label="보험이력 요약"
-										class="el-dialog" style="margin-top: 15vh;">
-										<div class="el-dialog__header">
-											<span class="el-dialog__title">보험이력 요약</span>
-											<button type="button" aria-label="Close"
-												class="el-dialog__headerbtn">
-												<i class="el-dialog__close el-icon el-icon-close"></i>
-											</button>
-										</div>
-										<!---->
-										<!---->
-									</div>
-								</div>
-								<div>
-									<div class="el-dialog__wrapper popup fullPopup active"
-										style="display: none;">
-										<div role="dialog" aria-modal="true"
-											aria-label="중고차 사고이력정보 보고서" class="el-dialog"
-											style="margin-top: 15vh;">
-											<div class="el-dialog__header">
-												<span class="el-dialog__title">중고차 사고이력정보 보고서</span>
-												<button type="button" aria-label="Close"
-													class="el-dialog__headerbtn">
-													<i class="el-dialog__close el-icon el-icon-close"></i>
-												</button>
-											</div>
-											<!---->
-											<div class="el-dialog__footer">
-												<span class="dialog-footer"><div
-														class="footerBtnWrap">
-														<div class="searchTrigger box maxW400 el-row">
-															<button class="button apply">닫기</button>
-														</div>
-													</div></span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div data-v-59a16f56="">
-							<div>
-								<div class="el-dialog__wrapper popup popCenter hauto"
-									style="display: none;">
-									<div role="dialog" aria-modal="true" aria-label="진단 사항 요약"
-										class="el-dialog" style="margin-top: 15vh;">
-										<div class="el-dialog__header">
-											<span class="el-dialog__title">진단 사항 요약</span>
-											<button type="button" aria-label="Close"
-												class="el-dialog__headerbtn">
-												<i class="el-dialog__close el-icon el-icon-close"></i>
-											</button>
-										</div>
-										<!---->
-										<!---->
-									</div>
-								</div>
-							</div>
-						</div>
-						<div data-v-59a16f56="">
-							<div>
-								<div class="el-dialog__wrapper popup popCenter  active"
-									style="display: none;">
-									<div role="dialog" aria-modal="true" aria-label="관심 차량 등록 알림"
-										class="el-dialog" style="margin-top: 15vh;">
-										<div class="el-dialog__header">
-											<span class="el-dialog__title">관심 차량 등록 알림</span>
-											<button type="button" aria-label="Close"
-												class="el-dialog__headerbtn">
-												<i class="el-dialog__close el-icon el-icon-close"></i>
-											</button>
-										</div>
-										<!---->
-										<div class="el-dialog__footer">
-											<span class="dialog-footer"><div class="footerBtnWrap">
-													<div class="searchTrigger box multBtn el-row">
-														<button id="" class="button chosenApply">취소</button>
-														<button id="mkt_intrstCarAplId" class="button apply">
-															신청하기</button>
-													</div>
-												</div></span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div data-v-59a16f56="">
-							<div>
-								<div class="el-dialog__wrapper popup confirm noTitle"
-									style="display: none;">
-									<div role="dialog" aria-modal="true" aria-label="관심 차량 등록 알림"
-										class="el-dialog" style="margin-top: 15vh;">
-										<div class="el-dialog__header">
-											<span class="el-dialog__title">관심 차량 등록 알림</span>
-											<button type="button" aria-label="Close"
-												class="el-dialog__headerbtn">
-												<i class="el-dialog__close el-icon el-icon-close"></i>
-											</button>
-										</div>
-										<!---->
-										<div class="el-dialog__footer">
-											<span class="dialog-footer"><div></div></span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div data-v-59a16f56="">
-							<div>
-								<div class="el-dialog__wrapper popup popCenter wid480 heigAuto"
-									style="display: none;">
-									<div role="dialog" aria-modal="true" aria-label="자동차 보험료 조회"
-										class="el-dialog" style="margin-top: 15vh;">
-										<div class="el-dialog__header">
-											<span class="el-dialog__title">자동차 보험료 조회</span>
-											<button type="button" aria-label="Close"
-												class="el-dialog__headerbtn">
-												<i class="el-dialog__close el-icon el-icon-close"></i>
-											</button>
-										</div>
-										<!---->
-										<!---->
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="el-dialog__wrapper popup popCenter"
-							style="display: none;" data-v-59a16f56="">
-							<div role="dialog" aria-modal="true" aria-label="이 차의 주행거리는?"
-								class="el-dialog" style="margin-top: 15vh;">
-								<div class="el-dialog__header">
-									<span class="el-dialog__title">이 차의 주행거리는?</span>
-									<button type="button" aria-label="Close"
-										class="el-dialog__headerbtn">
-										<i class="el-dialog__close el-icon el-icon-close"></i>
-									</button>
-								</div>
-								<!---->
-								<!---->
-							</div>
-						</div>
-						<div data-v-59a16f56="">
-							<div class="el-dialog__wrapper popup fullPopup active"
-								style="display: none;">
-								<div role="dialog" aria-modal="true" aria-label="중고차 사고이력정보 보고서"
-									class="el-dialog" style="margin-top: 15vh;">
-									<div class="el-dialog__header">
-										<span class="el-dialog__title">중고차 사고이력정보 보고서</span>
-										<button type="button" aria-label="Close"
-											class="el-dialog__headerbtn">
-											<i class="el-dialog__close el-icon el-icon-close"></i>
-										</button>
-									</div>
-									<!---->
-									<div class="el-dialog__footer">
-										<span class="dialog-footer"><div class="footerBtnWrap">
-												<div class="searchTrigger box maxW400 el-row">
-													<button class="button apply">닫기</button>
-												</div>
-											</div></span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div car-info="[object Object]" master="[object Object]"
-							data-v-59a16f56="">
-							<div class="el-dialog__wrapper popup fullPopup"
-								style="display: none;">
-								<div role="dialog" aria-modal="true" aria-label="K Car 상세 진단 결과"
-									class="el-dialog" style="margin-top: 15vh;">
-									<div class="el-dialog__header">
-										<span class="el-dialog__title">K Car 상세 진단 결과</span>
-										<button type="button" aria-label="Close"
-											class="el-dialog__headerbtn">
-											<i class="el-dialog__close el-icon el-icon-close"></i>
-										</button>
-									</div>
-									<!---->
-									<!---->
-								</div>
-							</div>
-							<div class="el-dialog__wrapper popup fullPopup active"
-								style="display: none;">
-								<div role="dialog" aria-modal="true" aria-label="고지사항"
-									class="el-dialog" style="margin-top: 15vh;">
-									<div class="el-dialog__header">
-										<span class="el-dialog__title">고지사항</span>
-										<button type="button" aria-label="Close"
-											class="el-dialog__headerbtn">
-											<i class="el-dialog__close el-icon el-icon-close"></i>
-										</button>
-									</div>
-									<!---->
-									<div class="el-dialog__footer">
-										<span class="dialog-footer"><div class="footerBtnWrap">
-												<div class="searchTrigger box maxW320 el-row">
-													<button type="button" class="button apply">닫기</button>
-												</div>
-											</div></span>
-									</div>
-								</div>
-							</div>
-							<div class="el-dialog__wrapper popup fullPopup"
-								style="display: none;">
-								<div role="dialog" aria-modal="true" aria-label="기본 진단 결과"
-									class="el-dialog" style="margin-top: 15vh;">
-									<div class="el-dialog__header">
-										<span class="el-dialog__title">기본 진단 결과</span>
-										<button type="button" aria-label="Close"
-											class="el-dialog__headerbtn">
-											<i class="el-dialog__close el-icon el-icon-close"></i>
-										</button>
-									</div>
-									<!---->
-									<!---->
-								</div>
-							</div>
-						</div>
-						<div class="el-dialog__wrapper popup fullPopup"
-							style="display: none;" data-v-59a16f56="">
-							<div role="dialog" aria-modal="true"
-								aria-label="중고자동차 성능∙상태 점검기록부" class="el-dialog"
-								style="margin-top: 15vh;">
-								<div class="el-dialog__header">
-									<span class="el-dialog__title">중고자동차 성능∙상태 점검기록부</span>
-									<button type="button" aria-label="Close"
-										class="el-dialog__headerbtn">
-										<i class="el-dialog__close el-icon el-icon-close"></i>
-									</button>
-								</div>
-								<!---->
-								<!---->
-							</div>
-						</div>
-						<div data-v-59a16f56="">
-							<div>
-								<div class="el-dialog__wrapper popup confirm noTitle"
-									style="display: none;">
-									<div role="dialog" aria-modal="true" aria-label="Title - 확인"
-										class="el-dialog" style="margin-top: 15vh;">
-										<div class="el-dialog__header">
-											<span class="el-dialog__title">Title - 확인</span>
-											<button type="button" aria-label="Close"
-												class="el-dialog__headerbtn">
-												<i class="el-dialog__close el-icon el-icon-close"></i>
-											</button>
-										</div>
-										<!---->
-										<div class="el-dialog__footer">
-											<span class="dialog-footer"><div></div></span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div data-v-59a16f56="">
-							<div
-								class="el-dialog__wrapper popup popCenter rentSmsPopup active"
-								style="display: none;">
-								<div role="dialog" aria-modal="true" aria-label="직영점 정보 문자받기"
-									class="el-dialog" style="margin-top: 15vh;">
-									<div class="el-dialog__header">
-										<span class="el-dialog__title">직영점 정보 문자받기</span>
-										<button type="button" aria-label="Close"
-											class="el-dialog__headerbtn">
-											<i class="el-dialog__close el-icon el-icon-close"></i>
-										</button>
-									</div>
-									<!---->
-									<div class="el-dialog__footer">
-										<span class="dialog-footer"><div class="footerBtnWrap">
-												<div class="searchTrigger box Large popFixBtnM el-row">
-													<button class="button apply">닫기</button>
-												</div>
-											</div></span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="el-dialog__wrapper popup confirm noTitle"
-							style="display: none;" data-v-59a16f56="">
-							<div role="dialog" aria-modal="true" aria-label="dialog"
-								class="el-dialog" style="margin-top: 15vh;">
-								<div class="el-dialog__header">
-									<span class="el-dialog__title"></span>
-									<button type="button" aria-label="Close"
-										class="el-dialog__headerbtn">
-										<i class="el-dialog__close el-icon el-icon-close"></i>
-									</button>
-								</div>
-								<!---->
-								<!---->
-							</div>
-						</div>
-						<div data-v-59a16f56="">
-							<div>
-								<div class="el-dialog__wrapper popup popCenter "
-									style="display: none;">
-									<div role="dialog" aria-modal="true" aria-label="방문 예약 신청"
-										class="el-dialog" style="margin-top: 15vh;">
-										<div class="el-dialog__header">
-											<span class="el-dialog__title">방문 예약 신청</span>
-											<button type="button" aria-label="Close"
-												class="el-dialog__headerbtn">
-												<i class="el-dialog__close el-icon el-icon-close"></i>
-											</button>
-										</div>
-										<!---->
-										<div class="el-dialog__footer">
-											<span class="dialog-footer"><div class="footerBtnWrap">
-													<div class="searchTrigger box Large el-row">
-														<button id="mkt_btnVstResvId" class="button apply">
-															예약 신청</button>
-													</div>
-												</div></span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="el-dialog__wrapper popup confirm noTitle"
-								style="display: none;">
-								<div role="dialog" aria-modal="true" aria-label="방문 예약 알림"
-									class="el-dialog" style="margin-top: 15vh;">
-									<div class="el-dialog__header">
-										<span class="el-dialog__title">방문 예약 알림</span>
-										<button type="button" aria-label="Close"
-											class="el-dialog__headerbtn">
-											<i class="el-dialog__close el-icon el-icon-close"></i>
-										</button>
-									</div>
-									<!---->
-									<div class="el-dialog__footer">
-										<span class="dialog-footer"><div></div></span>
-									</div>
-								</div>
-							</div>
-							<div class="el-dialog__wrapper popup confirm noTitle"
-								style="display: none;">
-								<div role="dialog" aria-modal="true" aria-label="dialog"
-									class="el-dialog" style="margin-top: 15vh;">
-									<div class="el-dialog__header">
-										<span class="el-dialog__title"></span>
-										<button type="button" aria-label="Close"
-											class="el-dialog__headerbtn">
-											<i class="el-dialog__close el-icon el-icon-close"></i>
-										</button>
-									</div>
-									<!---->
-									<div class="el-dialog__footer">
-										<span class="dialog-footer"><div></div></span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div data-v-59a16f56="">
-							<div>
-								<div class="el-dialog__wrapper popup fullPopup"
-									style="display: none;">
-									<div role="dialog" aria-modal="true" aria-label="총 구매 비용 계산기"
-										class="el-dialog" style="margin-top: 15vh;">
-										<div class="el-dialog__header">
-											<span class="el-dialog__title">총 구매 비용 계산기</span>
-											<button type="button" aria-label="Close"
-												class="el-dialog__headerbtn">
-												<i class="el-dialog__close el-icon el-icon-close"></i>
-											</button>
-										</div>
-										<!---->
-										<!---->
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="el-dialog__wrapper popup popCenter"
-							style="display: none;" data-v-adb17354="" data-v-59a16f56="">
-							<div role="dialog" aria-modal="true" aria-label="옵션 상세"
-								class="el-dialog" style="margin-top: 15vh;">
-								<div class="el-dialog__header">
-									<span class="el-dialog__title">옵션 상세</span>
-									<button type="button" aria-label="Close"
-										class="el-dialog__headerbtn">
-										<i class="el-dialog__close el-icon el-icon-close"></i>
-									</button>
-								</div>
-								<!---->
-								<!---->
-							</div>
-						</div>
-						<div class="el-dialog__wrapper popup popCenter"
-							style="display: none;" data-v-59a16f56="">
-							<div role="dialog" aria-modal="true"
-								aria-label="중고자동차 성능 · 상태 점검기록부" class="el-dialog"
-								style="margin-top: 15vh; width: 900px;">
-								<div class="el-dialog__header">
-									<span class="el-dialog__title">중고자동차 성능 · 상태 점검기록부</span>
-									<button type="button" aria-label="Close"
-										class="el-dialog__headerbtn">
-										<i class="el-dialog__close el-icon el-icon-close"></i>
-									</button>
-								</div>
-								<!---->
-								<!---->
 							</div>
 						</div>
 						<!-- 내차사기 고객후기 모달창 -->
@@ -2309,46 +1898,234 @@
 <script src="/js/reviewModal.js"></script>
 <script src="/js/installment.js"></script>
 <script type="text/javascript">
-	var rateCheck = function(result, num) {
-		var result7 = document.getElementById('hidden7').value;
-		var result8 = document.getElementById('hidden8').value;
-		var result9 = document.getElementById('hidden9').value;
-		var result11 = document.getElementById('hidden11').value;
-		var result13 = document.getElementById('hidden13').value;
-		
-		if (num == '7' & result7 != "null") {
-			console.log(result7)
-			var monthResult = document.getElementById('monthResult');
-			monthResult.innerHTML = Math.floor(result7 * 10000) + '원';
-			return;
-		}
-		if (num == '8' & result8 != "null") {
-			console.log('8')
-			var monthResult = document.getElementById('monthResult');
-			monthResult.innerHTML = Math.floor(result8 * 10000) + '원';
-			return;
-		}
-		if (num == '9' & result9 != "null") {
-			console.log('9')
-			var monthResult = document.getElementById('monthResult');
-			monthResult.innerHTML = Math.floor(result9 * 10000) + '원';
-			return;
-		}
-		if (num == '11' & result11 != "null") {
-			console.log('11')
-			var monthResult = document.getElementById('monthResult');
-			monthResult.innerHTML = Math.floor(result11 * 10000) + '원';
-			return;
-		}
-		if (num == '13' & result13 != "null") {
-			console.log('13')
-			var monthResult = document.getElementById('monthResult');
-			monthResult.innerHTML = Math.floor(result13 * 10000) + '원';
-			return;
-		}
+//월 할부금 값 가져오기
+var rateCheck = function(result, num) {
+	var result7 = document.getElementById('hidden7').value;
+	var result8 = document.getElementById('hidden8').value;
+	var result9 = document.getElementById('hidden9').value;
+	var result11 = document.getElementById('hidden11').value;
+	var result13 = document.getElementById('hidden13').value;
+	
+	if (num == '7' & result7 != "null") {
+		console.log(result7)
 		var monthResult = document.getElementById('monthResult');
-		monthResult.innerHTML = result + '원';
+		monthResult.innerHTML = Math.floor(result7 * 10000) + '원';
+		return;
 	}
+	if (num == '8' & result8 != "null") {
+		console.log('8')
+		var monthResult = document.getElementById('monthResult');
+		monthResult.innerHTML = Math.floor(result8 * 10000) + '원';
+		return;
+	}
+	if (num == '9' & result9 != "null") {
+		console.log('9')
+		var monthResult = document.getElementById('monthResult');
+		monthResult.innerHTML = Math.floor(result9 * 10000) + '원';
+		return;
+	}
+	if (num == '11' & result11 != "null") {
+		console.log('11')
+		var monthResult = document.getElementById('monthResult');
+		monthResult.innerHTML = Math.floor(result11 * 10000) + '원';
+		return;
+	}
+	if (num == '13' & result13 != "null") {
+		console.log('13')
+		var monthResult = document.getElementById('monthResult');
+		monthResult.innerHTML = Math.floor(result13 * 10000) + '원';
+		return;
+	}
+	var monthResult = document.getElementById('monthResult');
+	monthResult.innerHTML = result + '원';
+}
+	
+//modal창
+var modalMenu = document.getElementById('modalMenu');
+var modalMenuBack = document.getElementById('modalMenuBack');
+var modalMail = document.getElementById('modalMail');
+
+var shareModalOpen = function(){
+	if(document.body.classList.contains('el-popup-parent--hidden') == false){
+		document.body.classList.add('el-popup-parent--hidden');
+	}
+	modalMail.style.display="none";
+	modalMenu.style.display="flex";
+	modalMenuBack.style.display="flex";
+}
+var shareModalClose = function(){
+	modalMenu.style.display="none";
+	modalMenuBack.style.display="none";
+	modalMail.style.display="none";
+	document.body.classList.remove('el-popup-parent--hidden');
+}
+
+var modalMailOpen = function(){
+	modalMenu.style.display="none";
+	modalMail.style.display="flex";
+}
+
+//복사기능
+var site = document.getElementById('siteVal');
+var copySite = function(){
+	//var hiddenFocus = document.getElementById('hiddenFocus');
+	site.select();
+	site.setSelectionRange(0,99999);
+	document.execCommand("copy");
+	//setTimeout(hiddenFocus.focus(), 2000);
+	alert('주소가 복사되었습니다.');
+}
+//이메일주소 select option
+var dropdownAlignment;
+// var alignment;
+var alignmentMethod;
+var alignCnt = 0;
+var alignmentClick = function(){
+	dropdownAlignment = document.querySelector('.el-select-dropdown.el-popper');
+// 	alignment = document.getElementById('alignment');
+	alignmentMethod = document.getElementById('alignmentMethod');
+	alignCnt ++;
+	if(alignCnt % 2 != 0){
+		dropdownAlignment.style.display = "block"
+		alignmentMethod.style.display = "flex";
+		alignmentMethod.style.alignContent = "flex-start";
+		alignmentMethod.style.flexDirection = "column";
+		alignmentMethod.style.flexWrap = "wrap";
+		alignmentMethod.style.overFlow = "auto";
+	}else{
+		alignmentMethod.style.remove = "display"
+		alignmentMethod.style.remove = "alignContent"
+		alignmentMethod.style.remove = "flexDirection"
+		alignmentMethod.style.remove = "flexWrap"
+		alignmentMethod.style.remove = "overFlow"
+		dropdownAlignment.style.display = "none"
+	}
+}
+//이메일 select option 선택시 
+var email1 = document.getElementById('email1');
+var email2 = document.getElementById('email2');
+var email = function(site){
+	dropdownAlignment = document.querySelector('.el-select-dropdown.el-popper');
+	alignment = document.getElementById('alignment');
+	alignmentMethod = document.getElementById('alignmentMethod');
+	
+	alignCnt ++;
+	alignmentMethod.style.remove = "display"
+	alignmentMethod.style.remove = "alignContent"
+	alignmentMethod.style.remove = "flexDirection"
+	alignmentMethod.style.remove = "flexWrap"
+	alignmentMethod.style.remove = "overFlow"
+	dropdownAlignment.style.display = "none"
+	if(!site){
+		email2.disabled = false;
+		email2.value = "";
+		email2.focus();
+		alignment.value = null;
+		return;
+	}
+	alignment.value = site;
+	email2.value = site;
+	email2.disabled = true;
+	
+}
+//글자수 제한
+var emailContent;
+var counter;
+var countWord = function(){
+	emailContent = document.getElementById('emailContent');
+	counter = document.getElementById('counter');
+	var contentLength = emailContent.value.length;
+	counter.innerHTML = "("+contentLength+"/<span data-v-6538404c=\"\">2,000</span>자)";
+	if(contentLength>10){
+		emailContent.blur();
+		emailContent.value = emailContent.value.substring(0,10);
+		emailContent.focus();
+		counter.innerHTML = "("+10+"/<span data-v-6538404c=\"\">2,000</span>자)";
+		
+	}
+}
+
+//email send
+var req;
+var emailSend = function(){
+	
+	var carNum = document.getElementById('carNum');
+	var emailName = document.getElementById('name');
+	var email1 = document.getElementById('email1');
+	var email2 = document.getElementById('email2');
+	var emailContent = document.getElementById('emailContent');
+
+	//여기서 필수정보인 이름 이메일주소가 없으면 알림창 띄우고 return필요
+	
+	if(req == null){
+		req = new XMLHttpRequest();
+	}
+	req.onreadystatechange = sendSucess;
+	req.open('post','emailSend');
+	var data = {
+		name : emailName.value,
+		email : email1.value + "@" + email2.value,
+		content : emailContent.value,
+		carNum : carNum.value
+	}
+	data = JSON.stringify(data);
+	req.setRequestHeader('Content-Type', 'application/json; charset=UFT-8');
+	req.send(data);
+}
+var sendSucess = function(){
+	if(req.readyState == 4 & req.status == 200){
+		if(req.responseText == '성공'){
+			alert('메일발송 완료');
+		}else{
+			alert('메일발송 실패');
+		}
+		
+		
+		modalMail.style.display="none";
+		modalMenu.style.display="flex";
+		modalMenuBack.style.display="flex";
+	}
+}
+
+//동작안함,,
+var shareKakao = function(){
+	try {
+	   Kakao.init('9ad7fe2c39172f9de2508087c8fe0f0c')
+	   Kakao.Link.createDefaultButton({
+	     container: '#shareKakao',
+	     objectType: 'feed',
+	       content: {
+	         title: 'kcar차량정보',
+	         description: 'kcar,브랜드,모델',
+	       imageUrl:'http://mud-kage.kakao.co.kr/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
+	       link: {
+	           mobileWebUrl: 'https://developers.kakao.com',
+	           androidExecParams: 'test',
+	       },
+	     },
+	     social: {
+	       likeCount: 10,
+	       commentCount: 20,
+	       sharedCount: 30,
+	     },
+	     buttons: [
+	       {
+	         title: '웹으로 이동',
+	         link: {
+	           mobileWebUrl: document.location.href,
+	         },
+	       },
+	       {
+	         title: '앱으로 이동',
+	         link: {
+	           mobileWebUrl: document.location.href,
+	         },
+	       },
+	     ]
+	   });
+	 ; window.kakaoDemoCallback && window.kakaoDemoCallback() 
+	} catch(e) { window.kakaoDemoException && window.kakaoDemoException(e) }
+}
 </script>
 </body>
 </html>

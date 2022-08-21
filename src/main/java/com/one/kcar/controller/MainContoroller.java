@@ -181,6 +181,17 @@ public class MainContoroller {
 		ra.addAttribute("msg", msg);
 		return "redirect:/home";
 	}
+	
+	
+	//차량정보 이메일 보내기
+	
+	
+	@ResponseBody
+	@PostMapping(value="detail/emailSend", produces = "text/html; charset=utf-8")
+	public String emailSend(@RequestBody(required = false) Map<String,String> data) {
+		String msg = detailService.emailSend(data);
+		return msg;
+	}
 	//DB 대량데이터 INSERT용
 	@Autowired
 	private insertService inserService;
@@ -188,23 +199,25 @@ public class MainContoroller {
 	@GetMapping(value="insertCarBrand")
 	public String insertCarBrand() throws FileNotFoundException, IOException {
 		String msg = inserService.insertCarBrand();
+		System.out.println(msg);
 		return "redirect:/brandCar";
 	}
 	@GetMapping(value="insertCarBrandModel")
 	public String insertCarBrandModel() throws FileNotFoundException, IOException {
 		String msg = inserService.insertCarBrandModel();
+		System.out.println(msg);
 		return "redirect:/brandCar";
 	}
-	
 	@GetMapping(value="insertCar")
 	public String insertCar() throws FileNotFoundException, IOException {
 		String msg = inserService.insertCar();
+		System.out.println(msg);
 		return "redirect:/brandCar";
-		
 	}
 	@GetMapping(value="insertCarTag")
 	public String insertCarTag() throws FileNotFoundException, IOException {
 		String msg = inserService.insertCarTag();
+		System.out.println(msg);
 		return "redirect:/brandCar";
 	}
 	@GetMapping(value="insertContract")
@@ -216,22 +229,25 @@ public class MainContoroller {
 	@GetMapping(value="insertReview")
 	public String insertReview() throws FileNotFoundException, IOException {
 		String msg = inserService.insertReview();
+		System.out.println(msg);
 		return "redirect:/brandCar";
 	}
-	
 	@GetMapping(value="insertCarPhoto")
 	public String insertCarPhoto() throws FileNotFoundException, IOException {
 		String msg = inserService.insertCarPhoto();
+		System.out.println(msg);
 		return "redirect:/brandCar";
 	}
 	@GetMapping(value="insertQuestion")
 	public String insertQuestion() throws FileNotFoundException, IOException {
 		String msg = inserService.insertQuestion();
+		System.out.println(msg);
 		return "redirect:/brandCar";
 	}
 	@GetMapping(value="insertMember")
 	public String insertMember() throws FileNotFoundException, IOException {
 		String msg = inserService.insertMember();
+		System.out.println(msg);
 		return "redirect:/brandCar";
 	}
 }
