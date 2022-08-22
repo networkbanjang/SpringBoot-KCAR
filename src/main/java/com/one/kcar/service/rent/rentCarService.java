@@ -18,6 +18,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.one.kcar.dao.rent.IKcarCarRentDAO;
+import com.one.kcar.dto.member.MemberDTO;
 import com.one.kcar.dto.rent.kcarCarRentDTO;
 import com.one.kcar.dto.rent.kcarCarRentOptionDTO;
 import com.one.kcar.dto.rent.kcarCarRentPhotoDTO;
@@ -134,6 +135,12 @@ public class rentCarService{
 		kcarCarRentOptionDTO kcarRentOption = kcarCarRentDao.rentOptionInfo(crNumber);
 //		System.out.println(kcarRentOption.getCroNavigation());
 		return kcarRentOption;
+	}
+
+	public MemberDTO memberInfo(String m_email) {
+		MemberDTO members = kcarCarRentDao.member(m_email);
+		System.out.println(members.getM_name());
+		return members;
 	}
 	
 

@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.one.kcar.dto.member.MemberDTO;
 import com.one.kcar.dto.rent.kcarCarRentDTO;
 import com.one.kcar.dto.rent.kcarCarRentOptionDTO;
 import com.one.kcar.dto.rent.kcarCarRentPhotoDTO;
@@ -33,17 +34,6 @@ import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 @Controller
 public class RentController {
-		//중고차렌트
-//		@GetMapping(value = "rentUsed")
-//		public String rentUsed() {
-//			return "rent/rentUsed";
-//		}
-		
-		//렌트특가
-		@GetMapping(value = "rentSpecialPrice")
-		public String rentSpecialPrice() {
-			return "rent/rentSpecialPrice";
-		}
 		
 		//신차렌트
 		@GetMapping(value = "rentNewCar")
@@ -97,15 +87,10 @@ public class RentController {
 			return "rent/rentUsedInfo";
 		}
 		
-		//중고차렌트 상세페이지
-		@RequestMapping(value = "rentUsedInfo22")
-		public String rentUsedInfo22() {
-			return "rent/rentUsedInfo22";
-		}
-		
 		@GetMapping(value="rentUsedInfoProc")
-		public String ruiProc(HttpServletRequest request, String crNumber, Model model) {
+		public String ruiProc(HttpServletRequest request, String crNumber, Model model,HttpSession session) {
 			crNumber = request.getParameter("crNumber");
+			String m_email = (String) session.getAttribute("id");
 //			System.out.println(crNumber);
 			if(crNumber == null || crNumber.isEmpty())
 				return "rent/rentUsed";
@@ -116,6 +101,10 @@ public class RentController {
 				model.addAttribute("crPhotoList", crPhotoList);
 				kcarCarRentOptionDTO option = carRentService.rentOptionInfo(crNumber);
 				model.addAttribute("rentOptionInfo", option);
+				MemberDTO member = carRentService.memberInfo(m_email);
+				System.out.println(member.getM_name());
+				
+				model.addAttribute("member", member);
 				return "rent/rentUsedInfo";
 			}
 		}

@@ -868,11 +868,12 @@
 																	<div class="el-form-item">
 																		<!---->
 																		<div class="el-form-item__content">
-																			<div class="titLabel">신청자명</div>
+																			<div class="titLabel">신청자명 : ${member.m_name }</div>
 																			<div class="el-input el-input--suffix">
 																				<!---->
 																				<input type="text" autocomplete="off"
-																					placeholder="예) 홍길동" class="el-input__inner">
+																					placeholder="">
+																					
 																				<!---->
 																				<!---->
 																				<!---->
@@ -888,7 +889,7 @@
 																			<div class="el-input el-input--suffix">
 																				<!---->
 																				<input type="text" autocomplete="off"
-																					placeholder="예) 01012341234" maxlength="13"
+																					placeholder="${member.m_tel }" maxlength="13"
 																					input-type="number" inputmode="numeric"
 																					class="el-input__inner">
 																				<!---->

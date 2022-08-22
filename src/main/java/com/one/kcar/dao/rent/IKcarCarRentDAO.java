@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.ui.Model;
 
+import com.one.kcar.dto.member.MemberDTO;
 import com.one.kcar.dto.rent.kcarCarRentDTO;
 import com.one.kcar.dto.rent.kcarCarRentInfoDTO;
 import com.one.kcar.dto.rent.kcarCarRentOptionDTO;
@@ -36,5 +37,7 @@ public interface IKcarCarRentDAO {
 	ArrayList<kcarCarRentPhotoDTO> crPhotoList(String crNumber);
 	
 	kcarCarRentOptionDTO rentOptionInfo(String crNumber);
+
+	MemberDTO member(String m_email);
 
 }
