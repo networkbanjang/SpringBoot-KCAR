@@ -102,9 +102,9 @@
 						</div>
 					</div>
 				</div>
-				
-				<%@include file="/WEB-INF/default/header.jsp" %>
-				
+
+				<%@include file="/WEB-INF/default/header.jsp"%>
+
 				<div class="carInfoWrap" data-v-ec1dd4fa="">
 					<div class="carInfoContainer" data-v-ec1dd4fa="">
 						<div class="carInfoContent rent" data-v-ec1dd4fa="">
@@ -112,8 +112,8 @@
 								<div class="carNameWrap" data-v-ec1dd4fa="">
 									<div class="left" data-v-ec1dd4fa="">
 										<h2 class="carName" data-v-ec1dd4fa="">
-										${rentUsedInfo.crBrand } ${rentUsedInfo.crName }  ${rentUsedInfo.crGrade }
-										</h2>
+											${rentUsedInfo.crBrand } ${rentUsedInfo.crName }
+											${rentUsedInfo.crGrade }</h2>
 										<div data-v-ec1dd4fa="">
 											<ul class="dotLists" data-v-ec1dd4fa="">
 												<li data-v-ec1dd4fa="">${rentUsedInfo.crYear }</li>
@@ -129,10 +129,12 @@
 										<div class="carPriceView" data-v-ec1dd4fa="">
 											<div class="price" data-v-ec1dd4fa="">
 												<strong data-v-ec1dd4fa="">선수금방식 렌트비 <span
-													class="pointC" data-v-ec1dd4fa="">월${rentUsedInfo.crPrice }만원 / ${rentUsedInfo.crMonth }개월</span></strong>
+													class="pointC" data-v-ec1dd4fa="">월${rentUsedInfo.crPrice }만원
+														/ ${rentUsedInfo.crMonth }개월</span></strong>
 											</div>
 											<ul class="priceLists" data-v-ec1dd4fa="">
-												<li data-v-ec1dd4fa="">초기납입금 ${rentUsedInfo.crFirstPrice }만원</li>
+												<li data-v-ec1dd4fa="">초기납입금
+													${rentUsedInfo.crFirstPrice }만원</li>
 											</ul>
 										</div>
 									</div>
@@ -145,30 +147,29 @@
 										</ul>
 									</div>
 								</div>
-								
+
 								<!-- 여기가 이미지슬라이딩 파트 -->
-								
-  								<div id="slideShow">
-								    <ul class="slides">
-								    <c:forEach var="crPhotoList" items="${crPhotoList }">
-								      <li><img src="${crPhotoList.crpPhoto }" alt=""></li>
-<!-- 								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_005.jpg?1660884326016" alt=""></li> -->
-<!-- 								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_006.jpg?1660884326016" alt=""></li> -->
-<!-- 								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_007.jpg?1660884326016" alt=""></li> -->
-<!-- 								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_008.jpg?1660884326016" alt=""></li> -->
-<!-- 								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_009.jpg?1660884326016" alt=""></li> -->
-								    </c:forEach>
-								    </ul>  
-								    <p class="controller">
-								      
-								      <!-- &lang: 왼쪽 방향 화살표
+
+								<div id="slideShow">
+									<ul class="slides">
+										<c:forEach var="crPhotoList" items="${crPhotoList }">
+											<li><img src="${crPhotoList.crpPhoto }" alt=""></li>
+											<!-- 								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_005.jpg?1660884326016" alt=""></li> -->
+											<!-- 								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_006.jpg?1660884326016" alt=""></li> -->
+											<!-- 								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_007.jpg?1660884326016" alt=""></li> -->
+											<!-- 								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_008.jpg?1660884326016" alt=""></li> -->
+											<!-- 								      <li><img src="https://img.kcar.com/carpicture/rentcar/RC116957/kcar_RC116957_009.jpg?1660884326016" alt=""></li> -->
+										</c:forEach>
+									</ul>
+									<p class="controller">
+
+										<!-- &lang: 왼쪽 방향 화살표
 								      &rang: 오른쪽 방향 화살표 -->
-								      <span class="prev">&lang;</span>  
-								      <span class="next">&rang;</span>
-								    </p>
-								 </div>
-							    
-  								<script type="text/javascript">
+										<span class="prev">&lang;</span> <span class="next">&rang;</span>
+									</p>
+								</div>
+
+								<script type="text/javascript">
   								const slides = document.querySelector('.slides'); //전체 슬라이드 컨테이너
   								const slideImg = document.querySelectorAll('.slides li'); //모든 슬라이드들
   								let currentIdx = 0; //현재 슬라이드 index
@@ -204,13 +205,13 @@
   								  }
   								});
   								</script>
-								
+
 								<!-- 일단 여기까지 이미지 슬라이딩 & 스크립트 -->
-								
+
 							</div>
 							<div class="carInfoDetailWrap" data-v-ec1dd4fa="">
 								<div class="carInfoLeft" data-v-ec1dd4fa="">
-									
+
 									<ul class="carOptionLists" data-v-ec1dd4fa="">
 										<li data-v-ec1dd4fa=""><button type="button"
 												class="el-button el-button--default" data-v-ec1dd4fa="">
@@ -246,8 +247,8 @@
 									</ul>
 									<div data-v-ec1dd4fa="" class="flexSB mT100">
 										<h2 data-v-ec1dd4fa="" class="infoHead2 mB0">
-											내 조건에 맞춰 <br data-v-ec1dd4fa="">
-											<span data-v-ec1dd4fa="">월 렌트비를 계산해 보세요.</span>
+											내 조건에 맞춰 <br data-v-ec1dd4fa=""> <span
+												data-v-ec1dd4fa="">월 렌트비를 계산해 보세요.</span>
 										</h2>
 										<button data-v-ec1dd4fa="" type="button"
 											class="el-button rightDesc viewUnder el-button--text">
@@ -486,43 +487,43 @@
 											</h2>
 											<div class="carOptions" data-v-ec1dd4fa="">
 												<ul class="iconLists" data-v-ec1dd4fa="">
-													<li data-v-ec1dd4fa="">
-													<img src="https://www.kcar.com/images/carInfo/icon-detail-option-02.svg" /> 
-													<span data-v-ec1dd4fa="">${rentOptionInfo.croSunRoof }</span>
+													<li data-v-ec1dd4fa=""><img
+														src="https://www.kcar.com/images/carInfo/icon-detail-option-02.svg" />
+														<span data-v-ec1dd4fa="">${rentOptionInfo.croSunRoof }</span>
 													</li>
-													<li data-v-ec1dd4fa="">
-													<img src="https://www.kcar.com/images/carInfo/icon-detail-option-11.svg" /> 
-													<span data-v-ec1dd4fa="">${rentOptionInfo.croHiPass }</span>
+													<li data-v-ec1dd4fa=""><img
+														src="https://www.kcar.com/images/carInfo/icon-detail-option-11.svg" />
+														<span data-v-ec1dd4fa="">${rentOptionInfo.croHiPass }</span>
 													</li>
-													<li data-v-ec1dd4fa="">
-													<img src="https://www.kcar.com/images/carInfo/icon-detail-option-08.svg" /> 
-													<span data-v-ec1dd4fa="">${rentOptionInfo.croBackSensor }</span>
+													<li data-v-ec1dd4fa=""><img
+														src="https://www.kcar.com/images/carInfo/icon-detail-option-08.svg" />
+														<span data-v-ec1dd4fa="">${rentOptionInfo.croBackSensor }</span>
 													</li>
-													<li data-v-ec1dd4fa="">
-													<img src="https://www.kcar.com/images/carInfo/icon-detail-option-09.svg" /> 
-													<span data-v-ec1dd4fa="">${rentOptionInfo.croCamera }</span>
+													<li data-v-ec1dd4fa=""><img
+														src="https://www.kcar.com/images/carInfo/icon-detail-option-09.svg" />
+														<span data-v-ec1dd4fa="">${rentOptionInfo.croCamera }</span>
 													</li>
-													<li data-v-ec1dd4fa="">
-													<img src="https://www.kcar.com/images/carInfo/icon-detail-option-07.svg" /> 
-													<span data-v-ec1dd4fa="">${rentOptionInfo.croNavigation }</span>
+													<li data-v-ec1dd4fa=""><img
+														src="https://www.kcar.com/images/carInfo/icon-detail-option-07.svg" />
+														<span data-v-ec1dd4fa="">${rentOptionInfo.croNavigation }</span>
 													</li>
-													<li data-v-ec1dd4fa="">
-													<img src="https://www.kcar.com/images/carInfo/icon-detail-option-16.svg" /> 
-													<span data-v-ec1dd4fa="">${rentOptionInfo.croHandleHot }</span>
+													<li data-v-ec1dd4fa=""><img
+														src="https://www.kcar.com/images/carInfo/icon-detail-option-16.svg" />
+														<span data-v-ec1dd4fa="">${rentOptionInfo.croHandleHot }</span>
 													</li>
-													<li data-v-ec1dd4fa="">
-													<img src="https://www.kcar.com/images/carInfo/icon-detail-option-19.svg" /> 
-													<span data-v-ec1dd4fa="">${rentOptionInfo.croAirBag }</span>
+													<li data-v-ec1dd4fa=""><img
+														src="https://www.kcar.com/images/carInfo/icon-detail-option-19.svg" />
+														<span data-v-ec1dd4fa="">${rentOptionInfo.croAirBag }</span>
 													</li>
-													<li data-v-ec1dd4fa="">
-													<img src="https://www.kcar.com/images/carInfo/icon-detail-option-06.svg" /> 
-													<span data-v-ec1dd4fa="">${rentOptionInfo.croSmartKey }</span>
+													<li data-v-ec1dd4fa=""><img
+														src="https://www.kcar.com/images/carInfo/icon-detail-option-06.svg" />
+														<span data-v-ec1dd4fa="">${rentOptionInfo.croSmartKey }</span>
 													</li>
-													<li data-v-ec1dd4fa="">
-													<img src="https://www.kcar.com/images/carInfo/icon-detail-option-17.svg" /> 
-													<span data-v-ec1dd4fa="">${rentOptionInfo.croBlackBox }</span>
+													<li data-v-ec1dd4fa=""><img
+														src="https://www.kcar.com/images/carInfo/icon-detail-option-17.svg" />
+														<span data-v-ec1dd4fa="">${rentOptionInfo.croBlackBox }</span>
 													</li>
-													
+
 												</ul>
 											</div>
 											<div class="searchTrigger box Large DarkColor mT24 el-row"
@@ -551,17 +552,15 @@
 														신차가</span> <span data-v-ec1dd4fa="">${rentUsedInfo.crFirstPrice }만원</span></li>
 												<li data-v-ec1dd4fa=""><span data-v-ec1dd4fa="">등급</span>
 													<span data-v-ec1dd4fa="">${rentUsedInfo.crGrade }</span></li>
-												
+
 											</ul></li>
 									</ul>
 									<div class="faqWrap mT100" data-v-ec1dd4fa="">
 										<div class="infoTitleWrap infoTitleWrap2 mb40">
 											<h2 class="infoTitle">자주 묻는 질문</h2>
 											<a class="moreBtn el-link el-link--default is-underline">
-												<!---->
-												<span class="el-link--inner"> 전체보기<i
-													class="el-icon-arrow-right"></i></span>
-											<!---->
+												<!----> <span class="el-link--inner"> 전체보기<i
+													class="el-icon-arrow-right"></i></span> <!---->
 											</a>
 										</div>
 										<div role="tablist" aria-multiselectable="true"
@@ -759,14 +758,15 @@
 											<span> 더보기 </span>
 										</button>
 									</div>
-									
-									
+
+
 								</div>
 								<div class="carInfoRight" data-v-ec1dd4fa="">
 									<div class="stikyWrap" data-v-ec1dd4fa="">
 										<div class="sumSummaryWrap" data-v-ec1dd4fa="">
 											<h3 class="carName" data-v-ec1dd4fa="">
-												${rentUsedInfo.crBrand } ${rentUsedInfo.crName } <br data-v-ec1dd4fa="">${rentUsedInfo.crGrade }
+												${rentUsedInfo.crBrand } ${rentUsedInfo.crName } <br
+													data-v-ec1dd4fa="">${rentUsedInfo.crGrade }
 											</h3>
 											<ul class="dotLists" data-v-ec1dd4fa="">
 												<li data-v-ec1dd4fa="">${rentUsedInfo.crYear }</li>
@@ -782,9 +782,9 @@
 													<ul data-v-ec1dd4fa="">
 														<li data-v-ec1dd4fa=""><strong data-v-ec1dd4fa="">선수금방식
 																렌트비 <span class="pointC" data-v-ec1dd4fa="">
-																월${rentUsedInfo.crPrice }만원 / ${rentUsedInfo.crMonth }개월</span>
+																	월${rentUsedInfo.crPrice }만원 / ${rentUsedInfo.crMonth }개월</span>
 														</strong></li>
-														
+
 													</ul>
 													<p data-v-ec1dd4fa="">초기납입금 ${rentUsedInfo.crFirstPrice }만원</p>
 												</div>
@@ -794,10 +794,10 @@
 												<button class="button chosenApply favorite"
 													data-v-ec1dd4fa="">
 													<span data-v-ec1dd4fa=""><img
-														src="https://www.kcar.com/images/common/icon-toggle-favorite.svg" alt="찜"
-														class="goodBtnOff" data-v-ec1dd4fa=""></span>
+														src="https://www.kcar.com/images/common/icon-toggle-favorite.svg"
+														alt="찜" class="goodBtnOff" data-v-ec1dd4fa=""></span>
 												</button>
-												<button class="button apply" data-v-ec1dd4fa="">
+												<button class="button apply" data-v-ec1dd4fa="" onclick="reviewModalOpen()">
 													상담예약</button>
 											</div>
 											<div data-v-ec1dd4fa="" class="searchSth">
@@ -828,8 +828,164 @@
 								</div>
 							</div>
 						</div>
-						
+
 					</div>
+					<!-- 모달 시작 -->
+					<div data-v-ec1dd4fa="" class="carRentWrap">
+						<div>
+						<span id="reviewModalBack"></span>
+							<div
+								class="el-dialog__wrapper popup popCenter popFullBody rentResPopup active"
+								style="z-index: 3000;display:none;" id="reviewModal">
+								<div role="dialog" aria-modal="true" aria-label="상담예약신청"
+									class="el-dialog" style="margin-top: 15vh;">
+									<div class="el-dialog__header">
+										<span class="el-dialog__title">상담예약신청</span>
+										<button type="button" aria-label="Close" onclick="reviewModalClose()"
+											class="el-dialog__headerbtn">
+											<i class="el-dialog__close el-icon el-icon-close"></i>
+										</button>
+									</div>
+									<div class="el-dialog__body">
+										<div class="popContent el-scrollbar">
+											<div class="el-scrollbar__wrap"
+												style="margin-bottom: -19px; margin-right: -19px;">
+												<div class="el-scrollbar__view">
+													<div class="popBodyInr">
+														<h2 class="detailTitle">
+															견적을 신청해 주시면 렌트 담당자가<br>확인한 후 빠른 시간 내에 연락을 드립니다.
+														</h2>
+														<p class="etcInfo">
+															렌트 계약은 렌트 담당자 전화상담 후에 확정됩니다.<br> 견적문의 및 신청만으로는 계약이
+															확정되지 않으니 참고해 주세요.
+														</p>
+														<p class="textBox">
+															<span>${rentUsedInfo.crBrand } ${rentUsedInfo.crName } ${rentUsedInfo.crGrade }</span>
+														</p>
+														<div class="formWrapRen">
+															<form class="el-form">
+																<div class="col">
+																	<div class="el-form-item">
+																		<!---->
+																		<div class="el-form-item__content">
+																			<div class="titLabel">신청자명</div>
+																			<div class="el-input el-input--suffix">
+																				<!---->
+																				<input type="text" autocomplete="off"
+																					placeholder="예) 홍길동" class="el-input__inner">
+																				<!---->
+																				<!---->
+																				<!---->
+																				<!---->
+																			</div>
+																			<!---->
+																		</div>
+																	</div>
+																	<div class="el-form-item">
+																		<!---->
+																		<div class="el-form-item__content">
+																			<div class="titLabel">휴대폰번호</div>
+																			<div class="el-input el-input--suffix">
+																				<!---->
+																				<input type="text" autocomplete="off"
+																					placeholder="예) 01012341234" maxlength="13"
+																					input-type="number" inputmode="numeric"
+																					class="el-input__inner">
+																				<!---->
+																				<!---->
+																				<!---->
+																				<!---->
+																			</div>
+																			<!---->
+																		</div>
+																	</div>
+																</div>
+																<!-- 임시보관소 시작 -->
+																
+																<!-- 임시보관소 종료 -->
+													</div>
+												</div>
+											</div>
+											<div class="el-scrollbar__bar is-horizontal">
+												<div class="el-scrollbar__thumb"
+													style="transform: translateX(0%);"></div>
+											</div>
+											<div class="el-scrollbar__bar is-vertical">
+												<div class="el-scrollbar__thumb"
+													style="height: 49.2166%; transform: translateY(0%);"></div>
+											</div>
+										</div>
+									</div>
+									<div class="el-dialog__footer">
+										<span class="dialog-footer"><div class="footerBtnWrap">
+												<div class="searchTrigger box Large popFixBtnM el-row">
+													<button class="button apply">신청</button><!-- 이버튼 누르면 왜 정비소로넘어가지?? -->
+												</div>
+											</div></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="el-dialog__wrapper popup fullPopup hauto active"
+								style="display: none;">
+								<div role="dialog" aria-modal="true" aria-label="개인정보 취급동의"
+									class="el-dialog" style="margin-top: 15vh;">
+									<div class="el-dialog__header">
+										<span class="el-dialog__title">개인정보 취급동의</span>
+										<button type="button" aria-label="Close"
+											class="el-dialog__headerbtn">
+											<i class="el-dialog__close el-icon el-icon-close"></i>
+										</button>
+									</div>
+									<!---->
+									<div class="el-dialog__footer">
+										<span class="dialog-footer"><div class="footerBtnWrap">
+												<div class="searchTrigger box Large popFixBtnM el-row">
+													<button class="button apply">확인</button>
+												</div>
+											</div></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div class="el-dialog__wrapper popup fullPopup hauto active"
+								style="display: none;">
+								<div role="dialog" aria-modal="true" aria-label="마케팅 활용"
+									class="el-dialog" style="margin-top: 15vh;">
+									<div class="el-dialog__header">
+										<span class="el-dialog__title">마케팅 활용</span>
+										<button type="button" aria-label="Close"
+											class="el-dialog__headerbtn">
+											<i class="el-dialog__close el-icon el-icon-close"></i>
+										</button>
+									</div>
+									<!---->
+									<div class="el-dialog__footer">
+										<span class="dialog-footer"><div class="footerBtnWrap">
+												<div class="searchTrigger box Large popFixBtnM el-row">
+													<button class="button apply">확인</button>
+												</div>
+											</div></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="el-dialog__wrapper popup confirm noTitle"
+							style="display: none;">
+							<div role="dialog" aria-modal="true" aria-label="noTitle"
+								class="el-dialog" style="margin-top: 15vh;">
+								<div class="el-dialog__header">
+									<span class="el-dialog__title">noTitle</span>
+									<!---->
+								</div>
+								<!---->
+								<!---->
+							</div>
+						</div>
+					</div>
+					<!-- 모달 종료 -->
 					<!---->
 					<div data-v-ec1dd4fa="">
 						<div>
@@ -1230,9 +1386,9 @@
 						</div>
 					</div>
 				</div>
-				
-				<%@include file="/WEB-INF/default/footer.jsp" %>
-				
+
+				<%@include file="/WEB-INF/default/footer.jsp"%>
+
 			</div>
 		</div>
 	</div>
@@ -1262,5 +1418,22 @@
 	<script type="text/javascript" id="">window.criteo_q=window.criteo_q||[];var deviceType=/iPad/.test(navigator.userAgent)?"t":/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent)?"m":"d";window.criteo_q.push({event:"setAccount",account:73896},{event:"setSiteType",type:deviceType},{event:"viewHome"});</script>
 	<div id="criteo-tags-div" style="display: none;"></div>
 	<script type="text/javascript" id="">kakaoPixel("8101473052006960319").pageView();</script>
+<script>
+//review 모달창
+var reviewModalBack = document.getElementById('reviewModalBack');
+var reviewModal = document.getElementById('reviewModal');
+
+function reviewModalOpen() {
+	document.body.classList.add('el-popup-parent--hidden');
+	reviewModal.style.display="flex";
+	reviewModalBack.style.display="flex";
+}
+//modal창 close
+function reviewModalClose() {
+	reviewModal.style.display="none";
+	reviewModalBack.style.display="none";
+	document.body.classList.remove('el-popup-parent--hidden');
+}
+</script>
 </body>
 </html>

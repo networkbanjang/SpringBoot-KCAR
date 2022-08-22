@@ -27,6 +27,9 @@ import com.one.kcar.dto.rent.kcarCarRentOptionDTO;
 import com.one.kcar.dto.rent.kcarCarRentPhotoDTO;
 import com.one.kcar.service.rent.IRentService;
 import com.one.kcar.service.rent.rentCarService;
+import com.one.kcar.service.rent.smsService;
+
+import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 @Controller
 public class RentController {
@@ -151,6 +154,24 @@ public class RentController {
 			}
 			buffer.close();
 			return data;
+		}
+		
+		// coolSMS 테스트 화면
+		@GetMapping(value = "sms")
+		public String mySms() {
+			return "rent/sms";
+		}
+		
+		@Autowired private smsService boardService;
+		// coolSMS 구현 로직 연결  
+		@GetMapping(value = "sms/sendSMS")
+		public @ResponseBody String sendSMS(@RequestParam(value="to") String to) throws CoolsmsException {  	
+			return boardService.PhoneNumberCheck(to);
+		}
+		
+		@GetMapping(value = "modalTest")
+		public String modalTest() {
+			return "rent/modalTest";
 		}
 		
 		

@@ -26,6 +26,16 @@
 	-moz-osx-font-smoothing: grayscale
 }
 
+#reviewModalBack {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 2010;
+}
 
 /* 보여줄 구간의 높이와 넓이 설정 */
 #slideShow{
