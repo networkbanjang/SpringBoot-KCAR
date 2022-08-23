@@ -87,7 +87,7 @@
 									<h2 class="subTitle">
 										직영차 <span class="textRed">${fn:length(buy)}</span>대
 									</h2>
-									<a href="/bc/search/IntgSearchList"
+									<a href="/carbuy"
 										class="rightDesc viewAll nuxt-link-active"><span>직영차
 											더보기</span></a>
 								</div>
@@ -257,9 +257,9 @@
 									<h2 class="subTitle">
 										렌트 <span class="textRed">${fn:length(rent)}</span>대
 									</h2>
-									<a href="/bc/search/IntgSearchList"
+									<!-- <a href="/bc/search/IntgSearchList"
 										class="rightDesc viewAll nuxt-link-active"><span>렌트
-											더보기</span></a>
+											더보기</span></a>  -->
 								</div>
 								<div class="lineTop mT20">
 									<div class="carListWrap">

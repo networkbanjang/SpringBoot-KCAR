@@ -6,6 +6,7 @@ import java.util.Set;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import com.one.kcar.dto.buy.BuyDTO;
 import com.one.kcar.dto.buy.CarDTO;
 import com.one.kcar.dto.rent.kcarCarRentDTO;
 
@@ -16,7 +17,7 @@ public interface IsearchDAO {
 
 	Set<String> getbrand();
 
-	List<CarDTO> search(@Param("brand")String brand,@Param("model") String model,@Param("list") List<String> list);
+	List<BuyDTO> search(@Param("brand")String brand,@Param("model") String model,@Param("list") List<String> list);
 
 	Set<String> likemodel(String val);
 

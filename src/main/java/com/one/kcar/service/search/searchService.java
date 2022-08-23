@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.one.kcar.dao.search.IsearchDAO;
+import com.one.kcar.dto.buy.BuyDTO;
 import com.one.kcar.dto.buy.CarDTO;
 import com.one.kcar.dto.rent.kcarCarRentDTO;
 
@@ -36,7 +37,7 @@ public class searchService {
 		return list3;
 	}
 
-	public List<CarDTO> search(String brandsearch, String modelsearch, ArrayList<String> optionsearch) {
+	public List<BuyDTO> search(String brandsearch, String modelsearch, ArrayList<String> optionsearch) {
 		List<String> list = optionsearch;
 		return dao.search(brandsearch, modelsearch, list);
 	}
@@ -62,6 +63,7 @@ public class searchService {
 
 	public List<kcarCarRentDTO> rentsearch(String brandsearch, String modelsearch, ArrayList<String> optionsearch) {
 		List<String> list = optionsearch;
+		
 		return dao.rentsearch(brandsearch, modelsearch, list);
 	}
 
