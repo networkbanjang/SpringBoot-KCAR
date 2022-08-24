@@ -21,15 +21,12 @@
 </head>
 <body>
 	<div id="contents" class="contents"> 
-		<p class="textBox"><span>
- 			${rentUsedInfo.crBrand } ${rentUsedInfo.crName } ${rentUsedInfo.crGrade } 
-				
-		</span></p>
+		<p class="textBox"><span>신청 양식</span></p>
 		
 		<div class="el-form-item__content">
 			<div class="titLabel">신청자명</div>
 			<div class="el-input el-input--suffix">
-				<input type="text" placeholder="db값 이름" class="el-input__inner">
+				<input type="text" placeholder="예)홍길동" class="el-input__inner" id="name">
 			</div>
 		</div>
 		
@@ -39,29 +36,36 @@
 				<input type="text" id="to" name="to" placeholder="예) 01012341234"/>
 			</div>
 		</div>
-		<br><button type="button" id="send">신청</button><br> <!-- 문자보내는 전송버튼 -->
+		<br><button type="button" id="send" onclick="check1()">신청</button><br> <!-- 문자보내는 전송버튼 -->
     </div>
 </body>
 
 <script type="text/javascript">
-$('#send').click(function() {
+var req;
+
+var check1 = function(){
+	var to = document.getElementById('to');	
+	var name = document.getElementById('name');
+
+	req = new XMLHttpRequest();
+	req.onreadystatechange = sendSMS1;
+	req.open('post', 'sms/sendSMS');
+	var data = {
+		to : to.value,
+		name : name.value
+	}
+	data = JSON.stringify(data);
+	req.setRequestHeader('Content-Type',
+			'application/json; charset=UTF-8');
+	req.send(data);
+}
 	
-	const to = $('#to').val();
 	
-	$.ajax ({
-		url: 'sms/sendSMS',
-		type: 'GET',
-		data: {
-			"to" : to
-		},
-		success: function(data) {
-			const checkNum = data;//to로 받아온 데이터
-			alert('메세지 전송'+ checkNum);
-			
-		}
-	});
-	
-});
+var sendSMS1 = function(){
+	if(req.readyState == 4 & req.status == 200){
+		alert('메세지 전송' + req.responseText);
+	}
+}
 </script>
 
 </html>

@@ -92,7 +92,7 @@ public class RentController {
 			crNumber = request.getParameter("crNumber");
 			session.setAttribute("crnumber", crNumber);
 			String m_email = (String) session.getAttribute("id");
-//			session.setAttribute("email", m_email);
+			session.setAttribute("email", m_email);
 //			System.out.println(crNumber);
 			if(crNumber == null || crNumber.isEmpty())
 				return "rent/rentUsed";
@@ -128,32 +128,41 @@ public class RentController {
 		
 		// coolSMS 테스트 화면
 		
-		/*
+		
 		@GetMapping(value = "sms")
 		public String mySms() {
 			return "rent/sms";
 		}
-		*/
 		
-		@RequestMapping(value = "sms")
+		/*
+		@GetMapping(value = "sms")
 		public String mySms(HttpServletRequest request, Model model,HttpSession session) {
 			String crNumber = (String)session.getAttribute("crnumber");
+			String m_email = (String)session.getAttribute("email");
 			if(crNumber == null || crNumber.isEmpty())
 				return "rent/rentUsedInfo";
 			else {
 				kcarCarRentDTO kcar = carRentService.rentUsedInfo(crNumber);
 				model.addAttribute("rentUsedInfo",kcar);
+				MemberDTO member = carRentService.memberInfo(m_email);
+				model.addAttribute("member", member);
 			}
 			return "rent/sms";
 		}
+		*/
 		
 		
 		@Autowired private smsService phoneService;
 		// coolSMS 구현 로직 연결  
 		
-		@GetMapping(value = "sms/sendSMS")
-		public @ResponseBody String sendSMS2(@RequestParam(value="to") String to) throws CoolsmsException {  	
-			return phoneService.PhoneNumberCheck(to);
+		@ResponseBody
+		@PostMapping(value = "sms/sendSMS",produces = "text/html; charset=utf-8" )
+		public String sendSMS(@RequestBody(required = false) HashMap<String , String> data) throws CoolsmsException {  	
+			System.out.println("tfasdf");
+			System.out.println(data.get("to"));
+			System.out.println(data.get("name"));
+			return phoneService.PhoneNumberCheck(data.get("to"), data.get("name"));
+			
 		}
 		
 //		@RequestMapping(value = "rentUsed")
