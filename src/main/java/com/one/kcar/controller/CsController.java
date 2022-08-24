@@ -35,12 +35,12 @@ public class CsController {
 			return "redirect:menu";
 		}
 		
-		//공지사항
-		@RequestMapping(value = "NotcMatrList")
-		public String NotcMatrList(Model model) {
-			service.noticeProc(model, 0, null, null);
-			return "bd/NotcMatrList";
-		}
+//		//공지사항
+//		@RequestMapping(value = "NotcMatrList")
+//		public String NotcMatrList(Model model) {
+//			service.noticeProc(model, 0, null, null);
+//			return "bd/NotcMatrList";
+//		}
 		
 		//고객지원 메뉴
 		@GetMapping(value = "menu")
