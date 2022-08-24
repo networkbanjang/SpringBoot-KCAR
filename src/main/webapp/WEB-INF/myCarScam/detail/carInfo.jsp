@@ -1141,56 +1141,6 @@
 												<li data-v-59a16f56=""><span data-v-59a16f56="">색상</span>
 													<span data-v-59a16f56="">${car.c_color }</span></li>
 											</ul></li>
-										<li id="menu3" data-menu-section="3" data-v-59a16f56=""><h2
-												class="infoHead2 pT100" data-v-59a16f56="">
-												K Car 차량 전문가!<br data-v-59a16f56=""> <span
-													data-v-59a16f56="">‘윤원기 차량평가사’의 코멘트</span>
-											</h2>
-											<div class="employeeCard" data-v-59a16f56="">
-												<div class="imgbox" data-v-59a16f56="">
-													<img
-														src="https://img.kcar.com//DATA1/carpicture2/emp/pic/3227.jpg?1659352715813"
-														alt="" data-v-59a16f56="">
-												</div>
-												<ul class="employeeCardDesc" data-v-59a16f56="">
-													<li data-v-59a16f56=""><span data-v-59a16f56="">소속</span>
-														<span data-v-59a16f56="">${car.st_name }</span></li>
-													<li data-v-59a16f56=""><span data-v-59a16f56="">매매
-															사원증</span> <span data-v-59a16f56="">21-042-01067</span></li>
-													<li data-v-59a16f56=""><span data-v-59a16f56="">판매차량</span>
-														<a class="el-link el-link--default is-underline"
-														data-v-59a16f56=""> <!----> <span
-															class="el-link--inner"><span data-v-59a16f56="">34대</span></span>
-															<!---->
-													</a></li>
-												</ul>
-											</div>
-											<c:if test="${not empty carInfo}">
-											<ul class="commentLists" data-v-59a16f56="">
-												<li class="col1" data-v-59a16f56=""><h4 class="tit"
-														data-v-59a16f56="">이 차를 추천하는 이유</h4>
-													<ul class="cmtDescLists" data-v-59a16f56="">
-														<li data-v-59a16f56="">
-														${carInfo.c_i_recommend }
-														</li>
-													</ul></li>
-												<li class="col2" data-v-59a16f56=""><h4 class="tit"
-														data-v-59a16f56="">진단 결과 요점 정리</h4>
-													<ul class="cmtDescLists" data-v-59a16f56="">
-														<li data-v-59a16f56="">
-														${carInfo.c_i_summary }
-														</li>
-													</ul></li>
-												<li class="col3" data-v-59a16f56=""><h4 class="tit"
-														data-v-59a16f56="">차량 히스토리 및 특이사항</h4>
-													<ul class="cmtDescLists" data-v-59a16f56="">
-														<li data-v-59a16f56="">
-														${carInfo.c_i_summary }
-														</li>
-													</ul></li>
-											</ul>
-											</c:if>
-											</li>
 										<li id="menu4" data-menu-section="4" data-v-59a16f56=""><h2
 												class="infoHead2 pT100" data-v-59a16f56="">
 												편안하게 타실 수 있도록, <span data-v-59a16f56="">옵션까지 한눈에
@@ -1198,27 +1148,51 @@
 											</h2>
 											<div class="carOptions" data-v-59a16f56="">
 												<ul class="iconLists" data-v-59a16f56="">
-													<li data-v-59a16f56=""><i data-v-59a16f56=""
-														class="icon-detail-option-02"></i> <span class="opText"
-														data-v-59a16f56="">선루프 </span></li>
-													<li data-v-59a16f56=""><i data-v-59a16f56=""
-														class="icon-detail-option-11"></i> <span
-														data-v-59a16f56="" class="opText">하이패스 </span></li>
-													<li data-v-59a16f56=""><i data-v-59a16f56=""
-														class="icon-detail-option-03"></i> <span
-														data-v-59a16f56="" class="opText">가죽시트 </span></li>
-													<li data-v-59a16f56=""><i data-v-59a16f56=""
-														class="icon-detail-option-04"></i> <span
-														data-v-59a16f56="" class="opText">열선시트 </span></li>
-													<li data-v-59a16f56=""><i data-v-59a16f56=""
-														class="icon-detail-option-06"></i> <span
-														data-v-59a16f56="" class="opText">스마트키 1개</span></li>
-													<li data-v-59a16f56=""><i data-v-59a16f56=""
-														class="icon-detail-option-08"></i> <span
-														data-v-59a16f56="" class="opText">후측방 경보시스템 </span></li>
-													<li data-v-59a16f56=""><i data-v-59a16f56=""
-														class="icon-detail-option-12"></i> <span
-														data-v-59a16f56="" class="opText">LDWS:차선이탈경보 시스템 </span></li>
+													<c:if test="${carOption.c_o_sonRoof != null }">
+														<li data-v-59a16f56=""><i data-v-59a16f56=""
+														class="icon-detail-option-02" ></i> <span class="opText"
+														data-v-59a16f56="">선루프</span></li>
+													</c:if>
+													<c:if test="${carOption.c_o_hiPass != null }">
+														<li data-v-59a16f56=""><i data-v-59a16f56=""
+														class="icon-detail-option-11"></i> <span class="opText"
+														data-v-59a16f56="">하이패스</span></li>
+													</c:if>
+													<c:if test="${carOption.c_o_backSensor != null }">
+														<li data-v-59a16f56=""><i data-v-59a16f56=""
+														class="icon-detail-option-08"></i> <span class="opText"
+														data-v-59a16f56="">후측방 경보시스템</span></li>
+													</c:if>
+													<c:if test="${carOption.c_o_camera != null }">
+														<li data-v-59a16f56=""><i data-v-59a16f56=""
+														class="icon-detail-option-08"></i> <span class="opText"
+														data-v-59a16f56="">후측방 카메라</span></li>
+													</c:if>
+													<c:if test="${carOption.c_o_navigation != null }">
+														<li data-v-59a16f56=""><i data-v-59a16f56=""
+														class="icon-detail-option-07"></i> <span class="opText"
+														data-v-59a16f56="">네비게이션</span></li>
+													</c:if>
+													<c:if test="${carOption.c_o_handleHot != null }">
+														<li data-v-59a16f56=""><i data-v-59a16f56=""
+														class="icon-detail-option-04"></i> <span class="opText"
+														data-v-59a16f56="">열선시트</span></li>
+													</c:if>
+													<c:if test="${carOption.c_o_airback != null }">
+														<li data-v-59a16f56=""><i data-v-59a16f56=""
+														class="icon-detail-option-03"></i> <span class="opText"
+														data-v-59a16f56="">에어백</span></li>
+													</c:if>
+													<c:if test="${carOption.c_o_smartKey != null }">
+														<li data-v-59a16f56=""><i data-v-59a16f56=""
+														class="icon-detail-option-06"></i> <span class="opText"
+														data-v-59a16f56="">스마트키</span></li>
+													</c:if>
+													<c:if test="${carOption.c_o_blackBox != null }">
+														<li data-v-59a16f56=""><i data-v-59a16f56=""
+														class="icon-detail-option-17"></i> <span class="opText"
+														data-v-59a16f56="">블랙박스</span></li>
+													</c:if>
 												</ul>
 											</div>
 										</li>

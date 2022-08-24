@@ -240,7 +240,7 @@ public class brandService {
 					+ "							</button>\r\n";
 		}
 			
-		result += "							<div class=\"pagingNum\" id=\"pageNum\" value=\"${currentPage }\" >\r\n"
+		result += "							<div class=\"pagingNum\" id=\"pageNum\" value=\""+currentPageNum+"\" >\r\n"
 				+ "								<span class=\"textRed\">"+currentPageNum+"</span> / "+totalPage+"\r\n"
 				+ "							</div>\r\n";
 
