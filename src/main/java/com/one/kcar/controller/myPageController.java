@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.one.kcar.dto.member.MemberDTO;
+import com.one.kcar.dto.rent.kcarCarRentDTO;
 import com.one.kcar.dto.sell.SellDTO;
 import com.one.kcar.service.member.MailCheckService;
 import com.one.kcar.service.member.MemberService;
@@ -24,20 +25,22 @@ public class myPageController {
 	@Autowired private MailCheckService mailservice; 
 	 
 	// 내차사기 주문관리 
-	@GetMapping("BuyOrderManage") 
-	public String BuyOrderManage() { 
-		return "mypage_service/BuyOrderManage"; 
-	} 
+//	@GetMapping("BuyOrderManage") 
+//	public String BuyOrderManage() { 
+//		return "mypage_service/BuyOrderManage"; 
+//	} 
 	// 내차팔기 신청관리 
 	@GetMapping("SellAplMgtList") 
 	public String SellAplMgtList() { 
 		return "mypage_service/SellAplMgtList";	 
 	} 
-	// 렌트 신청내역 
-	@GetMapping("RentAplList") 
-	public String RentAplList() { 
-		return "mypage_service/RentAplList";	 
-	} 
+//	// 렌트 신청내역 
+//	@GetMapping("RentAplList") 
+//	public String RentAplList(Model model, HttpSession session, kcarCarRentDTO rent) { 
+//
+//		model.addAttribute("list",service.rent_list());
+//		return "mypage_service/RentAplList";	 
+//	} 
 	// 직영점 방문예약 신청 내역 
 	@GetMapping("DrcmgtStrVstResvLst") 
 	public String DrcmgtStrVstResvLst() { 
@@ -117,10 +120,10 @@ public class myPageController {
 	// 내차팔기 관리신청
 		@GetMapping("/mp/MyCarSellAplMgtList")
 		public String mycarsell(Model model,SellDTO sell,HttpSession session) {
-			String email = (String) session.getAttribute("id");
-			if(email == null )
+			String m_email = (String) session.getAttribute("id");
+			if(m_email == null )
 				return "mypage/myCarsell";
-			List<SellDTO> list = service.mycarSell(email);
+			List<SellDTO> list = service.mycarSell(m_email);
 
 			model.addAttribute("list",list);
 			return "mypage/myCarsell";

@@ -34,6 +34,7 @@ public class adminService{
 
 	public List<SellDTO> sell_list() {
 		List<SellDTO> sell_list = dao.sell_list();
+		
 		return sell_list;
 	}
 	public List<CsDTO> csVoc_list(){
@@ -74,7 +75,7 @@ public class adminService{
 		car.setC_distance(c_distance);
 		car.setM_email("km");
 		car.setC_salestatus(0);
-		car.setC_photo(fileName);
+		car.setC_photo("/images/adminCar/" +fileName);
 		car.setC_rent("0");
 		dao.insert_Car(car);
 		carinfo.setC_num(c_num);
@@ -86,6 +87,9 @@ public class adminService{
 		contract.setC_num(c_num);
 		contract.setC_c_s_email(m_email);
 		dao.insert_Contract(contract);
+	
+		sell.setS_r_progress("2");
+		dao.update_sell(sell);
 		return "g";
 		}
 		return m_email;
@@ -129,4 +133,14 @@ public class adminService{
 		dao.insert_event(event);
 		return "c";
 	}
+	public List<CarDTO> buy_list(String email) {
+		System.out.println(email);
+		List<CarDTO> buy_list = dao.buy_list(email);
+		return buy_list;
+	}
+	public List<kcarCarRentDTO> rent_list(String m_email) {
+		List<kcarCarRentDTO> rent_list = dao.rent_list(m_email);
+		return rent_list;
+	}
+	
 }

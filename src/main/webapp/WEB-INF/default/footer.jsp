@@ -55,7 +55,7 @@
 			</p>
 			<ul>
 				<li>상호명 : 케이카 주식회사</li>
-				<li><a href="/main_login" style="text-decoration: none; color: #54555a;" >대표자 : 정인국</a></li>
+				<li><a href="/main_login" style="text-decoration: none; color: #54555a;" >대표자 : 이성표</a></li>
 				<li>개인정보관리책임자 : 이우근</li>
 				<li>사업자등록번호 : 787-87-00729</li>
 			</ul>
@@ -152,32 +152,5 @@
 			</dl>
 		</div>
 	</div>
-	<div class="floatingMenu">
-		<div class="btngp">
-			<div class="ibtnMenuBox">
-				<button type="button" class="ibtn btnToggle">
-					<i class="icon"></i><span class="_hidden">더보기</span>
-				</button>
-				<div class="ibtnMenu">
-					<ul>
-						<li><a href="/account/login" class="login"><i
-								class="icon"></i><span>로그인</span></a></li>
-						<li><a href="/bc/LatelyViewedCar/list" class="history"><i
-								class="icon"></i><span>최근 본 차량</span></a></li>
-						<li><a href="/account/login" class="favorite"><i
-								class="icon"></i><span>찜한 차량</span></a></li>
-						<li><a href="/cs/Menu" class="customer"><i class="icon"></i><span>고객지원</span></a></li>
-					</ul>
-				</div>
-			</div>
-			<button type="button" class="ibtn btnTalk">
-				<i class="icon"></i><span class="_hidden">TALK</span>
-			</button>
-			<form id="form-biz" action="https://bizmessage.kakao.com/chat/open"
-				method="post" target="””">
-				<input type="hidden" name="uuid" value="@KCar"> <input
-					type="hidden" name="extra" value="K Car">
-			</form>
-		</div>
-	</div>
+	
 </footer>

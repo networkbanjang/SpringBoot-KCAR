@@ -1,6 +1,7 @@
 package com.one.kcar.service.member;
 
 import java.lang.reflect.Member;
+import java.util.List;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.one.kcar.dao.admin.IadminDAO;
 import com.one.kcar.dao.member.IMemberDAO;
+import com.one.kcar.dto.admin.CarDTO;
 import com.one.kcar.dto.member.MemberDTO;
 import com.one.kcar.dto.member.Role;
 import com.one.kcar.dto.sell.SellDTO;
@@ -213,6 +215,20 @@ public class MemberService {
 		
 		return count;
 	}
+	
+	public int buy_check(String m_email) {
+		m_email = (String)session.getAttribute("id");
+		int buy_count = adminDao.buy_check(m_email);
+		return buy_count;
+	}
+
+
+	public int rent_check(String m_email) {
+		m_email = (String)session.getAttribute("id");
+		int rent_count = adminDao.rent_check(m_email);
+		return rent_count;
+	}
+
 
 
 	

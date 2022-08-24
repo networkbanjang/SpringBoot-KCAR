@@ -1,5 +1,7 @@
 package com.one.kcar.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -13,12 +15,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.one.kcar.dto.admin.CarDTO;
 import com.one.kcar.dto.sell.SellDTO;
+import com.one.kcar.service.admin.adminService;
 import com.one.kcar.service.member.MemberService;
+import com.one.kcar.service.sell.myPageService;
 
 @Controller
 public class HomeController{
 	@Autowired MemberService service;
+	@Autowired adminService adminservice;
+	@Autowired myPageService mypageservice;
 	
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -59,10 +66,19 @@ public class HomeController{
 	}
 	// 마이 페이지
 	@GetMapping("mypage")
-	public String mypage(@RequestBody(required = false)String m_email,HttpSession session,Model model) {
+	public String mypage(@RequestBody(required = false)String m_email,
+			HttpSession session,Model model,CarDTO car) {
 		m_email = (String)session.getAttribute("id");
+		List<CarDTO> list = adminservice.buy_list(m_email);
+		model.addAttribute("list",list);
+		model.addAttribute("sell",mypageservice.mycarSell(m_email));
+		model.addAttribute("rent",adminservice.rent_list(m_email));
 		int count = service.check(m_email);
 		model.addAttribute("check",count);
+		int buy_count = service.buy_check(m_email);
+		model.addAttribute("buy_check",buy_count);
+		int rent_count = service.rent_check(m_email);
+		model.addAttribute("rent_check",rent_count);
 		return "member/mypage";
 		
 	
@@ -120,6 +136,10 @@ public class HomeController{
 		session.setAttribute("m_tel", "010-1234-1234");
 		session.setAttribute("m_name", "관리자");
 		return "redirect:/sc/HomeSvcMain";
+	}
+	@GetMapping("test")
+	public String tset() {
+		return "test";
 	}
 
 }

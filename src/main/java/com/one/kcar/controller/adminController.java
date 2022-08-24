@@ -1,6 +1,10 @@
 package com.one.kcar.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.one.kcar.dto.admin.CarDTO;
@@ -35,6 +39,8 @@ public class adminController {
 		String num = request.getParameter("s_r_num");
 		SellDTO sell = service.list_info(num);
 		model.addAttribute("list",sell);
+	
+		
 		return "admin/car_update";
 	}
 	@Transactional
@@ -54,6 +60,20 @@ public class adminController {
 		model.addAttribute("list",service.sell_list());
 		return "admin/sell_list";
 	}
+	@GetMapping("BuyOrderManage")
+	String buy_list(Model model,HttpSession session,CarDTO car) {
+		String m_email = (String)session.getAttribute("id");
+		List<CarDTO> list = service.buy_list(m_email);
+		model.addAttribute("list",list);
+		return "mypage_service/BuyOrderManage";
+	}
+	// 렌트 신청내역 
+		@GetMapping("RentAplList") 
+		public String RentAplList(Model model, HttpSession session, kcarCarRentDTO rent) { 
+			String m_email = (String)session.getAttribute("id");
+			model.addAttribute("list",service.rent_list(m_email));
+			return "mypage_service/RentAplList";	 
+		} 
 	@GetMapping("main")
 	String main() {
 		return "admin/main";
@@ -108,6 +128,11 @@ public class adminController {
 		if(msg.equals("c"))
 			return "admin/main";
 		return "admin/event_Insert";
+	}
+	@GetMapping("admin_header")
+	String header() {
+		return "default/admin_header";
+				
 	}
 	
 

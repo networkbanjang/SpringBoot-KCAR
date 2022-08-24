@@ -45,6 +45,18 @@ public interface IadminDAO {
 
 	void insert_event(EventDTO event);
 
+	List<CarDTO> buy_list(String email);
+
+	void update_sell(SellDTO sell);
+
+	List<kcarCarRentDTO> rent_list(String m_email);
+
+	int buy_check(String m_email);
+
+	int rent_check(String m_email);
+
+
+
 	
 
 	

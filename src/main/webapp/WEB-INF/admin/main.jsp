@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,14 +6,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div align="center">
-<h2>°ü¸®ÀÚ</h2>
-<a href="sell_list">³»Â÷ ÆÈ±â ¸®½ºÆ®</a>
-<a href="rent_update">·»Æ® Â÷·® ¾÷·Îµå</a>
-<a href="csVoc_list">Á¦¾È/ÄªÂù ¸®½ºÆ®</a>
-<a href="notice_Insert">°øÁö»çÇ× Ãß°¡</a>
-<a href="event_Insert">ÀÌº¥Æ® Ãß°¡</a>
-</div>
+<%@ include file="/WEB-INF/default/admin_header.jsp" %>
+<h1 align="center">ê´€ë¦¬ìž íŽ˜ì´ì§€</h1>
+<%@ include file="/WEB-INF/default/footer.jsp" %>
 
 </body>
 </html>

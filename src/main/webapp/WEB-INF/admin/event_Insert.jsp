@@ -6,6 +6,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file="/WEB-INF/default/admin_header.jsp" %>
 <form action="event_Insert" method="post">
 <div align="center">
 	<h3>이벤트 추가</h3>
@@ -17,6 +18,6 @@
 	<button>이벤트 추가</button>
 </div>
 </form>
-
+<%@ include file="/WEB-INF/default/footer.jsp" %>
 </body>
 </html>

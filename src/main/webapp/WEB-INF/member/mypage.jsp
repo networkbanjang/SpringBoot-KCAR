@@ -2,41 +2,20 @@
 <html lang="ko" class="chrome">
 <head>
 <title>K Car - 직접 매입 직접 판매하는 대한민국 No.1 직영 중고차 케이카</title>
+	<style>
+			.footerWrap {
+	margin-top: 50%
+}
+		</style>
 <%@ include file="mypage_style.jsp" %>
 </head>
 <body>
 	
-	<div id="__nuxt">
-		<!---->
-		<div id="__layout">
-			<div id="app" class="Container">
-				<div>
-					<div class="el-dialog__wrapper popup fullPopup xnone active"
-						style="display: none;">
-						<div role="dialog" aria-modal="true" aria-label="딜러 약관 동의"
-							class="el-dialog" style="margin-top: 15vh;">
-							<div class="el-dialog__header">
-								<span class="el-dialog__title">딜러 약관 동의</span>
-								<button type="button" aria-label="Close"
-									class="el-dialog__headerbtn">
-									<i class="el-dialog__close el-icon el-icon-close"></i>
-								</button>
-							</div>
-							<!---->
-							<div class="el-dialog__footer">
-								<span class="dialog-footer"><div class="footerBtnWrap">
-										<div class="searchTrigger box multBtn el-row">
-											<button class="button apply">확인</button>
-										</div>
-									</div></span>
-							</div>
-						</div>
-					</div>
-				</div>
+	
 				<!-- header -->
 				<%@ include file="/WEB-INF/default/header.jsp" %>
 				<!-- header -->
-				<div class="contentsWrap" style="">
+				<div class="contentsWrap" style="height: 100%">
 					<div class="mypageWrap">
 						<div>
 							<div class="mypagePop">
@@ -100,40 +79,8 @@
 									</div>
 								</div>
 							</div>
-							<nav>
-								<div class="mypageMenu">
-									<h2 class="title">
-										<a href="/mp" aria-current="page"
-											class="nuxt-link-exact-active nuxt-link-active"> 마이페이지 </a>
-									</h2>
-									<ul>
-										<li><a href="BuyOrderManage" class=""> 내차사기
-												주문관리 </a></li>
-										<li><a href="mp/MyCarSellAplMgtList" class=""> 내차팔기
-												신청관리 </a></li>
-										<li><a href="RentAplList" class=""> 렌트 신청내역 </a></li>
-									</ul>
-									<ul>
-										<li><a href="DrcmgtStrVstResvLst" class=""> 직영점
-												방문예약 신청내역 </a></li>
-										<li><a href="SellRdyCarList" class=""> 판매준비차량 알림
-										</a></li>
-									</ul>
-									<ul>
-										<li><a href="WishCarList" class=""> 찜한 차량 </a></li>
-										<li><a href="LatelyViewedCar" class=""> 최근 본
-												차량 </a></li>
-									</ul>
-									<ul>
-										<li><a href="update" aria-current="page"
-											class="nuxt-link-exact-active nuxt-link-active"> 회원정보 </a></li>
-										<li><a href="/mp" aria-current="page"
-											class="nuxt-link-exact-active nuxt-link-active"> SNS 로그인
-												설정 </a></li>
-										
-									</ul>
-								</div>
-							</nav>
+							<%@ include file="/WEB-INF/mypage/mypage_nav.jsp" %>
+								
 						</div>
 						<div class="mypagCont mypageMain">
 							<div class="contentsBox section01 el-row">
@@ -144,11 +91,11 @@
 									</div>
 									<div class="totalList">
 										<ul>
-											<li><span>찜한차량</span> <a href="/mp/WishCarList" class=""><strong>0</strong></a></li>
-											<li><span>관심차량</span> <a href="/ci/Intrst/IntrstCarList"
-												class=""><strong>0</strong></a></li>
-											<li><span>판매준비차량</span> <a href="/mp/SellRdyCarList"
+											<li><span>구매준비차량</span> <a href="/BuyOrderManage" class=""><strong>${buy_check }</strong></a></li>
+											<li><span>판매준비차량</span> <a href="/mp/MyCarSellAplMgtList"
 												class=""><strong>${check}</strong></a></li>
+											<li><span>렌트차량</span> <a href="/RentAplList"
+												class=""><strong>${rent_check }</strong></a></li>
 											<li><span>최근본차량</span> <a
 												href="/bc/LatelyViewedCar/list" class=""><strong>0</strong></a></li>
 										</ul>
@@ -158,7 +105,7 @@
 									<div class="el-row">
 										<div class="infoTitleWrap">
 											<h4 class="infoTitle">내차사기 주문관리</h4>
-											<a class="moreBtn el-link el-link--default is-underline">
+											<a class="moreBtn el-link el-link--default is-underline" href="/BuyOrderManage">
 												<!---->
 												<span class="el-link--inner"> 더보기<i
 													class="el-icon-arrow-right"></i></span>
@@ -170,7 +117,7 @@
 												<div class="TblDefault mypageList">
 													<div
 														class="el-table el-table--fit el-table--enable-row-hover"
-														style="width: 100%;">
+														style="width: 100%; height: 30%">
 														<div class="hidden-columns">
 															<div></div>
 															<div></div>
@@ -190,7 +137,7 @@
 																				class="cell">차량정보</div></th>
 																		<th colspan="1" rowspan="1"
 																			class="el-table_5_column_13     is-leaf el-table__cell"><div
-																				class="cell">주문상태</div></th>
+																				class="cell">가격</div></th>
 																		<th class="el-table__cell gutter"
 																			style="width: 0px; display: none;"></th>
 																	</tr>
@@ -199,26 +146,82 @@
 														</div>
 														<div class="el-table__body-wrapper is-scrolling-none">
 															<table cellspacing="0" cellpadding="0" border="0"
-																class="el-table__body" style="width: 905px;">
-																<colgroup>
-																	<col name="el-table_5_column_12" width="585">
-																	<col name="el-table_5_column_13" width="320">
-																</colgroup>
-																<tbody>
-																	<!---->
-																</tbody>
-															</table>
+																						class="el-table__body" style="width: 905px;">
+																						<colgroup>
+																							<col name="el-table_1_column_1" width="50">
+																							<col name="el-table_1_column_2" width="685">
+																							<col name="el-table_1_column_3" width="170">
+																						</colgroup>
+																						<tbody>
+																							<c:choose>
+																								<c:when test="${list != null }">
+																									<c:forEach var="car" items="${list }"
+																										varStatus="status">
+																										<tr class="el-table__row">
+																											<td rowspan="1" colspan="1"
+																												class="el-table_1_column_1  el-table-column--selection el-table__cell"><div
+																													class="cell">
+																													<div class="roundCheck">
+																														
+																													</div>
+																												</div></td>
+																											<td rowspan="1" colspan="1"
+																												class="el-table_1_column_2   el-table__cell"><div
+																													class="cell">
+																													<div class="aboutOrder">
+																														<p class="carVisualImg">
+																															<img src="${car.c_photo }"
+																																onerror="this.src='/images/common/bg_no_Img_sm.png'"
+																																class="carVisual"> <span
+																																class="car360Img"><img
+																																src="/images/common/ico-360.svg"
+																																alt="360"></span>
+																														</p>
+																														<div>
+																															<div class="badges">
+																																<!---->
+																																<!---->
+																															</div>
+																															<p class="carName">${car.cb_brand }
+																																${car.cb_m_model } ${car.c_fuel}</p>
+																															<ul class="options">
+																																<li>${car.c_year }<span
+																																	class="lineH">｜</span> ${car.c_distance }km <span
+																																	class="lineH">｜</span> ${car.c_model }
+																																	<span class="lineH">｜</span>
+																																	${car.st_name }
+																																</li>
+																															</ul>
+																														</div>
+																													</div>
+																												</div></td>
+																											<td rowspan="1" colspan="1"
+																												class="el-table_1_column_3   el-table__cell"><div
+																													class="cell">
+																													<strong>${car.c_price }만원</strong>
+																													
+																												</div></td>
+																										</tr>
+																									</c:forEach>
+																								</c:when>
+																								<c:otherwise>
+																									<div style="margin:110px;text-align: center; font-size: 20px; font-weight: bold;">
+																										<span class="textRed">최근 본 차량이 없습니다.</span>
+																									</div>
+																								</c:otherwise>
+																							</c:choose>
+																							<c:if test="">
+																							</c:if>
+
+																							<!---->
+																						</tbody>
+																					</table>
 															<div class="el-table__empty-block"
 																style="height: 100%; width: 905px;">
 																<span class="el-table__empty-text"><div
 																		class="nolist2">
-																		<p>
-																			<strong>현재 진행중인 건이 없습니다.</strong> <span>집 앞까지
-																				배송되는 내차사기 홈서비스</span>
-																		</p>
-																		<div class="searchTrigger box Inner01 maxW120 el-row">
-																			<button class="button apply">직영차 쇼핑하기</button>
-																		</div>
+																		
+																		
 																	</div></span>
 															</div>
 															<!---->
@@ -886,7 +889,7 @@
 									<div class="mT64 el-row">
 										<div class="infoTitleWrap">
 											<h4 class="infoTitle">내차팔기 신청관리</h4>
-											<a class="moreBtn el-link el-link--default is-underline">
+											<a class="moreBtn el-link el-link--default is-underline" href="/mp/MyCarSellAplMgtList">
 												<!---->
 												<span class="el-link--inner"> 더보기<i
 													class="el-icon-arrow-right"></i></span>
@@ -899,50 +902,53 @@
 													<div class="TblDefault mypageList">
 														<div
 															class="el-table el-table--fit el-table--enable-row-hover"
-															style="width: 100%;">
+															style="width: 100%; height: 17%">
 															<div class="hidden-columns">
 																<div class="alignC"></div>
 																<div class="alignC"></div>
 																<div class="alignC"></div>
 															</div>
 															<div class="el-table__header-wrapper">
-																<table cellspacing="0" cellpadding="0" border="0"
-																	class="el-table__header" style="width: 905px;">
-																	<colgroup>
-																		<col name="el-table_6_column_14" width="105">
-																		<col name="el-table_6_column_15" width="525">
-																		<col name="el-table_6_column_16" width="275">
-																		<col name="gutter" width="0">
-																	</colgroup>
-																	<thead class="has-gutter">
-																		<tr class="">
-																			<th colspan="1" rowspan="1"
-																				class="el-table_6_column_14     is-leaf el-table__cell"><div
-																					class="cell">신청일</div></th>
-																			<th colspan="1" rowspan="1"
-																				class="el-table_6_column_15     is-leaf el-table__cell"><div
-																					class="cell">차량번호</div></th>
-																			<th colspan="1" rowspan="1"
-																				class="el-table_6_column_16     is-leaf el-table__cell"><div
-																					class="cell">진행상태</div></th>
-																			<th class="el-table__cell gutter"
-																				style="width: 0px; display: none;"></th>
-																		</tr>
-																	</thead>
-																</table>
+																	<table 
+																class="el-table__header">
+
+																	<tr class="">
+																		<th 
+																			class="el-table_5_column_14     is-leaf el-table__cell"><div
+																				class="cell">주문일</div></th>
+																		<th 
+																			class="el-table_5_column_14     is-leaf el-table__cell"><div
+																				class="cell">차량정보</div></th>
+																		<th
+																			class="el-table_5_column_14     is-leaf el-table__cell"><div
+																				class="cell">진행도</div></th>
+
+																		<th class="el-table__cell gutter"
+																			style="width: 0px; display: none;"></th>
+																	</tr>
+																	<c:choose>
+																		<c:when test="${sell != null }">
+																	<c:forEach var="detail" items="${sell}">
+																																	<tr class="">
+																		<th 
+																			class="el-table_5_column_14     is-leaf el-table__cell"><div
+																				class="cell">${detail.s_r_date}</div></th>
+																		<th 
+																			class="el-table_5_column_14     is-leaf el-table__cell"><div
+																				class="cell">${detail.s_r_model}</div></th>
+																		<th
+																			class="el-table_5_column_14     is-leaf el-table__cell"><div
+																				class="cell">${detail.s_r_progress}</div></th>
+
+																		<th class="el-table__cell gutter"
+																			style="width: 0px; display: none;"></th>
+																	</tr>
+																	</c:forEach>
+																		</c:when>
+																		<c:otherwise>
 															</div>
 															<div class="el-table__body-wrapper is-scrolling-none">
-																<table cellspacing="0" cellpadding="0" border="0"
-																	class="el-table__body" style="width: 905px;">
-																	<colgroup>
-																		<col name="el-table_6_column_14" width="105">
-																		<col name="el-table_6_column_15" width="525">
-																		<col name="el-table_6_column_16" width="275">
-																	</colgroup>
-																	<tbody>
-																		<!---->
-																	</tbody>
-																</table>
+																
 																<div class="el-table__empty-block"
 																	style="height: 100%; width: 905px;">
 																	<span class="el-table__empty-text"><div
@@ -959,6 +965,9 @@
 																</div>
 																<!---->
 															</div>
+																		</c:otherwise>
+																	</c:choose>
+															</table>
 															<!---->
 															<!---->
 															<!---->
@@ -1008,7 +1017,13 @@
 									</div>
 									<div class="mT64 el-row">
 										<div class="infoTitleWrap">
-											<h4 class="infoTitle">렌트 견적 보관함</h4>
+											<h4 class="infoTitle">렌트 견적 보관함</h4><a class="moreBtn el-link el-link--default is-underline"
+											 href="/RentAplList">
+												<!---->
+												<span class="el-link--inner"> 더보기<i
+													class="el-icon-arrow-right"></i></span>
+											<!---->
+											</a>
 											<!---->
 										</div>
 										<div class="el-row">
@@ -1016,7 +1031,7 @@
 												<div class="TblDefault mypageList">
 													<div
 														class="el-table el-table--fit el-table--enable-row-hover"
-														style="width: 100%;">
+														style="width: 100%; height: 30%">
 														<div class="hidden-columns">
 															<div class="alignC"></div>
 															<div></div>
@@ -1050,29 +1065,77 @@
 														</div>
 														<div class="el-table__body-wrapper is-scrolling-none">
 															<table cellspacing="0" cellpadding="0" border="0"
-																class="el-table__body" style="width: 905px;">
-																<colgroup>
-																	<col name="el-table_7_column_17" width="105">
-																	<col name="el-table_7_column_18" width="525">
-																	<col name="el-table_7_column_19" width="275">
-																</colgroup>
-																<tbody>
-																	<!---->
-																</tbody>
-															</table>
-															<div class="el-table__empty-block"
-																style="height: 100%; width: 905px;">
-																<span class="el-table__empty-text"><div
-																		class="nolist2">
-																		<p>
-																			<strong>보관된 견적이 없습니다.</strong>
-																		</p>
-																		<div class="searchTrigger box Inner01 maxW120 el-row">
-																			<button type="button" class="button apply">
-																				렌트차량 보기</button>
-																		</div>
-																	</div></span>
-															</div>
+																						class="el-table__body" style="width: 905px;">
+																						<colgroup>
+																							<col name="el-table_1_column_1" width="50">
+																							<col name="el-table_1_column_2" width="685">
+																							<col name="el-table_1_column_3" width="170">
+																						</colgroup>
+																						<tbody>
+																							<c:choose>
+																								<c:when test="${rent != null }">
+																									<c:forEach var="rent" items="${rent }"
+																										varStatus="status">
+																										<tr class="el-table__row">
+																											<td rowspan="1" colspan="1"
+																												class="el-table_1_column_1  el-table-column--selection el-table__cell"><div
+																													class="cell">
+																													<div class="roundCheck">
+																														
+																													</div>
+																												</div></td>
+																											<td rowspan="1" colspan="1"
+																												class="el-table_1_column_2   el-table__cell"><div
+																													class="cell">
+																													<div class="aboutOrder">
+																														<p class="carVisualImg">
+																															<img src="${rent.crpPhoto }"
+																																onerror="this.src='/images/common/bg_no_Img_sm.png'"
+																																class="carVisual"> <span
+																																class="car360Img"><img
+																																src="/images/common/ico-360.svg"
+																																alt="360"></span>
+																														</p>
+																														<div>
+																															<div class="badges">
+																																<!---->
+																																<!---->
+																															</div>
+																															<p class="carName">
+																																${rent.crName } </p>
+																															<ul class="options">
+																																<li>${rent.crYear }<span
+																																	class="lineH">｜</span> ${rent.crDistance }km <span
+																																	class="lineH">｜</span> ${rent.crFuel}
+																																	<span class="lineH">｜</span>
+																																	
+																																</li>
+																															</ul>
+																														</div>
+																													</div>
+																												</div></td>
+																											<td rowspan="1" colspan="1"
+																												class="el-table_1_column_3   el-table__cell"><div
+																													class="cell">
+																													<strong>${rent.crPrice }만원</strong>
+																													
+																												</div></td>
+																										</tr>
+																									</c:forEach>
+																								</c:when>
+																								<c:otherwise>
+																									<div style="margin:110px;text-align: center; font-size: 20px; font-weight: bold;">
+																										<span class="textRed">렌트신청이 없습니다.</span>
+																									</div>
+																								</c:otherwise>
+																							</c:choose>
+																							<c:if test="">
+																							</c:if>
+
+																							<!---->
+																						</tbody>
+																					</table>
+															
 															<!---->
 														</div>
 														<!---->
@@ -1139,221 +1202,16 @@
 											</div>
 										</div>
 									</div>
-									<div class="mT64 el-row">
-										<div class="infoTitleWrap">
-											<h4 class="infoTitle">직영점 방문 예약현황</h4>
-											<a class="moreBtn el-link el-link--default is-underline">
-												<!---->
-												<span class="el-link--inner"> 더보기<i
-													class="el-icon-arrow-right"></i></span>
-											<!---->
-											</a>
-										</div>
-										<div class="el-row">
-											<div class="el-row">
-												<div class="boardListTable mT20">
-													<div class="TblDefault mypageList">
-														<div
-															class="el-table el-table--fit el-table--enable-row-hover"
-															style="width: 100%;">
-															<div class="hidden-columns">
-																<div class="alignC"></div>
-																<div class="alignC"></div>
-																<div class="alignC"></div>
-															</div>
-															<div class="el-table__header-wrapper">
-																<table cellspacing="0" cellpadding="0" border="0"
-																	class="el-table__header" style="width: 905px;">
-																	<colgroup>
-																		<col name="el-table_8_column_20" width="170">
-																		<col name="el-table_8_column_21" width="460">
-																		<col name="el-table_8_column_22" width="275">
-																		<col name="gutter" width="0">
-																	</colgroup>
-																	<thead class="has-gutter">
-																		<tr class="">
-																			<th colspan="1" rowspan="1"
-																				class="el-table_8_column_20     is-leaf el-table__cell"><div
-																					class="cell">방문일</div></th>
-																			<th colspan="1" rowspan="1"
-																				class="el-table_8_column_21     is-leaf el-table__cell"><div
-																					class="cell">차량정보</div></th>
-																			<th colspan="1" rowspan="1"
-																				class="el-table_8_column_22     is-leaf el-table__cell"><div
-																					class="cell">직영점</div></th>
-																			<th class="el-table__cell gutter"
-																				style="width: 0px; display: none;"></th>
-																		</tr>
-																	</thead>
-																</table>
-															</div>
-															<div class="el-table__body-wrapper is-scrolling-none">
-																<table cellspacing="0" cellpadding="0" border="0"
-																	class="el-table__body" style="width: 905px;">
-																	<colgroup>
-																		<col name="el-table_8_column_20" width="170">
-																		<col name="el-table_8_column_21" width="460">
-																		<col name="el-table_8_column_22" width="275">
-																	</colgroup>
-																	<tbody>
-																		<!---->
-																	</tbody>
-																</table>
-																<div class="el-table__empty-block"
-																	style="height: 100%; width: 905px;">
-																	<span class="el-table__empty-text"><div
-																			class="nolist2">
-																			<p>
-																				<strong>오늘 방문예약 신청 건이 없습니다.</strong>
-																			</p>
-																		</div></span>
-																</div>
-																<!---->
-															</div>
-															<!---->
-															<!---->
-															<!---->
-															<!---->
-															<div class="el-table__column-resize-proxy"
-																style="display: none;"></div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="el-dialog__wrapper popup confirm noTitle"
-											style="display: none;">
-											<div role="dialog" aria-modal="true" aria-label="dialog"
-												class="el-dialog" style="margin-top: 15vh;">
-												<div class="el-dialog__header">
-													<span class="el-dialog__title"></span>
-													<button type="button" aria-label="Close"
-														class="el-dialog__headerbtn">
-														<i class="el-dialog__close el-icon el-icon-close"></i>
-													</button>
-												</div>
-												<!---->
-												<div class="el-dialog__footer">
-													<span class="dialog-footer"><div></div></span>
-												</div>
-											</div>
-										</div>
-									</div>
+									
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- footer -->
-				<%@ include file="/WEB-INF/default/footer.jsp" %>
 				<!-- footer -->
-			</div>
-		</div>
-	</div>
-	<script type="text/javascript" id=""
-		src="//static.criteo.net/js/ld/ld.js"></script>
-	<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","771045850193577");fbq("track","PageView");</script>
-	<noscript>
-		<img height="1" width="1" style="display: none"
-			src="https://www.facebook.com/tr?id=771045850193577&amp;ev=PageView&amp;noscript=1">
-	</noscript>
-	<script type="text/javascript" id="">console.log("\ud50c\ub7ab\ud3fc: PC");</script>
-	<script type="text/javascript" id="" charset="UTF-8"
-		src="//t1.daumcdn.net/kas/static/kp.js"></script>
-	<script>window.__NUXT__=(function(a,b,c,d){return {layout:"LayoutMain",data:[{}],fetch:{},error:c,state:{guest:{guest:{id:a,name:a,phone:a}},page:{name:b},session:{member:{membId:a,membNm:a,mbpno:a,email:a,regDttm:a},token:d},sample:{id:b,name:b},cmnCd:{cmnCd:{},other:{}},cmmCd:{cmnCd:{},other:{}},sc:{homeSvc:{formData:{}}}},serverRendered:d,routePath:"\u002Faccount\u002Fsignup\u002Fauth",config:{_app:{basePath:"\u002F",assetsPath:"\u002F_nuxt\u002F",cdnURL:c}}}}(void 0,"",null,true));</script>
-	<script src="/_nuxt/f7a91b8.js" defer=""></script>
-	<script src="/_nuxt/cc0bf6b.js" defer=""></script>
-	<script src="/_nuxt/89fbbcc.js" defer=""></script>
-	<script src="/_nuxt/38f7038.js" defer=""></script>
-	<script src="/_nuxt/32ff197.js" defer=""></script>
-
-
-	<script type="text/javascript" id=""
-		src="//static.criteo.net/js/ld/ld.js"></script>
-	<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","771045850193577");fbq("track","PageView");</script>
-	<noscript>
-		<img height="1" width="1" style="display: none"
-			src="https://www.facebook.com/tr?id=771045850193577&amp;ev=PageView&amp;noscript=1">
-	</noscript>
-	<script type="text/javascript" id="" charset="UTF-8"
-		src="//t1.daumcdn.net/kas/static/kp.js"></script>
-	<script type="text/javascript" id=""
-		src="//static.criteo.net/js/ld/ld.js"></script>
-	<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","771045850193577");fbq("track","PageView");</script>
-	<noscript>
-		<img height="1" width="1" style="display: none"
-			src="https://www.facebook.com/tr?id=771045850193577&amp;ev=PageView&amp;noscript=1">
-	</noscript>
-	<script type="text/javascript" id="" charset="UTF-8"
-		src="//t1.daumcdn.net/kas/static/kp.js"></script>
-	<script type="text/javascript" id="">window.criteo_q=window.criteo_q||[];var deviceType=/iPad/.test(navigator.userAgent)?"t":/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent)?"m":"d";window.criteo_q.push({event:"setAccount",account:73896},{event:"setSiteType",type:deviceType},{event:"viewHome"});</script>
-	<div id="criteo-tags-div" style="display: none;">
-		<script async="true" type="text/javascript"
-			src="https://sslwidget.criteo.com/event?a=73896&amp;v=5.12.0&amp;p0=e%3Dexd%26site_type%3Dd&amp;p1=e%3Dvh&amp;p2=e%3Ddis&amp;adce=1&amp;bundle=hMIHx19xckhEQ1l0bzBJdlJNQ2pGNnBhbm5Ta3lPd3RZNXpNcjM2dmh6a3o4Yks5MHVWUDlZWUdNbjUlMkJscmhZaGpkd2kwM2hNR3o2R1Bpd2tYMmp5TjRubHNhZTQzNjJnZGxKYURqclQzMTNZM1Vic0IlMkZJRCUyQm9UR2plTTNjNFZpeWV3dUZpd2FDY2lENUk0dnBzMmd3aXBid1ElM0QlM0Q&amp;tld=kcar.com&amp;fu=https%253A%252F%252Fwww.kcar.com%252Fmp&amp;pu=https%253A%252F%252Fwww.kcar.com%252Faccount%252Flogin%253FreturnUrl%253Dhttps%25253A%25252F%25252Fwww.kcar.com%25252Faccount%25252Fsignup%25252Fauth&amp;dtycbr=53573"></script>
-	</div>
-	<script type="text/javascript" id="">kakaoPixel("8101473052006960319").pageView();</script>
-	<script type="text/javascript" id="">window.criteo_q=window.criteo_q||[];var deviceType=/iPad/.test(navigator.userAgent)?"t":/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent)?"m":"d";window.criteo_q.push({event:"setAccount",account:73896},{event:"setSiteType",type:deviceType},{event:"viewHome"});</script>
-
-	<script type="text/javascript" id="">kakaoPixel("8101473052006960319").pageView();</script>
-	<script type="text/javascript" id="">window.criteo_q=window.criteo_q||[];var deviceType=/iPad/.test(navigator.userAgent)?"t":/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent)?"m":"d";window.criteo_q.push({event:"setAccount",account:73896},{event:"setSiteType",type:deviceType},{event:"viewHome"});</script>
-
-	<script type="text/javascript" id="">kakaoPixel("8101473052006960319").pageView();</script>
-	<iframe src="https://bid.g.doubleclick.net/xbbe/pixel?d=KAE"
-		style="display: none;"></iframe>
-	<script type="text/javascript" id=""
-		src="//static.criteo.net/js/ld/ld.js"></script>
-	<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","771045850193577");fbq("track","PageView");</script>
-	<noscript>
-		<img height="1" width="1" style="display: none"
-			src="https://www.facebook.com/tr?id=771045850193577&amp;ev=PageView&amp;noscript=1">
-	</noscript>
-	<script type="text/javascript" id="" charset="UTF-8"
-		src="//t1.daumcdn.net/kas/static/kp.js"></script>
-	<script type="text/javascript" id="">window.criteo_q=window.criteo_q||[];var deviceType=/iPad/.test(navigator.userAgent)?"t":/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent)?"m":"d";window.criteo_q.push({event:"setAccount",account:73896},{event:"setSiteType",type:deviceType},{event:"viewHome"});</script>
-
-	<script type="text/javascript" id="">kakaoPixel("8101473052006960319").pageView();</script>
-	<iframe id="groobeeBox" name="groobeeBox" style="display: none;"></iframe>
-	<iframe src="https://bid.g.doubleclick.net/xbbe/pixel?d=KAE"
-		style="display: none;"></iframe>
-	<script type="text/javascript" id=""
-		src="//static.criteo.net/js/ld/ld.js"></script>
-	<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","771045850193577");fbq("track","PageView");</script>
-	<noscript>
-		<img height="1" width="1" style="display: none"
-			src="https://www.facebook.com/tr?id=771045850193577&amp;ev=PageView&amp;noscript=1">
-	</noscript>
-	<script type="text/javascript" id="" charset="UTF-8"
-		src="//t1.daumcdn.net/kas/static/kp.js"></script>
-	<script type="text/javascript" id="">window.criteo_q=window.criteo_q||[];var deviceType=/iPad/.test(navigator.userAgent)?"t":/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent)?"m":"d";window.criteo_q.push({event:"setAccount",account:73896},{event:"setSiteType",type:deviceType},{event:"viewHome"});</script>
-
-	<script type="text/javascript" id="">kakaoPixel("8101473052006960319").pageView();</script>
-	<iframe src="https://bid.g.doubleclick.net/xbbe/pixel?d=KAE"
-		style="display: none;"></iframe>
-	<script type="text/javascript" id=""
-		src="//static.criteo.net/js/ld/ld.js"></script>
-	<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","771045850193577");fbq("track","PageView");</script>
-	<noscript>
-		<img height="1" width="1" style="display: none"
-			src="https://www.facebook.com/tr?id=771045850193577&amp;ev=PageView&amp;noscript=1">
-	</noscript>
-	<script type="text/javascript" id="" charset="UTF-8"
-		src="//t1.daumcdn.net/kas/static/kp.js"></script>
-	<script type="text/javascript" id="">window.criteo_q=window.criteo_q||[];var deviceType=/iPad/.test(navigator.userAgent)?"t":/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent)?"m":"d";window.criteo_q.push({event:"setAccount",account:73896},{event:"setSiteType",type:deviceType},{event:"viewHome"});</script>
-
-	<script type="text/javascript" id="">kakaoPixel("8101473052006960319").pageView();</script>
-	<iframe src="https://bid.g.doubleclick.net/xbbe/pixel?d=KAE"
-		style="display: none;"></iframe>
-	<script type="text/javascript" id=""
-		src="//static.criteo.net/js/ld/ld.js"></script>
-	<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","771045850193577");fbq("track","PageView");</script>
-	<noscript>
-		<img height="1" width="1" style="display: none"
-			src="https://www.facebook.com/tr?id=771045850193577&amp;ev=PageView&amp;noscript=1">
-	</noscript>
-	<script type="text/javascript" id="" charset="UTF-8"
-		src="//t1.daumcdn.net/kas/static/kp.js"></script>
-	<script type="text/javascript" id="">window.criteo_q=window.criteo_q||[];var deviceType=/iPad/.test(navigator.userAgent)?"t":/Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent)?"m":"d";window.criteo_q.push({event:"setAccount",account:73896},{event:"setSiteType",type:deviceType},{event:"viewHome"});</script>
-
-	<script type="text/javascript" id="">kakaoPixel("8101473052006960319").pageView();</script>
+	
+				<%@ include file="/WEB-INF/default/footer.jsp" %>
+	
 </body>
 </html>
