@@ -2,7 +2,7 @@ package com.one.kcar.dto.member;
 
 //  create table kcar_member(
 //m_id number(6) not null,
-//m_pw varchar2(30) not null,
+//m_pw varchar2(150) not null,
 //m_name varchar2(30) not null,
 //m_email varchar2(30) not null,
 //m_zipcode varchar2(100) not null,
