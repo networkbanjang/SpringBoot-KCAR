@@ -5,16 +5,41 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
 <meta http-equiv="X-UA-Compatible" content="ie=edge" /> 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+<style>
+#contents {
+ width: 100%;
+ text-align: center;
+ margin : 0 auto;
+ vertical-align:middle;
+ }
+#in {
+ display: inline-block;
+ }
+</style>
 <title>문자인증</title>
 </head>
 <body>
-	<div id="contents"> 
-		받는사람 : <input type="text" id="to" name="to"/>   <!-- 인증번호 받을사람 휴대폰 번호 -->
-		<button type="button" id="send">전송</button><br> <!-- 문자보내는 전송버튼 -->
+	<div id="contents" class="contents"> 
+		<p class="textBox"><span>
+ 			${rentUsedInfo.crBrand } ${rentUsedInfo.crName } ${rentUsedInfo.crGrade } 
+				
+		</span></p>
 		
-		인증번호 : <input type="text" id="userNum">   <!-- 인증번호 입력창 -->
-		<button type="button" id="enterBtn">확인</button>  <!-- 인증번호와 내가 입력창에 입력한 인증번호 비교하는 창 -->		
+		<div class="el-form-item__content">
+			<div class="titLabel">신청자명</div>
+			<div class="el-input el-input--suffix">
+				<input type="text" placeholder="db값 이름" class="el-input__inner">
+			</div>
+		</div>
+		
+		<div class="el-form-item__content">
+			<div class="titLabel">휴대폰번호</div>
+			<div class="el-input el-input--suffix">
+				<input type="text" id="to" name="to" placeholder="예) 01012341234"/>
+			</div>
+		</div>
+		<br><button type="button" id="send">신청</button><br> <!-- 문자보내는 전송버튼 -->
     </div>
 </body>
 
@@ -30,19 +55,8 @@ $('#send').click(function() {
 			"to" : to
 		},
 		success: function(data) {
-			const checkNum = data;
-			alert('checkNum:'+ checkNum);
-			
-			$('#enterBtn').click(function() {	
-				const userNum = $('#userNum').val();
-				
-				if(checkNum === userNum) {
-					alert('인증 성공하였습니다.');
-				}
-				else {
-					alert('인증 실패하였습니다. 다시 입력해주세요.');
-				}
-			});
+			const checkNum = data;//to로 받아온 데이터
+			alert('메세지 전송'+ checkNum);
 			
 		}
 	});

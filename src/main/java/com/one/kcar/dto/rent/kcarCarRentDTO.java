@@ -38,8 +38,7 @@ public class kcarCarRentDTO {
 	private String crBrand;
 	private String crpPhoto;
 	private String crName;
-	
-	
+	private String m_email;
 	
 	public String getCrNumber() {
 		return crNumber;
@@ -138,6 +137,13 @@ public class kcarCarRentDTO {
 	}
 	public void setCrName(String crName) {
 		this.crName = crName;
+	}
+	
+	public String getM_email() {
+		return m_email;
+	}
+	public void setM_email(String m_email) {
+		this.m_email = m_email;
 	}
 	
 }

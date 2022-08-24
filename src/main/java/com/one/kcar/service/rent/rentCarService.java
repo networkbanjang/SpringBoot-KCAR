@@ -108,17 +108,6 @@ public class rentCarService{
 		return 1;
 	}
 	
-	//필터 적용하려는데 화면에 출력이안나와..
-	/*
-	public String choose(HashMap<String, String> map) {
-		System.out.println(map.get("inputData"));
-		System.out.println(map.get("sel"));
-		ArrayList<kcarCarRentDTO> list = kcarCarRentDao.choose(map);
-//		System.out.println(list.get(0).getCrBrand());
-		if(list.isEmpty() == false)
-			return fromJson(list);
-		return "";
-	}*/
 	
 	public kcarCarRentDTO rentUsedInfo(String crNumber) {
 		kcarCarRentDTO kcar = kcarCarRentDao.rentUsedInfo(crNumber);
@@ -139,7 +128,6 @@ public class rentCarService{
 
 	public MemberDTO memberInfo(String m_email) {
 		MemberDTO members = kcarCarRentDao.member(m_email);
-		System.out.println(members.getM_name());
 		return members;
 	}
 	

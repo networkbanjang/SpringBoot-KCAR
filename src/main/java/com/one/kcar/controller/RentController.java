@@ -81,7 +81,7 @@ public class RentController {
 		}
 		
 		//중고차렌트 상세페이지
-		@RequestMapping(value = "rentUsedInfo")
+		@GetMapping(value = "rentUsedInfo")
 		public String rentUsedInfo(Model model2) {
 //			carRentService.crPhotoList(model2);
 			return "rent/rentUsedInfo";
@@ -90,7 +90,9 @@ public class RentController {
 		@GetMapping(value="rentUsedInfoProc")
 		public String ruiProc(HttpServletRequest request, String crNumber, Model model,HttpSession session) {
 			crNumber = request.getParameter("crNumber");
+			session.setAttribute("crnumber", crNumber);
 			String m_email = (String) session.getAttribute("id");
+//			session.setAttribute("email", m_email);
 //			System.out.println(crNumber);
 			if(crNumber == null || crNumber.isEmpty())
 				return "rent/rentUsed";
@@ -102,8 +104,6 @@ public class RentController {
 				kcarCarRentOptionDTO option = carRentService.rentOptionInfo(crNumber);
 				model.addAttribute("rentOptionInfo", option);
 				MemberDTO member = carRentService.memberInfo(m_email);
-				System.out.println(member.getM_name());
-				
 				model.addAttribute("member", member);
 				return "rent/rentUsedInfo";
 			}
@@ -126,56 +126,35 @@ public class RentController {
 			return "파일 -> DB로 이전 완료";
 		}
 		
-		@ResponseBody
-		@PostMapping(value = "rentUsed22")
-		public String rentUsed22Post() throws FileNotFoundException, IOException {
-			ClassPathResource resource = new ClassPathResource("kcarCarRent.json");
-			FileReader reader = new FileReader(resource.getFile());
-			BufferedReader buffer = new BufferedReader(reader);
-			
-			String data = "";
-			while(true) {
-				String tmp = buffer.readLine(); // kcarCarRent.json에서 한 줄씩 데이터를 읽어와서 반환, 파일 끝이라면 null을 반환
-				if(tmp == null) //  파일의 끝이면 반복문 종료
-					break;
-				
-				data += tmp;
-			}
-			buffer.close();
-			return data;
-		}
-		
 		// coolSMS 테스트 화면
+		
+		/*
 		@GetMapping(value = "sms")
 		public String mySms() {
 			return "rent/sms";
 		}
+		*/
 		
-		@Autowired private smsService boardService;
+		@RequestMapping(value = "sms")
+		public String mySms(HttpServletRequest request, Model model,HttpSession session) {
+			String crNumber = (String)session.getAttribute("crnumber");
+			if(crNumber == null || crNumber.isEmpty())
+				return "rent/rentUsedInfo";
+			else {
+				kcarCarRentDTO kcar = carRentService.rentUsedInfo(crNumber);
+				model.addAttribute("rentUsedInfo",kcar);
+			}
+			return "rent/sms";
+		}
+		
+		
+		@Autowired private smsService phoneService;
 		// coolSMS 구현 로직 연결  
+		
 		@GetMapping(value = "sms/sendSMS")
-		public @ResponseBody String sendSMS(@RequestParam(value="to") String to) throws CoolsmsException {  	
-			return boardService.PhoneNumberCheck(to);
+		public @ResponseBody String sendSMS2(@RequestParam(value="to") String to) throws CoolsmsException {  	
+			return phoneService.PhoneNumberCheck(to);
 		}
-		
-		@GetMapping(value = "modalTest")
-		public String modalTest() {
-			return "rent/modalTest";
-		}
-		
-		
-		
-//		@ResponseBody
-//		@PostMapping(value = "rentUsed3")
-//		public String rentUsed3(@RequestBody(required = false) HashMap<String, String> map) {
-//			return carRentService.choose(map);
-//		}
-		
-//		@RequestMapping(value = "rentUsed")
-//		public String kcarCarRentList(@RequestParam(required=false, defaultValue = "1") String select, String search) {
-//			String check = carRentService.kcarCarRentList();
-//			return "rent/rentUsed";
-//		}
 		
 //		@RequestMapping(value = "rentUsed")
 //		public String kcarCarRentList(Model model, @RequestParam(required=false, defaultValue = "1") ) {

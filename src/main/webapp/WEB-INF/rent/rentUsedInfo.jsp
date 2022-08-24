@@ -4,7 +4,27 @@
 <html lang="ko" class="chrome">
 <head>
 <title>차량상세 중고차렌트</title>
-
+	<!-- 렌트신청 문자전송 js -->
+<script type="text/javascript">
+$('#send').click(function() {
+	
+	const to = $('#to').val();
+	
+	$.ajax ({
+		url: 'rentUsedInfoProc/sendSMS',
+		type: 'GET',
+		data: {
+			"to" : to
+		},
+		success: function(data) {
+			const checkNum = data;//to로 받아온 데이터
+			alert('메세지 전송'+ checkNum);
+			
+		}
+	});
+	
+});
+</script>
 <script
 	src="https://connect.facebook.net/signals/config/771045850193577?v=2.9.75&amp;r=stable"
 	async=""></script>
@@ -793,12 +813,10 @@
 												data-v-ec1dd4fa="">
 												<button class="button chosenApply favorite"
 													data-v-ec1dd4fa="">
-													<span data-v-ec1dd4fa=""><img
-														src="https://www.kcar.com/images/common/icon-toggle-favorite.svg"
-														alt="찜" class="goodBtnOff" data-v-ec1dd4fa=""></span>
+													
 												</button>
-												<button class="button apply" data-v-ec1dd4fa="" onclick="reviewModalOpen()">
-													상담예약</button>
+												<!--<button class="button apply" data-v-ec1dd4fa="">  -->
+													<a href="http://localhost/sms">상담예약</a><!-- </button>  -->
 											</div>
 											<div data-v-ec1dd4fa="" class="searchSth">
 												<button data-v-ec1dd4fa="" type="button"
@@ -868,11 +886,11 @@
 																	<div class="el-form-item">
 																		<!---->
 																		<div class="el-form-item__content">
-																			<div class="titLabel">신청자명 : ${member.m_name }</div>
+																			<div class="titLabel">신청자명</div>
 																			<div class="el-input el-input--suffix">
 																				<!---->
 																				<input type="text" autocomplete="off"
-																					placeholder="">
+																					placeholder="${member.m_name }" class="el-input__inner">
 																					
 																				<!---->
 																				<!---->
@@ -890,8 +908,8 @@
 																				<!---->
 																				<input type="text" autocomplete="off"
 																					placeholder="${member.m_tel }" maxlength="13"
-																					input-type="number" inputmode="numeric"
-																					class="el-input__inner">
+																					id="to" name="to" class="el-input__inner">
+																				<button type="button" id="send">전송</button>
 																				<!---->
 																				<!---->
 																				<!---->
@@ -920,7 +938,8 @@
 									<div class="el-dialog__footer">
 										<span class="dialog-footer"><div class="footerBtnWrap">
 												<div class="searchTrigger box Large popFixBtnM el-row">
-													<button class="button apply">신청</button><!-- 이버튼 누르면 왜 정비소로넘어가지?? -->
+													<button class="button apply">신청</button>
+													<br>
 												</div>
 											</div></span>
 									</div>
@@ -1393,6 +1412,7 @@
 			</div>
 		</div>
 	</div>
+
 	<script>window.__NUXT__=(function(a,b,c,d){return {layout:"LayoutDetail",data:[{metaData:{META_KEYWORD:"중고차, 중고차 시세, K Car 직영차, 중고차팔기, 보험, 보증, 진단, 대출, 중고차 매매, 국산차, 수입차",TITLE:"차량상세 중고차렌트",META_DESC:"대한민국 No.1 직영중고차. 중고차 매입, 중고차 판매, 3일 책임 환불제, 온라인 구매 홈서비스, 중고차 매매 사이트, 중고차 보증"}}],fetch:{},error:c,state:{guest:{guest:{id:a,name:a,phone:a}},page:{name:b},session:{member:{membId:a,membNm:a,mbpno:a,email:a,regDttm:a},token:d},sample:{id:b,name:b},cmnCd:{cmnCd:{},other:{}},cmmCd:{cmnCd:{},other:{}},sc:{homeSvc:{formData:{}}}},serverRendered:d,routePath:"\u002Fur\u002FRentDtl",config:{_app:{basePath:"\u002F",assetsPath:"\u002F_nuxt\u002F",cdnURL:c}}}}(void 0,"",null,true));</script>
 	<script src="/_nuxt/037d689.js" defer=""></script>
 	<script src="/_nuxt/cbc42cf.js" defer=""></script>
@@ -1436,5 +1456,6 @@ function reviewModalClose() {
 	document.body.classList.remove('el-popup-parent--hidden');
 }
 </script>
+
 </body>
 </html>
