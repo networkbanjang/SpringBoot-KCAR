@@ -85,20 +85,20 @@
 						<div class="menuTitArea">
 							<strong class="menuTit">렌트</strong>
 						</div>
-						<li role="menuitem" tabindex="-1" 
-						class="el-menu-item menuItem"><a href="#">
-							중고차렌트</a></li>
+						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
+							<a href="http://localhost/rentUsed">중고차렌트</a></li>
 						
-						<li role="menuitem" tabindex="-1"
-							class="el-menu-item menuItem is-active"><a href="/rentNewCar">신차렌트</a></li>
-						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem"><a href="/rentDriver">
-							기사포함렌트</a></li>
+						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem is-active">
+							<a href="http://localhost/rentNewCar">신차렌트</a></li>
+							
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							<a href="/restShop">렌트지점</a></li>
+							<a href="http://localhost/rentDriver">기사포함렌트</a></li>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							<a href="/rentNormalRepair">렌트일반정비소</a></li>
+							<a href="http://localhost/rentShop">렌트지점</a></li>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							<a href="/rentAccidentRepair">렌트사고정비소</a></li>
+							<a href="http://localhost/rentNormalRepair">렌트일반정비소</a></li>
+						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
+							<a href="http://localhost/rentAccidentRepair">렌트사고정비소</a></li>
 					</ul>
 				</div>
 
