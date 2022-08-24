@@ -1,12 +1,12 @@
 package com.one.kcar.dto.rent;
 /*
  * CREATE TABLE KCAR_REPAIR_Accident(
-cra_location varchar2(15) not null,
-cra_name varchar2(50) not null,
-cra_tel varchar2(15) not null,
-cra_addr varchar2(300) not null,
-constraint pk_cra primary key (cra_name)
-);
+  2  cra_location varchar2(15) not null,
+  3  cra_name varchar2(50) not null,
+  4  cra_tel varchar2(15) not null,
+  5  cra_addr varchar2(300) not null,
+  6  constraint pk_cra primary key (cra_name)
+  7  );
 
 Table created.
  */

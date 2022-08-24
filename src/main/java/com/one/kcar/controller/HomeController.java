@@ -1,16 +1,34 @@
 package com.one.kcar.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+import com.one.kcar.dto.admin.CarDTO;
+import com.one.kcar.dto.sell.SellDTO;
+import com.one.kcar.service.admin.adminService;
+import com.one.kcar.service.member.MemberService;
+import com.one.kcar.service.sell.myPageService;
 
 @Controller
 public class HomeController{
+	@Autowired MemberService service;
+	@Autowired adminService adminservice;
+	@Autowired myPageService mypageservice;
+	
+	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	//헤더
 	@GetMapping("header")
@@ -49,8 +67,22 @@ public class HomeController{
 	}
 	// 마이 페이지
 	@GetMapping("mypage")
-	public String mypage() {
+	public String mypage(@RequestBody(required = false)String m_email,
+			HttpSession session,Model model,CarDTO car) {
+		m_email = (String)session.getAttribute("id");
+		List<CarDTO> list = adminservice.buy_list(m_email);
+		model.addAttribute("list",list);
+		model.addAttribute("sell",mypageservice.mycarSell(m_email));
+		model.addAttribute("rent",adminservice.rent_list(m_email));
+		int count = service.check(m_email);
+		model.addAttribute("check",count);
+		int buy_count = service.buy_check(m_email);
+		model.addAttribute("buy_check",buy_count);
+		int rent_count = service.rent_check(m_email);
+		model.addAttribute("rent_check",rent_count);
 		return "member/mypage";
+		
+	
 	}
 	@GetMapping("warranty_service")
 	public String warranty_service() {
@@ -79,31 +111,7 @@ public class HomeController{
 	public String dsa() {
 		return "222_style";
 	}
-	
-	
-	@GetMapping("logintest")
-	public String logintest(HttpSession session) {
-		session.invalidate();
-		session.setAttribute("m_id", 1);
-		session.setAttribute("m_email", "tmddud73@naver.com");
-		session.setAttribute("m_tel", "010-1234-1234");
-		session.setAttribute("m_name", "성승영");
-		return "redirect:/sc/HomeSvcMain";
-	}
-	
-	@GetMapping("logouttest")
-	public String logouttest(HttpSession session) {
-		session.invalidate();
-		return "redirect:/sc/HomeSvcMain";
-	}
-	@GetMapping("adminlogintest")
-	public String adminlogintest(HttpSession session) {
-		session.invalidate();
-		session.setAttribute("m_id", 2);
-		session.setAttribute("m_email", "admin@istrator.com");
-		session.setAttribute("m_tel", "010-1234-1234");
-		session.setAttribute("m_name", "관리자");
-		return "redirect:/sc/HomeSvcMain";
-	}
+
+
 
 }

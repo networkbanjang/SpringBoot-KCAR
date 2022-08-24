@@ -6,7 +6,7 @@
 <title>너무 어려워 보여용</title>
 </head>
 <body>
-
+<%@include file="/WEB-INF/default/admin_header.jsp" %>
 <h2>중간다리</h2>
 
 <br>
@@ -56,7 +56,7 @@
 
 	
 
-
+<%@ include file="/WEB-INF/default/footer.jsp" %>
 
 </body>
 </html>

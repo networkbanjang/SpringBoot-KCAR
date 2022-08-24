@@ -6,7 +6,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div class="mypagCont mypageMain" align="center">
+<%@ include file="/WEB-INF/default/admin_header.jsp" %>
+<div class="mypagCont mypageMain" style="margin-left: 25%">
 							<h3 class="subTitle">내차팔기 신청관리</h3>
 							<!---->
 							<div class="contentsBox section01 mT64 el-row">
@@ -93,5 +94,6 @@
 								</div>
 							</div>
 						</div>
+						<%@include file="/WEB-INF/default/footer.jsp" %>
 </body>
 </html>

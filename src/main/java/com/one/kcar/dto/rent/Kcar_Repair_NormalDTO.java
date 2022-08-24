@@ -1,12 +1,12 @@
 package com.one.kcar.dto.rent;
 /*
  * CREATE TABLE KCAR_REPAIR_NORMAL(
-crn_location varchar2(15) not null,
-crn_name varchar2(50) not null,
-crn_tel varchar2(15) not null,
-crn_addr varchar2(300) not null,
-constraint pk_crn primary key (crn_name)
-);
+  2  crn_location varchar2(15) not null,
+  3  crn_name varchar2(50) not null,
+  4  crn_tel varchar2(15) not null,
+  5  crn_addr varchar2(300) not null,
+  6  constraint pk_crn primary key (crn_name)
+  7  );
 
 Table created.
  */

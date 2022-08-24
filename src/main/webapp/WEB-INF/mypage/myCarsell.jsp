@@ -98,47 +98,7 @@
 									</div>
 								</div>
 							</div>
-							<nav>
-								<div class="mypageMenu">
-									<h2 class="title">
-										<a href="/mp" class="nuxt-link-active"> 마이페이지 </a>
-									</h2>
-									<ul>
-										<li><a href="/mp/myCarBuyOrderManage" class=""> 내차사기
-												주문관리 </a></li>
-										<li><a href="/mp/MyCarSellAplMgtList" aria-current="page"
-											class="nuxt-link-exact-active nuxt-link-active active">
-												내차팔기 신청관리 </a></li>
-										<li><a href="/mp/RentAplList" class=""> 렌트 신청내역 </a></li>
-									</ul>
-									<ul>
-										<li><a href="/mp/DrcmgtStrVstResvLst" class=""> 직영점
-												방문예약 신청내역 </a></li>
-										<li><a href="/mp/GurnteReprRcpLst" class=""> 보증수리
-												접수내역 </a></li>
-									</ul>
-									<ul>
-										<li><a href="/ci/Intrst/IntrstCarList" class=""> 관심차량
-										</a></li>
-										<li><a href="/mp/SellRdyCarList" class=""> 판매준비차량 알림
-										</a></li>
-									</ul>
-									<ul>
-										<li><a href="/mp/WishCarList" class=""> 찜한 차량 </a></li>
-										<li><a href="/bc/LatelyViewedCar/list" class=""> 최근 본
-												차량 </a></li>
-									</ul>
-									<ul>
-										<li><a href="/mp/myCarBuyOrderManage" aria-current="page"
-											class="nuxt-link-exact-active nuxt-link-active"> 회원정보 </a></li>
-										<li><a href="/mp/myCarBuyOrderManage" aria-current="page"
-											class="nuxt-link-exact-active nuxt-link-active"> SNS 로그인
-												설정 </a></li>
-										<li><a href="/mp/myCarBuyOrderManage" aria-current="page"
-											class="nuxt-link-exact-active nuxt-link-active"> 맞춤정보설정 </a></li>
-									</ul>
-								</div>
-							</nav>
+							<%@ include file="/WEB-INF/mypage/mypage_nav.jsp" %>
 						</div>
 						<div class="mypagCont mypageMain">
 							<h3 class="subTitle">내차팔기 신청관리</h3>
