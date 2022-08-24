@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="ko" class="chrome">
 <head>
 <title>K Car - 직접 매입 직접 판매하는 대한민국 No.1 직영 중고차 케이카</title>
@@ -104,40 +105,7 @@
 									</div>
 								</div>
 							</div>
-							<nav>
-								<div class="mypageMenu">
-									<h2 class="title">
-										<a href="/mp" aria-current="page"
-											class="nuxt-link-exact-active nuxt-link-active"> 마이페이지 </a>
-									</h2>
-									<ul>
-										<li><a href="BuyOrderManage" class=""> 내차사기
-												주문관리 </a></li>
-										<li><a href="SellAplMgtList" class=""> 내차팔기
-												신청관리 </a></li>
-										<li><a href="RentAplList" class=""> 렌트 신청내역 </a></li>
-									</ul>
-									<ul>
-										<li><a href="DrcmgtStrVstResvLst" class=""> 직영점
-												방문예약 신청내역 </a></li>
-										<li><a href="SellRdyCarList" class=""> 판매준비차량 알림
-										</a></li>
-									</ul>
-									<ul>
-										<li><a href="/mp/WishCarList" class=""> 찜한 차량 </a></li>
-										<li><a href="/bc/LatelyViewedCar/list" class=""> 최근 본
-												차량 </a></li>
-									</ul>
-									<ul>
-										<li><a href="/mp" aria-current="page"
-											class="nuxt-link-exact-active nuxt-link-active"> 회원정보 </a></li>
-										<li><a href="/mp" aria-current="page"
-											class="nuxt-link-exact-active nuxt-link-active"> SNS 로그인
-												설정 </a></li>
-										
-									</ul>
-								</div>
-							</nav>
+							<%@ include file="/WEB-INF/mypage/mypage_nav.jsp" %>
 						</div>
 						<div class="mypagCont mypageMain">
 							<h3 class="subTitle">내차사기 주문관리</h3>
@@ -145,7 +113,7 @@
 							<div class="contentsBox section01 mT64 el-row">
 								<div class="sellTotal mB16">
 									<ul>
-										<li><strong>전체 0</strong>건</li>
+										<li><strong></strong></li>
 									</ul>
 								</div>
 								<div class="board">
@@ -163,48 +131,107 @@
 														</div>
 														<div class="el-table__header-wrapper">
 															<table cellspacing="0" cellpadding="0" border="0"
-																class="el-table__header" style="width: 905px;">
-																<colgroup>
-																	<col name="el-table_19_column_57" width="80">
-																	<col name="el-table_19_column_58" width="505">
-																	<col name="el-table_19_column_59" width="320">
-																	<col name="gutter" width="0">
-																</colgroup>
-																<thead class="has-gutter">
-																	<tr class="">
-																		<th colspan="1" rowspan="1"
-																			class="el-table_19_column_57     is-leaf el-table__cell"><div
-																				class="cell">주문일</div></th>
-																		<th colspan="1" rowspan="1"
-																			class="el-table_19_column_58     is-leaf el-table__cell"><div
-																				class="cell">차량정보</div></th>
-																		<th colspan="1" rowspan="1"
-																			class="el-table_19_column_59     is-leaf el-table__cell"><div
-																				class="cell">주문상태</div></th>
-																		<th class="el-table__cell gutter"
-																			style="width: 0px; display: none;"></th>
-																	</tr>
-																</thead>
-															</table>
+																						class="el-table__header" style="width: 905px;">
+																						<colgroup>
+																							<col name="el-table_1_column_1" width="50">
+																							<col name="el-table_1_column_2" width="685">
+																							<col name="el-table_1_column_3" width="170">
+																							<col name="gutter" width="0">
+																						</colgroup>
+																						<thead class="has-gutter">
+																							<tr class="">
+																								<th colspan="1" rowspan="1"
+																									class="el-table_1_column_1   el-table-column--selection  is-leaf el-table__cell"><div
+																										class="cell">
+																										
+																									</div></th>
+																								<th colspan="1" rowspan="1"
+																									class="el-table_1_column_2     is-leaf el-table__cell"><div
+																										class="cell"></div></th>
+																								<th colspan="1" rowspan="1"
+																									class="el-table_1_column_3     is-leaf el-table__cell"><div
+																										class="cell"></div></th>
+																								<th class="el-table__cell gutter"
+																									style="width: 0px; display: none;"></th>
+																							</tr>
+																						</thead>
+																					</table>
+																				</div>
+																				<div
+																					class="el-table__body-wrapper is-scrolling-none">
+																					<table cellspacing="0" cellpadding="0" border="0"
+																						class="el-table__body" style="width: 905px;">
+																						<colgroup>
+																							<col name="el-table_1_column_1" width="50">
+																							<col name="el-table_1_column_2" width="685">
+																							<col name="el-table_1_column_3" width="170">
+																						</colgroup>
+																						<tbody>
+																							<c:choose>
+																								<c:when test="${list != null }">
+																									<c:forEach var="car" items="${list }"
+																										varStatus="status">
+																										<tr class="el-table__row">
+																											<td rowspan="1" colspan="1"
+																												class="el-table_1_column_1  el-table-column--selection el-table__cell"><div
+																													class="cell">
+																													<div class="roundCheck">
+																														
+																													</div>
+																												</div></td>
+																											<td rowspan="1" colspan="1"
+																												class="el-table_1_column_2   el-table__cell"><div
+																													class="cell">
+																													<div class="aboutOrder">
+																														<p class="carVisualImg">
+																															<img src="${car.c_photo }"
+																																onerror="this.src='/images/common/bg_no_Img_sm.png'"
+																																class="carVisual"> <span
+																																class="car360Img"><img
+																																src="/images/common/ico-360.svg"
+																																alt="360"></span>
+																														</p>
+																														<div>
+																															<div class="badges">
+																																<!---->
+																																<!---->
+																															</div>
+																															<p class="carName">${car.cb_brand }
+																																${car.cb_m_model } ${car.c_fuel}</p>
+																															<ul class="options">
+																																<li>${car.c_year }<span
+																																	class="lineH">｜</span> ${car.c_distance }km <span
+																																	class="lineH">｜</span> ${car.c_model }
+																																	<span class="lineH">｜</span>
+																																	${car.st_name }
+																																</li>
+																															</ul>
+																														</div>
+																													</div>
+																												</div></td>
+																											<td rowspan="1" colspan="1"
+																												class="el-table_1_column_3   el-table__cell"><div
+																													class="cell">
+																													<strong>${car.c_price }만원</strong>
+																													
+																												</div></td>
+																										</tr>
+																									</c:forEach>
+																								</c:when>
+																								<c:otherwise>
+																									<div style="margin:110px;text-align: center; font-size: 20px; font-weight: bold;">
+																										<span class="textRed">최근 본 차량이 없습니다.</span>
+																									</div>
+																								</c:otherwise>
+																							</c:choose>
+																							<c:if test="">
+																							</c:if>
+
+																							<!---->
+																						</tbody>
+																					</table>
 														</div>
-														<div class="el-table__body-wrapper is-scrolling-none">
-															<table cellspacing="0" cellpadding="0" border="0"
-																class="el-table__body" style="width: 905px;">
-																<colgroup>
-																	<col name="el-table_19_column_57" width="80">
-																	<col name="el-table_19_column_58" width="505">
-																	<col name="el-table_19_column_59" width="320">
-																</colgroup>
-																<tbody>
-																	<!---->
-																</tbody>
-															</table>
-															<div class="el-table__empty-block"
-																style="height: 100%; width: 905px;">
-																<span class="el-table__empty-text">데이터 없음</span>
-															</div>
-															<!---->
-														</div>
+														
 														<!---->
 														<!---->
 														<!---->
