@@ -145,7 +145,7 @@
 														<li class="el-select-dropdown__item" value="기본정렬" onclick="alignmentMethodCheck('기본정렬')"><span>기본정렬</span></li>
 														<li class="el-select-dropdown__item" value="최근연식순" onclick="alignmentMethodCheck('최근연식순')"><span>최근연식순</span></li>
 														<li class="el-select-dropdown__item" value="낮은연식순" onclick="alignmentMethodCheck('낮은연식순')"><span>낮은연식순</span></li>
-														<li class="el-select-dropdown__item" value="적은주행거리순" onclick="alignmentMethodCheck('적은주행거리순')"><span>적은주행거리순</span></li>
+								0						<li class="el-select-dropdown__item" value="적은주행거리순" onclick="alignmentMethodCheck('적은주행거리순')"><span>적은주행거리순</span></li>
 														<li class="el-select-dropdown__item" value="많은주행거리순" onclick="alignmentMethodCheck('많은주행거리순')"><span>많은주행거리순</span></li>
 														<li class="el-select-dropdown__item" value="낮은가격순" onclick="alignmentMethodCheck('낮은가격순')"><span>낮은가격순</span></li>
 														<li class="el-select-dropdown__item" value="높은가격순" onclick="alignmentMethodCheck('높은가격순')"><span>높은가격순</span></li>

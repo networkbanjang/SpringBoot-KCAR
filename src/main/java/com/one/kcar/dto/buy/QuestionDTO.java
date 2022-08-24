@@ -5,10 +5,10 @@ public class QuestionDTO {
 	private String q_title;
 	private String q_content;
 	
-	public String getQ_classfication() {
+	public String getQ_classification() {
 		return q_classification;
 	}
-	public void setQ_classfication(String q_classification) {
+	public void setQ_classification(String q_classification) {
 		this.q_classification = q_classification;
 	}
 	public String getQ_title() {

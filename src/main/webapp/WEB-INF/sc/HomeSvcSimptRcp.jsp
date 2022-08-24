@@ -52,7 +52,7 @@ left: 75px;
 	</script>
 </c:if>
 
- <c:if test="${empty sessionScope.m_id }">
+ <c:if test="${empty sessionScope.id }">
 	<script>alert("로그인 후 사용해주세요");	window.close();</script>
 
 </c:if>
@@ -133,7 +133,7 @@ left: 75px;
 													<div class="el-input el-input--suffix">
 														<!---->
 														<input type="text" autocomplete="off"
-															value="${sessionScope.m_name}" maxlength="20"
+															value="${sessionScope.name}" maxlength="20"
 															class="el-input__inner" disabled="disabled">
 														<!---->
 														<!---->
@@ -150,7 +150,7 @@ left: 75px;
 													<div class="el-input el-input--suffix">
 														<!---->
 														<input type="text" autocomplete="off"
-															value="${sessionScope.m_tel }" maxlength="13"
+															value="${sessionScope.tel }" maxlength="13"
 															input-type="number" inputmode="numeric"
 															class="el-input__inner" disabled="disabled">
 														<!---->
