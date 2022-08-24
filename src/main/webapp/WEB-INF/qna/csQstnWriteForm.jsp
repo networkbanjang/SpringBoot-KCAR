@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ include file="NoticeWriteForm_style.jsp" %>
+<%@ include file="csVoc_style.jsp" %>
 <html lang="ko" data-n-head="%7B%22lang%22:%7B%22ssr%22:%22ko%22%7D%7D"
 	class="chrome">
 <head>
-<title>공지사항 작성</title>
+<title>자주하는 질문 작성</title>
 <meta data-n-head="ssr" charset="utf-8">
 <meta data-n-head="ssr" name="viewport"
 	content="width=device-width, initial-scale=1">
@@ -122,14 +122,55 @@
 				<div class="contentsWrap">
 					<div class="el-row">
 						<div class="subHeader">
-							<h1 class="title">공지사항</h1>
-							<p class="desc">K Car의 새로운 소식을 전달받으실 수 있습니다.</p>
+							<h1 class="title">자주하는 질문</h1>
 						</div>
-						<form action="noticeWriteProc" method="post">
+						<form action="csQstnWriteProc" method="post">
 							<div>
 								<div class="boardView">
 									<div class="boardViewTitle">
 										<table style="width: 100%;">
+											<tr>
+												<td style="width: 150px; text-align: center;">분류</td>
+												<td>
+													<span class="vocDcd">
+														<div class="el-select maxW590">
+															<div class="el-input el-input--suffix"
+																onclick="clickOption()">
+																<input type="text" readonly="readonly" style="width: 590px; height: 45px;"
+																	autocomplete="off" id="classification" name="classification"
+																	placeholder="선택" class="el-input__inner"
+																	onclick="clickOption()" value="선택">
+																<!---->
+																
+															</div>
+															<div class="el-select-dropdown el-popper" id="dropdown"
+																style="display: none; min-width: 590px;">
+																<div class="el-scrollbar" style="">
+																	<div
+																		class="el-select-dropdown__wrap el-scrollbar__wrap"
+																		style="margin-bottom: -17px; margin-right: -17px;">
+																		<ul
+																			class="el-scrollbar__view el-select-dropdown__list">
+																			<li class="el-select-dropdown__item"
+																				onclick="listClick1()"><span>내차사기</span></li>
+																			<li class="el-select-dropdown__item"
+																				onclick="listClick2()"><span>내차팔기</span></li>
+																			<li class="el-select-dropdown__item"
+																				onclick="listClick3()"><span>회원정보관리</span></li>
+																			<li class="el-select-dropdown__item"
+																				onclick="listClick4()"><span>렌트</span></li>
+																			<li class="el-select-dropdown__item"
+																				onclick="listClick5()"><span>기타</span></li>
+																		</ul>
+																	</div>
+																</div>
+
+															</div>
+														</div>
+													</span>
+												</td>
+											</tr>
+											<tr style="height: 20px;"></tr>
 											<tr>
 												<td style="width: 150px; text-align: center;">제목</td>
 												<td><input type="text" autocomplete="off" maxlength="30" placeholder="제목 입력" class="el-input__inner" id="title" name="title"></td>
@@ -213,9 +254,13 @@
 	<script>
 		
 		$("#submitButton").click(function(){
+			var classification = $("#classification").val();
 			var title = $("#title").val();
 			var content = $("#content").val();
-			if(title == null || title == ""){
+			if(classification == "선택"){
+				alert("분류를 선택해주세요");
+				return false;
+			}else if(title == null || title == ""){
 				alert("제목을 입력해주세요");
 				return false;
 			}else if(content = null || content == ""){
@@ -225,6 +270,45 @@
 				$("#submitButton").setAttribute('type', 'submit');
 			}
 		});
+		
+		function clickOption(){
+			 $("#dropdown").show();
+			 
+		 }
+		
+		function listClick1() {
+			 $("#classification").val("내차사기");
+			 $("#dropdown").hide();
+			 if($("#viewDiv").show()) {
+				 $("#viewDiv").hide();
+			 }
+		 }
+		 function listClick2() {
+			 $("#classification").val("내차팔기");
+			 $("#dropdown").hide();
+			 if($("#viewDiv").show()) {
+				 $("#viewDiv").hide();
+			 }
+		 }
+		 function listClick3() {
+			 $("#classification").val("회원정보관리");
+			 $("#dropdown").hide();
+			 if($("#viewDiv").show()) {
+				 $("#viewDiv").hide();
+			 }
+		 }
+		 function listClick4() {
+			 $("#classification").val("렌트");
+			 $("#dropdown").hide();
+			 if($("#viewDiv").show()) {
+				 $("#viewDiv").hide();
+			 }
+		 }
+		 function listClick5() {
+			 $("#classification").val("기타");
+			 $("#dropdown").hide();
+			 $("#viewDiv").show();
+		 }
 			
 		
 		
