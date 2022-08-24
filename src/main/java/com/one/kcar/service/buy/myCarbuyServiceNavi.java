@@ -70,7 +70,7 @@ public String totalPage(int count) {
 			navi+="<button type=\"button\" class=\"el-button pagePrev el-button--default\"> <span><img src=\"/images/common/pagenation-btn-left.svg\" alt=\"이전\" onclick=\"prevFore()\"></span> </button>";
 		}
 		for(int i = 1;i <= totalPage; i++) {
-			navi+="<a href='#' class='pagingNum' onclick=\"pagesel(this)\">";
+			navi+="<a href='#' class='pagingNum' onclick=\"pageselFore(this)\">";
 			if(currentPage == i)navi+="<span class=\"textRed\">";
 			navi+=i;
 			if(currentPage == i)navi+="</span>";

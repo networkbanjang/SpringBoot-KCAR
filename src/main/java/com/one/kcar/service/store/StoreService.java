@@ -1,5 +1,7 @@
 package com.one.kcar.service.store;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.one.kcar.dao.store.IStoreDAO;
 import com.one.kcar.dto.buy.CarDTO;
 import com.one.kcar.dto.store.StoreDTO;
+import com.one.kcar.dto.store.StoreOptionDTO;
 
 @Service
 public class StoreService {
@@ -30,9 +33,22 @@ public class StoreService {
 		return dao.storeCarall(st_name);
 	}
 
-	public String storeCarSort(String alignment, String st_name, int currentPage) {
+
+	public StoreOptionDTO setting(HashMap<String, String> map, ArrayList<String> option) {
+		StoreOptionDTO s_option= new StoreOptionDTO();
+		s_option.setMax_price(Integer.parseInt(map.get("maxprice")));
+		s_option.setMax_year(map.get("maxyer"));
+		s_option.setMin_price(Integer.parseInt(map.get("minprice")));
+		s_option.setMin_year(map.get("minyear"));
+		s_option.setRange(Integer.parseInt(map.get("ran")));
+		s_option.setSearchOption(option);
+		
+		return s_option;
+	}
+
+	public String storeSerarchview(StoreOptionDTO s_option, String alignment, String st_name) {
 		String result="";
-		List<CarDTO> list = dao.storeCarsort(alignment, st_name);
+		List<CarDTO> list = dao.storeOption(s_option,alignment,st_name);
 		for (CarDTO i : list) {
 			result += "<div class='carListBox' style='cursor: pointer;'>";
 			result += "<div class='carListImg' style='cursor: pointer;'>";
@@ -51,7 +67,6 @@ public class StoreService {
 			result += "</ul></div></div>";
 		}
 		return result;
-
 	}
 
 }

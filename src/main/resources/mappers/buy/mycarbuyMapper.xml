@@ -14,7 +14,7 @@
 	</select>
 
 
-	<!-- 메인 -->
+	<!-- 메인검색 -->
 
 
 	<select id="selectCar" resultType="com.one.kcar.dto.buy.BuyDTO">
@@ -233,6 +233,7 @@
 		</if>)com)rw where rn between #{be} and #{en}
 	</select>
 
+<!-- 페이징용 카운터세기 (메인) -->
 	<select id="selectCarCount" resultType="Integer">
 		SELECT count(*) as cnt from kcar_car A left join kcar_carbrand B on
 		a.cb_brand =
@@ -336,7 +337,7 @@
 		where rn between 1 and 12
 	</select>
 
-	<!-- 전부 해외 -->
+	<!-- 전부 브랜드 인증관 -->
 	<select id="searchAllFore" resultType="com.one.kcar.dto.buy.BuyDTO">
 		select * from (Select rownum rn,com.* from(SELECT * from kcar_car A left
 		join kcar_carbrand B on a.cb_brand =
@@ -344,19 +345,20 @@
 		kcar_car_option c on a.c_num = c.c_num where
 		cb_domestic= '해외')com)
 		where rn between 1 and 12
-	<!-- 카운트 -->
+	<!-- 조건없이 전부 카운트 -->
 	
 	</select>
 		<select id="serachAllCount" resultType="Integer">
 		select count(*) from kcar_car
 	</select>
 	
+	<!-- 조건없이 전부 카운트 브랜드 인증관-->
 		<select id="serachAllCountFore" resultType="Integer">
 		SELECT count(*) from kcar_car A left join kcar_carbrand B on a.cb_brand =
 		b.cb_brand where cb_domestic='해외'
 	</select>
 	
-	<!-- 해외 -->
+	<!-- 브랜드인증관 페이징용 카운트 -->
 	<select id="selectCarCountFore" resultType="Integer">
 		SELECT count(*) as cnt from kcar_car A left join kcar_carbrand B on
 		a.cb_brand =

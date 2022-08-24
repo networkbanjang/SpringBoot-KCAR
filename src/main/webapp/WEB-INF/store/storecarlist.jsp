@@ -20,7 +20,8 @@
 						<div class="el-select listSelect">
 							<!---->
 							<select class="form-select" aria-label="Default select example"
-								style="width: 160px; height: 56px; border-radius: 10px; padding: 6px;" id="alignment" name="alignment" onchange="sort()">
+								style="width: 160px; height: 56px; border-radius: 10px; padding: 6px;"
+								id="alignment" name="alignment" onchange="resultcheck()">
 								<option selected value='기본정렬'>기본 정렬</option>
 								<option value="낮은가격순">낮은 가격순</option>
 								<option value="높은가격순">높은 가격순</option>
@@ -81,8 +82,6 @@
 											</button></li>
 									</c:forEach>
 
-									<!---->
-									<!---->
 								</ul>
 							</div>
 						</div>
@@ -154,18 +153,18 @@
 					</div>
 				</div>
 			</div>
-			<div class="pagination -sm">
-				<!---->
+			<!-- 	<div class="pagination -sm">
+				
 				<div class="pagingNum">
 					<span class="textRed">1</span> / 21
 				</div>
 				<button type="button" class="el-button pageNext el-button--default">
-					<!---->
-					<!---->
+					
+					
 					<span><img src="/images/common/pagenation-btn-right.svg"
 						alt="다음"></span>
 				</button>
-			</div>
+			</div> -->
 		</div>
 	</div>
 
@@ -203,7 +202,7 @@
 												style="width: 155px; height: 40px; border-radius: 10px; padding: 6px;">
 												<option selected value='2001'>2001년</option>
 												<c:forEach var="i" begin="2002" end="2022">
-													<option value='${i }'>${i}년</option>
+													<option value='${i}'>${i}년</option>
 												</c:forEach>
 											</select>
 										</div>
@@ -232,7 +231,7 @@
 												aria-valuetext="0-30" aria-label="slider between 0 and 30">
 												<!---->
 
-												<input type="range" min="0" max="130000" value="130000"
+												<input type="range" min="0" max="160000" value="160000"
 													step="10000" style="width: 381px;" id="range"
 													onchange="showvalue(this)">
 
@@ -244,8 +243,8 @@
 										<div class="rangeArea">
 											<div class="el-input">
 												<input type="text" autocomplete="off" input-type="number"
-													inputmode="numeric" placeholder="최소가격" maxlength="4"
-													id="min_price" class="el-input__inner">
+													inputmode="numeric" value='0' placeholder="최소가격"
+													maxlength="4" id="min_price" class="el-input__inner">
 
 											</div>
 											<span class="tilde">~</span>
@@ -253,7 +252,7 @@
 												<!---->
 												<input type="text" autocomplete="off" input-type="number"
 													inputmode="numeric" placeholder="최대 가격" maxlength="4"
-													id="max_price" class="el-input__inner">
+													value='99999' id="max_price" class="el-input__inner">
 
 											</div>
 										</div>
@@ -468,9 +467,13 @@
 		}
 	}
 	function resultcheck() {
+		var alignment = document.getElementById('alignment').value
 		var min_year = document.getElementById('min_year').value;
 		var max_year = document.getElementById('max_year').value;
-		var min_price = document.getElementById('min_price').value;
+		if (document.getElementById('min_price').value != null)
+			var min_price = document.getElementById('min_price').value;
+		else
+			var min_price = 0;
 		var max_price = document.getElementById('max_price').value;
 		var range = document.getElementById('range').value;
 		var searchOption = "";
@@ -491,7 +494,8 @@
 				minprice : min_price,
 				maxprice : max_price,
 				ran : range,
-				option : searchOption
+				option : searchOption,
+				alignment : alignment
 			};
 			jsonData = JSON.stringify(jsonData); // JSON 데이터를 String 자료형으로 변환		}
 			var req_list
@@ -505,24 +509,12 @@
 		}
 		function listChange() {
 			if (req_list.readyState == 4 && req_list.status == 200) {
+				var result = req_list.responseText;
+				document.getElementById('sortchange').innerHTML = result;
 				modalclose()
+				
 			}
 		}
 	}
-	var req_sort;
-	function sort(){
-		
-		var alignment = document.getElementById('alignment').value
-		req_sort = new XMLHttpRequest();
-		req_sort.onreadystatechange = sortChange;
-		req_sort.open('post', '/carlist_sort');
-
-		req_sort.send(alignment);
-	}
-	function sortChange() {
-		if (req_sort.readyState == 4 && req_sort.status == 200) {
-			var result=req_sort.responseText;
-			document.getElementById('sortchange').innerHTML=result;
-		}
-	}
+	
 </script>

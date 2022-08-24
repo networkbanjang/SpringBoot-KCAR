@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.one.kcar.dto.buy.CarDTO;
 import com.one.kcar.dto.store.StoreDTO;
+import com.one.kcar.dto.store.StoreOptionDTO;
 import com.one.kcar.service.store.StoreService;
 
 @Controller
@@ -94,24 +95,19 @@ public class StoreController {
 	//차량 검색
 	@ResponseBody
 	@PostMapping(value = "db/storeSearchView", produces = "text/html; charset=UTF-8")
-	public String StoreSerarchview(@RequestBody(required = false)HashMap<String, String> map) {
+	public String StoreSerarchview(@RequestBody(required = false)HashMap<String, String> map,StoreOptionDTO s_option,HttpSession session) {
 		String[] spli=map.get("option").split("@");
+		String st_name=(String) session.getAttribute("st_name");
 		ArrayList<String> option = new ArrayList<>();
+		
 		for(String i : spli)
 			option.add(i);
-		System.out.println(option);
-		return "/store/storeview";
-	}
-	
-	//정렬
-	@ResponseBody
-	@PostMapping(value = "carlist_sort", produces = "application/json; charset=UTF-8")
-	public String carlist_sort(@RequestBody(required = false)String ali,HttpSession session) {
-		String st_name=(String) session.getAttribute("st_name");
-		int currentPage=(int) session.getAttribute("current");
+		s_option=service.setting(map,option);
 		
-		String result =service.storeCarSort(ali,st_name,currentPage);
+
+		String result = service.storeSerarchview(s_option,map.get("alignment"),st_name);
 		return result;
 	}
+	
 
 }
