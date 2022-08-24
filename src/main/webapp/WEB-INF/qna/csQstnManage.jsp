@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <html lang="ko" class="chrome">
 <head>
-<title>자주하는 질문</title>
+<title>자주하는 질문 관리</title>
 <%@ include file="csQstn_style.jsp" %>
 <meta data-n-head="ssr" charset="utf-8">
 <meta data-n-head="ssr" name="viewport"
@@ -141,10 +141,10 @@
 				<%@include file="/WEB-INF/default/header.jsp" %>
 				<div class="contentsWrap">
 					<div class="el-row">
-						<div class="subHeader">
+						<!-- <div class="subHeader">
 							<h1 class="title">고객지원</h1>
 							<p class="desc">안녕하세요. K Car 고객센터 입니다. 무엇을 도와드릴까요?</p>
-						</div>
+						</div> -->
 						<div class="sectionHeader2">
 							<h2 class="title">
 								<span>자주하는 질문</span>
@@ -412,7 +412,7 @@
 			          if (searchValue != ""){
 			        	  $("#nav").hide();
 			        	  htmlString += "<div class='mT20'>";
-			        	  htmlString += "<a href='cs/csQstn' class='moreBtn el-link el-link--default is-underline'>";
+			        	  htmlString += "<a href='csQstnManage' class='moreBtn el-link el-link--default is-underline'>";
 			        	  htmlString += "<span class='el-link--inner'>";
 			        	  htmlString += "<i class='el-icon-arrow-left'></i>";
 			        	  htmlString += "돌아가기 </span> </a> </div>";
@@ -421,6 +421,8 @@
 			          }
 			          
 			          for(var i = 0; i < obj.faqList.length; i++){
+			        	  htmlString += "<form action='' method='post' id='f'>"
+			        	  htmlString += "<input type='hidden' value='" + obj.faqList + "'"
 			        	  htmlString += "<div class='el-tabs__content'>";
 			        	  htmlString += "	<div role='tabpanel' id='pane-C0002' aria-labelledby='tab-C0002' class='el-tab-pane'>";
 			        	  htmlString += "		<div>";
@@ -430,7 +432,7 @@
 			        	  htmlString += "						<div role='button' id='el-collapse-head-5848' tabindex='0' class='el-collapse-item__header' onclick='question("+i+")'>";
 			        	  htmlString += "							<i class='el-icon-Q'></i>";
 			        	  htmlString += "							<span>" + obj.faqList[i].q_title +"</span>";
-			        	  htmlString += "							<i class='el-collapse-item__arrow el-icon-arrow-right'></i>";
+			        	  htmlString += "							<span id='delete'>삭제</span>";
 			        	  htmlString += "						</div>";
 			        	  htmlString += "					</div>";
 			        	  htmlString += "					<div role='tabpanel' aria-hidden='true' aria-labelledby='el-collapse-head-5848' id='el-collapse-content-5848' class='el-collapse-item__wrap' style='display: none;'>";
@@ -438,6 +440,7 @@
 			        	  htmlString += "						<div> <i class='el-icon-A'> </i>";
 			        	  htmlString += "			<div class='faqA'>" + obj.faqList[i].q_content + "</div>";
 			        	  htmlString += "					</div></div></div></div></div></div></div></div>";
+			        	  htmlString += "</form>"
 			          }
 			          
 			          $("#contentWrap").html(htmlString);
@@ -448,6 +451,12 @@
 		          }
 		    });
 		}
+		
+		$("#delete").click(function() {
+			if (confirm("해당 질문을 삭제하시겠습니까?") == true){
+				 $("#f").attr("action", "csQstnDeleteProc");
+			 }
+		});
 	</script>
 	<script src="js/question.js" type="text/javascript"></script>
 </body>

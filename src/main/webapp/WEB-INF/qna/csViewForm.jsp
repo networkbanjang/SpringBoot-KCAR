@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@ include file="NoticeWriteForm_style.jsp" %>
+<%@ include file="../bd/NoticeWriteForm_style.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="ko" class="chrome">
 <head>
@@ -147,63 +147,77 @@
 				<div class="contentsWrap">
 					<div class="el-row">
 						<div class="subHeader">
-							<h1 class="title">공지사항</h1>
-							<p class="desc">K Car의 새로운 소식을 전달받으실 수 있습니다.</p>
+							<h1 class="title">제안/칭찬 관리</h1>
 						</div>
-						
 					<form action="" method="post" id="f">
-					<input type="hidden" value="${viewList.n_no }" name="n_no"/>
-					<input type="hidden" value="${viewList.n_title }" name="n_title"/>
-					<input type="hidden" value="${viewList.n_content }" name="n_content"/>
-					<input type="hidden" value="notice" name="listViewno"/>
+						<input type="hidden" value="${csViewList.s_no }" name="s_no">
+						<input type="hidden" value="${csViewList.s_replyValue }" name="to">
+						<input type="hidden" value="${csViewList.s_replyStatus }" name="s_replyStatus">
 						<div>
 							<div class="boardView">
 								<div class="boardViewTitle">
 									<h5>
-										${viewList.n_title }
+										${csViewList.s_title }
 										<!---->
 									</h5>
 									<p>
-										<span>관리자</span> <span>${viewList.n_date }</span>
+										<span>${csViewList.s_id }</span> <c:choose>
+																			<c:when test= "${csViewList.s_replyStatus == 'n' and csViewList.s_reply == 'E'}">
+																				<span style="color: #b70f28;">회신 필요</span>
+																			</c:when>
+																			<c:when test= "${csViewList.s_reply == 'N' }">
+																				<span>회신 불필요</span>
+																			</c:when>
+																			<c:when test= "${csViewList.s_replyStatus == 'y'}">
+																				<span>회신 완료</span>
+																			</c:when>
+																		</c:choose>
 									</p>
 								</div>
-								<div class="borderViewCon">
-									${viewList.n_content }
+								<div style="padding: 15px 0 15px 0;"><h4>문의 유형 : ${csViewList.s_category }</h4> </div>
+								<div class="borderViewCon" style="padding-top: 10px; ">
+									
+									${csViewList.s_content }
 								</div>
-							</div>
-							
-							<div class="searchTrigger box Large maxW97 el-row">
+									<c:choose>
+										<c:when test="${csViewList.s_file == '파일없음'}"></c:when>
+										<c:otherwise>
+											<div>
+												<img src="/images/cs/${csViewList.s_file }" alt="첨부파일">
+											</div>
+										</c:otherwise>
+									</c:choose>
+									
+								</div>
+								
+								<div id="answerTab" style="display: none;">
+										<table style="width: 100%; margin-top: 40px;">
+											<tr>
+												<td style="width: 100px; text-align: center;">제목</td>
+												<td><input type="text" autocomplete="off" maxlength="30" placeholder="제목 입력" class="el-input__inner" id="subject" name="subject"></td>
+											</tr>
+											<tr style="height: 20px;"></tr>
+											<tr>
+												<td style="width: 100px; text-align: center;">내용</td>
+												<td><textarea autocomplete="off" rows="2" placeholder="내용 입력" class="el-textarea__inner" id="content" name="content" style="resize: none; min-height: 173px; height: 350px;"></textarea></td>
+											</tr>
+										</table>
+										<div class="searchTrigger box Large maxW97 el-row">
+											<button class="button apply" formaction="replySend">답변 전송</button>
+											<button class="button apply" formaction="csVocManage">목록</button>
+										</div>
+								</div>	
+							<div class="searchTrigger box Large maxW97 el-row" id="changeButton">
+								<c:choose>
+									<c:when test="${csViewList.s_replyStatus == 'n' and csViewList.s_reply == 'E'}">
+										<div class="button apply" onclick="answerButton()" style="height: 48px;">답변하기</div>
+									</c:when>
+								</c:choose>	
 								<button class="button apply" onclick="listView()">목록</button>
-								<button class="button apply" formaction="noticeModifyForm">수정하기</button>
-								<button class="button apply" onclick="removeCheck()" id="submitButton">삭제하기</button>
 							</div>
 							
-							<!-- <div class="boardViewPaging">
-								<ul>
-									<li class="bvPN">이전글</li>
-									<li class="bvPT"><a
-										class="el-link el-link--default is-underline">
-											
-											<span class="el-link--inner"> [공지] K Car 사이트 개편에 따른 이용
-												가이드 안내 </span>
-										
-									</a></li>
-									<li class="bvPD">2022.07.18</li>
-								</ul>
-								<ul>
-									<li class="bvPN">다음글</li>
-									<li class="bvPT"><a
-										class="el-link el-link--default is-underline">
-											
-											<span class="el-link--inner"> [공지] K Car 전국 직영점 8월 휴점
-												안내 </span>
-										
-									</a></li>
-									<li class="bvPD">2022.08.11</li>
-								</ul>
-							</div> -->
 						</div>
-					</form>
+						</form>
 					</div>
 				</div>
 				<%@include file="/WEB-INF/default/footer.jsp" %>
@@ -345,16 +359,21 @@
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script>
-	 function removeCheck(){
-		 if (confirm("해당 공지를 삭제하시겠습니까?") == true){
-			 $("#f").attr("action", "noticeDeleteProc");
+	/*  function removeCheck(){
+		 if (confirm("해당 이벤트를 삭제하시겠습니까?") == true){
+			 $("#f").attr("action", "eventDeleteProc");
 		 }
 
-	 }
+	 } */
 	 
 	 function listView(){
-		 $("#f").attr("action", "NotcMatrList");
+		 $("#f").attr("action", "csVocManage");
 		 
+	 }
+	 
+	 function answerButton(){
+		 $("#answerTab").show();
+		 $("#changeButton").hide();
 	 }
 	</script>
 </body>
