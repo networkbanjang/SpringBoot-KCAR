@@ -2,6 +2,7 @@ package com.one.kcar.controller;
 
 import javax.servlet.http.HttpSession;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -79,31 +80,7 @@ public class HomeController{
 	public String dsa() {
 		return "222_style";
 	}
-	
-	
-	@GetMapping("logintest")
-	public String logintest(HttpSession session) {
-		session.invalidate();
-		session.setAttribute("m_id", 1);
-		session.setAttribute("m_email", "tmddud73@naver.com");
-		session.setAttribute("m_tel", "010-1234-1234");
-		session.setAttribute("m_name", "성승영");
-		return "redirect:/sc/HomeSvcMain";
-	}
-	
-	@GetMapping("logouttest")
-	public String logouttest(HttpSession session) {
-		session.invalidate();
-		return "redirect:/sc/HomeSvcMain";
-	}
-	@GetMapping("adminlogintest")
-	public String adminlogintest(HttpSession session) {
-		session.invalidate();
-		session.setAttribute("m_id", 2);
-		session.setAttribute("m_email", "admin@istrator.com");
-		session.setAttribute("m_tel", "010-1234-1234");
-		session.setAttribute("m_name", "관리자");
-		return "redirect:/sc/HomeSvcMain";
-	}
+
+
 
 }

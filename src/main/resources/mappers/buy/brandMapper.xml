@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.one.kcar.dao.buy.IBrandDAO">
+
 	<select id="brandList" resultType="com.one.kcar.dto.buy.BrandDTO">
 		SELECT cbc.cb_brand, cbcb.cb_domestic,cbcb.cb_englishlan,cbcb.cb_korealan,cbcb.cb_photo,cbc.count FROM
 			(SELECT cb.cb_brand,  COUNT(c.c_num) count FROM
@@ -40,7 +41,7 @@
 				</if>
 				<if test="alignment == '기본정렬' or alignment == null">
 					ORDER BY DBMS_RANDOM.RANDOM
-				</if>
+				</if>C_T_SPECIALOPTION
 				<if test="alignment == '최근연식순'">
 					ORDER BY c_year desc,c_distance asc
 				</if>
