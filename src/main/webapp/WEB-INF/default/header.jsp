@@ -63,7 +63,7 @@
 							<strong class="menuTit">내차사기</strong>
 						</div>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem"><a
-							href="/vehicleSearch">차량검색</a></li>
+							href="/carbuy">차량검색</a></li>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem"><a
 							href="/homeSvc">내차사기 홈서비스</a></li>
 
@@ -178,7 +178,7 @@
 									<ul class="gnbEtc">
 										<li><a href="logins"><i
 												class="el-login el-icon-undefined"></i>로그인</a></li>
-										<li><a><i class="el-event el-icon-undefined"></i>이벤트</a></li>
+										<li><a  href="/NotcMatrList?listViewno=event"><i class="el-event el-icon-undefined"></i>이벤트</a></li>
 										<li><a><i class="el-history el-icon-undefined"></i>최근
 												본차량</a></li>
 
@@ -252,9 +252,9 @@
 										<ul>
 											<li><a href="/sc/SellCustReview">내차팔기 고객후기</a></li>
 										</ul></li>
-									<li><a>내차사기</a>
+									<li><a href="/carbuy">내차사기</a>
 										<ul>
-											<li><a href="/vehicleSearch">차량검색</a></li>
+											<li><a href="/carbuy">차량검색</a></li>
 										</ul>
 										<ul>
 											<li><a href="/homeSvc">내차사기 홈서비스</a></li>
@@ -296,12 +296,12 @@
 									<li><a>공지사항</a>
 										<ul>
 											<li><a href="/NotcMatrList">공지사항</a></li>
-											<li><a href="/NotcMatrList">이벤트</a></li>
+											<li><a href="/NotcMatrList?listViewno=event">이벤트</a></li>
 										</ul></li>
 									<li><a>고객지원</a>
 										<ul>
 											<li><a href="/csQstn">자주하는 질문</a></li>
-											<li><a href="/csVoc">제안/칭찬접수</a></li>
+											<li><a href="cs/csVoc">제안/칭찬접수</a></li>
 										</ul></li>
 
 								</ul>
