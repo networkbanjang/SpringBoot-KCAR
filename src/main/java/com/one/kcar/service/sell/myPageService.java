@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.one.kcar.dao.sell.IMyPageDAO;
+import com.one.kcar.dto.rent.kcarCarRentDTO;
 import com.one.kcar.dto.sell.SellDTO;
 
 @Service
@@ -15,9 +16,9 @@ public class myPageService {
 	IMyPageDAO dao;
 
 
-	public List<SellDTO> mycarSell(String email) {
+	public List<SellDTO> mycarSell(String m_email) {
 		
-		List<SellDTO> list=dao.mycarsell(email);
+		List<SellDTO> list=dao.mycarsell(m_email);
 		for(SellDTO l : list) {
 			String progress = l.getS_r_progress();
 			if(progress.equals("0")) {
@@ -36,4 +37,12 @@ public class myPageService {
 		return list;
 		
 	}
+
+
+	
+
+
+
+
+	
 }

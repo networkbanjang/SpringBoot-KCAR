@@ -35,7 +35,7 @@ public class SellService {
 		
 		sell.setS_r_date(sdf.format(date));
 		sell.setM_id((Integer) session.getAttribute("id_num"));
-		sell.setM_email((String) session.getAttribute("email"));
+		sell.setM_email((String) session.getAttribute("id"));
 		sell.setS_r_progress("0");
 		if (sell.getS_r_marketing() == null || sell.getS_r_marketing().equals("null"))
 			sell.setS_r_marketing("0");

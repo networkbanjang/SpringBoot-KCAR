@@ -11,7 +11,11 @@
 </c:if>
 </head>
 <body>
-
+<c:if test="${not empty msg }">
+<script>
+		alert('${msg}');
+	</script>
+</c:if>
 	<div id="__nuxt">
 		<!---->
 		<div id="__layout">

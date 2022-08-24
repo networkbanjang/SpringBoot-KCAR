@@ -34,13 +34,13 @@
 						</div>
 
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							내차팔기 홈서비스</li>
+							<a href ="/sc/HomeSvcMain">내차팔기 홈서비스</a></li>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							법인차매각신청</li>
+							<a href ="/sc/CorpCarDispslApl">법인차매각신청</a></li>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							폐차신청</li>
+							<a href= "/sc/ScrpcaApl">폐차신청</a></li>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							내차팔기 고객후기</li>
+							<a href="/sc/SellCustReview">내차팔기 고객후기</a></li>
 					</ul>
 				</div>
 				<li role="menuitem" aria-haspopup="true" class="el-submenu"><div
@@ -58,16 +58,16 @@
 						<div class="menuTitArea">
 							<strong class="menuTit">내차사기</strong>
 						</div>
-						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">차량검색</li>
-						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">내차사기
-							홈서비스</li>
+						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem"><a href ="/vehicleSearch">차량검색</a></li>
+						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem"><a href= "/homeSvc">내차사기
+							홈서비스</a></li>
 					
-						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">최근
-							본 차량</li>
-						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">내차사기
-							고객후기</li>
-						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">브랜드
-							인증관</li>
+						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem"><a href ="/latelyViewedCar">최근
+							본 차량</a></li>
+						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem"><a href ="/BuyCustReview">내차사기
+							고객후기</a></li>
+						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem"><a href ="/brandCar">브랜드
+							인증관</a></li>
 					</ul>
 				</div>
 
@@ -85,25 +85,26 @@
 						<div class="menuTitArea">
 							<strong class="menuTit">렌트</strong>
 						</div>
-						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							중고차렌트</li>
+						<li role="menuitem" tabindex="-1" 
+						class="el-menu-item menuItem"><a href="#">
+							중고차렌트</a></li>
 						
 						<li role="menuitem" tabindex="-1"
-							class="el-menu-item menuItem is-active">신차렌트</li>
+							class="el-menu-item menuItem is-active"><a href="/rentNewCar">신차렌트</a></li>
+						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem"><a href="/rentDriver">
+							기사포함렌트</a></li>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							기사포함렌트</li>
+							<a href="/restShop">렌트지점</a></li>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							렌트지점</li>
+							<a href="/rentNormalRepair">렌트일반정비소</a></li>
 						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							렌트일반정비소</li>
-						<li role="menuitem" tabindex="-1" class="el-menu-item menuItem">
-							렌트사고정비소</li>
+							<a href="/rentAccidentRepair">렌트사고정비소</a></li>
 					</ul>
 				</div>
 
 			</ul>
 			<div class="navLink">
-				<a><span>브랜드 인증관</span></a> <a><span>전국 직영점</span></a> 
+				<a href="//brandCar"><span>브랜드 인증관</span></a> <a><span>전국 직영점</span></a> 
 			</div>
 		</div>
 		<div class="utilArea">
@@ -113,11 +114,11 @@
 				<c:choose>
 					<c:when test="${empty sessionScope.id }">
 						<a href="/logins"><span>로그인</span></a>
-						<a href="register"><span>회원가입</span></a>
+						<a href="/register"><span>회원가입</span></a>
 					</c:when>
 					<c:otherwise>
-						<a href="logout"><span>로그아웃</span></a>
-						<a href="mypage"><span>마이페이지</span></a>
+						<a href="/logout"><span>로그아웃</span></a>
+						<a href="/mypage"><span>마이페이지</span></a>
 					</c:otherwise>
 				</c:choose>
 			</div>
@@ -223,34 +224,34 @@
 								<ul>
 									<li><a>내차팔기</a>
 										<ul>
-											<li><a href="">내차팔기 홈서비스</a></li>
+											<li><a href="sc/HomeSvcMain">내차팔기 홈서비스</a></li>
 										</ul>
 										<ul>
-											<li><a href="register">법인차매각신청</a></li>
+											<li><a href="sc/CorpCarDispslApl">법인차매각신청</a></li>
 										</ul>
 										<ul>
-											<li><a>폐차신청</a></li>
+											<li><a href= "sc/ScrpcaApl">폐차신청</a></li>
 										</ul>
 										<ul>
-											<li><a>내차팔기 고객후기</a></li>
+											<li><a href="sc/SellCustReview">내차팔기 고객후기</a></li>
 										</ul></li>
 									<li><a>내차사기</a>
 										<ul>
-											<li><a>차량검색</a></li>
+											<li><a href="vehicleSearch">차량검색</a></li>
 										</ul>
 										<ul>
-											<li><a>내차사기 홈서비스</a></li>
-										</ul>
-										
-										<ul>
-											<li><a>최근 본 차량</a></li>
-										</ul>
-										<ul>
-											<li><a>내차사기 고객후기</a></li>
+											<li><a href="homeSvc">내차사기 홈서비스</a></li>
 										</ul>
 										
 										<ul>
-											<li><a>브랜드 인증관</a></li>
+											<li><a href="latelyViewedCar">최근 본 차량</a></li>
+										</ul>
+										<ul>
+											<li><a href="BuyCustReview">내차사기 고객후기</a></li>
+										</ul>
+										
+										<ul>
+											<li><a href="brandCar">브랜드 인증관</a></li>
 										</ul></li>
 									<li><a>렌트</a>
 										<ul>
@@ -258,25 +259,30 @@
 										</ul>
 										
 										<ul>
-											<li><a>신차렌트</a></li>
+											<li><a href="rentNewCar">신차렌트</a></li>
 										</ul>
 										<ul>
-											<li><a>기사포함렌트</a></li>
+											<li><a href="rentDriver">기사포함렌트</a></li>
 										</ul>
 										<ul>
-											<li><a>렌트지점</a></li>
+											<li><a href="rentShop">렌트지점</a></li>
 										</ul>
 										<ul>
-											<li><a>렌트일반정비소</a></li>
+											<li><a href="rentNormalRepair">렌트일반정비소</a></li>
 										</ul>
 										<ul>
-											<li><a>렌트사고정비소</a></li>
+											<li><a href="rentAccidentRepair">렌트사고정비소</a></li>
 										</ul></li>
 										<li><a>공지사항</a>
 										<ul>
-											<li><a>공지사항</a></li>
-											<li><a>이벤트</a></li>
+											<li><a href="NotcMatrList">공지사항</a></li>
+											<li><a href="NotcMatrList">이벤트</a></li>
 										</ul></li>
+										<li><a>고객지원</a>
+										<ul>
+											<li><a href="csQstn">자주하는 질문</a></li>
+											<li><a href="csVoc">제안/칭찬접수</a></li>
+											</ul></li>
 									
 								</ul>
 							</div>

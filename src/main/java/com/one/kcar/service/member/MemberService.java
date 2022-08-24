@@ -1,6 +1,7 @@
 package com.one.kcar.service.member;
 
 import java.lang.reflect.Member;
+import java.util.List;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -12,13 +13,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.one.kcar.dao.admin.IadminDAO;
 import com.one.kcar.dao.member.IMemberDAO;
+import com.one.kcar.dto.admin.CarDTO;
 import com.one.kcar.dto.member.MemberDTO;
 import com.one.kcar.dto.member.Role;
+import com.one.kcar.dto.sell.SellDTO;
 
 @Service
 public class MemberService {
 	@Autowired IMemberDAO memberDao;
+	@Autowired IadminDAO adminDao;
 	@Autowired HttpSession session;
 
 	public String isExistId(String email) {
@@ -95,6 +100,7 @@ public class MemberService {
 			session.setAttribute("id", check.getM_email());
 			session.setAttribute("name", check.getM_name());
 			session.setAttribute("tel", check.getM_tel());
+			session.setAttribute("id_num", check.getM_id());
 			return "로그인 성공";
 		}else {
 			return "로그인 실패";
@@ -171,6 +177,7 @@ public class MemberService {
 				session.setAttribute("id", check.getM_email());
 				session.setAttribute("name", check.getM_name());
 				session.setAttribute("tel", check.getM_tel());
+				session.setAttribute("id_num", check.getM_id());
 				
 				return "중복";
 			}
@@ -193,11 +200,35 @@ public class MemberService {
 				session.setAttribute("id", check.getM_email());
 				session.setAttribute("name", check.getM_name());
 				session.setAttribute("tel", check.getM_tel());
+				session.setAttribute("id_num", check.getM_id());
+				
 				session.setAttribute("oauth", check.getM_oauth());
 				return "중복";
 			}
 		return "회원가입 후 사용 가능합니다.";
 	}
+
+
+	public int check(String m_email) {
+		m_email = (String)session.getAttribute("id");
+		int count = adminDao.checked(m_email);
+		
+		return count;
+	}
+	
+	public int buy_check(String m_email) {
+		m_email = (String)session.getAttribute("id");
+		int buy_count = adminDao.buy_check(m_email);
+		return buy_count;
+	}
+
+
+	public int rent_check(String m_email) {
+		m_email = (String)session.getAttribute("id");
+		int rent_count = adminDao.rent_check(m_email);
+		return rent_count;
+	}
+
 
 
 	
