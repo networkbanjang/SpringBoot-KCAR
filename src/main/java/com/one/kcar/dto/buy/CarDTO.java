@@ -37,6 +37,14 @@ public class CarDTO {
 	private String m_email;
 	private String c_saleStatus;
 	
+	private String monthPrice;
+	
+	public String getMonthPrice() {
+		return monthPrice;
+	}
+	public void setMonthPrice(String monthPrice) {
+		this.monthPrice = monthPrice;
+	}
 //	c_i_certified	varchar2(20)	default '브랜드인증'	브랜드인증
 //	c_i_distance	varchar2(10)	default '짧은km'	짧은km
 //	c_i_newCar	varchar2(10)	default '신차급'	신차급
@@ -46,6 +54,7 @@ public class CarDTO {
 //	c_i_specialOption	varchar2(15)	default '특옵션'	특옵션
 //	c_i_rent	varchar2(15)	default '렌트'	렌트
 
+	
 	private String c_t_certified;
 	private String c_t_distance;
 	private String c_t_newCar;

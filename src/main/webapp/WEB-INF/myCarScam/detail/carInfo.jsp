@@ -1987,7 +1987,7 @@ var alignmentClick = function(){
 	alignCnt ++;
 	if(alignCnt % 2 != 0){
 		dropdownAlignment.style.display = "block"
-		alignmentMethod.style.display = "flex";
+		alignmentMethod.style.display = "block";
 		alignmentMethod.style.alignContent = "flex-start";
 		alignmentMethod.style.flexDirection = "column";
 		alignmentMethod.style.flexWrap = "wrap";
@@ -2072,6 +2072,7 @@ var emailSend = function(){
 	req.setRequestHeader('Content-Type', 'application/json; charset=UFT-8');
 	req.send(data);
 }
+//메일 성공여부
 var sendSucess = function(){
 	if(req.readyState == 4 & req.status == 200){
 		if(req.responseText == '성공'){

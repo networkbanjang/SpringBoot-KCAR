@@ -165,7 +165,7 @@
 			
 			if(alignCnt % 2 != 0){
 				dropdownAlignment.style.display = "block"
-				alignmentMethod.style.display = "flex";
+				alignmentMethod.style.display = "block";
 				alignmentMethod.style.alignContent = "flex-start";
 				alignmentMethod.style.flexDirection = "column";
 				alignmentMethod.style.flexWrap = "wrap";

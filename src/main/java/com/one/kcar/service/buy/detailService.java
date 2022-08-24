@@ -1,9 +1,13 @@
 package com.one.kcar.service.buy;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,16 +35,41 @@ public class detailService {
 	private ICarDetailDAO carDetailDao;
 	@Autowired
 	private IMemberDAO memberDao;
-	@Autowired HttpSession session;
+	@Autowired
+	private HttpSession session;
 	
-	public String carDetail(String c_num, Model model) {
+	private Cookie latelyCar;
+	
+	private ArrayList<CarDTO> latelyCarDtoList;
+	
+	
+	public Cookie getLatelyCar() {
+		return latelyCar;
+	}
+	
+	public ArrayList<CarDTO> getLatelyCarDtoList() {
+		return latelyCarDtoList;
+	}
+	public void setLatelyCar(Cookie latelyCar) {
+		this.latelyCar = latelyCar;
+	}
+	public void setLatelyCarDtoList(ArrayList<CarDTO> latelyCarDtoList) {
+		this.latelyCarDtoList = latelyCarDtoList;
+	}
+
+	public void latelyCarCookie(){
+		Cookie latelyCar = new Cookie("latelyCar", null);
+		latelyCar.setPath("/");
+		latelyCar.setMaxAge(100);
+		this.latelyCar = latelyCar;
+	}
+
+	public String carDetail(String c_num, Model model, HttpServletResponse res) {
 		
 		CarDTO car =  carDetailDao.car(c_num);//kcar_car
 		CarInfoDTO carInfo =  carDetailDao.carInfo(c_num);//kcar_car_info
-		
 		ArrayList<CarPhotoDTO> CarPhotoList = carDetailDao.carPhotoList(c_num);//kcar_car_photo
 		CarOptionPhotoDTO carOptionPhoto =  carDetailDao.carOptionPhoto();//kcar_car_option -> kcar_car_option_photo carList에서 필요 정보마다 사진 가져오기
-		
 		CarOptionDTO carOption = carDetailDao.carOption(c_num);
 		ArrayList<String> carOptionPhotoList = null;
 		
@@ -56,23 +85,14 @@ public class detailService {
 			if(carOption.getC_o_blackBox() != null) carOptionPhotoList.add(carOptionPhoto.getC_o_p_blackBox());
 		}
 		
-		PaymentVO paymentVo = new PaymentVO();
-		PaymentVO paymentVo8 = new PaymentVO();
-		PaymentVO paymentVo9 = new PaymentVO();
-		PaymentVO paymentVo11 = new PaymentVO();
-		PaymentVO paymentVo13 = new PaymentVO();
-		
 		int carPrice = Integer.parseInt(car.getC_price());
-		paymentVo.setCarPrice(carPrice*10000);
-		paymentVo8.setCarPrice(carPrice*10000);
-		paymentVo9.setCarPrice(carPrice*10000);
-		paymentVo11.setCarPrice(carPrice*10000);
-		paymentVo13.setCarPrice(carPrice*10000);
 		
-		paymentVo8.setYearRate(0.08d);
-		paymentVo9.setYearRate(0.09d);
-		paymentVo11.setYearRate(0.11d);
-		paymentVo13.setYearRate(0.13d);
+		PaymentVO paymentVo = payment(carPrice*10000,0);
+		PaymentVO paymentVo8 = payment(carPrice*10000,0.08d);
+		PaymentVO paymentVo9 = payment(carPrice*10000,0.09d);
+		PaymentVO paymentVo11 = payment(carPrice*10000,0.11d);
+		PaymentVO paymentVo13 = payment(carPrice*10000,0.13d);
+		
 		
 		ArrayList<QuestionDTO> questionList = carDetailDao.quesionList(); 
 		ArrayList<BuyReviewDTO> reviewList = carDetailDao.reviewList();
@@ -99,9 +119,52 @@ public class detailService {
 		if(carOptionPhotoList != null) {
 			model.addAttribute("carOptionPhotoList", carOptionPhotoList);
 		}
+		 //쿠키생성
+		if(this.latelyCar == null) {
+			latelyCarCookie();
+			this.latelyCarDtoList = new ArrayList<CarDTO>();// 차량정보값 초기화
+			this.latelyCar.setValue("latelyCarDtoList");
+		}
+		//value값 초기화시 다시 생성
+		if(this.latelyCar.getValue() == null) {
+			latelyCarCookie();
+			this.latelyCarDtoList = new ArrayList<CarDTO>();// 차량정보값 초기화
+			this.latelyCar.setValue("latelyCarDtoList");
+		}
+		
+		//최근본차량 쿠키저장
+		int cnt = 0;
+		for(int i = 0; i<latelyCarDtoList.size();i++) {
+			if(latelyCarDtoList.get(i).getC_num().equals(c_num)) {
+				cnt++;
+			}
+		}
+		if(cnt == 0) {
+			car.setMonthPrice(paymentVo.getResult2()+"");
+			latelyCarDtoList.add(car);
+			if(latelyCarDtoList.size() > 15) {
+				latelyCarDtoList.remove(0);
+			}
+		}
+		
+//		String latelyCarListS = latelyCarList.toString();
+//		latelyCarListS = latelyCarListS.substring(1,latelyCarListS.length()-1).replace("", "");
+		//latelyCarListS = URLEncoder.encode(latelyCarListS, "utf-8");
+		
 		return null;
 	}
 
+	public PaymentVO payment(int carPrice, double yearRate) {
+		PaymentVO paymentVo = new PaymentVO();
+		if(yearRate == 0) {
+			paymentVo.setCarPrice(carPrice);
+			return paymentVo;
+		}
+		paymentVo.setCarPrice(carPrice);
+		paymentVo.setYearRate(yearRate);
+		
+		return paymentVo;
+	}
 	public String carOrder(String c_num, Model model) {
 		String email = (String) session.getAttribute("id");
 		//if(email == null || email.isEmpty()) return "로그인"; 잠시 비활성화
@@ -191,6 +254,7 @@ public class detailService {
 	@Autowired CarInfoMailService carInfoMailService;
 	
 	public String emailSend(Map<String, String> data) {
+		
 		String c_num = data.get("carNum");
 		String name = data.get("name");
 		String email = data.get("email");
@@ -213,7 +277,7 @@ public class detailService {
 	}
 //email content
 	private String bodyHtml(String name,String emailContent, CarDTO car, CarOptionDTO carOption,CarTagDTO carTag, PaymentVO paymentVo, StoreDTO store) {
-		String bodyHtml = "	<div id=\"readFrame\">\r\n"
+		String bodyHtml = "<div id=\"readFrame\">\r\n"
 				+ "		<div\r\n"
 				+ "			style=\"max-width: 700px; min-width: 280px; margin: 0 auto; font-family: '나눔고딕', Helvetica, Arial, NanumGothic, '맑은 고딕', SDNeoGothic, SDGothicNeo, '돋움', 'dotum', sans-serif;\">\r\n"
 				+ "			<div style=\"padding: 40px;\">\r\n"

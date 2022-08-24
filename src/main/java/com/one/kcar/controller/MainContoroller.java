@@ -2,13 +2,18 @@ package com.one.kcar.controller;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +35,9 @@ public class MainContoroller {
 	private homeService homeService;
 	@Autowired
 	private detailService detailService;
+	@Autowired
+	private latelyCarService latelyCarService;
+	
 	//차량검색
 	@GetMapping(value = "vehicleSearch")
 	public String vehicleSearch() {
@@ -51,10 +59,35 @@ public class MainContoroller {
 	public String vrLiveView() {
 		return "myCarScam/vrLiveView";
 	}
-	//최근 본 차량
+	//최근 본 차량latelyViewedCar
 	@GetMapping(value="latelyViewedCar")
-	public String latelyViewedCar() {
+	public String latelyViewedCar(Model model,HttpServletResponse res, @CookieValue(name="latelyCar", required = false) String cv) {
+		latelyCarService.latelyCarList("기본정렬", model,res,cv,null);
 		return "myCarScam/latelyViewedCar";
+	}
+	//최근 본 차량 정렬
+	@ResponseBody
+	@PostMapping(value="latelyCarAlignment", produces = "text/html; charset=utf-8")
+	public String latelyCarAlignment(@RequestBody(required = false) String alignment, Model model,@CookieValue(name="latelyCar", required = false) String cv) {
+		String data = null;
+		if(alignment != null) {
+			data = latelyCarService.latelyCarList(alignment, model,null, cv,null);
+		}
+		return data;
+	}
+	
+	//최근 본 차량 삭제 후 정렬
+	@ResponseBody
+	@PostMapping(value="latelyCarDelete", produces = "text/html; charset=utf-8")
+	public String latelyCarDelete(@RequestBody(required = false) Map<String, String> list, Model model,@CookieValue(name="latelyCar", required = false) String cv) {
+		String alignment = list.get("alignmentHidden");
+		String deleteLatelyCarList = list.get("deleteLatelyCarList");
+		
+		String data = null;
+		if(alignment != null) {
+			data = latelyCarService.latelyCarList(alignment, model,null, cv,deleteLatelyCarList);
+		}
+		return data;
 	}
 	
 	//내차사기 고객후기
@@ -120,10 +153,10 @@ public class MainContoroller {
 	
 	//구매차량정보
 	@GetMapping(value="detail/carInfo")
-	public String carInfo(@RequestParam(value="c_num", required=false)String c_num,Model model) {
+	public String carInfo(@RequestParam(value="c_num", required=false)String c_num,Model model,HttpServletResponse res) {
 		if(c_num == null || c_num.isEmpty()) 
 			return "redirect:/home";
-		detailService.carDetail(c_num,model);
+		detailService.carDetail(c_num,model,res);
 		return "myCarScam/detail/carInfo";
 	}
 	
