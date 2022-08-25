@@ -83,6 +83,6 @@
       group by cb_brand
    </select>
    <select id="questionList" resultType="com.one.kcar.dto.buy.QuestionDTO">
-      SELECT * FROM KCAR_QUESTION
+      SELECT * FROM KCAR_QUESTION WHERE q_classification='브랜드'
    </select>
 </mapper>

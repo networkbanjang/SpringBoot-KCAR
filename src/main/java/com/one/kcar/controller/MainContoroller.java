@@ -179,7 +179,7 @@ public class MainContoroller {
 	public String carOrderBuy(@RequestParam(required=false) String c_num, Model model) {
 		String msg = detailService.carOrder(c_num,model);
 		if(msg != null) {
-			if(msg.equals("로그인")) return "redirect:/member/login";//로그인 안했을때
+			if(msg.equals("로그인")) return "redirect:/logins";//로그인 안했을때
 			if(msg.equals("차번호")) return "redirect:carInfo";//차번호 없을때
 		}
 		return "myCarScam/detail/carOrderBuy";
@@ -188,7 +188,7 @@ public class MainContoroller {
 	public String carOrderRequest(@RequestParam(required=false) String c_num,@RequestParam(required=false) String c_price,Model model) {
 		String msg = detailService.carOrderRequest(c_num,c_price,model);
 		if(msg != null) {
-			if(msg.equals("로그인")) return "redirect:/member/login";//로그인 안했을때
+			if(msg.equals("로그인")) return "redirect:/logins";//로그인 안했을때
 			if(msg.equals("차번호")) return "redirect:carInfo";//차번호 없을때
 		}
 		return "myCarScam/detail/carOrderRequest";
@@ -197,7 +197,7 @@ public class MainContoroller {
 	public String carOrderDetail(MemberDTO member,@RequestParam(required=false) String c_num,Model model) {
 		String msg = detailService.carOrderDetail(member,c_num,model);
 		if(msg != null) {
-			if(msg.equals("로그인")) return "redirect:/member/login";//로그인 안했을때
+			if(msg.equals("로그인")) return "redirect:/logins";//로그인 안했을때
 			if(msg.equals("차번호")) return "redirect:carInfo";//차번호 없을때
 		}
 		return "myCarScam/detail/carOrderDetail";
@@ -206,7 +206,7 @@ public class MainContoroller {
 	public String payment(MemberDTO member,@RequestParam(required=false) String c_num,Model model, RedirectAttributes ra) {
 		String msg = detailService.carPayment(member,c_num,model);
 		if(msg != null) {
-			if(msg.equals("로그인")) return "redirect:/member/login";//로그인 안했을때
+			if(msg.equals("로그인")) return "redirect:/logins";//로그인 안했을때
 			if(msg.equals("차번호")) return "redirect:carInfo";//차번호 없을때
 		}
 		ra.addAttribute("msg", msg);

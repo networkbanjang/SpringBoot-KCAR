@@ -539,8 +539,5 @@
 		</div>
 	</div>
 	<script src="js/latelyCar.js"></script>
-	<script>
-		
-	</script>
 </body>
 </html>

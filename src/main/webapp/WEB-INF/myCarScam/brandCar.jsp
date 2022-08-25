@@ -93,7 +93,7 @@
 										<c:forEach var="brand" items="${brandList }"
 											varStatus="status">
 											<li><a class="el-link el-link--default is-underline"
-												href="brandCar/brandCarList?brand=${brand.cb_brand}"> <!---->
+												onclick="brandAlignment('${brand.cb_brand }')"> <!---->
 													<span class="el-link--inner"><img
 														src="${brand.cb_photo }" alt="${brand.cb_brand }"
 														class="brandLogo">

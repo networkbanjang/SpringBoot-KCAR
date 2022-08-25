@@ -180,7 +180,7 @@ public class brandService {
 
 		for(int i = 0; i<brandCarAllList.size();i++) {
 			String data =  "<div class=\"carListBox\" style=\"cursor: pointer;\">\r\n"
-				+ "			<div class=\"carListImg\" style=\"cursor: pointer;\">\r\n"
+				+ "			<div class=\"carListImg\" style=\"cursor: pointer;\" onclick=\"detailPage('"+i+"')\">\r\n"
 				+ "			<div>\r\n"
 				+ "			<img src=\""+ brandCarAllList.get(i).getC_photo() +"\" alt=\"챠량이미지\"\r\n"
 				+ "				onerror=\"this.src='/images/search/bg_no_Img_lg.png'\"\r\n"
@@ -194,7 +194,7 @@ public class brandService {
 				+ "			</button></li>\r\n"
 				+ "			</ul>\r\n"
 				+ "			</div>\r\n"
-				+ "			<ul class=\"listViewLabel\">\r\n"
+				+ "			<ul class=\"listViewLabel\" onclick=\"detailPage('"+i+"')\">\r\n"
 				+ "			</ul>\r\n"
 				+ "			<div class=\"detailInfo\">\r\n"
 				+ "			<div class=\"carName\">\r\n"
