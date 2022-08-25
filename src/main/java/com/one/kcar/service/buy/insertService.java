@@ -226,7 +226,7 @@ public class insertService {
 		for (int i = 0; i < arr.size(); i++) {
 			JsonObject tmp = (JsonObject) arr.get(i);
 			QuestionDTO quest = new QuestionDTO();
-			quest.setQ_classfication(tmp.get("q_classification").getAsString());
+			quest.setQ_classification(tmp.get("q_classification").getAsString());
 			quest.setQ_content(tmp.get("q_content").getAsString());
 			quest.setQ_title(tmp.get("q_title").getAsString());
 			

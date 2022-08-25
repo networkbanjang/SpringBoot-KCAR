@@ -20,6 +20,7 @@
 <title>문자인증</title>
 </head>
 <body>
+
 	<div id="contents" class="contents"> 
 		<p class="textBox"><span>신청 양식</span></p>
 		
@@ -46,7 +47,7 @@ var req;
 var check1 = function(){
 	var to = document.getElementById('to');	
 	var name = document.getElementById('name');
-
+	
 	req = new XMLHttpRequest();
 	req.onreadystatechange = sendSMS1;
 	req.open('post', 'sms/sendSMS');
@@ -62,8 +63,10 @@ var check1 = function(){
 	
 	
 var sendSMS1 = function(){
+	var to = document.getElementById('to');
 	if(req.readyState == 4 & req.status == 200){
 		alert('메세지 전송' + req.responseText);
+		window.location.assign('http://localhost/sms');
 	}
 }
 </script>

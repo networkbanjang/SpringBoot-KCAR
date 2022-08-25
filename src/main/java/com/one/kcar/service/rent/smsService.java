@@ -37,8 +37,7 @@ public class smsService {
 	    params.put("text", name + "님 렌트신청이 완료되었습니다.");
 	    
 	    coolsms.send(params); // 메시지 전송
-	        
+	    
 	    return null;
-	
 	}
 }
