@@ -245,147 +245,11 @@
 													data-v-ec1dd4fa="">연 2만km, 연 3만km</strong></span>
 											</button></li>
 									</ul>
-									<div data-v-ec1dd4fa="" class="flexSB mT100">
-										<h2 data-v-ec1dd4fa="" class="infoHead2 mB0">
-											내 조건에 맞춰 <br data-v-ec1dd4fa=""> <span
-												data-v-ec1dd4fa="">월 렌트비를 계산해 보세요.</span>
-										</h2>
-										<button data-v-ec1dd4fa="" type="button"
-											class="el-button rightDesc viewUnder el-button--text">
-											<!---->
-											<!---->
-											<span> 보험 보상 범위 </span>
-										</button>
-									</div>
-									<div data-v-ec1dd4fa="" class="formWrap">
-										<form data-v-ec1dd4fa="" class="el-form">
-											<div data-v-ec1dd4fa="" class="el-form-item col50P">
-												<!---->
-												<div class="el-form-item__content">
-													<div data-v-ec1dd4fa="">
-														<div data-v-ec1dd4fa="" class="titLabel">
-															초기납입금
-															<button data-v-ec1dd4fa="" type="button"
-																class="el-button el-tooltip item tooltip-btn el-button--default"
-																aria-describedby="el-tooltip-7901" tabindex="0">
-																<!---->
-																<!---->
-																<span><i data-v-ec1dd4fa="" class="el-icon-info2"></i></span>
-															</button>
-														</div>
-														<div data-v-ec1dd4fa="" role="radiogroup"
-															class="el-radio-group radioBoxs">
-															<label data-v-ec1dd4fa="" role="radio" tabindex="-1"
-																class="el-radio-button"><input type="radio"
-																tabindex="-1" autocomplete="off"
-																class="el-radio-button__orig-radio" value="01"><span
-																class="el-radio-button__inner"> 선수금 <!----></span></label> <label
-																data-v-ec1dd4fa="" role="radio" aria-checked="true"
-																tabindex="0" class="el-radio-button is-active"><input
-																type="radio" tabindex="-1" autocomplete="off"
-																class="el-radio-button__orig-radio" value="02"><span
-																class="el-radio-button__inner"> 보증금 <!----></span></label>
-														</div>
-													</div>
-													<div data-v-ec1dd4fa="">
-														<div data-v-ec1dd4fa="" class="titLabel">연간 약정운행거리</div>
-														<div data-v-ec1dd4fa="" role="radiogroup"
-															class="el-radio-group radioBoxs">
-															<label data-v-ec1dd4fa="" role="radio"
-																aria-checked="true" tabindex="0"
-																class="el-radio-button is-active"><input
-																type="radio" tabindex="-1" autocomplete="off"
-																class="el-radio-button__orig-radio" value="2"><span
-																class="el-radio-button__inner"> 20,000km <!----></span></label>
-															<label data-v-ec1dd4fa="" role="radio" tabindex="-1"
-																class="el-radio-button"><input type="radio"
-																tabindex="-1" autocomplete="off"
-																class="el-radio-button__orig-radio" value="3"><span
-																class="el-radio-button__inner"> 30,000km <!----></span></label>
-														</div>
-													</div>
-													<!---->
-												</div>
-											</div>
-											<div data-v-ec1dd4fa="" class="el-form-item">
-												<!---->
-												<div class="el-form-item__content">
-													<div data-v-ec1dd4fa="" class="titLabel">정비 서비스</div>
-													<div data-v-ec1dd4fa="" role="radiogroup"
-														class="el-radio-group radioBoxs">
-														<label data-v-ec1dd4fa="" role="radio" aria-checked="true"
-															tabindex="0" class="el-radio-button is-active"><input
-															type="radio" tabindex="-1" autocomplete="off"
-															class="el-radio-button__orig-radio" value="01"><span
-															class="el-radio-button__inner"> 실속형(정비 미포함) <!----></span></label>
-														<label data-v-ec1dd4fa="" role="radio" tabindex="-1"
-															class="el-radio-button"><input type="radio"
-															tabindex="-1" autocomplete="off"
-															class="el-radio-button__orig-radio" value="03"><span
-															class="el-radio-button__inner"> 입고정비(풀 정비 가능) <!----></span></label>
-														<label data-v-ec1dd4fa="" role="radio" tabindex="-1"
-															class="el-radio-button"><input type="radio"
-															tabindex="-1" autocomplete="off"
-															class="el-radio-button__orig-radio" value="04"><span
-															class="el-radio-button__inner"> 순회정비(풀정비 + 방문점검) <!----></span></label>
-													</div>
-													<!---->
-												</div>
-											</div>
-											<div data-v-ec1dd4fa="" class="el-form-item">
-												<!---->
-												<div class="el-form-item__content">
-													<div data-v-ec1dd4fa="" class="titLabel">렌트기간</div>
-													<div data-v-ec1dd4fa="" role="radiogroup"
-														class="el-radio-group radioBoxs">
-														<label data-v-ec1dd4fa="" role="radio" aria-checked="true"
-															tabindex="0" class="el-radio-button is-active"><input
-															type="radio" tabindex="-1" autocomplete="off"
-															class="el-radio-button__orig-radio" value="12"><span
-															class="el-radio-button__inner"> 12개월 <!----></span></label><label
-															data-v-ec1dd4fa="" role="radio" tabindex="-1"
-															class="el-radio-button"><input type="radio"
-															tabindex="-1" autocomplete="off"
-															class="el-radio-button__orig-radio" value="24"><span
-															class="el-radio-button__inner"> 24개월 <!----></span></label><label
-															data-v-ec1dd4fa="" role="radio" tabindex="-1"
-															class="el-radio-button"><input type="radio"
-															tabindex="-1" autocomplete="off"
-															class="el-radio-button__orig-radio" value="36"><span
-															class="el-radio-button__inner"> 36개월 <!----></span></label><label
-															data-v-ec1dd4fa="" role="radio" tabindex="-1"
-															class="el-radio-button"><input type="radio"
-															tabindex="-1" autocomplete="off"
-															class="el-radio-button__orig-radio" value="48"><span
-															class="el-radio-button__inner"> 48개월 <!----></span></label>
-													</div>
-													<!---->
-												</div>
-											</div>
-										</form>
-									</div>
-									<div data-v-ec1dd4fa="" class="calcBox">
-										<div data-v-ec1dd4fa="" class="rentPrice">
-											<strong data-v-ec1dd4fa="">월 렌트비</strong><strong
-												data-v-ec1dd4fa="" class="pointC">720,000원</strong>
-											<ul data-v-ec1dd4fa="" class="barLists">
-												<li data-v-ec1dd4fa=""><span data-v-ec1dd4fa="">렌트기간</span>
-													<span data-v-ec1dd4fa="">12개월</span></li>
-												<li data-v-ec1dd4fa=""><span data-v-ec1dd4fa="">초기납입금</span>
-													<span data-v-ec1dd4fa="">396만원</span></li>
-											</ul>
-										</div>
-										<div data-v-ec1dd4fa="" class="calcBtnArea">
-											<div data-v-ec1dd4fa="" class="calcBtns">
-												<button data-v-ec1dd4fa="" type="button"
-													class="el-button el-button--default">
-													<!---->
-													<!---->
-													<span> 견적보관 </span>
-												</button>
-											</div>
-										</div>
-									</div>
+									
+									<!-- 시작 -->
+									
+									<!-- 종료 -->
+									
 									<div class="tabMenuWrap" data-v-ec1dd4fa="">
 										<ul class="tabMenu" data-v-ec1dd4fa="">
 											<!---->
@@ -792,7 +656,7 @@
 											<div class="searchTrigger box btnSpace8 pT0 el-row"
 												data-v-ec1dd4fa="">
 												<!--<button class="button apply" data-v-ec1dd4fa="">  -->
-												<button class="button apply"><a href="http://localhost/sms">상담예약</a></button>
+												<button class="button apply"><a href="http://localhost/sms" style="color:white">상담예약</a></button>
 											</div>
 											<div data-v-ec1dd4fa="" class="searchSth">
 												<button data-v-ec1dd4fa="" type="button"

@@ -141,14 +141,6 @@ public class MainContoroller {
 		return ajaxModalModelList;
 	}
 	
-	
-	@GetMapping(value="brandCar/brandCarList")
-	public String brandCarList(@RequestParam(value="brand", required=false)String brand, Model model ) {
-		if(brand == null || brand.isEmpty()) return "redirect:/brandCar";//brandParameter가 null인 경우 brand메뉴페이지로 이동 //serviceclass로 이동해서 검증할 것
-		brandService.brandCarList(brand, model);
-		return "myCarScam/brand/brandCarList";
-	}
-	
 	//구매차량정보
 	@GetMapping(value="detail/carInfo")
 	public String carInfo(@RequestParam(value="c_num", required=false)String c_num,Model model,HttpServletResponse res) {

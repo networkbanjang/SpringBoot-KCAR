@@ -179,7 +179,6 @@
 											<!---->
 											<div>
 												<img src="${brandCar.c_photo }" alt="챠량이미지"
-													onerror="this.src='/images/search/bg_no_Img_lg.png'"
 													loading="lazy">
 											</div>
 											<ul class="listViewBtn">
@@ -231,17 +230,6 @@
 										</div>
 									</div>
 								</c:forEach>
-								<script>
-									var carListImg = document.querySelectorAll('.carListImg');
-									var ListViewLabel = document.querySelectorAll('.ListViewLabel');
-									var carName = document.querySelectorAll('.carName');
-									var carNumHidden = document.querySelectorAll('.carNumHidden');
-									
-									var detailPage = function(index){
-										var carNum = carNumHidden[index].value;
-										window.open('detail/carInfo?c_num='+carNum);
-									}
-								</script>
 							</div>
 						</div>
 
@@ -451,5 +439,16 @@
 	<div id="criteo-tags-div" style="display: none;"></div>
 	<script src="js/question.js"></script>
 	<script src="js/brandCar.js"></script>
+	<script>
+		var detailPage = function(index){
+			var carListImg = document.querySelectorAll('.carListImg');
+			var ListViewLabel = document.querySelectorAll('.ListViewLabel');
+			var carName = document.querySelectorAll('.carName');
+			var carNumHidden = document.querySelectorAll('.carNumHidden');
+			var carNum = carNumHidden[index].value;
+			
+			window.open('detail/carInfo?c_num='+carNum);
+		}
+	</script>
 </body>
 </html>

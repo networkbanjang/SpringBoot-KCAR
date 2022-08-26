@@ -17,6 +17,7 @@ crSpecialPrice varchar2(15) null,
 crBrand varchar2(25) null,
 crpPhoto varchar2(150) null,
 crName varchar2(40) not null,
+m_email varchar2(30) null,
 constraint pkCr primary key (crNumber)
 );
  */
@@ -37,17 +38,9 @@ public class kcarCarRentDTO {
 	private String crSpecialPrice;
 	private String crBrand;
 	private String crpPhoto;
-	public String getCrpPhoto() {
-		return crpPhoto;
-	}
-	public void setCrpPhoto(String crpPhoto) {
-		this.crpPhoto = crpPhoto;
-	}
 	private String crName;
 	private String m_email;
 	
-
-
 	public String getCrNumber() {
 		return crNumber;
 	}
@@ -145,5 +138,10 @@ public class kcarCarRentDTO {
 	public void setM_email(String m_email) {
 		this.m_email = m_email;
 	}
-
+	public String getCrpPhoto() {
+		return crpPhoto;
+	}
+	public void setCrpPhoto(String crpPhoto) {
+		this.crpPhoto = crpPhoto;
+	}
 }

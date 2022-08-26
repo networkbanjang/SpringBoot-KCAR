@@ -79,35 +79,7 @@
 								</div>
 
 							</div>
-							<nav>
-								<div class="mypageMenu">
-									<h2 class="title">
-										<a href="/mp" class=""> 마이페이지 </a>
-									</h2>
-									<ul>
-										<li><a href="/mp/myCarBuyOrderManage" class=""> 내차사기
-												주문관리 </a></li>
-										<li><a href="/mp/MyCarSellAplMgtList" class=""> 내차팔기
-												신청관리 </a></li>
-										<li><a href="/mp/RentAplList" class=""> 렌트 신청내역 </a></li>
-									</ul>
-									<ul>
-										<li><a href="/mp/GurnteReprRcpLst" class=""> 보증수리
-												접수내역 </a></li>
-									</ul>
-									<ul>
-										<li><a href="/bc/latelyViewedCar/list"
-											aria-current="page"
-											class="nuxt-link-exact-active nuxt-link-active active">
-												최근 본 차량 </a></li>
-									</ul>
-									<ul>
-										<li><a href="/bc/latelyViewedCar/list"
-											aria-current="page"
-											class="nuxt-link-exact-active nuxt-link-active"> 회원정보 </a></li>
-									</ul>
-								</div>
-							</nav>
+							<%@include file="/WEB-INF/mypage/mypage_nav.jsp" %>
 						</div>
 						<div class="mypagCont mypageMain">
 							<h3 class="subTitle">최근 본 차량</h3>

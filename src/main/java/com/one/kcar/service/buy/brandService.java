@@ -20,15 +20,6 @@ public class brandService {
 	@Autowired
 	IBrandDAO brandDao;
 	private int totalCnt; 
-	public void brandCarList(String brand, Model model) {
-		// 브랜드 차량 수 / 판매중인 차량 리스트 / 그에 맞는 차량모델 /개수는 15개씩 보여줌
-		//ArrayList<CarDTO> brandCarList = brandDao.brandCarList(brand); // 브랜드 차 dto 리스트
-		//ArrayList<CarDTO> brandModelList = brandDao.brandModelList(brand); // 브랜드 차 모델정보 필터창에 넣을 것
-		
-		//model.addAttribute("brandCarList", brandCarList);
-		//model.addAttribute("brandModelList", brandModelList);
-
-	}
 
 	public String brandCarAllList(HashMap<String,String> map, Model model) {
 		String data = map.get("data");
@@ -179,7 +170,8 @@ public class brandService {
 				+ "							<div class=\"carListWrap mT20\" id=\"ajaxBrandAllList\">\r\n";
 
 		for(int i = 0; i<brandCarAllList.size();i++) {
-			String data =  "<div class=\"carListBox\" style=\"cursor: pointer;\">\r\n"
+			String data =  "<input type=\"hidden\" value=\""+brandCarAllList.get(i).getC_num()+"\" class=\"carNumHidden\">"
+				+ "			<div class=\"carListBox\" style=\"cursor: pointer;\">\r\n"
 				+ "			<div class=\"carListImg\" style=\"cursor: pointer;\" onclick=\"detailPage('"+i+"')\">\r\n"
 				+ "			<div>\r\n"
 				+ "			<img src=\""+ brandCarAllList.get(i).getC_photo() +"\" alt=\"챠량이미지\"\r\n"
