@@ -238,9 +238,9 @@
 </body>
 <script>
 function kakaotalk(content){
-	sessionStorage.setItem("kst_name",content.value);
+/* 	sessionStorage.setItem("kst_name",content.value);
 	const what=sessionStorage.getItem("kst_name");
-	alert(what);
+	alert(what); */
 	location.href="https://kauth.kakao.com/oauth/authorize?client_id=35d849b33448f51f3c3f73a432418b30&redirect_uri=http://localhost/kakaoTalk&response_type=code&scope=talk_message";
 }
 </script>

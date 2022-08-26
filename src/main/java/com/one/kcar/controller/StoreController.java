@@ -112,11 +112,11 @@ public class StoreController {
 	private String kakaoTalk(String code, HttpSession session) {
 		System.out.println(session.getAttribute("kst_name"));
 		
-		/*
-		 * StoreDTO store=service.storelist("강남직영점"); StoreKakaoService kakaoService =
-		 * new StoreKakaoService(); String accessToken=kakaoService.getAcces(code);
-		 * kakaoService.messageInfo(accessToken,store);
-		 */ 
+		
+		 StoreDTO store=service.storelist("강남직영점"); StoreKakaoService kakaoService =
+		 new StoreKakaoService(); String accessToken=kakaoService.getAcces(code);
+		 kakaoService.messageInfo(accessToken,store);
+		  
 		 return "redirect:/db/drCntr";
 		 
 	}
