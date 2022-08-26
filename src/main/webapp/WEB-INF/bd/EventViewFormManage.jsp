@@ -352,7 +352,7 @@
 	 }
 	 
 	 function listView(){
-		 $("#f").attr("action", "NotcMatrList");
+		 $("#f").attr("action", "NotcMatrListManage");
 		 
 	 }
 	</script>
