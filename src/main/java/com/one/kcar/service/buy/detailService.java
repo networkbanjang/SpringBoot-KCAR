@@ -65,94 +65,96 @@ public class detailService {
 	}
 
 	public String carDetail(String c_num, Model model, HttpServletResponse res) {
-		
-		CarDTO car =  carDetailDao.car(c_num);//kcar_car
-		CarInfoDTO carInfo =  carDetailDao.carInfo(c_num);//kcar_car_info
-		ArrayList<CarPhotoDTO> CarPhotoList = carDetailDao.carPhotoList(c_num);//kcar_car_photo
-		CarOptionPhotoDTO carOptionPhoto =  carDetailDao.carOptionPhoto();//kcar_car_option -> kcar_car_option_photo carList에서 필요 정보마다 사진 가져오기
-		CarOptionDTO carOption = carDetailDao.carOption(c_num);
-		ArrayList<String> carOptionPhotoList = null;
-		
-		if(carOption != null) {
-			if(carOption.getC_o_sonRoof() != null) carOptionPhotoList.add(carOptionPhoto.getC_o_p_sonRoof());
-			if(carOption.getC_o_hiPass() != null) carOptionPhotoList.add(carOptionPhoto.getC_o_p_hiPass());
-			if(carOption.getC_o_backSensor() != null) carOptionPhotoList.add(carOptionPhoto.getC_o_p_backSensor());
-			if(carOption.getC_o_camera() != null) carOptionPhotoList.add(carOptionPhoto.getC_o_p_camera());
-			if(carOption.getC_o_navigation() != null) carOptionPhotoList.add(carOptionPhoto.getC_o_p_navigation());
-			if(carOption.getC_o_handleHot() != null) carOptionPhotoList.add(carOptionPhoto.getC_o_p_handleHot());
-			if(carOption.getC_o_airback() != null) carOptionPhotoList.add(carOptionPhoto.getC_o_p_airback());
-			if(carOption.getC_o_smartKey() != null) carOptionPhotoList.add(carOptionPhoto.getC_o_p_smartKey());
-			if(carOption.getC_o_blackBox() != null) carOptionPhotoList.add(carOptionPhoto.getC_o_p_blackBox());
-		}
-		
-		int carPrice = Integer.parseInt(car.getC_price());
-		
-		PaymentVO paymentVo = payment(carPrice*10000,0);
-		PaymentVO paymentVo8 = payment(carPrice*10000,0.08d);
-		PaymentVO paymentVo9 = payment(carPrice*10000,0.09d);
-		PaymentVO paymentVo11 = payment(carPrice*10000,0.11d);
-		PaymentVO paymentVo13 = payment(carPrice*10000,0.13d);
-		
-		
-		ArrayList<QuestionDTO> questionList = carDetailDao.quesionList(); 
-		ArrayList<BuyReviewDTO> reviewList = carDetailDao.reviewList();
-		//차량 할부 등 금액 정보들 36개월 연 7프로 기준
-		model.addAttribute("carPriceInfo", paymentVo);
-		model.addAttribute("carPriceInfo8", paymentVo8);
-		model.addAttribute("carPriceInfo9", paymentVo9);
-		model.addAttribute("carPriceInfo11", paymentVo11);
-		model.addAttribute("carPriceInfo13", paymentVo13);
-		
-		model.addAttribute("car", car);
-		model.addAttribute("carInfo", carInfo);
-		model.addAttribute("questionList", questionList);
-		model.addAttribute("reviewList", reviewList);
-		model.addAttribute("CarPhotoFirst", car.getC_photo());
-		if(CarPhotoList.size() != 0){
-			model.addAttribute("CarPhotoListBottom", CarPhotoList);
-			CarPhotoList.remove(0);
-			model.addAttribute("CarPhotoListCenter", CarPhotoList);
-		}
-		if(carOption != null) {
-			model.addAttribute("carOption", carOption);
-		}
-		if(carOptionPhotoList != null) {
-			model.addAttribute("carOptionPhotoList", carOptionPhotoList);
-		}
-		 //쿠키생성
-		if(this.latelyCar == null) {
-			latelyCarCookie();
-			this.latelyCarDtoList = new ArrayList<CarDTO>();// 차량정보값 초기화
-			this.latelyCar.setValue("latelyCarDtoList");
-		}
-		//value값 초기화시 다시 생성
-		if(this.latelyCar.getValue() == null) {
-			latelyCarCookie();
-			this.latelyCarDtoList = new ArrayList<CarDTO>();// 차량정보값 초기화
-			this.latelyCar.setValue("latelyCarDtoList");
-		}
-		
-		//최근본차량 쿠키저장
-		int cnt = 0;
-		for(int i = 0; i<latelyCarDtoList.size();i++) {
-			if(latelyCarDtoList.get(i).getC_num().equals(c_num)) {
-				cnt++;
-			}
-		}
-		if(cnt == 0) {
-			car.setMonthPrice(paymentVo.getResult2()+"");
-			latelyCarDtoList.add(car);
-			if(latelyCarDtoList.size() > 15) {
-				latelyCarDtoList.remove(0);
-			}
-		}
-		
-//		String latelyCarListS = latelyCarList.toString();
-//		latelyCarListS = latelyCarListS.substring(1,latelyCarListS.length()-1).replace("", "");
-		//latelyCarListS = URLEncoder.encode(latelyCarListS, "utf-8");
-		
-		return null;
-	}
+	      
+	      CarDTO car =  carDetailDao.car(c_num);//kcar_car
+	      CarInfoDTO carInfo =  carDetailDao.carInfo(c_num);//kcar_car_info
+	//      ArrayList<CarPhotoDTO> CarPhotoList = carDetailDao.carPhotoList(c_num);//kcar_car_photo
+	      CarOptionDTO carOption = carDetailDao.carOption(c_num);
+	      
+//	      CarOptionPhotoDTO carOptionPhoto =  carDetailDao.carOptionPhoto();//kcar_car_option -> kcar_car_option_photo carList에서 필요 정보마다 사진 가져오기
+//	      ArrayList<String> carOptionPhotoList = new ArrayList<>();
+//	      
+//	      if(carOption != null) {
+//	         if(carOption.getC_o_sonRoof() != null) carOptionPhotoList.add(carOptionPhoto.getC_o_p_sonRoof());
+//	         if(carOption.getC_o_hiPass() != null) carOptionPhotoList.add(carOptionPhoto.getC_o_p_hiPass());
+//	         if(carOption.getC_o_backSensor() != null) carOptionPhotoList.add(carOptionPhoto.getC_o_p_backSensor());
+//	         if(carOption.getC_o_camera() != null) carOptionPhotoList.add(carOptionPhoto.getC_o_p_camera());
+//	         if(carOption.getC_o_navigation() != null) carOptionPhotoList.add(carOptionPhoto.getC_o_p_navigation());
+//	         if(carOption.getC_o_handleHot() != null) carOptionPhotoList.add(carOptionPhoto.getC_o_p_handleHot());
+//	         if(carOption.getC_o_airback() != null) carOptionPhotoList.add(carOptionPhoto.getC_o_p_airback());
+//	         if(carOption.getC_o_smartKey() != null) carOptionPhotoList.add(carOptionPhoto.getC_o_p_smartKey());
+//	         if(carOption.getC_o_blackBox() != null) carOptionPhotoList.add(carOptionPhoto.getC_o_p_blackBox());
+//	      }
+//	      if(carOptionPhotoList != null) {
+//	      model.addAttribute("carOptionPhotoList", carOptionPhotoList);
+	//   }
+	      int carPrice = Integer.parseInt(car.getC_price());
+	      
+	      PaymentVO paymentVo = payment(carPrice*10000,0);
+	      PaymentVO paymentVo8 = payment(carPrice*10000,0.08d);
+	      PaymentVO paymentVo9 = payment(carPrice*10000,0.09d);
+	      PaymentVO paymentVo11 = payment(carPrice*10000,0.11d);
+	      PaymentVO paymentVo13 = payment(carPrice*10000,0.13d);
+	      
+	      
+	      ArrayList<QuestionDTO> questionList = carDetailDao.quesionList(); 
+	      ArrayList<BuyReviewDTO> reviewList = carDetailDao.reviewList();
+	      //차량 할부 등 금액 정보들 36개월 연 7프로 기준
+	      model.addAttribute("carPriceInfo", paymentVo);
+	      model.addAttribute("carPriceInfo8", paymentVo8);
+	      model.addAttribute("carPriceInfo9", paymentVo9);
+	      model.addAttribute("carPriceInfo11", paymentVo11);
+	      model.addAttribute("carPriceInfo13", paymentVo13);
+	      
+	      model.addAttribute("car", car);
+	      model.addAttribute("carInfo", carInfo);
+	      model.addAttribute("questionList", questionList);
+	      model.addAttribute("reviewList", reviewList);
+	      model.addAttribute("CarPhotoFirst", car.getC_photo());
+//	      if(CarPhotoList.size() != 0){
+//	         model.addAttribute("CarPhotoListBottom", CarPhotoList);
+//	         CarPhotoList.remove(0);
+//	         model.addAttribute("CarPhotoListCenter", CarPhotoList);
+//	      }
+	      if(carOption != null) {
+	         model.addAttribute("carOption", carOption);
+	      }
+
+	       //쿠키생성
+	      if(this.latelyCar == null) {
+	         latelyCarCookie();
+	         this.latelyCarDtoList = new ArrayList<CarDTO>();// 차량정보값 초기화
+	         this.latelyCar.setValue("latelyCarDtoList");
+	      }
+	      //value값 초기화시 다시 생성
+	      if(this.latelyCar.getValue() == null) {
+	         latelyCarCookie();
+	         this.latelyCarDtoList = new ArrayList<CarDTO>();// 차량정보값 초기화
+	         this.latelyCar.setValue("latelyCarDtoList");
+	      }
+	      
+	      //최근본차량 쿠키저장
+	      int cnt = 0;
+	      for(int i = 0; i<latelyCarDtoList.size();i++) {
+	         if(latelyCarDtoList.get(i).getC_num().equals(c_num)) {
+	            cnt++;
+	         }
+	      }
+	      if(cnt == 0) {
+	         car.setMonthPrice(paymentVo.getResult2()+"");
+	         latelyCarDtoList.add(car);
+	         if(latelyCarDtoList.size() > 15) {
+	            latelyCarDtoList.remove(0);
+	         }
+	      }
+	      
+//	      String latelyCarListS = latelyCarList.toString();
+//	      latelyCarListS = latelyCarListS.substring(1,latelyCarListS.length()-1).replace("", "");
+//	      latelyCarListS = URLEncoder.encode(latelyCarListS, "utf-8");
+	      
+	      return null;
+	   }
+
 
 	public PaymentVO payment(int carPrice, double yearRate) {
 		PaymentVO paymentVo = new PaymentVO();
