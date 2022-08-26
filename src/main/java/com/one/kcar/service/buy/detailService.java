@@ -155,6 +155,42 @@ public class detailService {
 		return null;
 	}
 
+	       //쿠키생성
+	      if(this.latelyCar == null) {
+	         latelyCarCookie();
+	         this.latelyCarDtoList = new ArrayList<CarDTO>();// 차량정보값 초기화
+	         this.latelyCar.setValue("latelyCarDtoList");
+	      }
+	      //value값 초기화시 다시 생성
+	      if(this.latelyCar.getValue() == null) {
+	         latelyCarCookie();
+	         this.latelyCarDtoList = new ArrayList<CarDTO>();// 차량정보값 초기화
+	         this.latelyCar.setValue("latelyCarDtoList");
+	      }
+	      
+	      //최근본차량 쿠키저장
+	      int cnt = 0;
+	      for(int i = 0; i<latelyCarDtoList.size();i++) {
+	         if(latelyCarDtoList.get(i).getC_num().equals(c_num)) {
+	            cnt++;
+	         }
+	      }
+	      if(cnt == 0) {
+	         car.setMonthPrice(paymentVo.getResult2()+"");
+	         latelyCarDtoList.add(car);
+	         if(latelyCarDtoList.size() > 15) {
+	            latelyCarDtoList.remove(0);
+	         }
+	      }
+	      
+//	      String latelyCarListS = latelyCarList.toString();
+//	      latelyCarListS = latelyCarListS.substring(1,latelyCarListS.length()-1).replace("", "");
+//	      latelyCarListS = URLEncoder.encode(latelyCarListS, "utf-8");
+	      
+	      return null;
+	   }
+
+
 	public PaymentVO payment(int carPrice, double yearRate) {
 		PaymentVO paymentVo = new PaymentVO();
 		if(yearRate == 0) {

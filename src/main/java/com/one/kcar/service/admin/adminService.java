@@ -55,7 +55,7 @@ public class adminService{
 	
 			
 			String fileName = file.getOriginalFilename();
-			File save = new File("C:\\javas\\boot_workspace\\SpringBoot-KCAR\\src\\main\\resources\\static\\images\\adminCar\\" + fileName);
+			File save = new File("C:\\Kraken\\SpringBoot-KCAR\\src\\main\\resources\\static\\images\\adminCar" + fileName);
 			try {
 				file.transferTo(save);
 			} catch (Exception e) {
@@ -105,7 +105,7 @@ public class adminService{
 		MultipartFile file = multi.getFile("file_name");
 		if(file.getSize() != 0) {
 			String fileName = file.getOriginalFilename();
-			File save = new File("C:\\javas\\boot_workspace\\SpringBoot-KCAR\\src\\main\\resources\\static\\images\\adminCar\\" + fileName);
+			File save = new File("C:\\Kraken\\SpringBoot-KCAR\\src\\main\\resources\\static\\images\\adminCar" + fileName);
 			try {
 				file.transferTo(save);
 			} catch (Exception e) {

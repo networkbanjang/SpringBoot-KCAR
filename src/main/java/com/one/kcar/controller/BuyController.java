@@ -60,7 +60,7 @@ public class BuyController {
 			session.setAttribute("templist", "data");
 		}
 		List<BuyDTO> list;
-		int count=0;
+		int count = 0;
 		if (session.getAttribute("morebuy") == null) {
 			list = service.searchAll();
 			count = service.searchAllCount();
@@ -68,20 +68,20 @@ public class BuyController {
 			model.addAttribute("totalPage", pageService);
 		} else {
 			list = (List<BuyDTO>) session.getAttribute("morebuy");
-			count=list.size();
+			count = list.size();
 			session.removeAttribute("morebuy");
 		}
+		
 		List<BuyDTO> listFore = service.searchAllFore();
 		model.addAttribute("totalCount", count);
 
 		int forecount = service.searchAllCountFore();
 
-		
 		String pageServiceFore = navi.totalPageFore(forecount);
 
 		model.addAttribute("list", list);
 		model.addAttribute("listFore", listFore);
-		
+
 		model.addAttribute("totalPageFore", pageServiceFore);
 
 		return "/buy/Mycarbuy";
