@@ -35,7 +35,7 @@
 				<li role="menuitem" aria-haspopup="true"
 					class="el-submenu is-active" onmouseover="dropdown3()"
 					onmouseout="dropup3()"><div class="el-submenu__title" style="">
-						<a href="#">제안/칭찬 리스트 </a> <i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
+						<a href="csVoc_list">제안/칭찬 리스트 </a> <i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
 					</div></li>
 				<li role="menuitem" aria-haspopup="true"
 					class="el-submenu is-active" onmouseover="dropdown3()"

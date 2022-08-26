@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="loginstyle_input.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +12,16 @@
 
 <br>
 <form action="car_update" method="post" enctype="multipart/form-data">
-차번호<input type="text" value="${list.s_r_num }" name="s_r_num">
-제조사 모델명<input type="text" value="${list.s_r_model }" name="s_r_model">
-주행거리<input type="text" value="${list.s_r_distance }" name ="s_r_distance">
-판매자id_num<input type="text" value="${list.m_id }" name="m_id">
-판매자 email<input type="text" value="${list.m_email }" name="m_email">
+<div class="el-input el-input--suffix" >
+<div class="titLabel"><span style="margin-left: 80px;">차번호</span> <span style="margin-left: 330px;">제조사모델명</span> 
+<span style="margin-left: 280px;">쥬행거리</span> <span style="margin-left: 310px;">판매자num</span> <span style="margin-left: 290px;">판매자email</span></div>
+<input type="text" value="${list.s_r_num }" name="s_r_num" class= "el-input__inner" style="margin-left: 80px;">
+<input type="text" value="${list.s_r_model }" name="s_r_model" class= "el-input__inner" style="margin-left: 80px;">
+<input type="text" value="${list.s_r_distance }" name ="s_r_distance" class= "el-input__inner" style="margin-left: 80px;">
+<input type="text" value="${list.m_id }" name="m_id" class= "el-input__inner" style="margin-left: 80px;">
+<input type="text" value="${list.m_email }" name="m_email" class= "el-input__inner" style="margin-left: 80px;">
+</div>
+<br>
 제조사명
 <select name="cb_brand" id="cb_brand">
 	<option value="현대">현대</option>
@@ -44,8 +50,8 @@
 <br>
 <br>
 
-연식<input type ="text" placeholder="연식" name="c_year">
-가격<input type ="text" placeholder ="가격" name="c_price">
+연식<input type ="text" placeholder="연식" name="c_year" class= "el-input__inner">
+가격<input type ="text" placeholder ="가격" name="c_price" class= "el-input__inner">
 색상
 <select name = "c_color">
 	<option value="흰색">흰색</option>
@@ -96,7 +102,7 @@
 	<option value="건대점">건대점</option>
 </select>
 
-담당자 이메일<input type="text" placeholder="담당자 이메일" name="m_email">
+담당자 이메일<input type="text" placeholder="담당자 이메일" name="m_email" class= "el-input__inner">
 사진 첨부 <input type="file" name="file_name">
 <br>
 <br>
