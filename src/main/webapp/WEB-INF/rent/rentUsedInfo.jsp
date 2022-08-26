@@ -4,27 +4,7 @@
 <html lang="ko" class="chrome">
 <head>
 <title>차량상세 중고차렌트</title>
-	<!-- 렌트신청 문자전송 js -->
-<script type="text/javascript">
-$('#send').click(function() {
-	
-	const to = $('#to').val();
-	
-	$.ajax ({
-		url: 'rentUsedInfoProc/sendSMS',
-		type: 'GET',
-		data: {
-			"to" : to
-		},
-		success: function(data) {
-			const checkNum = data;//to로 받아온 데이터
-			alert('메세지 전송'+ checkNum);
-			
-		}
-	});
-	
-});
-</script>
+
 <script
 	src="https://connect.facebook.net/signals/config/771045850193577?v=2.9.75&amp;r=stable"
 	async=""></script>
@@ -811,12 +791,8 @@ $('#send').click(function() {
 											</div>
 											<div class="searchTrigger box btnSpace8 pT0 el-row"
 												data-v-ec1dd4fa="">
-												<button class="button chosenApply favorite"
-													data-v-ec1dd4fa="">
-													
-												</button>
 												<!--<button class="button apply" data-v-ec1dd4fa="">  -->
-													<a href="http://localhost/sms">상담예약</a><!-- </button>  -->
+												<button class="button apply"><a href="http://localhost/sms">상담예약</a></button>
 											</div>
 											<div data-v-ec1dd4fa="" class="searchSth">
 												<button data-v-ec1dd4fa="" type="button"
@@ -849,162 +825,7 @@ $('#send').click(function() {
 
 					</div>
 					<!-- 모달 시작 -->
-					<div data-v-ec1dd4fa="" class="carRentWrap">
-						<div>
-						<span id="reviewModalBack"></span>
-							<div
-								class="el-dialog__wrapper popup popCenter popFullBody rentResPopup active"
-								style="z-index: 3000;display:none;" id="reviewModal">
-								<div role="dialog" aria-modal="true" aria-label="상담예약신청"
-									class="el-dialog" style="margin-top: 15vh;">
-									<div class="el-dialog__header">
-										<span class="el-dialog__title">상담예약신청</span>
-										<button type="button" aria-label="Close" onclick="reviewModalClose()"
-											class="el-dialog__headerbtn">
-											<i class="el-dialog__close el-icon el-icon-close"></i>
-										</button>
-									</div>
-									<div class="el-dialog__body">
-										<div class="popContent el-scrollbar">
-											<div class="el-scrollbar__wrap"
-												style="margin-bottom: -19px; margin-right: -19px;">
-												<div class="el-scrollbar__view">
-													<div class="popBodyInr">
-														<h2 class="detailTitle">
-															견적을 신청해 주시면 렌트 담당자가<br>확인한 후 빠른 시간 내에 연락을 드립니다.
-														</h2>
-														<p class="etcInfo">
-															렌트 계약은 렌트 담당자 전화상담 후에 확정됩니다.<br> 견적문의 및 신청만으로는 계약이
-															확정되지 않으니 참고해 주세요.
-														</p>
-														<p class="textBox">
-															<span>${rentUsedInfo.crBrand } ${rentUsedInfo.crName } ${rentUsedInfo.crGrade }</span>
-														</p>
-														<div class="formWrapRen">
-															<form class="el-form">
-																<div class="col">
-																	<div class="el-form-item">
-																		<!---->
-																		<div class="el-form-item__content">
-																			<div class="titLabel">신청자명</div>
-																			<div class="el-input el-input--suffix">
-																				<!---->
-																				<input type="text" autocomplete="off"
-																					placeholder="${member.m_name }" class="el-input__inner">
-																					
-																				<!---->
-																				<!---->
-																				<!---->
-																				<!---->
-																			</div>
-																			<!---->
-																		</div>
-																	</div>
-																	<div class="el-form-item">
-																		<!---->
-																		<div class="el-form-item__content">
-																			<div class="titLabel">휴대폰번호</div>
-																			<div class="el-input el-input--suffix">
-																				<!---->
-																				<input type="text" autocomplete="off"
-																					placeholder="${member.m_tel }" maxlength="13"
-																					id="to" name="to" class="el-input__inner">
-																				<button type="button" id="send">전송</button>
-																				<!---->
-																				<!---->
-																				<!---->
-																				<!---->
-																			</div>
-																			<!---->
-																		</div>
-																	</div>
-																</div>
-																<!-- 임시보관소 시작 -->
-																
-																<!-- 임시보관소 종료 -->
-													</div>
-												</div>
-											</div>
-											<div class="el-scrollbar__bar is-horizontal">
-												<div class="el-scrollbar__thumb"
-													style="transform: translateX(0%);"></div>
-											</div>
-											<div class="el-scrollbar__bar is-vertical">
-												<div class="el-scrollbar__thumb"
-													style="height: 49.2166%; transform: translateY(0%);"></div>
-											</div>
-										</div>
-									</div>
-									<div class="el-dialog__footer">
-										<span class="dialog-footer"><div class="footerBtnWrap">
-												<div class="searchTrigger box Large popFixBtnM el-row">
-													<button class="button apply">신청</button>
-													<br>
-												</div>
-											</div></span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div>
-							<div class="el-dialog__wrapper popup fullPopup hauto active"
-								style="display: none;">
-								<div role="dialog" aria-modal="true" aria-label="개인정보 취급동의"
-									class="el-dialog" style="margin-top: 15vh;">
-									<div class="el-dialog__header">
-										<span class="el-dialog__title">개인정보 취급동의</span>
-										<button type="button" aria-label="Close"
-											class="el-dialog__headerbtn">
-											<i class="el-dialog__close el-icon el-icon-close"></i>
-										</button>
-									</div>
-									<!---->
-									<div class="el-dialog__footer">
-										<span class="dialog-footer"><div class="footerBtnWrap">
-												<div class="searchTrigger box Large popFixBtnM el-row">
-													<button class="button apply">확인</button>
-												</div>
-											</div></span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div>
-							<div class="el-dialog__wrapper popup fullPopup hauto active"
-								style="display: none;">
-								<div role="dialog" aria-modal="true" aria-label="마케팅 활용"
-									class="el-dialog" style="margin-top: 15vh;">
-									<div class="el-dialog__header">
-										<span class="el-dialog__title">마케팅 활용</span>
-										<button type="button" aria-label="Close"
-											class="el-dialog__headerbtn">
-											<i class="el-dialog__close el-icon el-icon-close"></i>
-										</button>
-									</div>
-									<!---->
-									<div class="el-dialog__footer">
-										<span class="dialog-footer"><div class="footerBtnWrap">
-												<div class="searchTrigger box Large popFixBtnM el-row">
-													<button class="button apply">확인</button>
-												</div>
-											</div></span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="el-dialog__wrapper popup confirm noTitle"
-							style="display: none;">
-							<div role="dialog" aria-modal="true" aria-label="noTitle"
-								class="el-dialog" style="margin-top: 15vh;">
-								<div class="el-dialog__header">
-									<span class="el-dialog__title">noTitle</span>
-									<!---->
-								</div>
-								<!---->
-								<!---->
-							</div>
-						</div>
-					</div>
+					
 					<!-- 모달 종료 -->
 					<!---->
 					<div data-v-ec1dd4fa="">

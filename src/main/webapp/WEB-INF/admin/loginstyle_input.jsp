@@ -11603,7 +11603,7 @@ to {
 .el-textarea {
 	position: relative;
 	display: inline-block;
-	width: 100%;
+	width: 35%;
 	vertical-align: bottom;
 	font-size: 14px
 }
@@ -11614,7 +11614,8 @@ to {
 	padding: 5px 15px;
 	line-height: 1.5;
 	box-sizing: border-box;
-	width: 100%;
+	width:35%;
+	height:20%;
 	font-size: inherit;
 	color: #606266;
 	background-color: #fff;
