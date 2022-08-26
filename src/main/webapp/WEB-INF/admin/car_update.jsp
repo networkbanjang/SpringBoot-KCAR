@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>너무 어려워 보여용</title>
+<title>내차팔기 신청관리</title>
 <style>
 input[type="checkbox"] {
 	display: none;
@@ -41,7 +41,7 @@ input[type='checkbox']:checked+label span {
 			<div class="titLabel">
 				<span style="margin-left: 80px;">차번호</span> <span
 					style="margin-left: 330px;">제조사모델명</span> <span
-					style="margin-left: 280px;">쥬행거리</span> <span
+					style="margin-left: 280px;">주행거리</span> <span
 					style="margin-left: 310px;">판매자num</span> <span
 					style="margin-left: 290px;">판매자email</span>
 			</div>
@@ -163,28 +163,28 @@ input[type='checkbox']:checked+label span {
 
 			<div class="item">
 				<div class="input__check">
-					<input class="form-check-input" type="checkbox" name="c_o_sonRoof"
+					<input class="form-check-input" type="checkbox" name="c_o_sonRoof" value="선루프"
 						id="c_o_sonRoof"> <label class="form-check-label"
 						for="c_o_sonRoof"><span></span> 선루프</label> <input
-						class="form-check-input" type="checkbox" name="c_o_hiPass"
+						class="form-check-input" type="checkbox" name="c_o_hiPass" value="하이패스"
 						id="c_o_hiPass"> <label class="form-check-label"
 						for="c_o_hiPass"><span></span> 하이패스</label> <input
-						class="form-check-input" type="checkbox" name="c_o_backSensor"
+						class="form-check-input" type="checkbox" name="c_o_backSensor" value="후방센서"
 						id="c_o_backSensor"> <label class="form-check-label"
 						for="c_o_backSensor"><span></span> 후방센서</label> <input
-						class="form-check-input" type="checkbox" name="c_o_navigation"
+						class="form-check-input" type="checkbox" name="c_o_navigation" value="네비게이션"
 						id="c_o_navigation"> <label class="form-check-label"
 						for="c_o_navigation"><span></span> 네비게이션</label> <input
-						class="form-check-input" type="checkbox" name="c_o_handleHot"
+						class="form-check-input" type="checkbox" name="c_o_handleHot" value="핸들열선"
 						id="c_o_handleHot"> <label class="form-check-label"
 						for="c_o_handleHot"><span></span> 핸들열선</label> <input
-						class="form-check-input" type="checkbox" name="c_o_airback"
+						class="form-check-input" type="checkbox" name="c_o_airback" value="에어백"
 						id="c_o_airback"> <label class="form-check-label"
 						for="c_o_airback"><span></span> 에어백</label> <input
-						class="form-check-input" type="checkbox" name="c_o_smartKey"
+						class="form-check-input" type="checkbox" name="c_o_smartKey" value="스마트키"
 						id="c_o_smartKey"> <label class="form-check-label"
 						for="c_o_smartKey"><span></span> 스마트키</label> <input
-						class="form-check-input" type="checkbox" name="c_o_blackBox"
+						class="form-check-input" type="checkbox" name="c_o_blackBox" value="블랙박스"
 						id="c_o_blackBox"> <label class="form-check-label"
 						for="c_o_blackBox"><span></span> 블랙박스</label>
 				</div>
@@ -204,28 +204,28 @@ input[type='checkbox']:checked+label span {
 		
 		<div class="item">
 				<div class="input__check">
-					<input class="form-check-input" type="checkbox" name="c_t_certified"
+					<input class="form-check-input" type="checkbox" name="c_t_certified" value="브랜드인증"
 						id="c_t_certified"> <label class="form-check-label"
 						for="c_t_certified"><span></span> 브랜드인증</label> <input
-						class="form-check-input" type="checkbox" name="c_t_distance"
+						class="form-check-input" type="checkbox" name="c_t_distance" value="짧은km"
 						id="c_t_distance"> <label class="form-check-label"
 						for="c_t_distance"><span></span> 짧은km</label> <input
-						class="form-check-input" type="checkbox" name="c_t_newCar"
+						class="form-check-input" type="checkbox" name="c_t_newCar" value="신차급"
 						id="c_t_newCar"> <label class="form-check-label"
 						for="c_t_newCar"><span></span> 신차급</label> <input
-						class="form-check-input" type="checkbox" name="c_t_fourWheel"
+						class="form-check-input" type="checkbox" name="c_t_fourWheel" value="4륜구동"
 						id="c_t_fourWheel"> <label class="form-check-label"
 						for="c_t_fourWheel"><span></span> 4륜구동</label> <input
-						class="form-check-input" type="checkbox" name="c_t_maintenance"
+						class="form-check-input" type="checkbox" name="c_t_maintenance" value="제조사as"
 						id="c_t_maintenance"> <label class="form-check-label"
 						for="c_t_maintenance"><span></span> 제조사as</label> <input
-						class="form-check-input" type="checkbox" name="c_t_oneOwner"
+						class="form-check-input" type="checkbox" name="c_t_oneOwner" value="1인 소유자"
 						id="c_t_oneOwner"> <label class="form-check-label"
 						for="c_t_oneOwner"><span></span> 1인 소유자</label> <input
-						class="form-check-input" type="checkbox" name="c_t_specialOption"
+						class="form-check-input" type="checkbox" name="c_t_specialOption" value="톡옵션"
 						id="c_t_specialOption"> <label class="form-check-label"
 						for="c_t_specialOption"><span></span> 톡옵션</label> <input
-						class="form-check-input" type="checkbox" name="c_t_rent"
+						class="form-check-input" type="checkbox" name="c_t_rent" value="렌트"
 						id="c_t_rent"> <label class="form-check-label"
 						for="c_t_rent"><span></span> 렌트</label>
 				</div>
