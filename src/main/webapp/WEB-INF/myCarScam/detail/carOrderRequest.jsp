@@ -65,7 +65,7 @@
 													<div class="flexbox">
 														<div class="el-input is-disabled">
 															<!---->
-															<input type="text" disabled="disabled" autocomplete="off"
+															<input type="text" readonly="readonly" autocomplete="off"
 																placeholder="이름 입력" maxlength="20" value="${member.m_name }"
 																class="el-input__inner" id="name" name="m_name">
 															<!---->
@@ -92,7 +92,7 @@
 													<div class="flexbox">
 														<div class="el-input is-disabled el-input--suffix">
 															<!---->
-															<input type="text" disabled="disabled" autocomplete="off"
+															<input type="text" readonly="readonly" autocomplete="off"
 																placeholder="휴대폰번호 입력" value="${member.m_tel }"
 																inputmode="numeric" maxlength="13"
 																class="el-input__inner" id="tel" name="m_tel">
@@ -112,7 +112,7 @@
 													<div class="flexbox">
 														<div class="el-input is-disabled">
 															<!---->
-															<input type="text" disabled="disabled" autocomplete="off"
+															<input type="text" readonly autocomplete="off"
 																placeholder="우편번호 입력" class="el-input__inner" id="zipcode" name="m_zipcode" value="${member.m_zipcode }">
 															<!---->
 															<!---->
@@ -128,7 +128,7 @@
 													</div>
 													<div class="el-input is-disabled">
 														<!---->
-														<input type="text" disabled="disabled" autocomplete="off"
+														<input type="text" readonly autocomplete="off"
 															placeholder="주소 입력" class="el-input__inner" id="addr1" name="m_addr1" value="${member.m_addr1 }">
 														<!---->
 														<!---->

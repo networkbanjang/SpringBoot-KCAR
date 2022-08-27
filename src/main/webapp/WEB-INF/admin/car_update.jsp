@@ -46,15 +46,20 @@ input[type='checkbox']:checked+label span {
 					style="margin-left: 290px;">판매자email</span>
 			</div>
 			<input type="text" value="${list.s_r_num }" name="s_r_num"
-				class="el-input__inner" style="margin-left: 80px;"> <input
-				type="text" value="${list.s_r_model }" name="s_r_model"
-				class="el-input__inner" style="margin-left: 80px;"> <input
-				type="text" value="${list.s_r_distance }" name="s_r_distance"
-				class="el-input__inner" style="margin-left: 80px;"> <input
-				type="text" value="${list.m_id }" name="m_id"
-				class="el-input__inner" style="margin-left: 80px;"> <input
-				type="text" value="${list.m_email }" name="m_email"
+				class="el-input__inner" style="margin-left: 80px;"> 
+				
+				<input type="text" value="${list.s_r_model }" name="s_r_model"
+				class="el-input__inner" style="margin-left: 80px;"> 
+				
+				<input type="text" value="${list.s_r_distance }" name="s_r_distance"
+				class="el-input__inner" style="margin-left: 80px;"> 
+				
+				<input type="text" value="${list.m_id }" name="m_id"
+				class="el-input__inner" style="margin-left: 80px;"> 
+				
+				<input type="text" value="${list.m_email }" name="m_email"
 				class="el-input__inner" style="margin-left: 80px;">
+				
 		</div>
 		<br> <br>
 		<div class="titLabel">
@@ -67,17 +72,9 @@ input[type='checkbox']:checked+label span {
 		<div class="el-input el-input--suffix">
 			<select name="cb_brand" id="cb_brand" class="el-input__inner"
 				style="margin-left: 80px;">
-				<option value="현대">현대</option>
-				<option value="제네시스">제네시스</option>
-				<option value="기아">기아</option>
-				<option value="쉐보레">쉐보레</option>
-				<option value="르노코리아">르노코리아</option>
-				<option value="쌍용">쌍용</option>
-				<option value="벤츠">벤츠</option>
-				<option value="BMW">BMW</option>
-				<option value="아우디">아우디</option>
-				<option value="폭스바겐">폭스바겐</option>
-				<option value="테슬라">테슬라</option>
+				<c:forEach var="brand" items="${brandList }">
+					<option value="${brand.cb_brand }">${brand.cb_brand }</option>
+				</c:forEach>
 			</select> <select name="c_model" id="c_model" class="el-input__inner"
 				style="margin-left: 80px;">
 				<option value="경차">경차</option>
@@ -138,11 +135,9 @@ input[type='checkbox']:checked+label span {
 				<option value="15">15인승</option>
 			</select> <select name="st_name" id="st_name" class="el-input__inner"
 				style="margin-left: 80px;">
-
-				<option value="강남점">강남점</option>
-				<option value="노량진점">노량진점</option>
-				<option value="홍대점">홍대점</option>
-				<option value="건대점">건대점</option>
+				<c:forEach var="st" items="${stList }">
+					<option value="${st.st_name }">${st.st_name }</option>
+				</c:forEach>
 			</select> <br> <br>
 		</div>
 		<div class="el-input el-input--suffix">
@@ -150,7 +145,7 @@ input[type='checkbox']:checked+label span {
 				<span style="margin-left: 80px;">담당자 이메일</span><span
 					style="margin-left: 340px;">사진 첨부</span>
 			</div>
-			<input type="text" placeholder="담당자 이메일" name="m_email"
+			<input type="text" placeholder="담당자 이메일" name="admin_email"
 				class="el-input__inner" style="margin-left: 80px;"> <input
 				type="file" name="file_name" style="margin-left: 80px;">
 		</div>
