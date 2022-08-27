@@ -32,13 +32,9 @@
                      WHERE cb.cb_domestic = '해외' and c.c_saleStatus = 0
                  ) a 
                 FULL OUTER JOIN KCAR_CAR_TAG b on a.c_num = b.c_num
-<<<<<<< HEAD
                 <if test="brand != null and brandModel != null">
                join WHERE cb_brand = #{brand} AND cb_m_model = #{brandModel}
-=======
-             <if test="brand != null and brandModel != null">
-               WHERE cb_brand = #{brand} AND cb_m_model = #{brandModel}
->>>>>>> cha
+
             </if>
             <if test="brand != null and brandModel == null">
                WHERE cb_brand = #{brand}

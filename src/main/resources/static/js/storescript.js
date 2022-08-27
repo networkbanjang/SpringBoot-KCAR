@@ -20,13 +20,13 @@ function textChange() {
       var data;
       var jsonData = JSON.parse(req.responseText); //String 데이터를 JSON 자료형으로 변환
 
-      data = "<ul class='centerLists'>";
-      data += "<li><a href='/db/detail?st_name=${sessionScope.st_name}'><div class='centerVisual'> <span class='centerNameTag' id='tagname'>${sessionScope.st_name}</span> <img"
-      data += " src='${sessionScope.st_photo}' id='tagimg' style='cursor: pointer;'> </div></a>"
-      data += "<div class='centerInfo'> <p id='tagaddr''></p> <p class='centerTel' id='tagtel'></p>"
-      data += "<div class=''mt32'> <button type='button' class='el-button el-button--button' onclick=\"mapstartsearch()\";> <span> 찾아오시는 길 </span> </button>"
-      data += "<button id='bubb' type='button' class='el-button el-button--button' value='${sessionScope.st_name}' onclick='kakaotalk(this)'> <span> 주소문자받기 </span> </button> </div> </div></li>"
-      data += "</ul> "
+		data = "<ul class='centerLists'>";
+		data += "<li><a id='her' href='/db/detail?st_name=${sessionScope.st_name}'><div class='centerVisual'> <span class='centerNameTag' id='tagname'>${sessionScope.st_name}</span> <img"
+		data += " src='${sessionScope.st_photo}' id='tagimg' style='cursor: pointer;'> </div></a>"
+		data += "<div class='centerInfo'> <p id='tagaddr''></p> <p class='centerTel' id='tagtel'></p>"
+		data += "<div class=''mt32'> <button type='button' class='el-button el-button--button' onclick=\"mapstartsearch()\";> <span> 찾아오시는 길 </span> </button>"
+		data += "<button id='bubb' type='button' class='el-button el-button--button' value='${sessionScope.st_name}' onclick='kakaotalk(this)'> <span> 주소문자받기 </span> </button> </div> </div></li>"
+		data += "</ul> "
 
       console.log(data);
       document.getElementById('inner').innerHTML = data;
@@ -36,6 +36,7 @@ function textChange() {
       document.getElementById('tagimg').src = jsonData.st_photo;
       document.getElementById('tagaddr').innerHTML = jsonData.st_addr;
       document.getElementById('bubb').value = jsonData.st_name;
+      document.getElementById('her').href="/db/detail?st_name="+jsonData.st_name;
    }
 }
 

@@ -107,17 +107,21 @@ public class StoreController {
 		String result = service.storeSerarchview(s_option, map.get("alignment"), st_name);
 		return result;
 	}
-
+	@GetMapping(value = "getSt_name", produces = "text/html; charset=UTF-8")
+	public String getSt_name(String st_name,HttpSession session) {
+		session.setAttribute("kst_name", st_name);
+		return "redirect:https://kauth.kakao.com/oauth/authorize?client_id=35d849b33448f51f3c3f73a432418b30&redirect_uri=http://localhost/kakaoTalk&response_type=code&scope=talk_message";
+	}
+	
 	@RequestMapping(value = "kakaoTalk", produces = "application/json; charset=UTF-8")
 	private String kakaoTalk(String code, HttpSession session) {
-		System.out.println(session.getAttribute("kst_name"));
-		
-		
-		 StoreDTO store=service.storelist("강남직영점"); StoreKakaoService kakaoService =
-		 new StoreKakaoService(); String accessToken=kakaoService.getAcces(code);
-		 kakaoService.messageInfo(accessToken,store);
-		  
-		 return "redirect:/db/drCntr";
+		String kst_name=(String)session.getAttribute("kst_name");
+		StoreDTO store = service.storelist(kst_name);
+		StoreKakaoService kakaoService = new StoreKakaoService();
+		String accessToken = kakaoService.getAcces(code);
+		kakaoService.messageInfo(accessToken, store);
+
+		return "redirect:/db/drCntr";
 		 
 	}
 

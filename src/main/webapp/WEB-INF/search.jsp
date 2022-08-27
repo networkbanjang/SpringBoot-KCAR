@@ -94,8 +94,8 @@
 								<div class="lineTop mT20">
 									<div class="carListWrap">
 										<c:forEach var="detail" items="${buy}" end="2">
-											<a href="/detail/carInfo?c_num=${detail.c_num}"><div
-													class="carListBox">
+											<div
+													class="carListBox"> <a href="/detail/carInfo?c_num=${detail.c_num}">
 													<div class="carListImg">
 														<img src="${detail.c_photo}" alt="챠량이미지"
 															onerror="this.src='/images/search/bg_no_Img_lg.png'"
@@ -134,8 +134,8 @@
 											<!---->
 										</ul>
 									</div>
-								</div>
-								</a>
+									</a></div>
+							
 								</c:forEach>
 								<div>
 									<div>

@@ -69,7 +69,7 @@ public class detailService {
 
 		CarDTO car = carDetailDao.car(c_num);// kcar_car
 		CarInfoDTO carInfo = carDetailDao.carInfo(c_num);// kcar_car_info
-		ArrayList<CarPhotoDTO> CarPhotoList = carDetailDao.carPhotoList(c_num);// kcar_car_photo
+//		ArrayList<CarPhotoDTO> CarPhotoList = carDetailDao.carPhotoList(c_num);// kcar_car_photo
 		CarOptionDTO carOption = carDetailDao.carOption(c_num);
 
 		int carPrice = Integer.parseInt(car.getC_price());
@@ -94,11 +94,11 @@ public class detailService {
 		model.addAttribute("questionList", questionList);
 		model.addAttribute("reviewList", reviewList);
 		model.addAttribute("CarPhotoFirst", car.getC_photo());
-		if (CarPhotoList.size() != 0) {
+		/*if (CarPhotoList.size() != 0) {
 			model.addAttribute("CarPhotoListBottom", CarPhotoList);
 			CarPhotoList.remove(0);
 			model.addAttribute("CarPhotoListCenter", CarPhotoList);
-		}
+		}*/
 		if (carOption != null) {
 			model.addAttribute("carOption", carOption);
 		}

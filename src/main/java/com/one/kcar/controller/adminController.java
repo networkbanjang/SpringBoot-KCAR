@@ -143,13 +143,7 @@ public class adminController {
 		return "default/admin_header";
 				
 	}
-	@RequestMapping("NotcMatrList")
-	public String NotcMatrList(Model model, @RequestParam(value="listViewno", required = false)String listViewno) { 
-		model.addAttribute("view", listViewno); 
-	 
-		System.out.println(listViewno);
-		return "admin/NotcMatrList";
-	}
+
 	
 
 }
