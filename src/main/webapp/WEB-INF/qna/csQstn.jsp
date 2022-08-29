@@ -412,7 +412,7 @@
 			          if (searchValue != ""){
 			        	  $("#nav").hide();
 			        	  htmlString += "<div class='mT20'>";
-			        	  htmlString += "<a href='cs/csQstn' class='moreBtn el-link el-link--default is-underline'>";
+			        	  htmlString += "<a href='csQstn' class='moreBtn el-link el-link--default is-underline'>";
 			        	  htmlString += "<span class='el-link--inner'>";
 			        	  htmlString += "<i class='el-icon-arrow-left'></i>";
 			        	  htmlString += "돌아가기 </span> </a> </div>";
@@ -436,7 +436,7 @@
 			        	  htmlString += "					<div role='tabpanel' aria-hidden='true' aria-labelledby='el-collapse-head-5848' id='el-collapse-content-5848' class='el-collapse-item__wrap' style='display: none;'>";
 			        	  htmlString += "						<div class='el-collapse-item__content'>";
 			        	  htmlString += "						<div> <i class='el-icon-A'> </i>";
-			        	  htmlString += "			<div class='faqA'>" + obj.faqList[i].q_content + "</div>";
+			        	  htmlString += "			<div class='faqA' style='white-space:pre; width:800px;'>" + obj.faqList[i].q_content + "</div>";
 			        	  htmlString += "					</div></div></div></div></div></div></div></div>";
 			          }
 			          

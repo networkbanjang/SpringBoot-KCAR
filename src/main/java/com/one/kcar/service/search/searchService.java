@@ -66,5 +66,17 @@ public class searchService {
 		
 		return dao.rentsearch(brandsearch, modelsearch, list);
 	}
-
+	public ArrayList<String> optionlist() {
+		ArrayList<String> optionlist = new ArrayList();
+		optionlist.add("선루프");
+		optionlist.add("하이패스");
+		optionlist.add("후방센서");
+		optionlist.add("후방카메라");
+		optionlist.add("네비게이션");
+		optionlist.add("핸들열선");
+		optionlist.add("에어백");
+		optionlist.add("스마트키");
+		optionlist.add("블랙박스");
+		return optionlist;
+	}
 }

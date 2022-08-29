@@ -9,6 +9,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<title>전국 직영점</title>
 
 <style>
 .dropup {
@@ -101,29 +102,31 @@
 							</div>
 						</div>
 						<div id="inner">
-							<ul class="centerLists">
+							<ul class="centerLists"> 
 								<c:forEach var="store" items="${list }">
-									<li>
-									<a href="/db/detail?st_name=${store.st_name}"><div class="centerVisual">
-											<span class="centerNameTag">${store.st_name}</span> <img
-												src="${store.st_photo }" style="cursor: pointer;">
-										</div></a>
+									<li><a href="/db/detail?st_name=${store.st_name}"><div
+												class="centerVisual">
+												<span class="centerNameTag">${store.st_name}</span> <img
+													src="${store.st_photo }" style="cursor: pointer;">
+											</div></a>
 										<div class="centerInfo">
 											<p>${store.st_addr}</p>
 											<p class="centerTel">${store.st_tel}</p>
-											<p class="rentcarNum">
-												직영점 차량 <a href="javascript:void(0);" class="pointColor">149대</a>
-											</p>
+											<!-- 											<p class="rentcarNum">
+												직영점 차량 <a href="javascript:void(0);" class="pointColor">대</a>
+											</p> -->
 											<div class="mt32">
 												<button type="button" class="el-button el-button--button"
 													onclick="mapstart('${store.st_name}')";>
 
 													<span> 찾아오시는 길 </span>
 												</button>
-												<button type="button" class="el-button el-button--button">
+											
+													<button type="button" class="el-button el-button--button" value="${store.st_name }" onclick="kakaotalk(this)">
 
-													<span> 주소문자받기 </span>
-												</button>
+														<span> 주소문자받기 </span>
+													</button>
+												
 											</div>
 										</div></li>
 								</c:forEach>
@@ -171,7 +174,7 @@
 																style="font: 11px/11px Arial, Tahoma, Dotum, sans-serif; float: left;"></div>
 														</div>
 													</div>
-												
+
 												</div>
 												<div>
 													<ul class="detailList">
@@ -234,3 +237,7 @@
 	</div>
 
 </body>
+<script>
+function kakaotalk(content){
+	location.href="/getSt_name?st_name="+content.value;}
+</script>

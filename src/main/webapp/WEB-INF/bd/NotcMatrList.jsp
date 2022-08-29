@@ -386,8 +386,6 @@
 													<!---->
 													<!---->
 													<!---->
-													<div class="el-table__column-resize-proxy"
-														style="display: block;"></div>
 												</div>
 												<div class="mT40 pagination -sm">
 													<!---->
@@ -398,9 +396,9 @@
 													</div>
 													
 												</div>
-												<div>
+												<!-- <div>
 														<button type="button" style="width: 100px;" onclick="location.href='noticeWriteForm'">글쓰기</button>
-												</div>
+												</div> -->
 											</div>
 											</form>
 										</div>
@@ -550,8 +548,6 @@
 													<!---->
 													<!---->
 													<!---->
-													<div class="el-table__column-resize-proxy"
-														style="display: none;"></div>
 												</div>
 												<div class="mT40">
 													<div class="pagination -sm">
@@ -564,9 +560,9 @@
 														<!---->
 													</div>
 												</div>
-												<div>
+												<!-- <div>
 														<button type="button" style="width: 100px;" onclick="location.href='eventWriteForm'">글쓰기</button>
-												</div>
+												</div> -->
 											</div>
 											</form>
 										</div>
@@ -736,6 +732,7 @@
 			navNotice.style.color = "#b70f28";
 			navEvent.style.color = "black";
 			
+			getNoticeList(1, dataPerPage, totalData);
 		}
 		
 		function eventClick() {
@@ -747,6 +744,8 @@
 			navBar.style.transform = "translateX(610px)";
 			navEvent.style.color = "#b70f28";
 			navNotice.style.color = "black";
+			
+			getEventList(1, dataPerPage, totalData);
 		}
 		
 		function searchDrop() {
@@ -966,7 +965,14 @@
 			        	  htmlString += "		<div class='cell'>" + obj.eventList[i].e_startDate + " ~ " + obj.eventList[i].e_endDate + "</div>";
 			        	  htmlString += "	</td>";
 			        	  htmlString += "	<td rowspan='1' colspan='1' class='el-table_4_column_15   el-table__cell'>";
-			        	  htmlString += "		<div class='cell' id='eventStatus'>" + eventStatus + "</div>";
+			        	  if(eventStatus == "마감"){ 
+				        	 	 htmlString += "		<div class='cell' id='eventStatus' style='color:red;'>" + eventStatus + "</div>";
+				        	  }else if(eventStatus == "진행 예정"){  
+				        	 	 htmlString += "		<div class='cell' id='eventStatus'>" + eventStatus + "</div>";  
+				        	  }else{
+				        	 	 htmlString += "		<div class='cell' id='eventStatus' style='color:green;'>" + eventStatus + "</div>"; 
+				        	  }
+			        	 // htmlString += "		<div class='cell' id='eventStatus'>" + eventStatus + "</div>";
 			        	  htmlString += "	</td>";
 			        	  htmlString += "	<td rowspan='1' colspan='1' class='el-table_4_column_16   el-table__cell'>";
 			        	  htmlString += "		<div class='cell'>" + obj.eventList[i].e_date + "</div>";
